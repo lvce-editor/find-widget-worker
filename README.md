@@ -1,3 +1,3 @@
-# Color picker worker
+# find-widget-worker
 
-Web Worker to manage the color picker in Lvce Editor.
+Find Widget Worker

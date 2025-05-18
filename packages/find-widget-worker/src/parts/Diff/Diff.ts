@@ -1,5 +1,5 @@
-import * as DiffModules from '../DiffModules/DiffModules.ts'
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
+import * as DiffModules from '../DiffModules/DiffModules.ts'
 
 export const diff = (oldState: FindWidgetState, newState: FindWidgetState): readonly number[] => {
   const diffResult: number[] = []

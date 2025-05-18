@@ -1,4 +1,4 @@
-import { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
+import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as GetRenderer from '../GetRenderer/GetRenderer.ts'
 
 export const applyRender = (oldState: FindWidgetState, newState: FindWidgetState, diffResult: readonly number[]): readonly any[] => {

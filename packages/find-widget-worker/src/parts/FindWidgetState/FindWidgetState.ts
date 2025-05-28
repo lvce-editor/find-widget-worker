@@ -22,4 +22,8 @@ export interface FindWidgetState {
   readonly version: number
   readonly lines: readonly string[]
   readonly selections: readonly number[]
+  readonly editorX: number
+  readonly editorY: number
+  readonly editorWidth: number
+  readonly editorHeight: number
 }

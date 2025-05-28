@@ -5,6 +5,20 @@ import * as DiffItems from '../DiffItems/DiffItems.ts'
 import * as DiffParentUid from '../DiffParentUid/DiffParentUid.ts'
 import * as DiffType from '../DiffType/DiffType.ts'
 
-export const modules = [DiffEventListeners.isEqual, DiffItems.isEqual, DiffBounds.isEqual, DiffParentUid.isEqual, DiffFocusContext.isEqual]
+export const modules = [
+  DiffEventListeners.isEqual,
+  DiffItems.isEqual,
+  DiffBounds.isEqual,
+  DiffParentUid.isEqual,
+  DiffFocusContext.isEqual,
+  DiffFocusContext.isEqual,
+]
 
-export const numbers = [DiffType.RenderEventListeners, DiffType.RenderContent, DiffType.RenderBounds, DiffType.RenderUid, DiffType.RenderFocusContext]
+export const numbers = [
+  DiffType.RenderEventListeners,
+  DiffType.RenderContent,
+  DiffType.RenderBounds,
+  DiffType.RenderUid,
+  DiffType.RenderFocusContext,
+  DiffType.RenderFocus,
+]

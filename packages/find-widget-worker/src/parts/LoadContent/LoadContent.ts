@@ -6,6 +6,10 @@ export const loadContent = (state: FindWidgetState): FindWidgetState => {
   // TODO query selections and lines from editor worker
   const selections: readonly number[] = []
   const lines: readonly string[] = []
+
+  if (lines.length === 0) {
+    return state
+  }
   const startRowIndex = selections[0]
   const startColumnIndex = selections[1]
   const endColumnIndex = selections[3]

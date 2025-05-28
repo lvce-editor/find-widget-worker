@@ -1,4 +1,3 @@
-export const RenderItems = 1
 export const RenderBounds = 8
 export const RenderCss = 10
 export const RenderEventListeners = 11

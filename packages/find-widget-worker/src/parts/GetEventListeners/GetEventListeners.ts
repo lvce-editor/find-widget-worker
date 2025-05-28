@@ -29,7 +29,7 @@ export const getEventListeners = (uid: number, widgetId: number): readonly DomEv
     },
     {
       name: DomEventListenerFunctions.HandleClickToggleReplace,
-      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickToggleReplace', 0, widgetId],
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.toggleReplace', 0, widgetId],
     },
     {
       name: DomEventListenerFunctions.HandleBlur,

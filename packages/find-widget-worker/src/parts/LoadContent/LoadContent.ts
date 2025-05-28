@@ -34,5 +34,6 @@ export const loadContent = async (state: FindWidgetState): Promise<FindWidgetSta
     height,
     lines,
     selections,
+    focused: true,
   }
 }

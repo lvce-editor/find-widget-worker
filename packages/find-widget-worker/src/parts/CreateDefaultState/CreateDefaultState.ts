@@ -25,5 +25,9 @@ export const createDefaultState = (): FindWidgetState => {
     version: 0,
     lines: [],
     selections: [],
+    editorHeight: 0,
+    editorWidth: 0,
+    editorX: 0,
+    editorY: 0,
   }
 }

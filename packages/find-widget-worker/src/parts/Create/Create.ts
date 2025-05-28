@@ -15,7 +15,7 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     matchCase: false,
     matchWholeWord: false,
     replacement: '',
-    editorUid: 0,
+    editorUid: parentUid,
     x: 0,
     y: 0,
     width: 0,

@@ -32,5 +32,7 @@ export const loadContent = async (state: FindWidgetState): Promise<FindWidgetSta
     y,
     width,
     height,
+    lines,
+    selections,
   }
 }

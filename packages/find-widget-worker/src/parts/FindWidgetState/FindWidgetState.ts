@@ -20,4 +20,6 @@ export interface FindWidgetState {
   readonly focusSource: number
   readonly focus: number
   readonly version: number
+  readonly lines: readonly string[]
+  readonly selections: readonly number[]
 }

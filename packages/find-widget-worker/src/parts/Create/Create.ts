@@ -24,6 +24,8 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     focusSource: FocusSource.Unknown,
     focus: 0,
     version: 0,
+    lines: [],
+    selections: [],
   }
   FindWidgetStates.set(uid, state, state)
   return state

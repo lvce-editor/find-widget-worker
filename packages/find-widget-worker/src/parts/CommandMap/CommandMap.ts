@@ -2,6 +2,7 @@ import * as Create from '../Create/Create.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
 import * as FindWidgetFocusIndex from '../FindWidgetFocusIndex/FindWidgetFocusIndex.ts'
 import * as FindWidgetHandleBlur from '../FindWidgetHandleBlur/FindWidgetHandleBlur.ts'
+import * as HandleClickClose from '../FindWidgetHandleClickClose/FindWidgetHandleClickClose.ts'
 import * as HandleInput from '../FindWidgetHandleInput/FindWidgetHandleInput.ts'
 import * as WrapCommand from '../FindWidgetStates/FindWidgetStates.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
@@ -19,6 +20,7 @@ export const commandMap = {
   'FindWidget.focusPrevious': FindWidgetFocusIndex.focusPrevious,
   'FindWidget.getCommandIds': GetCommandIds.getCommandIds,
   'FindWidget.handleBlur': FindWidgetHandleBlur.handleBlur,
+  'FindWidget.handleClickClose': HandleClickClose.handleClickClose,
   'FindWidget.handleInput': HandleInput.handleInput,
   'FindWidget.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'FindWidget.render2': Render2.render2,

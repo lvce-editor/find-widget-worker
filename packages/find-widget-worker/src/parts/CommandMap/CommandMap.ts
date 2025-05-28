@@ -7,6 +7,7 @@ import * as WrapCommand from '../FindWidgetStates/FindWidgetStates.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as Render2 from '../Render2/Render2.ts'
+import * as HandleClickClose from '../FindWidgetHandleClickClose/FindWidgetHandleClickClose.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
 
 export const commandMap = {
@@ -19,6 +20,7 @@ export const commandMap = {
   'FindWidget.focusPrevious': FindWidgetFocusIndex.focusPrevious,
   'FindWidget.getCommandIds': GetCommandIds.getCommandIds,
   'FindWidget.handleBlur': FindWidgetHandleBlur.handleBlur,
+  'FindWidget.handleClickClose': HandleClickClose.handleClickClose,
   'FindWidget.handleInput': HandleInput.handleInput,
   'FindWidget.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'FindWidget.render2': Render2.render2,

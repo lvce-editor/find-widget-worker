@@ -1,7 +1,7 @@
 import { expect, test } from '@jest/globals'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { type FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 import * as FindWidgetToggleReplace from '../src/parts/FindWidgetToggleReplace/FindWidgetToggleReplace.ts'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
 test('expand', () => {
   const state: FindWidgetState = {

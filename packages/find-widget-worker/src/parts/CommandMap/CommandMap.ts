@@ -7,10 +7,10 @@ import * as Render2 from '../Render2/Render2.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
 
 export const commandMap = {
-  'ColorPicker.create': Create.create,
-  'ColorPicker.diff2': Diff2.diff2,
-  'ColorPicker.getCommandIds': GetCommandIds.getCommandIds,
-  'ColorPicker.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
-  'ColorPicker.render2': Render2.render2,
-  'ColorPicker.terminate': Terminate.terminate,
+  'FindWidget.create': Create.create,
+  'FindWidget.diff2': Diff2.diff2,
+  'FindWidget.getCommandIds': GetCommandIds.getCommandIds,
+  'FindWidget.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
+  'FindWidget.render2': Render2.render2,
+  'FindWidget.terminate': Terminate.terminate,
 }

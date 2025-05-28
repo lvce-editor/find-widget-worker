@@ -23,5 +23,7 @@ export const createDefaultState = (): FindWidgetState => {
     focusSource: FocusSource.Unknown,
     focus: 0,
     version: 0,
+    lines: [],
+    selections: [],
   }
 }

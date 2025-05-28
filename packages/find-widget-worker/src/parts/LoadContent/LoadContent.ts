@@ -1,12 +1,13 @@
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as FindMatchesCaseInsensitive from '../FindMatchesCaseInsensitive/FindMatchesCaseInsensitive.ts'
+import * as GetLines from '../GetLines/GetLines.ts'
 import * as GetMatchCount from '../GetMatchCount/GetMatchCount.ts'
+import * as GetSelections from '../GetSelections/GetSelections.ts'
 
-export const loadContent = (state: FindWidgetState): FindWidgetState => {
-  // TODO query selections and lines from editor worker
-  const selections: readonly number[] = []
-  const lines: readonly string[] = []
-
+export const loadContent = async (state: FindWidgetState): Promise<FindWidgetState> => {
+  const { editorUid } = state
+  const lines = await GetLines.getLines(editorUid)
+  const selections = await GetSelections.getSelections(editorUid)
   if (lines.length === 0) {
     return state
   }

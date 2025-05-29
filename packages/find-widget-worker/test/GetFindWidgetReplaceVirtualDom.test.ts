@@ -23,30 +23,50 @@ test('getFindWidgetReplaceVirtualDom - expanded', () => {
 
   const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(true, replaceButtons)
 
-  expect(result[0]).toEqual({
-    type: VirtualDomElements.Div,
-    className: ClassNames.FindWidgetReplace,
-    childCount: 2,
-  })
-
-  expect(result[1]).toEqual({
-    type: VirtualDomElements.Input,
-    className: ClassNames.SearchField,
-    id: 'replace-value',
-    placeholder: FindStrings.replace(),
-    value: '',
-    onInput: DomEventListenerFunctions.HandleReplaceInput,
-    onFocus: DomEventListenerFunctions.HandleReplaceFocus,
-  })
-
-  expect(result[2]).toEqual({
-    type: VirtualDomElements.Button,
-    className: ClassNames.IconButton,
-    title: 'Replace',
-    ariaLabel: 'Replace',
-    childCount: 1,
-    disabled: undefined,
-    onClick: 'handleReplace',
-    name: 'replace-button',
-  })
+  expect(result).toEqual([
+    {
+      childCount: 2,
+      className: 'FindWidgetReplace',
+      type: 4,
+    },
+    {
+      childCount: 2,
+      className: 'SearchField',
+      role: 'none',
+      type: 4,
+    },
+    {
+      autocapitalize: 'off',
+      autocorrect: 'off',
+      childCount: 0,
+      className: 'MultilineInputBox',
+      name: 'replace-value',
+      onFocus: 'handleReplaceFocus',
+      onInput: 'handleReplaceInput',
+      placeholder: 'Replace',
+      spellcheck: false,
+      type: 62,
+    },
+    {
+      childCount: 0,
+      className: 'SearchFieldButtons',
+      type: 4,
+    },
+    {
+      type: VirtualDomElements.Button,
+      className: ClassNames.IconButton,
+      title: 'Replace',
+      ariaLabel: 'Replace',
+      childCount: 1,
+      disabled: undefined,
+      onClick: 'handleReplace',
+      name: 'replace-button',
+    },
+    {
+      childCount: 0,
+      className: 'MaskIcon MaskIconreplace-icon',
+      role: 'none',
+      type: 4,
+    },
+  ])
 })

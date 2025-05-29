@@ -1,4 +1,6 @@
-export const getFindWidgetPosition = (editorX: number, editorY: number, editorWidth: number) => {
+import type { Bounds } from '../Bounds/Bounds.ts'
+
+export const getFindWidgetPosition = (editorX: number, editorY: number, editorWidth: number): Bounds => {
   const width = 300
   const height = 30
   const paddingTop = 10

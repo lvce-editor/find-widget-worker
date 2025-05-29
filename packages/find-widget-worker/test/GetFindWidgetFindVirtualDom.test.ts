@@ -1,11 +1,11 @@
 import { test, expect } from '@jest/globals'
-import * as GetFindWidgetFindVirtualDom from '../src/parts/GetFindWidgetFindVirtualDom/GetFindWidgetFindVirtualDom.js'
-import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.js'
+import type { FindWidgetButton } from '../src/parts/FindWidgetButton/FindWidgetButton.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.js'
 import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.js'
 import * as FindStrings from '../src/parts/FindStrings/FindStrings.js'
 import * as GetFindMatchCountClassName from '../src/parts/GetFindMatchCountClassName/GetFindMatchCountClassName.js'
-import { FindWidgetButton } from '../src/parts/FindWidgetButton/FindWidgetButton.ts'
+import * as GetFindWidgetFindVirtualDom from '../src/parts/GetFindWidgetFindVirtualDom/GetFindWidgetFindVirtualDom.js'
+import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.js'
 
 test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no matches', () => {
   const matchCountText = 'No matches'

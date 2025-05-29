@@ -11,5 +11,5 @@ test('create should create and register state', () => {
   const parentUid = 2
   const state = Create.create(uid, x, y, width, height, parentUid)
   expect(state).toBeDefined()
-  expect(FindWidgetStates.get(uid)).toBe(state)
+  expect(FindWidgetStates.get(uid).newState).toBe(state)
 })

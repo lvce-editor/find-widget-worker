@@ -10,13 +10,13 @@ test('empty search string returns empty array', () => {
 test('finds case insensitive matches', () => {
   const lines = ['Hello', 'WORLD', 'hello world']
   const result = FindMatchesCaseInsensitive.findMatchesCaseInsensitive(lines, 'hello')
-  expect(result).toEqual(new Uint32Array([0, 2]))
+  expect(result).toEqual(new Uint32Array([0, 0, 2, 0]))
 })
 
 test('finds multiple matches in same line', () => {
   const lines = ['hello hello', 'world']
   const result = FindMatchesCaseInsensitive.findMatchesCaseInsensitive(lines, 'hello')
-  expect(result).toEqual(new Uint32Array([0, 0]))
+  expect(result).toEqual(new Uint32Array([0, 0, 0, 6]))
 })
 
 test('no matches returns empty array', () => {

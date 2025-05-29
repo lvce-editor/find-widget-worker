@@ -25,7 +25,10 @@ export const focusIndex = (state: FindWidgetState, index: number): any => {
   //   newState,
   // }
   // const newWidgets = [...widgets.slice(0, childIndex), newWidget, ...widgets.slice(childIndex + 1)]
-  return state
+  return {
+    ...state,
+    matchIndex: index,
+  }
 }
 
 export const focusFirst = (state: FindWidgetState): Promise<FindWidgetState> => {

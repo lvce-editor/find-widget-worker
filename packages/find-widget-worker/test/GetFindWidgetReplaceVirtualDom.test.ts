@@ -1,7 +1,5 @@
 import { test, expect } from '@jest/globals'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
-import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
-import * as FindStrings from '../src/parts/FindStrings/FindStrings.ts'
 import * as GetFindWidgetReplaceVirtualDom from '../src/parts/GetFindWidgetReplaceVirtualDom/GetFindWidgetReplaceVirtualDom.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 

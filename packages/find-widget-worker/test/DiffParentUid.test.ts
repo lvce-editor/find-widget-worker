@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
-import * as DiffParentUid from '../src/parts/DiffParentUid/DiffParentUid.ts'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import * as DiffParentUid from '../src/parts/DiffParentUid/DiffParentUid.ts'
 
 test('isEqual - same version', () => {
   const state1 = createDefaultState()

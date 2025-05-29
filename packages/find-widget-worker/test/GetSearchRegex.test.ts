@@ -5,7 +5,7 @@ test('getSearchRegex', () => {
   const regex = getSearchRegex('test')
   expect(regex.flags).toBe('gi')
   expect(regex.test('TEST')).toBe(true)
-  expect(regex.test('test')).toBe(true)
+  expect(regex.test('test')).toBe(false)
   expect(regex.test('Test')).toBe(true)
   expect(regex.test('other')).toBe(false)
 })

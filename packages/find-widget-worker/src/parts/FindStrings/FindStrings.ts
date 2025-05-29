@@ -1,19 +1,5 @@
 import * as I18nString from '../I18NString/I18NString.ts'
-
-/**
- * @enum {string}
- */
-const UiStrings = {
-  MatchesFoundFor: '{PH1} of {PH2} found for {PH3}',
-  MatchOf: '{PH1} of {PH2}',
-  NoResults: 'No Results',
-  Close: 'Close',
-  PreviousMatch: 'Previous Match',
-  NextMatch: 'Next Match',
-  Find: 'Find',
-  Replace: 'Replace',
-  ReplaceAll: 'Replace All',
-}
+import * as UiStrings from '../UiStrings/UiStrings.ts'
 
 export const noResults = (): string => {
   return I18nString.i18nString(UiStrings.NoResults)

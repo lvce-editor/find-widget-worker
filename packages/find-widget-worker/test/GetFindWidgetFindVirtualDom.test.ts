@@ -5,10 +5,11 @@ import * as ClassNames from '../src/parts/ClassNames/ClassNames.js'
 import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.js'
 import * as FindStrings from '../src/parts/FindStrings/FindStrings.js'
 import * as GetFindMatchCountClassName from '../src/parts/GetFindMatchCountClassName/GetFindMatchCountClassName.js'
+import { FindWidgetButton } from '../src/parts/FindWidgetButton/FindWidgetButton.ts'
 
 test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no matches', () => {
   const matchCountText = 'No matches'
-  const buttons = []
+  const buttons: readonly FindWidgetButton[] = []
   const matchCount = 0
   const value = ''
 

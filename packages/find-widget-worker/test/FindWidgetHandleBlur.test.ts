@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
-import { handleBlur } from '../src/parts/FindWidgetHandleBlur/FindWidgetHandleBlur.ts'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import { handleBlur } from '../src/parts/FindWidgetHandleBlur/FindWidgetHandleBlur.ts'
 
 test('handleBlur should set focus to 0 and focused to false', async () => {
   const state: FindWidgetState = {

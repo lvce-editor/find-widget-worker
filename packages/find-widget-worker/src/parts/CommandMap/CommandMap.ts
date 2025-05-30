@@ -1,5 +1,6 @@
 import * as Create from '../Create/Create.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
+import * as Dispose from '../Dispose/Dispose.ts'
 import * as FindWidgetFocusCloseButton from '../FindWidgetFocusCloseButton/FindWidgetFocusCloseButton.ts'
 import * as FindWidgetFocusIndex from '../FindWidgetFocusIndex/FindWidgetFocusIndex.ts'
 import * as FindWidgetFocusReplace from '../FindWidgetFocusReplace/FindWidgetFocusReplace.ts'
@@ -17,6 +18,7 @@ import * as Terminate from '../Terminate/Terminate.ts'
 export const commandMap = {
   'FindWidget.create': Create.create,
   'FindWidget.diff2': Diff2.diff2,
+  'FindWidget.dispose': Dispose.dispose,
   'FindWidget.focusCloseButton': WrapCommand.wrapCommand(FindWidgetFocusCloseButton.focusCloseButton),
   'FindWidget.focusFirst': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusFirst),
   'FindWidget.focusIndex': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusIndex),

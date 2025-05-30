@@ -3,7 +3,7 @@ import type { FindWidgetButtons } from '../FindWidgetButtons/FindWidgetButtons.t
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as FindStrings from '../FindStrings/FindStrings.ts'
 import * as Icon from '../Icon/Icon.ts'
-import * as Names from '../Names/Names.ts'
+import * as Names from '../InputName/InputName.ts'
 
 export const getFindWidgetButtons = (findButtonsEnabled: boolean, replaceButtonsEnabled: boolean): FindWidgetButtons => {
   const findButtons: readonly FindWidgetButton[] = [

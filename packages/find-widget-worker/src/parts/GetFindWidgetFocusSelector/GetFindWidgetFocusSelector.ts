@@ -1,32 +1,33 @@
 import * as FocusKey from '../FocusKey/FocusKey.ts'
-import * as Names from '../Names/Names.ts'
+import * as GetNameSelector from '../GetNameSelector/GetNameSelector.ts'
+import * as Names from '../InputName/InputName.ts'
 
 // TODO always focus element by name
 export const getFindWidgetFocusSelector = (focus: number): string => {
   switch (focus) {
     case FocusKey.FindWidget: {
-      return `[name="${Names.SearchValue}"]`
+      return GetNameSelector.getNameSelector(Names.SearchValue)
     }
     case FocusKey.FocusFindWidgetReplace: {
-      return `[name="${Names.ReplaceValue}"]`
+      return GetNameSelector.getNameSelector(Names.ReplaceValue)
     }
     case FocusKey.FocusFindWidgetReplaceAllButton: {
-      return `[name="${Names.ReplaceAll}"]`
+      return GetNameSelector.getNameSelector(Names.ReplaceAll)
     }
     case FocusKey.FocusFindWidgetCloseButton: {
-      return `[name="${Names.Close}"]`
+      return GetNameSelector.getNameSelector(Names.Close)
     }
     case FocusKey.FocusFindWidgetToggleReplace: {
-      return `[name="${Names.ToggleReplace}"]`
+      return GetNameSelector.getNameSelector(Names.ToggleReplace)
     }
     case FocusKey.FocusFindWidgetNextMatchButton: {
-      return `[name="${Names.FocusNext}"]`
+      return GetNameSelector.getNameSelector(Names.FocusNext)
     }
     case FocusKey.FocusFindWidgetPreviousMatchButton: {
-      return `[name="${Names.FocusPrevious}"]`
+      return GetNameSelector.getNameSelector(Names.FocusPrevious)
     }
     case FocusKey.FocusFindWidgetReplaceButton: {
-      return `[name="${Names.Replace}"]`
+      return GetNameSelector.getNameSelector(Names.Replace)
     }
     default: {
       return ''

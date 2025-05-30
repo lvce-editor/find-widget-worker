@@ -1,13 +1,15 @@
+import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import type { FindWidgetButton } from '../FindWidgetButton/FindWidgetButton.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as FindStrings from '../FindStrings/FindStrings.ts'
 import * as GetIconButtonVirtualDom from '../GetIconButtonVirtualDom/GetIconButtonVirtualDom.ts'
 import * as GetSearchFieldVirtualDom from '../GetSearchFieldVirtualDom/GetSearchFieldVirtualDom.ts'
+import * as InputName from '../InputName/InputName.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
-export const getFindWidgetReplaceVirtualDom = (replaceExpanded: boolean, replaceButtons: readonly FindWidgetButton[]) => {
-  const dom = []
+export const getFindWidgetReplaceVirtualDom = (replaceExpanded: boolean, replaceButtons: readonly FindWidgetButton[]): readonly VirtualDomNode[] => {
+  const dom: VirtualDomNode[] = []
   if (replaceExpanded) {
     dom.push(
       {
@@ -16,7 +18,7 @@ export const getFindWidgetReplaceVirtualDom = (replaceExpanded: boolean, replace
         childCount: 1 + replaceButtons.length,
       },
       ...GetSearchFieldVirtualDom.getSearchFieldVirtualDom(
-        'replace-value',
+        InputName.ReplaceValue,
         FindStrings.replace(),
         DomEventListenerFunctions.HandleReplaceInput,
         [],

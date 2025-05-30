@@ -3,7 +3,7 @@ import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctio
 import * as FindStrings from '../src/parts/FindStrings/FindStrings.ts'
 import * as GetFindWidgetButtons from '../src/parts/GetFindWidgedButtons/GetFindWidgetButtons.ts'
 import * as Icon from '../src/parts/Icon/Icon.ts'
-import * as Names from '../src/parts/Names/Names.ts'
+import * as Names from '../src/parts/InputName/InputName.ts'
 
 test('getFindWidgetButtons with find buttons enabled and replace buttons disabled', () => {
   const result = GetFindWidgetButtons.getFindWidgetButtons(true, false)

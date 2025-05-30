@@ -5,3 +5,4 @@ export const RenderUid = 12
 export const RenderContent = 13
 export const RenderFocusContext = 14
 export const RenderFocus = 15
+export const RenderValue = 16

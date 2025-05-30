@@ -4,6 +4,7 @@ import * as DiffFocusContext from '../DiffFocusContext/DiffFocusContext.ts'
 import * as DiffItems from '../DiffItems/DiffItems.ts'
 import * as DiffParentUid from '../DiffParentUid/DiffParentUid.ts'
 import * as DiffType from '../DiffType/DiffType.ts'
+import * as DiffValue from '../DiffValue/DiffValue.ts'
 
 export const modules = [
   DiffEventListeners.isEqual,
@@ -12,6 +13,7 @@ export const modules = [
   DiffParentUid.isEqual,
   DiffFocusContext.isEqual,
   DiffFocusContext.isEqual,
+  DiffValue.isEqual,
 ]
 
 export const numbers = [
@@ -21,4 +23,5 @@ export const numbers = [
   DiffType.RenderUid,
   DiffType.RenderFocusContext,
   DiffType.RenderFocus,
+  DiffType.RenderValue,
 ]

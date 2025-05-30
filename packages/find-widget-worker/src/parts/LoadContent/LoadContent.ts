@@ -5,6 +5,7 @@ import * as GetLines from '../GetLines/GetLines.ts'
 import * as GetMatchCount from '../GetMatchCount/GetMatchCount.ts'
 import * as GetSelectedText from '../GetSelectedText/GetSelectedText.ts'
 import * as GetSelections from '../GetSelections/GetSelections.ts'
+import * as InputSource from '../InputSource/InputSource.ts'
 
 export const loadContent = async (state: FindWidgetState): Promise<FindWidgetState> => {
   const { editorUid, editorWidth, editorX, editorY } = state
@@ -31,5 +32,6 @@ export const loadContent = async (state: FindWidgetState): Promise<FindWidgetSta
     lines,
     selections,
     focused: true,
+    inputSource: InputSource.Script,
   }
 }

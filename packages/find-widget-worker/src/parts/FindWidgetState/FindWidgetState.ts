@@ -26,4 +26,5 @@ export interface FindWidgetState {
   readonly editorY: number
   readonly editorWidth: number
   readonly editorHeight: number
+  readonly inputSource: number
 }

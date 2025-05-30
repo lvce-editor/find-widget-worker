@@ -6,6 +6,7 @@ import * as RenderEventListeners from '../RenderEventListeners/RenderEventListen
 import * as RenderFocus from '../RenderFocus/RenderFocus.ts'
 import * as RenderFocusContext from '../RenderFocusContext/RenderFocusContext.ts'
 import * as RenderUid from '../RenderUid/RenderUid.ts'
+import * as RenderValue from '../RenderValue/RenderValue.ts'
 
 export const getRenderer = (diffType: number): Renderer => {
   switch (diffType) {
@@ -21,6 +22,8 @@ export const getRenderer = (diffType: number): Renderer => {
       return RenderFocusContext.renderFocusContext
     case DiffType.RenderFocus:
       return RenderFocus.renderFocus
+    case DiffType.RenderValue:
+      return RenderValue.renderValue
     default:
       throw new Error('unknown renderer')
   }

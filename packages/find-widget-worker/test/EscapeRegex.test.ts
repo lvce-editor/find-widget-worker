@@ -8,12 +8,12 @@ test('empty', () => {
 
 test('character', () => {
   const regex = 'a'
-  expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe('a')
+  expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe('\\x61')
 })
 
 test('slash', () => {
   const regex = '/'
-  expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe('/')
+  expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe('\\/')
 })
 
 test('backslash', () => {

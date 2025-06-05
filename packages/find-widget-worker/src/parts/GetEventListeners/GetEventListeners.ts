@@ -12,12 +12,12 @@ export const getEventListeners = (uid: number, widgetId: number): readonly DomEv
       params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickClose', 0, widgetId],
     },
     {
-      name: DomEventListenerFunctions.HandleClickFocusPreviousMatch,
-      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickPreviousMatch', 0, widgetId],
+      name: DomEventListenerFunctions.HandleClickPreviousMatch,
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.focusPrevious', 0, widgetId],
     },
     {
       name: DomEventListenerFunctions.HandleClickNextMatch,
-      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickNextMatch', 0, widgetId],
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.focusNext', 0, widgetId],
     },
     {
       name: DomEventListenerFunctions.HandleClickReplace,

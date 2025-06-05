@@ -1,7 +1,22 @@
-import { test, expect } from '@jest/globals'
-import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
+import { beforeAll, expect, test } from '@jest/globals'
+import { MockRpc } from '@lvce-editor/rpc'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import { focusIndex, focusFirst, focusLast, focusNext, focusPrevious } from '../src/parts/FindWidgetFocusIndex/FindWidgetFocusIndex.ts'
+import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
+import { focusFirst, focusIndex, focusLast, focusNext, focusPrevious } from '../src/parts/FindWidgetFocusIndex/FindWidgetFocusIndex.ts'
+import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
+
+beforeAll(() => {
+  const mockRpc = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string) => {
+      if (method === 'Editor.setSelections2') {
+        return
+      }
+      throw new Error(`unexpected method ${method}`)
+    },
+  })
+  EditorWorker.set(mockRpc)
+})
 
 test('focusIndex should return same state when index equals matchIndex', async () => {
   const state: FindWidgetState = {

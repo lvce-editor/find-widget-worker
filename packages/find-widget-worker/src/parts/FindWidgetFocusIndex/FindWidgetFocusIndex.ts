@@ -1,33 +1,20 @@
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
+import * as SetSelections from '../SetSelections/SetSelections.ts'
 
-// TODO don't call renderer worker, set editor state
-// TODO this function should be synchronous
-export const focusIndex = (state: FindWidgetState, index: number): any => {
-  const { matchIndex } = state
+export const focusIndex = async (state: FindWidgetState, index: number): Promise<FindWidgetState> => {
+  const { matchIndex, matches, editorUid, value } = state
   if (index === matchIndex) {
     return state
   }
-  // TODO update editor
-  // const { widgets } = editor
-  // const childIndex = widgets.findIndex(isFind)
-  // const childWidget = widgets[childIndex]
-
   // // TODO find next match and highlight it
-  // const matchRowIndex = matches[index * 2]
-  // const matchColumnIndex = matches[index * 2 + 1]
-  // const newSelections = new Uint32Array([matchRowIndex, matchColumnIndex, matchRowIndex, matchColumnIndex + value.length])
-  // const newState: FindWidgetState = {
-  //   ...findState,
-  //   matchIndex: index,
-  // }
-  // const newWidget = {
-  //   ...childWidget,
-  //   newState,
-  // }
-  // const newWidgets = [...widgets.slice(0, childIndex), newWidget, ...widgets.slice(childIndex + 1)]
+  const matchRowIndex = matches[index * 2]
+  const matchColumnIndex = matches[index * 2 + 1]
+  const newSelections = new Uint32Array([matchRowIndex, matchColumnIndex, matchRowIndex, matchColumnIndex + value.length])
+  await SetSelections.setSelections(editorUid, newSelections)
   return {
     ...state,
     matchIndex: index,
+    selections: [...newSelections],
   }
 }
 

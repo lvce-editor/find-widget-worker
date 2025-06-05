@@ -1,9 +1,9 @@
 import { beforeAll, expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
 import { focusFirst, focusIndex, focusLast, focusNext, focusPrevious } from '../src/parts/FindWidgetFocusIndex/FindWidgetFocusIndex.ts'
-import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 
 beforeAll(() => {
   const mockRpc = MockRpc.create({

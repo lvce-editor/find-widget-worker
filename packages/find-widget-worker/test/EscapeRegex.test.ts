@@ -2,86 +2,86 @@ import { expect, test } from '@jest/globals'
 import * as EscapeRegex from '../src/parts/EscapeRegex/EscapeRegex.ts'
 
 test('empty', () => {
-  const regex = ''
+  const regex: string = ''
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe('')
 })
 
 test('character', () => {
-  const regex = 'a'
+  const regex: string = 'a'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe('\\x61')
 })
 
 test('slash', () => {
-  const regex = '/'
+  const regex: string = '/'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe('\\/')
 })
 
 test('backslash', () => {
-  const regex = '\\'
+  const regex: string = '\\'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe('\\\\')
 })
 
 test('open curly brace', () => {
-  const regex = '{'
+  const regex: string = '{'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\{`)
 })
 
 test('close curly brace', () => {
-  const regex = '}'
+  const regex: string = '}'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\}`)
 })
 
 test('star', () => {
-  const regex = '*'
+  const regex: string = '*'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\*`)
 })
 
 test('plus', () => {
-  const regex = '+'
+  const regex: string = '+'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\+`)
 })
 
 test('question mark', () => {
-  const regex = '?'
+  const regex: string = '?'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\?`)
 })
 
 test('pipe', () => {
-  const regex = '|'
+  const regex: string = '|'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\|`)
 })
 
 test('caret', () => {
-  const regex = '^'
+  const regex: string = '^'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\^`)
 })
 
 test('dollar', () => {
-  const regex = '$'
+  const regex: string = '$'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\$`)
 })
 
 test('dot', () => {
-  const regex = '.'
+  const regex: string = '.'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\.`)
 })
 
 test('square open', () => {
-  const regex = '['
+  const regex: string = '['
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\[`)
 })
 
 test('square close', () => {
-  const regex = ']'
+  const regex: string = ']'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\]`)
 })
 
 test('round open', () => {
-  const regex = '('
+  const regex: string = '('
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\(`)
 })
 
 test('round close', () => {
-  const regex = ')'
+  const regex: string = ')'
   expect(EscapeRegex.escapeRegExpCharacters(regex)).toBe(String.raw`\)`)
 })

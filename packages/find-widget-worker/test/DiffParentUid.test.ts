@@ -4,16 +4,18 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as DiffParentUid from '../src/parts/DiffParentUid/DiffParentUid.ts'
 
 test('isEqual - same version', () => {
-  const state1 = createDefaultState()
-  const state2 = createDefaultState()
-  expect(DiffParentUid.isEqual(state1, state2)).toBe(true)
+  const state1: FindWidgetState = createDefaultState()
+  const state2: FindWidgetState = createDefaultState()
+  const result: boolean = DiffParentUid.isEqual(state1, state2)
+  expect(result).toBe(true)
 })
 
 test('isEqual - different version', () => {
-  const state1 = createDefaultState()
+  const state1: FindWidgetState = createDefaultState()
   const state2: FindWidgetState = {
     ...createDefaultState(),
     version: 2,
   }
-  expect(DiffParentUid.isEqual(state1, state2)).toBe(false)
+  const result: boolean = DiffParentUid.isEqual(state1, state2)
+  expect(result).toBe(false)
 })

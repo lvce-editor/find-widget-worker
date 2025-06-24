@@ -1,8 +1,8 @@
 import { test, expect } from '@jest/globals'
+import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as FocusSource from '../src/parts/FocusSource/FocusSource.ts'
 import * as SetFindWidgetFocus from '../src/parts/SetFindWidgetFocus/SetFindWidgetFocus.ts'
-import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 
 test('setFindWidgetFocus should return same state if focus key is same', () => {
   const state: FindWidgetState = CreateDefaultState.createDefaultState()

@@ -13,9 +13,9 @@ export const getFindWidgetVirtualDom = (
   replaceExpanded: boolean,
   findButtons: readonly FindWidgetButton[],
   replaceButtons: readonly FindWidgetButton[],
-  matchCase: any,
-  matchWholeWord: any,
-  useRegularExpression: any,
+  matchCase: boolean,
+  matchWholeWord: boolean,
+  useRegularExpression: boolean,
   matchCount: number,
   value: string,
 ): readonly VirtualDomNode[] => {

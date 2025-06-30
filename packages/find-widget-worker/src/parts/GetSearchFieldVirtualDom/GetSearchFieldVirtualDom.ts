@@ -1,3 +1,4 @@
+import type { ISearchFieldButton } from '../ISearchFieldButton/ISearchFieldButton.ts'
 import * as AriaRoles from '../AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as GetSearchFieldButtonVirtualDom from '../GetSearchFieldButtonVirtualDom/GetSearchFieldButtonVirtualDom.ts'
@@ -7,8 +8,8 @@ export const getSearchFieldVirtualDom = (
   name: string,
   placeholder: string,
   onInput: string,
-  insideButtons: any,
-  outsideButtons: any,
+  insideButtons: readonly ISearchFieldButton[],
+  outsideButtons: readonly ISearchFieldButton[],
   onFocus = '',
 ) => {
   const dom = [

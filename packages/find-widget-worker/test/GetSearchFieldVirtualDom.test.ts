@@ -1,4 +1,5 @@
 import { test, expect } from '@jest/globals'
+import type { ISearchFieldButton } from '../src/parts/ISearchFieldButton/ISearchFieldButton.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.js'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.js'
 import * as GetSearchFieldVirtualDom from '../src/parts/GetSearchFieldVirtualDom/GetSearchFieldVirtualDom.js'
@@ -16,7 +17,7 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
       title: 'Test Title',
     },
   ]
-  const outsideButtons: any[] = []
+  const outsideButtons: ISearchFieldButton[] = []
 
   const result = GetSearchFieldVirtualDom.getSearchFieldVirtualDom(name, placeholder, onInput, insideButtons, outsideButtons, onFocus)
 
@@ -65,8 +66,8 @@ test('getSearchFieldVirtualDom throws error when outsideButtons are provided', (
   const name = 'test-name'
   const placeholder = 'test-placeholder'
   const onInput = 'test-onInput'
-  const insideButtons: any[] = []
-  const outsideButtons = [{ icon: 'TestIcon' }]
+  const insideButtons: readonly ISearchFieldButton[] = []
+  const outsideButtons: readonly ISearchFieldButton[] = [{ icon: 'TestIcon' }] as any[]
 
   expect(() => {
     GetSearchFieldVirtualDom.getSearchFieldVirtualDom(name, placeholder, onInput, insideButtons, outsideButtons)

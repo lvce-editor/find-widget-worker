@@ -1,15 +1,16 @@
-import { test, expect } from '@jest/globals'
+import { expect, test } from '@jest/globals'
+import type { FindWidgetButton } from '../src/parts/FindWidgetButton/FindWidgetButton.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import * as GetIconButtonVirtualDom from '../src/parts/GetIconButtonVirtualDom/GetIconButtonVirtualDom.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
 test('getIconButtonVirtualDom - basic button', () => {
-  const iconButton = {
+  const iconButton: FindWidgetButton = {
     label: 'Test Button',
     icon: 'test-icon',
     disabled: false,
     name: 'test-button',
-    onClick: () => {},
+    onClick: '',
   }
 
   const result = GetIconButtonVirtualDom.getIconButtonVirtualDom(iconButton)
@@ -28,12 +29,12 @@ test('getIconButtonVirtualDom - basic button', () => {
 })
 
 test('getIconButtonVirtualDom - disabled button', () => {
-  const iconButton = {
+  const iconButton: FindWidgetButton = {
     label: 'Disabled Button',
     icon: 'disabled-icon',
     disabled: true,
     name: 'disabled-button',
-    onClick: () => {},
+    onClick: '',
   }
 
   const result = GetIconButtonVirtualDom.getIconButtonVirtualDom(iconButton)

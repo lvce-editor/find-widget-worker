@@ -1,7 +1,7 @@
 import { expect, test } from '@jest/globals'
+import { EditorWorker } from '@lvce-editor/rpc-registery'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import { EditorWorker } from '@lvce-editor/rpc-registery'
 import * as FindRegexMatches from '../src/parts/FindRegexMatches/FindRegexMatches.ts'
 import * as GetSearchRegex from '../src/parts/GetSearchRegex/GetSearchRegex.ts'
 import { replace } from '../src/parts/Replace/Replace.ts'

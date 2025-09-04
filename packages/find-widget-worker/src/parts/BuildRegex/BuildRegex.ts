@@ -1,5 +1,5 @@
-import * as EscapeRegex from '../EscapeRegex/EscapeRegex.ts'
 import type { FindOptions } from '../FindOptions/FindOptions.ts'
+import * as EscapeRegex from '../EscapeRegex/EscapeRegex.ts'
 
 export const buildRegex = (searchString: string, options: FindOptions): RegExp => {
   const { matchCase, useRegularExpression, matchWholeWord } = options

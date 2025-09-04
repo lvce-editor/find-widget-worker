@@ -1,9 +1,9 @@
 import { test, expect } from '@jest/globals'
+import type { ISearchFieldButton } from '../src/parts/ISearchFieldButton/ISearchFieldButton.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.js'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.js'
 import * as GetSearchFieldButtonVirtualDom from '../src/parts/GetSearchFieldButtonVirtualDom/GetSearchFieldButtonVirtualDom.js'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.js'
-import { ISearchFieldButton } from '../src/parts/ISearchFieldButton/ISearchFieldButton.ts'
 
 test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for unchecked button', () => {
   const button: ISearchFieldButton = {

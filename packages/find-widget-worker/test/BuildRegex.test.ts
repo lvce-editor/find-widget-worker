@@ -1,26 +1,31 @@
 import { test, expect } from '@jest/globals'
 import { buildRegex } from '../src/parts/BuildRegex/BuildRegex.ts'
 
-test('literal, case-insensitive', () => {
+test('literal, case-insensitive flags and matching', () => {
   const r = buildRegex('Hello', { matchCase: false, matchWholeWord: false, useRegularExpression: false })
-  expect(r.flags.includes('g')).toBe(true)
-  expect(r.flags.includes('i')).toBe(true)
-  expect(String(r)).toBe('/Hello/gi')
+  expect(r.global).toBe(true)
+  expect(r.ignoreCase).toBe(true)
+  expect('say hello'.match(r)?.[0]).toBe('hello')
+  expect('say Hello'.match(r)?.[0]).toBe('Hello')
 })
 
-test('literal, case-sensitive', () => {
+test('literal, case-sensitive only matches exact case', () => {
   const r = buildRegex('Hello', { matchCase: true, matchWholeWord: false, useRegularExpression: false })
-  expect(String(r)).toBe('/Hello/g')
+  expect(r.global).toBe(true)
+  expect(r.ignoreCase).toBe(false)
+  expect('say hello'.match(r)).toBeNull()
+  expect('say Hello'.match(r)?.[0]).toBe('Hello')
 })
 
 test('escapes special characters when not regex', () => {
   const r = buildRegex('a+b*c?.', { matchCase: false, matchWholeWord: false, useRegularExpression: false })
-  expect(String(r)).toBe('/a\\+b\\*c\\?\\./gi')
+  expect('a+b*c?.'.match(r)?.[0]).toBe('a+b*c?.')
 })
 
 test('whole word wraps pattern with word boundaries', () => {
   const r = buildRegex('foo', { matchCase: false, matchWholeWord: true, useRegularExpression: false })
-  expect(String(r)).toBe('/\\b(?:foo)\\b/gi')
+  expect('barfoobar'.match(r)).toBeNull()
+  expect('bar foo bar'.match(r)?.[0]).toBe('foo')
 })
 
 test('regex pattern used as-is when useRegularExpression=true', () => {

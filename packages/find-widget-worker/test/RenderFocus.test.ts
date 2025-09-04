@@ -1,6 +1,7 @@
 import { test, expect } from '@jest/globals'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { renderFocus } from '../src/parts/RenderFocus/RenderFocus.ts'
+import { ViewletCommand } from '@lvce-editor/constants'
 
 test('renderFocus returns correct array', () => {
   const oldState = createDefaultState()
@@ -11,5 +12,5 @@ test('renderFocus returns correct array', () => {
 
   const result = renderFocus(oldState, newState)
 
-  expect(result).toEqual(['Viewlet.focusSelector', 123, '[name="search-value"]'])
+  expect(result).toEqual([ViewletCommand.FocusSelector, 123, '[name="search-value"]'])
 })

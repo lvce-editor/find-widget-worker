@@ -42,6 +42,20 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
     {
       type: VirtualDomElements.Div,
       className: ClassNames.SearchFieldButtons,
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.SearchFieldButton,
+      title: 'Match Case',
+      role: 'checkbox',
+      ariaChecked: false,
+      tabIndex: 0,
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: 'MaskIcon MatchCase',
       childCount: 0,
     },
     {

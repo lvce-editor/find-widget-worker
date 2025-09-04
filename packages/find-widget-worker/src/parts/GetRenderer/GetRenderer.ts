@@ -5,6 +5,7 @@ import * as RenderContent from '../RenderContent/RenderContent.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
 import * as RenderFocus from '../RenderFocus/RenderFocus.ts'
 import * as RenderFocusContext from '../RenderFocusContext/RenderFocusContext.ts'
+import { renderReplaceValue } from '../RenderReplaceValue/RenderReplaceValue.ts'
 import * as RenderUid from '../RenderUid/RenderUid.ts'
 import * as RenderValue from '../RenderValue/RenderValue.ts'
 
@@ -24,6 +25,8 @@ export const getRenderer = (diffType: number): Renderer => {
       return RenderFocus.renderFocus
     case DiffType.RenderValue:
       return RenderValue.renderValue
+    case DiffType.RenderReplaceValue:
+      return renderReplaceValue
     default:
       throw new Error('unknown renderer')
   }

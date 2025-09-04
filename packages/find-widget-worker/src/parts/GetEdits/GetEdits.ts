@@ -14,7 +14,13 @@ export const getEdits = (matches: Uint32Array, value: string, replacement: strin
     const rowIndex: number = matches[i * 2]
     const startColumnIndex: number = matches[i * 2 + 1]
     const endColumnIndex: number = startColumnIndex + value.length
-    edits.push({ rowIndex, startColumnIndex, endColumnIndex, newText: replacement })
+    edits.push({
+      start: { rowIndex, columnIndex: startColumnIndex },
+      end: { rowIndex, columnIndex: endColumnIndex },
+      inserted: [replacement],
+      deleted: [value],
+      origin: 'find-widget.replace',
+    })
   }
   return edits
 }

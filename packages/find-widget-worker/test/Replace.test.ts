@@ -45,5 +45,16 @@ test('replace - replaces only focused match', async () => {
 
   expect(result).toEqual(state)
   expect(received).toBeDefined()
-  expect(received).toEqual([1, [{ rowIndex: 0, startColumnIndex: 8, endColumnIndex: 11, newText: 'baz' }]])
+  expect(received).toEqual([
+    1,
+    [
+      {
+        start: { rowIndex: 0, columnIndex: 8 },
+        end: { rowIndex: 0, columnIndex: 11 },
+        inserted: ['baz'],
+        deleted: ['foo'],
+        origin: 'find-widget.replace',
+      },
+    ],
+  ])
 })

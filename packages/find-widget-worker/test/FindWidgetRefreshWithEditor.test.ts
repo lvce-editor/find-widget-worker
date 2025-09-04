@@ -2,10 +2,11 @@ import { test, expect } from '@jest/globals'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { refresh } from '../src/parts/FindWidgetRefreshWithEditor/FindWidgetRefreshWithEditor.ts'
+import { User } from '../src/parts/InputSource/InputSource.ts'
 
 test('refresh with empty value', () => {
   const state = createDefaultState()
-  const result = refresh(state, '')
+  const result = refresh(state, '', User)
   expect(result.matches).toEqual(new Uint32Array([]))
   expect(result.matchCount).toBe(0)
   expect(result.matchIndex).toBe(0)
@@ -17,7 +18,7 @@ test('refresh with matching value', () => {
     ...createDefaultState(),
     lines: ['hello', 'world', 'hello world'],
   }
-  const result = refresh(state, 'hello')
+  const result = refresh(state, 'hello', User)
   expect(result.matches).toEqual(new Uint32Array([0, 0, 2, 0]))
   expect(result.matchCount).toBe(2)
   expect(result.matchIndex).toBe(0)
@@ -29,7 +30,7 @@ test('refresh with case insensitive matching', () => {
     ...createDefaultState(),
     lines: ['Hello', 'WORLD', 'hello World'],
   }
-  const result = refresh(state, 'hello')
+  const result = refresh(state, 'hello', User)
   expect(result.matches).toEqual(new Uint32Array([0, 0, 2, 0]))
   expect(result.matchCount).toBe(2)
   expect(result.matchIndex).toBe(0)

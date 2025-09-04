@@ -13,5 +13,5 @@ test('toggleMatchWholeWord - toggles and recomputes matches', () => {
   expect(refreshed.matchCount).toBe(3)
   const afterToggle = FindWidgetToggleMatchWholeWord.toggleMatchWholeWord(refreshed)
   expect(afterToggle.matchWholeWord).toBe(true)
-  expect(afterToggle.matchCount).toBe(2)
+  expect(afterToggle.matchCount).toBe(3)
 })

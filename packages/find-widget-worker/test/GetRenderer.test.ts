@@ -6,9 +6,9 @@ import * as RenderContent from '../src/parts/RenderContent/RenderContent.ts'
 import * as RenderEventListeners from '../src/parts/RenderEventListeners/RenderEventListeners.ts'
 import * as RenderFocus from '../src/parts/RenderFocus/RenderFocus.ts'
 import * as RenderFocusContext from '../src/parts/RenderFocusContext/RenderFocusContext.ts'
+import { renderReplaceValue } from '../src/parts/RenderReplaceValue/RenderReplaceValue.ts'
 import * as RenderUid from '../src/parts/RenderUid/RenderUid.ts'
 import * as RenderValue from '../src/parts/RenderValue/RenderValue.ts'
-import { renderReplaceValue } from '../src/parts/RenderReplaceValue/RenderReplaceValue.ts'
 
 test('getRenderer returns correct renderer for RenderContent', () => {
   const renderer = GetRenderer.getRenderer(DiffType.RenderContent)

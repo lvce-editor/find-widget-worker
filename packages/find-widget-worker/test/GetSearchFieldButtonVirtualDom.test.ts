@@ -9,6 +9,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for un
     icon: 'TestIcon',
     checked: false,
     title: 'Test Title',
+    name: 'Test',
   }
   const result = GetSearchFieldButtonVirtualDom.getSearchFieldButtonVirtualDom(button)
   expect(result).toEqual([
@@ -34,6 +35,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for ch
     icon: 'TestIcon',
     checked: true,
     title: 'Test Title',
+    name: 'Test',
   }
   const result = GetSearchFieldButtonVirtualDom.getSearchFieldButtonVirtualDom(button)
   expect(result).toEqual([

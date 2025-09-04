@@ -1,8 +1,8 @@
+import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { ISearchFieldButton } from '../ISearchFieldButton/ISearchFieldButton.ts'
 import * as AriaRoles from '../AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as GetSearchFieldButtonVirtualDom from '../GetSearchFieldButtonVirtualDom/GetSearchFieldButtonVirtualDom.ts'
-import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
 export const getSearchFieldVirtualDom = (
   name: string,

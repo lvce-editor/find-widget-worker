@@ -9,6 +9,9 @@ import {
   find,
   replace,
   replaceAll,
+  matchCase,
+  matchWholeWord,
+  useRegularExpression,
 } from '../src/parts/FindStrings/FindStrings.ts'
 
 test('noResults', () => {
@@ -45,4 +48,16 @@ test('replace', () => {
 
 test('replaceAll', () => {
   expect(replaceAll()).toBe('Replace All')
+})
+
+test('matchCase', () => {
+  expect(matchCase()).toBe('Match Case')
+})
+
+test('matchWholeWord', () => {
+  expect(matchWholeWord()).toBe('Match Whole Word')
+})
+
+test('useRegularExpression', () => {
+  expect(useRegularExpression()).toBe('Use Regular Expression')
 })

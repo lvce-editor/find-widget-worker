@@ -7,6 +7,8 @@ import * as RenderEventListeners from '../src/parts/RenderEventListeners/RenderE
 import * as RenderFocus from '../src/parts/RenderFocus/RenderFocus.ts'
 import * as RenderFocusContext from '../src/parts/RenderFocusContext/RenderFocusContext.ts'
 import * as RenderUid from '../src/parts/RenderUid/RenderUid.ts'
+import * as RenderValue from '../src/parts/RenderValue/RenderValue.ts'
+import { renderReplaceValue } from '../src/parts/RenderReplaceValue/RenderReplaceValue.ts'
 
 test('getRenderer returns correct renderer for RenderContent', () => {
   const renderer = GetRenderer.getRenderer(DiffType.RenderContent)
@@ -36,6 +38,16 @@ test('getRenderer returns correct renderer for RenderFocusContext', () => {
 test('getRenderer returns correct renderer for RenderFocus', () => {
   const renderer = GetRenderer.getRenderer(DiffType.RenderFocus)
   expect(renderer).toBe(RenderFocus.renderFocus)
+})
+
+test('getRenderer returns correct renderer for RenderValue', () => {
+  const renderer = GetRenderer.getRenderer(DiffType.RenderValue)
+  expect(renderer).toBe(RenderValue.renderValue)
+})
+
+test('getRenderer returns correct renderer for RenderReplaceValue', () => {
+  const renderer = GetRenderer.getRenderer(DiffType.RenderReplaceValue)
+  expect(renderer).toBe(renderReplaceValue)
 })
 
 test('getRenderer throws error for unknown diff type', () => {

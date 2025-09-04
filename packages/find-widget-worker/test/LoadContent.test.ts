@@ -1,26 +1,21 @@
 import { expect, test } from '@jest/globals'
-import { MockRpc } from '@lvce-editor/rpc'
 import { EditorWorker } from '@lvce-editor/rpc-registry'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { loadContent } from '../src/parts/LoadContent/LoadContent.ts'
 
 test('loadContent - empty lines', async () => {
-  const mockRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'FileSystem.readDirWithFileTypes') {
-        return Promise.resolve([])
-      }
-      if (method === 'Editor.getLines2') {
-        return Promise.resolve([])
-      }
-      if (method === 'Editor.getSelections2') {
-        return Promise.resolve([0, 0, 0, 0])
-      }
-      throw new Error(`unexpected method ${method}`)
+  const commandMap = {
+    'FileSystem.readDirWithFileTypes': () => {
+      return []
     },
-  })
-  EditorWorker.set(mockRpc)
+    'Editor.getLines2': () => {
+      return []
+    },
+    'Editor.getSelections2': () => {
+      return [0, 0, 0, 0]
+    },
+  }
+  EditorWorker.registerMockRpc(commandMap)
 
   const state = createDefaultState()
   const result = await loadContent(state)
@@ -28,22 +23,18 @@ test('loadContent - empty lines', async () => {
 })
 
 test('loadContent - with content', async () => {
-  const mockRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'FileSystem.readDirWithFileTypes') {
-        return Promise.resolve([])
-      }
-      if (method === 'Editor.getLines2') {
-        return Promise.resolve(['hello world'])
-      }
-      if (method === 'Editor.getSelections2') {
-        return Promise.resolve([0, 0, 0, 5])
-      }
-      throw new Error(`unexpected method ${method}`)
+  const commandMap2 = {
+    'FileSystem.readDirWithFileTypes': () => {
+      return []
     },
-  })
-  EditorWorker.set(mockRpc)
+    'Editor.getLines2': () => {
+      return ['hello world']
+    },
+    'Editor.getSelections2': () => {
+      return [0, 0, 0, 5]
+    },
+  }
+  EditorWorker.registerMockRpc(commandMap2)
 
   const state = createDefaultState()
   const result = await loadContent(state)

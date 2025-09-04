@@ -30,7 +30,6 @@ test('getEdits - replace all occurrences', () => {
 })
 
 test('getEdits - no value returns empty edits', () => {
-  const lines: readonly string[] = ['foo']
   const value: string = ''
   const replacement: string = 'baz'
   const matches: Uint32Array = new Uint32Array([])

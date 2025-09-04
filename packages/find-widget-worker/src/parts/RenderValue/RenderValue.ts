@@ -4,5 +4,5 @@ import * as InputName from '../InputName/InputName.ts'
 
 export const renderValue = (oldState: FindWidgetState, newState: FindWidgetState): readonly any[] => {
   const { uid, value } = newState
-  return [/* method */ ViewletCommand.SetValueByName, uid, InputName.SearchValue, value]
+  return [ViewletCommand.SetValueByName, uid, InputName.SearchValue, value]
 }

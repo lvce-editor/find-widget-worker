@@ -101,7 +101,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
 
 test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matches and buttons', () => {
   const matchCountText = '3 matches'
-  const buttons = [
+  const buttons: readonly FindWidgetButton[] = [
     {
       label: 'Previous',
       icon: 'ArrowUp',
@@ -113,7 +113,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
   const matchCount = 3
   const value = 'test'
 
-  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons as any, matchCount, value)
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, matchCount, value)
 
   expect(result).toEqual([
     {
@@ -194,6 +194,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
     {
       type: VirtualDomElements.Text,
       text: matchCountText,
+      childCount: 0,
     },
     {
       type: VirtualDomElements.Button,

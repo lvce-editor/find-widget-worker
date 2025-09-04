@@ -19,7 +19,7 @@ export const getSearchFieldButtonVirtualDom = (button: ISearchFieldButton): read
     },
     {
       type: VirtualDomElements.Div,
-      className: MergeClassNames.mergeClassNames(ClassNames.MaskIcon, icon),
+      className: MergeClassNames.mergeClassNames(ClassNames.MaskIcon, `MaskIcon${icon}`),
       childCount: 0,
     },
   ]

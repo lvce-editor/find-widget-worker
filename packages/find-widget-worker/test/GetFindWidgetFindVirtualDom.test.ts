@@ -42,7 +42,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
     {
       type: VirtualDomElements.Div,
       className: ClassNames.SearchFieldButtons,
-      childCount: 1,
+      childCount: 3,
     },
     {
       type: VirtualDomElements.Div,
@@ -55,7 +55,35 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
     },
     {
       type: VirtualDomElements.Div,
-      className: 'MaskIcon MatchCase',
+      className: 'MaskIcon MaskIconCaseSensitive',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.SearchFieldButton,
+      title: 'Match Whole Word',
+      role: 'checkbox',
+      ariaChecked: false,
+      tabIndex: 0,
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: 'MaskIcon MaskIconWholeWord',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.SearchFieldButton,
+      title: 'Use Regular Expression',
+      role: 'checkbox',
+      ariaChecked: false,
+      tabIndex: 0,
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: 'MaskIcon MaskIconRegex',
       childCount: 0,
     },
     {
@@ -71,9 +99,9 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
   ])
 })
 
-test.skip('getFindWidgetFindVirtualDom returns correct virtual dom elements with matches and buttons', () => {
+test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matches and buttons', () => {
   const matchCountText = '3 matches'
-  const buttons = [
+  const buttons: readonly FindWidgetButton[] = [
     {
       label: 'Previous',
       icon: 'ArrowUp',
@@ -114,6 +142,48 @@ test.skip('getFindWidgetFindVirtualDom returns correct virtual dom elements with
     {
       type: VirtualDomElements.Div,
       className: ClassNames.SearchFieldButtons,
+      childCount: 3,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.SearchFieldButton,
+      title: 'Match Case',
+      role: 'checkbox',
+      ariaChecked: false,
+      tabIndex: 0,
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: 'MaskIcon MaskIconCaseSensitive',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.SearchFieldButton,
+      title: 'Match Whole Word',
+      role: 'checkbox',
+      ariaChecked: false,
+      tabIndex: 0,
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: 'MaskIcon MaskIconWholeWord',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.SearchFieldButton,
+      title: 'Use Regular Expression',
+      role: 'checkbox',
+      ariaChecked: false,
+      tabIndex: 0,
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: 'MaskIcon MaskIconRegex',
       childCount: 0,
     },
     {
@@ -124,19 +194,21 @@ test.skip('getFindWidgetFindVirtualDom returns correct virtual dom elements with
     {
       type: VirtualDomElements.Text,
       text: matchCountText,
+      childCount: 0,
     },
     {
       type: VirtualDomElements.Button,
       className: 'IconButton',
       title: 'Previous',
-      disabled: false,
+      ariaLabel: 'Previous',
       onClick: 'handlePrevious',
       name: 'focusPrevious',
       childCount: 1,
     },
     {
       type: VirtualDomElements.Div,
-      className: 'MaskIcon ArrowUp',
+      className: 'MaskIcon MaskIconArrowUp',
+      role: 'none',
       childCount: 0,
     },
   ])

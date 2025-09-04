@@ -1,6 +1,6 @@
 import { expect, test } from '@jest/globals'
-import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
 import { loadContent } from '../src/parts/LoadContent/LoadContent.ts'
 
 test('loadContent - empty lines', async () => {

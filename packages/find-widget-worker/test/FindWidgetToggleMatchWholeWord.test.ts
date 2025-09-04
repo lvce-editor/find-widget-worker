@@ -15,5 +15,3 @@ test('toggleMatchWholeWord - toggles and recomputes matches', () => {
   expect(afterToggle.matchWholeWord).toBe(true)
   expect(afterToggle.matchCount).toBe(2)
 })
-
-

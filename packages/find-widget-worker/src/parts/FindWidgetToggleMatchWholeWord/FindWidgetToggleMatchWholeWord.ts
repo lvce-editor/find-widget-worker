@@ -10,5 +10,3 @@ export const toggleMatchWholeWord = (state: FindWidgetState): FindWidgetState =>
   }
   return FindWidgetRefresh.refresh(newState, newState.value, InputSource.User)
 }
-
-

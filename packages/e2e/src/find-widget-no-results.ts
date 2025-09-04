@@ -23,8 +23,8 @@ content 2`,
   // assert
   const findWidgetInput = Locator('.FindWidget .MultilineInputBox')
   await expect(findWidgetInput).toBeVisible()
-  await expect(findWidgetInput).toHaveValue('content')
+  await expect(findWidgetInput).toHaveValue('not-found')
   const findWidgetMatchCount = Locator(`.FindWidgetMatchCount`)
   await expect(findWidgetMatchCount).toBeVisible()
-  await expect(findWidgetMatchCount).toHaveText('1 of 2')
+  await expect(findWidgetMatchCount).toHaveText('No Results')
 }

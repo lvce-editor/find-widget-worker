@@ -2,11 +2,13 @@ import { InputSource } from '@lvce-editor/constants'
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as FindWidgetRefresh from '../FindWidgetRefresh/FindWidgetRefresh.ts'
 
-export const toggleUseRegularExpression = (state: FindWidgetState): FindWidgetState => {
-  const { useRegularExpression } = state
+export const toggleMatchWholeWord = (state: FindWidgetState): FindWidgetState => {
+  const { matchWholeWord } = state
   const newState: FindWidgetState = {
     ...state,
-    useRegularExpression: !useRegularExpression,
+    matchWholeWord: !matchWholeWord,
   }
   return FindWidgetRefresh.refresh(newState, newState.value, InputSource.User)
 }
+
+

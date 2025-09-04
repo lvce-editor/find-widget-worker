@@ -1,5 +1,5 @@
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
-import * as AriaRoles from '../AriaRoles/AriaRoles.ts'
+import { AriaRoles } from '@lvce-editor/virtual-dom-worker'
 
 export const getIconVirtualDom = (icon: string, type = VirtualDomElements.Div) => {
   return {

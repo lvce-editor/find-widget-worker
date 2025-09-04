@@ -3,5 +3,3 @@ export interface FindOptions {
   readonly useRegularExpression: boolean
   readonly matchWholeWord: boolean
 }
-
-

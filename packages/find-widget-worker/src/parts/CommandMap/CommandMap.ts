@@ -15,6 +15,8 @@ import { handleReplaceInput } from '../HandleReplaceInput/HandleReplaceInput.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as PreventDefaultBrowserFind from '../PreventDefaultBrowserFind/PreventDefaultBrowserFind.ts'
 import * as Render2 from '../Render2/Render2.ts'
+import { replace } from '../Replace/Replace.ts'
+import { replaceAll } from '../ReplaceAll/ReplaceAll.ts'
 
 export const commandMap = {
   'FindWidget.create': Create.create,
@@ -38,4 +40,6 @@ export const commandMap = {
   'FindWidget.render2': Render2.render2,
   'FindWidget.terminate': terminate,
   'FindWidget.toggleReplace': WrapCommand.wrapCommand(FindWidgetToggleReplace.toggleReplace),
+  'FindWidget.replace': WrapCommand.wrapCommand(replace),
+  'FindWidget.replaceAll': WrapCommand.wrapCommand(replaceAll),
 }

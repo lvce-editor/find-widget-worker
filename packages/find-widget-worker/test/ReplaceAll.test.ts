@@ -31,7 +31,7 @@ test('replaceAll - replaces all matches', async () => {
       if (method === 'FileSystem.readDirWithFileTypes') {
         return []
       }
-      if (method === 'Editor.applyEdit2') {
+      if (method === 'Editor.applyDocumentEdits') {
         received = args
         return undefined
       }
@@ -49,9 +49,27 @@ test('replaceAll - replaces all matches', async () => {
   expect(received).toEqual([
     1,
     [
-      { rowIndex: 0, startColumnIndex: 0, endColumnIndex: 3, newText: 'baz' },
-      { rowIndex: 0, startColumnIndex: 8, endColumnIndex: 11, newText: 'baz' },
-      { rowIndex: 1, startColumnIndex: 4, endColumnIndex: 7, newText: 'baz' },
+      {
+        start: { rowIndex: 0, columnIndex: 0 },
+        end: { rowIndex: 0, columnIndex: 3 },
+        inserted: ['baz'],
+        deleted: ['foo'],
+        origin: 'find-widget.replace',
+      },
+      {
+        start: { rowIndex: 0, columnIndex: 8 },
+        end: { rowIndex: 0, columnIndex: 11 },
+        inserted: ['baz'],
+        deleted: ['foo'],
+        origin: 'find-widget.replace',
+      },
+      {
+        start: { rowIndex: 1, columnIndex: 4 },
+        end: { rowIndex: 1, columnIndex: 7 },
+        inserted: ['baz'],
+        deleted: ['foo'],
+        origin: 'find-widget.replace',
+      },
     ],
   ])
 })

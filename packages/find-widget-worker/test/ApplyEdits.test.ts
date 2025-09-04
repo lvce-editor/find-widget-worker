@@ -11,7 +11,7 @@ test('applyEdits - forwards to Editor.applyEdit', async () => {
       if (method === 'FileSystem.readDirWithFileTypes') {
         return []
       }
-      if (method === 'Editor.applyEdit2') {
+      if (method === 'Editor.applyDocumentEdits') {
         received = args
         return undefined
       }
@@ -20,7 +20,26 @@ test('applyEdits - forwards to Editor.applyEdit', async () => {
   })
   EditorWorker.set(mockRpc)
 
-  await applyEdits(1, [{ rowIndex: 0, startColumnIndex: 0, endColumnIndex: 3, newText: 'baz' }])
+  await applyEdits(1, [
+    {
+      start: { rowIndex: 0, columnIndex: 0 },
+      end: { rowIndex: 0, columnIndex: 3 },
+      inserted: ['baz'],
+      deleted: ['foo'],
+      origin: 'find-widget.replace',
+    },
+  ])
 
-  expect(received).toEqual([1, [{ rowIndex: 0, startColumnIndex: 0, endColumnIndex: 3, newText: 'baz' }]])
+  expect(received).toEqual([
+    1,
+    [
+      {
+        start: { rowIndex: 0, columnIndex: 0 },
+        end: { rowIndex: 0, columnIndex: 3 },
+        inserted: ['baz'],
+        deleted: ['foo'],
+        origin: 'find-widget.replace',
+      },
+    ],
+  ])
 })

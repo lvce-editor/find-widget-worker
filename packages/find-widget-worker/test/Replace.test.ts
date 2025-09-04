@@ -1,8 +1,7 @@
 import { expect, test } from '@jest/globals'
-import { MockRpc } from '@lvce-editor/rpc'
+import { EditorWorker } from '@lvce-editor/rpc-registry'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
 import * as FindRegexMatches from '../src/parts/FindRegexMatches/FindRegexMatches.ts'
 import * as GetSearchRegex from '../src/parts/GetSearchRegex/GetSearchRegex.ts'
 import { replace } from '../src/parts/Replace/Replace.ts'
@@ -24,26 +23,29 @@ const createState = (lines: readonly string[], value: string, replacement: strin
 }
 
 test('replace - replaces only focused match', async () => {
-  let received: any[] | undefined
-  const mockRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string, ...args: any[]) => {
-      if (method === 'FileSystem.readDirWithFileTypes') {
-        return []
-      }
-      if (method === 'Editor.applyEdit2') {
-        received = args
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
+  const commandMap = {
+    'Editor.applyDocumentEdits': () => {
+      return undefined
     },
-  })
-  EditorWorker.set(mockRpc)
+  }
+  const mockRpc = EditorWorker.registerMockRpc(commandMap)
 
   const state = createState(['foo bar foo'], 'foo', 'baz', 1)
   const result = await replace(state)
 
   expect(result).toEqual(state)
-  expect(received).toBeDefined()
-  expect(received).toEqual([1, [{ rowIndex: 0, startColumnIndex: 8, endColumnIndex: 11, newText: 'baz' }]])
+  expect(mockRpc.invocations.length).toBeGreaterThan(0)
+  expect(mockRpc.invocations[0]).toEqual([
+    'Editor.applyDocumentEdits',
+    1,
+    [
+      {
+        start: { rowIndex: 0, columnIndex: 8 },
+        end: { rowIndex: 0, columnIndex: 11 },
+        inserted: ['baz'],
+        deleted: ['foo'],
+        origin: 'find-widget.replace',
+      },
+    ],
+  ])
 })

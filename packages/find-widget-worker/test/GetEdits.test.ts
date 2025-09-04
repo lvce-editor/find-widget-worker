@@ -12,7 +12,15 @@ test('getEdits - replace one occurrence at focused index', () => {
   const regex: RegExp = GetSearchRegex.getSearchRegex(value)
   const matches: Uint32Array = FindRegexMatches.findRegexMatches(lines, regex)
   const edits = getEdits(matches, value, replacement, startIndex, replaceAll)
-  expect(edits).toEqual([{ rowIndex: 0, startColumnIndex: 8, endColumnIndex: 11, newText: 'baz' }])
+  expect(edits).toEqual([
+    {
+      start: { rowIndex: 0, columnIndex: 8 },
+      end: { rowIndex: 0, columnIndex: 11 },
+      inserted: ['baz'],
+      deleted: ['foo'],
+      origin: 'find-widget.replace',
+    },
+  ])
 })
 
 test('getEdits - replace all occurrences', () => {
@@ -23,9 +31,27 @@ test('getEdits - replace all occurrences', () => {
   const matches: Uint32Array = FindRegexMatches.findRegexMatches(lines, regex)
   const edits = getEdits(matches, value, replacement, 0, true)
   expect(edits).toEqual([
-    { rowIndex: 0, startColumnIndex: 0, endColumnIndex: 3, newText: 'baz' },
-    { rowIndex: 0, startColumnIndex: 8, endColumnIndex: 11, newText: 'baz' },
-    { rowIndex: 1, startColumnIndex: 4, endColumnIndex: 7, newText: 'baz' },
+    {
+      start: { rowIndex: 0, columnIndex: 0 },
+      end: { rowIndex: 0, columnIndex: 3 },
+      inserted: ['baz'],
+      deleted: ['foo'],
+      origin: 'find-widget.replace',
+    },
+    {
+      start: { rowIndex: 0, columnIndex: 8 },
+      end: { rowIndex: 0, columnIndex: 11 },
+      inserted: ['baz'],
+      deleted: ['foo'],
+      origin: 'find-widget.replace',
+    },
+    {
+      start: { rowIndex: 1, columnIndex: 4 },
+      end: { rowIndex: 1, columnIndex: 7 },
+      inserted: ['baz'],
+      deleted: ['foo'],
+      origin: 'find-widget.replace',
+    },
   ])
 })
 

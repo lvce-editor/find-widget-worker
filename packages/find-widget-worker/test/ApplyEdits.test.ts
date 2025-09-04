@@ -1,26 +1,36 @@
 import { expect, test } from '@jest/globals'
-import { MockRpc } from '@lvce-editor/rpc'
+import { EditorWorker } from '@lvce-editor/rpc-registry'
 import { applyEdits } from '../src/parts/ApplyEdits/ApplyEdits.ts'
-import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
 
 test('applyEdits - forwards to Editor.applyEdit', async () => {
-  let received: any[] | undefined
-  const mockRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string, ...args: any[]) => {
-      if (method === 'FileSystem.readDirWithFileTypes') {
-        return []
-      }
-      if (method === 'Editor.applyEdit2') {
-        received = args
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
+  const commandMap = {
+    'Editor.applyDocumentEdits': () => {
+      return undefined
     },
-  })
-  EditorWorker.set(mockRpc)
+  }
+  const mockRpc = EditorWorker.registerMockRpc(commandMap)
 
-  await applyEdits(1, [{ rowIndex: 0, startColumnIndex: 0, endColumnIndex: 3, newText: 'baz' }])
+  await applyEdits(1, [
+    {
+      start: { rowIndex: 0, columnIndex: 0 },
+      end: { rowIndex: 0, columnIndex: 3 },
+      inserted: ['baz'],
+      deleted: ['foo'],
+      origin: 'find-widget.replace',
+    },
+  ])
 
-  expect(received).toEqual([1, [{ rowIndex: 0, startColumnIndex: 0, endColumnIndex: 3, newText: 'baz' }]])
+  expect(mockRpc.invocations[0]).toEqual([
+    'Editor.applyDocumentEdits',
+    1,
+    [
+      {
+        start: { rowIndex: 0, columnIndex: 0 },
+        end: { rowIndex: 0, columnIndex: 3 },
+        inserted: ['baz'],
+        deleted: ['foo'],
+        origin: 'find-widget.replace',
+      },
+    ],
+  ])
 })

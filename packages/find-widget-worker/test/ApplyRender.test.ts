@@ -1,9 +1,9 @@
 import { test, expect } from '@jest/globals'
+import { ViewletCommand } from '@lvce-editor/constants'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 import * as ApplyRender from '../src/parts/ApplyRender/ApplyRender.ts'
 import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DiffType from '../src/parts/DiffType/DiffType.ts'
-import { ViewletCommand } from '@lvce-editor/constants'
 
 test('applyRender - RenderContent', () => {
   const oldState: FindWidgetState = CreateDefaultState.createDefaultState()

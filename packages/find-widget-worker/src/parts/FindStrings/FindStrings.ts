@@ -43,3 +43,7 @@ export const replace = () => {
 export const replaceAll = () => {
   return I18nString.i18nString(UiStrings.ReplaceAll)
 }
+
+export const matchCase = (): string => {
+  return 'Match Case'
+}

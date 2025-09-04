@@ -1,6 +1,19 @@
-export interface TextEdit {
+export interface Range {
   readonly rowIndex: number
-  readonly startColumnIndex: number
-  readonly endColumnIndex: number
-  readonly newText: string
+  readonly columnIndex: number
 }
+
+export interface Selection {
+  readonly start: Range
+  readonly end: Range
+}
+
+export interface Change {
+  readonly start: Range
+  readonly end: Range
+  readonly inserted: readonly string[]
+  readonly deleted: readonly string[]
+  readonly origin: string
+}
+
+export type TextEdit = Change

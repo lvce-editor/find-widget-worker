@@ -56,7 +56,7 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
     },
     {
       type: VirtualDomElements.Div,
-      className: `${ClassNames.MaskIcon} TestIcon`,
+      className: `${ClassNames.MaskIcon} MaskIconTestIcon`,
       childCount: 0,
     },
   ])

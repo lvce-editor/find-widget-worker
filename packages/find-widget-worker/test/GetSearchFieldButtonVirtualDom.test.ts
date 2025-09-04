@@ -23,7 +23,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for un
     },
     {
       type: VirtualDomElements.Div,
-      className: `${ClassNames.MaskIcon} TestIcon`,
+      className: `${ClassNames.MaskIcon} MaskIconTestIcon`,
       childCount: 0,
     },
   ])
@@ -48,7 +48,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for ch
     },
     {
       type: VirtualDomElements.Div,
-      className: `${ClassNames.MaskIcon} TestIcon`,
+      className: `${ClassNames.MaskIcon} MaskIconTestIcon`,
       childCount: 0,
     },
   ])

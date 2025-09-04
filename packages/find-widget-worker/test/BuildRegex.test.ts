@@ -37,5 +37,3 @@ test('regex + whole word wraps without escaping', () => {
   const r = buildRegex('fo+', { matchCase: true, matchWholeWord: true, useRegularExpression: true })
   expect(String(r)).toBe('/\\b(?:fo+)\\b/g')
 })
-
-

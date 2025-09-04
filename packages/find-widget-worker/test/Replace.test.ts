@@ -31,7 +31,7 @@ test('replace - replaces only focused match', async () => {
       if (method === 'FileSystem.readDirWithFileTypes') {
         return []
       }
-      if (method === 'Editor.applyEdit2') {
+      if (method === 'Editor.applyDocumentEdits') {
         received = args
         return undefined
       }

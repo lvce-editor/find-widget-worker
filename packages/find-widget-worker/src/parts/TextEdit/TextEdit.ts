@@ -4,5 +4,3 @@ export interface TextEdit {
   readonly endColumnIndex: number
   readonly newText: string
 }
-
-

@@ -3,9 +3,10 @@ import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.js'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.js'
 import * as GetSearchFieldButtonVirtualDom from '../src/parts/GetSearchFieldButtonVirtualDom/GetSearchFieldButtonVirtualDom.js'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.js'
+import { ISearchFieldButton } from '../src/parts/ISearchFieldButton/ISearchFieldButton.ts'
 
 test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for unchecked button', () => {
-  const button = {
+  const button: ISearchFieldButton = {
     icon: 'TestIcon',
     checked: false,
     title: 'Test Title',
@@ -31,7 +32,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for un
 })
 
 test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for checked button', () => {
-  const button = {
+  const button: ISearchFieldButton = {
     icon: 'TestIcon',
     checked: true,
     title: 'Test Title',

@@ -10,11 +10,12 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
   const placeholder = 'test-placeholder'
   const onInput = 'test-onInput'
   const onFocus = 'test-onFocus'
-  const insideButtons = [
+  const insideButtons: readonly ISearchFieldButton[] = [
     {
       icon: 'TestIcon',
       checked: false,
       title: 'Test Title',
+      name: 'Test',
     },
   ]
   const outsideButtons: ISearchFieldButton[] = []

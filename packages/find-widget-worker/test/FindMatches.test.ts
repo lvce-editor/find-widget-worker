@@ -42,5 +42,3 @@ test('regex with whole word', () => {
   const result = findMatches(lines, 'fo+', { matchCase: false, matchWholeWord: true, useRegularExpression: true })
   expect(result).toEqual(new Uint32Array([0, 0, 1, 7]))
 })
-
-

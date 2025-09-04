@@ -1,12 +1,6 @@
 import type { TextEdit } from '../TextEdit/TextEdit.ts'
 
-export const getEdits = (
-  matches: Uint32Array,
-  value: string,
-  replacement: string,
-  startIndex: number,
-  replaceAll: boolean,
-): readonly TextEdit[] => {
+export const getEdits = (matches: Uint32Array, value: string, replacement: string, startIndex: number, replaceAll: boolean): readonly TextEdit[] => {
   if (value.length === 0 || matches.length === 0) {
     return []
   }

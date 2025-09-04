@@ -1,5 +1,5 @@
 import { expect, test } from '@jest/globals'
-import { EditorWorker } from '@lvce-editor/rpc-registery'
+import { EditorWorker } from '@lvce-editor/rpc-registry'
 import { applyEdits } from '../src/parts/ApplyEdits/ApplyEdits.ts'
 
 test('applyEdits - forwards to Editor.applyEdit', async () => {

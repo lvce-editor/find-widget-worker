@@ -1,5 +1,5 @@
 import { expect, test } from '@jest/globals'
-import { EditorWorker } from '@lvce-editor/rpc-registery'
+import { EditorWorker } from '@lvce-editor/rpc-registry'
 import { getLines } from '../src/parts/GetLines/GetLines.ts'
 
 test('getLines', async () => {

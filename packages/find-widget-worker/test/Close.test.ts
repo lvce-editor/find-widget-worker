@@ -1,5 +1,5 @@
 import { test, expect } from '@jest/globals'
-import { EditorWorker } from '@lvce-editor/rpc-registery'
+import { EditorWorker } from '@lvce-editor/rpc-registry'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 import * as Close from '../src/parts/Close/Close.ts'
 import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'

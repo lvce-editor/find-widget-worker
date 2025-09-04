@@ -55,5 +55,9 @@ export const getEventListeners = (uid: number, widgetId: number): readonly DomEv
       name: DomEventListenerFunctions.HandleClickReplaceAll,
       params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickReplaceAll', 0, widgetId],
     },
+    {
+      name: DomEventListenerFunctions.HandleClickButton,
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickButton', 0, widgetId, `event.target.name`],
+    },
   ]
 }

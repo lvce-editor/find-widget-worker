@@ -1,7 +1,7 @@
 import { expect, test } from '@jest/globals'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import * as FindWidgetToggleUseRegularExpression from '../src/parts/FindWidgetToggleUseRegularExpression/FindWidgetToggleUseRegularExpression.ts'
 import * as FindWidgetRefreshWithEditor from '../src/parts/FindWidgetRefreshWithEditor/FindWidgetRefreshWithEditor.ts'
+import * as FindWidgetToggleUseRegularExpression from '../src/parts/FindWidgetToggleUseRegularExpression/FindWidgetToggleUseRegularExpression.ts'
 
 test('toggleUseRegularExpression - toggles from false to true', () => {
   const state = createDefaultState()

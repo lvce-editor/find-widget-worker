@@ -1,3 +1,4 @@
+import { terminate } from '@lvce-editor/viewlet-registry'
 import * as Create from '../Create/Create.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
 import * as Dispose from '../Dispose/Dispose.ts'
@@ -13,7 +14,6 @@ import * as FindWidgetToggleReplace from '../FindWidgetToggleReplace/FindWidgetT
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as PreventDefaultBrowserFind from '../PreventDefaultBrowserFind/PreventDefaultBrowserFind.ts'
 import * as Render2 from '../Render2/Render2.ts'
-import * as Terminate from '../Terminate/Terminate.ts'
 
 export const commandMap = {
   'FindWidget.create': Create.create,
@@ -34,6 +34,6 @@ export const commandMap = {
   'FindWidget.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'FindWidget.preventDefaultBrowserFind': WrapCommand.wrapCommand(PreventDefaultBrowserFind.preventDefaultBrowserFind),
   'FindWidget.render2': Render2.render2,
-  'FindWidget.terminate': Terminate.terminate,
+  'FindWidget.terminate': terminate,
   'FindWidget.toggleReplace': WrapCommand.wrapCommand(FindWidgetToggleReplace.toggleReplace),
 }

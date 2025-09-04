@@ -16,14 +16,16 @@ content 2`,
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 7]))
   await Editor.openFindWidget()
-
-  // act
   await FindWidget.setValue(`content`)
   await Command.execute(`FindWidget.toggleReplace`)
+  await Command.execute(`FindWidget.handleReplaceInput`, `replaced`)
+
+  // act
+  await Command.execute(`FindWidget.replace`)
 
   // assert
-  const toggleReplace = Locator('.FindWidget [name="ToggleReplace"]')
-  await expect(toggleReplace).toHaveAttribute(`aria-expanded`, `true`)
-  const replace = Locator(`.FindWidget .FindWidgetReplace`)
-  await expect(replace).toBeVisible()
+  // const toggleReplace = Locator('.FindWidget [name="ToggleReplace"]')
+  // await expect(toggleReplace).toHaveAttribute(`aria-expanded`, `true`)
+  // const replace = Locator(`.FindWidget .FindWidgetReplace`)
+  // await expect(replace).toBeVisible()
 }

@@ -1,6 +1,6 @@
 import { expect, test } from '@jest/globals'
 import { applyEdits } from '../src/parts/ApplyEdits/ApplyEdits.ts'
-import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
+import { EditorWorker } from '@lvce-editor/rpc-registery'
 
 test('applyEdits - forwards to Editor.applyEdit', async () => {
   const commandMap = {

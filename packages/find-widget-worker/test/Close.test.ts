@@ -2,7 +2,7 @@ import { test, expect } from '@jest/globals'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 import * as Close from '../src/parts/Close/Close.ts'
 import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
+import { EditorWorker } from '@lvce-editor/rpc-registery'
 
 test('close should invoke Editor.closeFind2 and return state', async () => {
   const commandMap = {

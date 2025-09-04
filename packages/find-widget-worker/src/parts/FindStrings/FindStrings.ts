@@ -45,5 +45,13 @@ export const replaceAll = () => {
 }
 
 export const matchCase = (): string => {
-  return 'Match Case'
+  return I18nString.i18nString(UiStrings.MatchCase)
+}
+
+export const matchWholeWord = (): string => {
+  return I18nString.i18nString(UiStrings.MatchWholeWord)
+}
+
+export const useRegularExpression = (): string => {
+  return I18nString.i18nString(UiStrings.UseRegularExpression)
 }

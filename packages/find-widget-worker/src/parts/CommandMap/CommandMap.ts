@@ -7,6 +7,7 @@ import * as FindWidgetFocusIndex from '../FindWidgetFocusIndex/FindWidgetFocusIn
 import * as FindWidgetFocusReplace from '../FindWidgetFocusReplace/FindWidgetFocusReplace.ts'
 import * as FindWidgetFocusReplaceAllButton from '../FindWidgetFocusReplaceAllButton/FindWidgetFocusReplaceAllButton.ts'
 import * as FindWidgetHandleBlur from '../FindWidgetHandleBlur/FindWidgetHandleBlur.ts'
+import { handleClickButton } from '../FindWidgetHandleClickButton/FindWidgetHandleClickButton.ts'
 import * as HandleClickClose from '../FindWidgetHandleClickClose/FindWidgetHandleClickClose.ts'
 import * as HandleInput from '../FindWidgetHandleInput/FindWidgetHandleInput.ts'
 import * as WrapCommand from '../FindWidgetStates/FindWidgetStates.ts'
@@ -45,5 +46,6 @@ export const commandMap = {
   'FindWidget.toggleReplace': WrapCommand.wrapCommand(FindWidgetToggleReplace.toggleReplace),
   'FindWidget.replace': WrapCommand.wrapCommand(replace),
   'FindWidget.replaceAll': WrapCommand.wrapCommand(replaceAll),
+  'FindWidget.handleClickButton': WrapCommand.wrapCommand(handleClickButton),
   'FindWidget.toggleUseRegularExpression': WrapCommand.wrapCommand(toggleUseRegularExpression),
 }

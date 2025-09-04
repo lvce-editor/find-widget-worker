@@ -8,6 +8,7 @@ export interface FindWidgetState {
   readonly editorY: number
   readonly focus: number
   readonly focused: boolean
+  readonly preserveCase: boolean
   readonly focusSource: number
   readonly height: number
   readonly inputSource: number

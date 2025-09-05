@@ -25,6 +25,7 @@ import * as Render2 from '../Render2/Render2.ts'
 import { replace } from '../Replace/Replace.ts'
 import { replaceAll } from '../ReplaceAll/ReplaceAll.ts'
 import { resize } from '../Resize/Resize.ts'
+import { saveState } from '../SaveState/SaveState.ts'
 
 export const commandMap = {
   'FindWidget.create': Create.create,
@@ -55,6 +56,7 @@ export const commandMap = {
   'FindWidget.replaceAll': WrapCommand.wrapCommand(replaceAll),
   'FindWidget.resize': WrapCommand.wrapCommand(resize),
   'FindWidget.terminate': terminate,
+  'FindWidget.saveState': WrapCommand.wrapGetter(saveState),
   'FindWidget.toggleMatchCase': WrapCommand.wrapCommand(toggleMatchCase),
   'FindWidget.toggleReplace': WrapCommand.wrapCommand(FindWidgetToggleReplace.toggleReplace),
   'FindWidget.toggleUseRegularExpression': WrapCommand.wrapCommand(toggleUseRegularExpression),

@@ -5,13 +5,13 @@ import { loadContent } from '../src/parts/LoadContent/LoadContent.ts'
 
 test('loadContent - empty lines', async () => {
   const commandMap = {
-    'FileSystem.readDirWithFileTypes': () => {
+    'FileSystem.readDirWithFileTypes': (): any => {
       return []
     },
-    'Editor.getLines2': () => {
+    'Editor.getLines2': (): any => {
       return []
     },
-    'Editor.getSelections2': () => {
+    'Editor.getSelections2': (): any => {
       return [0, 0, 0, 0]
     },
   }
@@ -24,13 +24,13 @@ test('loadContent - empty lines', async () => {
 
 test('loadContent - with content', async () => {
   const commandMap2 = {
-    'FileSystem.readDirWithFileTypes': () => {
+    'FileSystem.readDirWithFileTypes': (): any => {
       return []
     },
-    'Editor.getLines2': () => {
+    'Editor.getLines2': (): any => {
       return ['hello world']
     },
-    'Editor.getSelections2': () => {
+    'Editor.getSelections2': (): any => {
       return [0, 0, 0, 5]
     },
   }

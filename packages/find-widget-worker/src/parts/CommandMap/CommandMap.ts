@@ -10,6 +10,7 @@ import * as FindWidgetHandleBlur from '../FindWidgetHandleBlur/FindWidgetHandleB
 import { handleClickButton } from '../FindWidgetHandleClickButton/FindWidgetHandleClickButton.ts'
 import * as HandleClickClose from '../FindWidgetHandleClickClose/FindWidgetHandleClickClose.ts'
 import * as HandleInput from '../FindWidgetHandleInput/FindWidgetHandleInput.ts'
+import * as FindWidgetHandleReplaceFocus from '../FindWidgetHandleReplaceFocus/FindWidgetHandleReplaceFocus.ts'
 import * as WrapCommand from '../FindWidgetStates/FindWidgetStates.ts'
 import { toggleMatchCase } from '../FindWidgetToggleMatchCase/FindWidgetToggleMatchCase.ts'
 import * as FindWidgetToggleReplace from '../FindWidgetToggleReplace/FindWidgetToggleReplace.ts'
@@ -29,23 +30,24 @@ export const commandMap = {
   'FindWidget.focusFirst': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusFirst),
   'FindWidget.focusIndex': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusIndex),
   'FindWidget.focusLast': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusLast),
-  'FindWidget.toggleMatchCase': WrapCommand.wrapCommand(toggleMatchCase),
   'FindWidget.focusNext': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusNext),
   'FindWidget.focusPrevious': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusPrevious),
   'FindWidget.focusReplace': WrapCommand.wrapCommand(FindWidgetFocusReplace.focusReplace),
   'FindWidget.focusReplaceAllButton': WrapCommand.wrapCommand(FindWidgetFocusReplaceAllButton.focusReplaceAllButton),
   'FindWidget.getCommandIds': WrapCommand.getCommandIds,
   'FindWidget.handleBlur': WrapCommand.wrapCommand(FindWidgetHandleBlur.handleBlur),
+  'FindWidget.handleClickButton': WrapCommand.wrapCommand(handleClickButton),
   'FindWidget.handleClickClose': WrapCommand.wrapCommand(HandleClickClose.handleClickClose),
   'FindWidget.handleInput': WrapCommand.wrapCommand(HandleInput.handleInput),
+  'FindWidget.handleReplaceFocus': WrapCommand.wrapCommand(FindWidgetHandleReplaceFocus.handleReplaceFocus),
   'FindWidget.handleReplaceInput': WrapCommand.wrapCommand(handleReplaceInput),
   'FindWidget.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'FindWidget.preventDefaultBrowserFind': WrapCommand.wrapCommand(PreventDefaultBrowserFind.preventDefaultBrowserFind),
   'FindWidget.render2': Render2.render2,
-  'FindWidget.terminate': terminate,
-  'FindWidget.toggleReplace': WrapCommand.wrapCommand(FindWidgetToggleReplace.toggleReplace),
   'FindWidget.replace': WrapCommand.wrapCommand(replace),
   'FindWidget.replaceAll': WrapCommand.wrapCommand(replaceAll),
-  'FindWidget.handleClickButton': WrapCommand.wrapCommand(handleClickButton),
+  'FindWidget.terminate': terminate,
+  'FindWidget.toggleMatchCase': WrapCommand.wrapCommand(toggleMatchCase),
+  'FindWidget.toggleReplace': WrapCommand.wrapCommand(FindWidgetToggleReplace.toggleReplace),
   'FindWidget.toggleUseRegularExpression': WrapCommand.wrapCommand(toggleUseRegularExpression),
 }

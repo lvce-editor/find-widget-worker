@@ -5,6 +5,10 @@ export const noResults = (): string => {
   return I18nString.i18nString(UiStrings.NoResults)
 }
 
+export const preserveCase = (): string => {
+  return I18nString.i18nString(UiStrings.PreserveCase)
+}
+
 export const matchOf = (matchIndex: number, matchCount: number): string => {
   return I18nString.i18nString(UiStrings.MatchOf, {
     PH1: matchIndex,

@@ -8,7 +8,7 @@ import * as GetSelectedText from '../GetSelectedText/GetSelectedText.ts'
 import * as GetSelections from '../GetSelections/GetSelections.ts'
 import { restoreState } from '../RestoreState/RestoreState.ts'
 
-export const loadContent = async (state: FindWidgetState, savedState: any): Promise<FindWidgetState> => {
+export const loadContent = async (state: FindWidgetState, savedState?: any): Promise<FindWidgetState> => {
   const { editorUid, editorWidth, editorX, editorY } = state
   const { replacement, value } = restoreState(savedState)
   const lines = await GetLines.getLines(editorUid)

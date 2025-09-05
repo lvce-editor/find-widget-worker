@@ -17,13 +17,12 @@ export const getFindWidgetFindVirtualDom = (
   matchCount: number,
   value: string,
 ): readonly VirtualDomNode[] => {
-  const dom: VirtualDomNode[] = []
-  dom.push({
-    type: VirtualDomElements.Div,
-    className: ClassNames.FindWidgetFind,
-    childCount: 5,
-  })
-  dom.push(
+  return [
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.FindWidgetFind,
+      childCount: 5,
+    },
     ...GetSearchFieldVirtualDom.getSearchFieldVirtualDom(
       InputName.SearchValue,
       FindStrings.find(),
@@ -32,16 +31,12 @@ export const getFindWidgetFindVirtualDom = (
       [],
       DomEventListenerFunctions.HandleFocus,
     ),
-  )
-  const findClassName = GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, value)
-  dom.push(
     {
       type: VirtualDomElements.Div,
-      className: findClassName,
+      className: GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, value),
       childCount: 1,
     },
     text(matchCountText),
     ...buttons.flatMap(GetIconButtonVirtualDom.getIconButtonVirtualDom),
-  )
-  return dom
+  ]
 }

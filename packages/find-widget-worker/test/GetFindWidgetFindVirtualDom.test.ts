@@ -45,7 +45,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
       childCount: 3,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Button,
       className: ClassNames.SearchFieldButton,
       title: 'Match Case',
       name: 'MatchCase',
@@ -61,7 +61,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
       childCount: 0,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Button,
       className: ClassNames.SearchFieldButton,
       title: 'Match Whole Word',
       name: 'MatchWholeWord',
@@ -77,7 +77,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
       childCount: 0,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Button,
       className: ClassNames.SearchFieldButton,
       title: 'Use Regular Expression',
       name: 'UseRegularExpression',
@@ -151,7 +151,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
       childCount: 3,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Button,
       className: ClassNames.SearchFieldButton,
       title: 'Match Case',
       name: 'MatchCase',
@@ -167,7 +167,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
       childCount: 0,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Button,
       className: ClassNames.SearchFieldButton,
       title: 'Match Whole Word',
       name: 'MatchWholeWord',
@@ -183,7 +183,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
       childCount: 0,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Button,
       className: ClassNames.SearchFieldButton,
       title: 'Use Regular Expression',
       name: 'UseRegularExpression',

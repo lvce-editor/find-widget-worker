@@ -48,7 +48,7 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
       childCount: insideButtons.length,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Button,
       className: ClassNames.SearchFieldButton,
       title: 'Test Title',
       name: 'Test',

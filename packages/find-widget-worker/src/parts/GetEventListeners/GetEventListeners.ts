@@ -58,7 +58,7 @@ export const getEventListeners = (uid: number, widgetId: number): readonly DomEv
     },
     {
       name: DomEventListenerFunctions.HandleClickButton,
-      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickButton', 0, widgetId, `event.target.name`],
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickButton', 0, widgetId, EventExpression.TargetName],
     },
     {
       name: DomEventListenerFunctions.HandleResizerPointerDown,

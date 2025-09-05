@@ -1,6 +1,6 @@
+import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { FindWidgetButton } from '../FindWidgetButton/FindWidgetButton.ts'
-import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as FindStrings from '../FindStrings/FindStrings.ts'
@@ -16,6 +16,9 @@ export const getFindWidgetFindVirtualDom = (
   buttons: readonly FindWidgetButton[],
   matchCount: number,
   value: string,
+  matchCase: boolean,
+  matchWholeWord: boolean,
+  useRegularExpression: boolean,
 ): readonly VirtualDomNode[] => {
   return [
     {
@@ -27,7 +30,7 @@ export const getFindWidgetFindVirtualDom = (
       InputName.SearchValue,
       FindStrings.find(),
       DomEventListenerFunctions.HandleInput,
-      GetFindButtons.getFindButtons(),
+      GetFindButtons.getFindButtons(matchCase, matchWholeWord, useRegularExpression),
       [],
       DomEventListenerFunctions.HandleFocus,
     ),

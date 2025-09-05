@@ -7,6 +7,7 @@ import * as GetFindWidgetFindVirtualDom from '../GetFindWidgetFindVirtualDom/Get
 import * as GetFindWidgetReplaceVirtualDom from '../GetFindWidgetReplaceVirtualDom/GetFindWidgetReplaceVirtualDom.ts'
 import * as GetSearchToggleButtonVirtualDom from '../GetSearchToggleButtonVirtualDom/GetSearchToggleButtonVirtualDom.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
+import { getResizerVirtualDom } from '../GetResizerVirtualDom/GetResizerVirtualDom.ts'
 
 export const getFindWidgetVirtualDom = (
   matchCountText: string,
@@ -23,9 +24,10 @@ export const getFindWidgetVirtualDom = (
   dom.push({
     type: VirtualDomElements.Div,
     className: MergeClassNames.mergeClassNames(ClassNames.Viewlet, ClassNames.ViewletFind, ClassNames.ViewletFindWidget, ClassNames.FindWidget),
-    childCount: 2,
+    childCount: 3,
     role: AriaRoles.Group,
   })
+  dom.push(...getResizerVirtualDom())
   dom.push(...GetSearchToggleButtonVirtualDom.getSearchToggleButtonVirtualDom(replaceExpanded, 'handleClickToggleReplace'))
   dom.push({
     type: VirtualDomElements.Div,

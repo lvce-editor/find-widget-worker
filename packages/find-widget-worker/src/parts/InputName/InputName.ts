@@ -1,5 +1,4 @@
 export const Close = 'Close'
-export const CodeGeneratorInput = 'CodeGeneratorInput'
 export const FocusNext = 'FocusNext'
 export const FocusPrevious = 'FocusPrevious'
 export const MatchCase = 'MatchCase'

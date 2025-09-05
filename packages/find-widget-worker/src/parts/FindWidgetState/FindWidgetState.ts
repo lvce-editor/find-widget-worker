@@ -8,7 +8,6 @@ export interface FindWidgetState {
   readonly editorY: number
   readonly focus: number
   readonly focused: boolean
-  readonly preserveCase: boolean
   readonly focusSource: number
   readonly height: number
   readonly inputSource: number
@@ -18,8 +17,10 @@ export interface FindWidgetState {
   readonly matches: Uint32Array
   readonly matchIndex: number
   readonly matchWholeWord: boolean
+  readonly preserveCase: boolean
   readonly replaceExpanded: boolean
   readonly replacement: string
+  readonly resizerPointerDown: boolean
   readonly selections: readonly number[]
   readonly uid: number
   readonly useRegularExpression: boolean

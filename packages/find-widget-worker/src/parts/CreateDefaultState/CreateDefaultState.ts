@@ -31,5 +31,6 @@ export const createDefaultState = (): FindWidgetState => {
     editorY: 0,
     inputSource: 0,
     preserveCase: false,
+    resizerPointerDown: false,
   }
 }

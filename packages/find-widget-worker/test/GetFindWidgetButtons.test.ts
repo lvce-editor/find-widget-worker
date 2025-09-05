@@ -4,9 +4,18 @@ import * as FindStrings from '../src/parts/FindStrings/FindStrings.ts'
 import * as GetFindWidgetButtons from '../src/parts/GetFindWidgedButtons/GetFindWidgetButtons.ts'
 import * as Icon from '../src/parts/Icon/Icon.ts'
 import * as Names from '../src/parts/InputName/InputName.ts'
+import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
 test('getFindWidgetButtons with find buttons enabled and replace buttons disabled', () => {
-  const result = GetFindWidgetButtons.getFindWidgetButtons(true, false)
+  const state = CreateDefaultState.createDefaultState()
+  const result = GetFindWidgetButtons.getFindWidgetButtons(
+    true,
+    false,
+    state.matchCase,
+    state.matchWholeWord,
+    state.useRegularExpression,
+    state.preserveCase,
+  )
   expect(result.findButtons).toEqual([
     {
       label: FindStrings.previousMatch(),
@@ -49,7 +58,15 @@ test('getFindWidgetButtons with find buttons enabled and replace buttons disable
 })
 
 test('getFindWidgetButtons with all buttons disabled', () => {
-  const result = GetFindWidgetButtons.getFindWidgetButtons(false, false)
+  const state = CreateDefaultState.createDefaultState()
+  const result = GetFindWidgetButtons.getFindWidgetButtons(
+    false,
+    false,
+    state.matchCase,
+    state.matchWholeWord,
+    state.useRegularExpression,
+    state.preserveCase,
+  )
   expect(result.findButtons).toEqual([
     {
       label: FindStrings.previousMatch(),
@@ -92,7 +109,15 @@ test('getFindWidgetButtons with all buttons disabled', () => {
 })
 
 test('getFindWidgetButtons with all buttons enabled', () => {
-  const result = GetFindWidgetButtons.getFindWidgetButtons(true, true)
+  const state = CreateDefaultState.createDefaultState()
+  const result = GetFindWidgetButtons.getFindWidgetButtons(
+    true,
+    true,
+    state.matchCase,
+    state.matchWholeWord,
+    state.useRegularExpression,
+    state.preserveCase,
+  )
   expect(result.findButtons).toEqual([
     {
       label: FindStrings.previousMatch(),

@@ -4,7 +4,7 @@ import * as GetFindWidgetReplaceVirtualDom from '../src/parts/GetFindWidgetRepla
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
 test('getFindWidgetReplaceVirtualDom - collapsed', () => {
-  const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(false, [])
+  const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(false, [], [])
   expect(result).toEqual([])
 })
 
@@ -18,8 +18,9 @@ test('getFindWidgetReplaceVirtualDom - expanded', () => {
       onClick: 'handleReplace',
     },
   ]
+  const replaceFieldButtons = []
 
-  const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(true, replaceButtons)
+  const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(true, replaceButtons, replaceFieldButtons)
 
   expect(result).toEqual([
     {

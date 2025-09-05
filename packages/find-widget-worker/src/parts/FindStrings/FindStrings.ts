@@ -36,15 +36,15 @@ export const close = (): string => {
   return I18nString.i18nString(UiStrings.Close)
 }
 
-export const find = () => {
+export const find = (): string => {
   return I18nString.i18nString(UiStrings.Find)
 }
 
-export const replace = () => {
+export const replace = (): string => {
   return I18nString.i18nString(UiStrings.Replace)
 }
 
-export const replaceAll = () => {
+export const replaceAll = (): string => {
   return I18nString.i18nString(UiStrings.ReplaceAll)
 }
 

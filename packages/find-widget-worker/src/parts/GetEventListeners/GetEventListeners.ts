@@ -74,7 +74,7 @@ export const getEventListeners = (uid: number, widgetId: number): readonly DomEv
       trackPointerEvents: [DomEventListenerFunctions.HandleResizerPointerMove, DomEventListenerFunctions.HandleResizerPointerUp],
     },
     {
-      name: DomEventListenerFunctions.HandleSliderPointerMove,
+      name: DomEventListenerFunctions.HandleResizerPointerMove,
       params: [
         'executeWidgetCommand',
         'FindWidget',

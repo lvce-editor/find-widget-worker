@@ -34,14 +34,14 @@ export const getFindWidgetButtons = (findButtonsEnabled: boolean, replaceButtons
       label: FindStrings.replace(),
       icon: Icon.Replace,
       disabled: !replaceButtonsEnabled,
-      onClick: DomEventListenerFunctions.HandleClickReplace,
+      onClick: DomEventListenerFunctions.HandleClickButton,
       name: Names.Replace,
     },
     {
       label: FindStrings.replaceAll(),
       icon: Icon.ReplaceAll,
       disabled: !replaceButtonsEnabled,
-      onClick: DomEventListenerFunctions.HandleClickReplaceAll,
+      onClick: DomEventListenerFunctions.HandleClickButton,
       name: Names.ReplaceAll,
     },
   ]

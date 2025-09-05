@@ -36,7 +36,15 @@ export const getFindWidgetVirtualDom = (
       className: ClassNames.FindWidgetRight,
       childCount: replaceExpanded ? 2 : 1,
     },
-    ...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, findButtons, matchCount, value),
+    ...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(
+      matchCountText,
+      findButtons,
+      matchCount,
+      value,
+      matchCase,
+      matchWholeWord,
+      useRegularExpression,
+    ),
     ...GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(replaceExpanded, replaceButtons),
   ]
 }

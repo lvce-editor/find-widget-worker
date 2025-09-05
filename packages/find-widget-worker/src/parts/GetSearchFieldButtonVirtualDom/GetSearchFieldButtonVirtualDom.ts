@@ -6,15 +6,16 @@ import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 
 export const getSearchFieldButtonVirtualDom = (button: ISearchFieldButton): readonly VirtualDomNode[] => {
-  const { icon, checked, title } = button
+  const { icon, checked, title, name } = button
   return [
     {
       type: VirtualDomElements.Div,
-      className: MergeClassNames.mergeClassNames(ClassNames.SearchFieldButton, checked ? ClassNames.SearchFieldButtonChecked : ''),
-      title,
-      role: AriaRoles.CheckBox,
       ariaChecked: checked,
+      className: MergeClassNames.mergeClassNames(ClassNames.SearchFieldButton, checked ? ClassNames.SearchFieldButtonChecked : ''),
+      name,
+      role: AriaRoles.CheckBox,
       tabIndex: 0,
+      title,
       childCount: 1,
     },
     {

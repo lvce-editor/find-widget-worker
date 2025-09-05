@@ -9,7 +9,7 @@ export const getSearchFieldButtonVirtualDom = (button: ISearchFieldButton): read
   const { icon, checked, title, name, onClick } = button
   return [
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Button,
       ariaChecked: checked,
       className: MergeClassNames.mergeClassNames(ClassNames.SearchFieldButton, checked ? ClassNames.SearchFieldButtonChecked : ''),
       name,

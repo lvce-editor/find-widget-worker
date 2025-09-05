@@ -1,3 +1,4 @@
+import { EventExpression } from '@lvce-editor/constants'
 import type { DomEventListener } from '../DomEventListener/DomEventListener.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 
@@ -58,6 +59,42 @@ export const getEventListeners = (uid: number, widgetId: number): readonly DomEv
     {
       name: DomEventListenerFunctions.HandleClickButton,
       params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickButton', 0, widgetId, `event.target.name`],
+    },
+    {
+      name: DomEventListenerFunctions.HandleResizerPointerDown,
+      params: [
+        'executeWidgetCommand',
+        'FindWidget',
+        'FindWidget.handleResizerPointerDown',
+        0,
+        widgetId,
+        EventExpression.ClientX,
+        EventExpression.ClientY,
+      ],
+    },
+    {
+      name: DomEventListenerFunctions.HandleSliderPointerMove,
+      params: [
+        'executeWidgetCommand',
+        'FindWidget',
+        'FindWidget.handleResizerPointerMove',
+        0,
+        widgetId,
+        EventExpression.ClientX,
+        EventExpression.ClientY,
+      ],
+    },
+    {
+      name: DomEventListenerFunctions.HandleResizerPointerUp,
+      params: [
+        'executeWidgetCommand',
+        'FindWidget',
+        'FindWidget.handleResizerPointerUp',
+        0,
+        widgetId,
+        EventExpression.ClientX,
+        EventExpression.ClientY,
+      ],
     },
   ]
 }

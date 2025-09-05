@@ -13,7 +13,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
   const matchCount = 0
   const value = ''
 
-  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, matchCount, value)
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, matchCount, value, false, false, false)
 
   expect(result).toEqual([
     {
@@ -119,7 +119,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
   const matchCount = 3
   const value = 'test'
 
-  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, matchCount, value)
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, matchCount, value, false, false, false)
 
   expect(result).toEqual([
     {

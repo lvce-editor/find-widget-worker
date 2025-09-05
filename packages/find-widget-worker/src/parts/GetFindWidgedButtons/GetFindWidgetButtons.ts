@@ -1,11 +1,45 @@
 import type { FindWidgetButton } from '../FindWidgetButton/FindWidgetButton.ts'
 import type { FindWidgetButtons } from '../FindWidgetButtons/FindWidgetButtons.ts'
+import type { ISearchFieldButton } from '../ISearchFieldButton/ISearchFieldButton.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as FindStrings from '../FindStrings/FindStrings.ts'
 import * as Icon from '../Icon/Icon.ts'
+import * as InputName from '../InputName/InputName.ts'
 import * as Names from '../InputName/InputName.ts'
 
 export const getFindWidgetButtons = (findButtonsEnabled: boolean, replaceButtonsEnabled: boolean): FindWidgetButtons => {
+  const findFieldButtons: readonly ISearchFieldButton[] = [
+    {
+      checked: false,
+      icon: Icon.MatchCase,
+      title: FindStrings.matchCase(),
+      name: InputName.MatchCase,
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+    {
+      checked: false,
+      icon: Icon.MatchWholeWord,
+      title: FindStrings.matchWholeWord(),
+      name: InputName.MatchWholeWord,
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+    {
+      checked: false,
+      icon: Icon.UseRegularExpression,
+      title: FindStrings.useRegularExpression(),
+      name: InputName.UseRegularExpression,
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+  ]
+  const replaceFieldButtons: ISearchFieldButton[] = [
+    {
+      checked: false,
+      icon: 'PreserveCase',
+      title: FindStrings.preserveCase(),
+      name: InputName.PreserveCase,
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+  ]
   const findButtons: readonly FindWidgetButton[] = [
     {
       label: FindStrings.previousMatch(),
@@ -47,6 +81,8 @@ export const getFindWidgetButtons = (findButtonsEnabled: boolean, replaceButtons
   ]
   return {
     findButtons,
+    findFieldButtons,
     replaceButtons,
+    replaceFieldButtons,
   }
 }

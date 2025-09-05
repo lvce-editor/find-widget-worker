@@ -1,4 +1,5 @@
 import * as DiffBounds from '../DiffBounds/DiffBounds.ts'
+import * as DiffCss from '../DiffCss/DiffCss.ts'
 import * as DiffEventListeners from '../DiffEventListeners/DiffEventListeners.ts'
 import * as DiffFocusContext from '../DiffFocusContext/DiffFocusContext.ts'
 import * as DiffItems from '../DiffItems/DiffItems.ts'
@@ -14,6 +15,7 @@ export const modules = [
   DiffFocusContext.isEqual,
   DiffFocusContext.isEqual,
   DiffValue.isEqual,
+  DiffCss.isEqual,
 ]
 
 export const numbers = [
@@ -24,4 +26,5 @@ export const numbers = [
   DiffType.RenderFocusContext,
   DiffType.RenderFocus,
   DiffType.RenderValue,
+  DiffType.RenderCss,
 ]

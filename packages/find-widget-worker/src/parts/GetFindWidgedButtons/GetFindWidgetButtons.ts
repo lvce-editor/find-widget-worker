@@ -31,6 +31,15 @@ export const getFindWidgetButtons = (findButtonsEnabled: boolean, replaceButtons
       onClick: DomEventListenerFunctions.HandleClickButton,
     },
   ]
+  const replaceFieldButtons: ISearchFieldButton[] = [
+    {
+      checked: false,
+      icon: 'PreserveCase',
+      title: FindStrings.preserveCase(),
+      name: InputName.PreserveCase,
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+  ]
   const findButtons: readonly FindWidgetButton[] = [
     {
       label: FindStrings.previousMatch(),
@@ -71,8 +80,9 @@ export const getFindWidgetButtons = (findButtonsEnabled: boolean, replaceButtons
     },
   ]
   return {
-    findFieldButtons,
     findButtons,
+    findFieldButtons,
     replaceButtons,
+    replaceFieldButtons,
   }
 }

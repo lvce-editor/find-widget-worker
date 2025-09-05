@@ -1,6 +1,7 @@
 export const MatchesFoundFor = '{PH1} of {PH2} found for {PH3}'
 export const MatchOf = '{PH1} of {PH2}'
 export const NoResults = 'No Results'
+export const PreserveCase = 'Preserve Case'
 export const Close = 'Close'
 export const PreviousMatch = 'Previous Match'
 export const NextMatch = 'Next Match'

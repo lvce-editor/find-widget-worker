@@ -3,24 +3,24 @@ import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEven
 import * as Icon from '../Icon/Icon.ts'
 import * as InputName from '../InputName/InputName.ts'
 
-export const getFindButtons = (): readonly ISearchFieldButton[] => {
+export const getFindButtons = (matchCase: boolean, matchWholeWord: boolean, useRegularExpression: boolean): readonly ISearchFieldButton[] => {
   return [
     {
-      checked: false,
+      checked: matchCase,
       icon: Icon.MatchCase,
       title: 'Match Case',
       name: InputName.MatchCase,
       onClick: DomEventListenerFunctions.HandleClickButton,
     },
     {
-      checked: false,
+      checked: matchWholeWord,
       icon: Icon.MatchWholeWord,
       title: 'Match Whole Word',
       name: InputName.MatchWholeWord,
       onClick: DomEventListenerFunctions.HandleClickButton,
     },
     {
-      checked: false,
+      checked: useRegularExpression,
       icon: Icon.UseRegularExpression,
       title: 'Use Regular Expression',
       name: InputName.UseRegularExpression,

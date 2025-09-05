@@ -34,7 +34,17 @@ export const getFindWidgetVirtualDom = (
     className: ClassNames.FindWidgetRight,
     childCount: replaceExpanded ? 2 : 1,
   })
-  dom.push(...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, findButtons, matchCount, value))
+  dom.push(
+    ...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(
+      matchCountText,
+      findButtons,
+      matchCount,
+      value,
+      matchCase,
+      matchWholeWord,
+      useRegularExpression,
+    ),
+  )
   if (replaceExpanded) {
     dom.push(...GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(replaceExpanded, replaceButtons))
   }

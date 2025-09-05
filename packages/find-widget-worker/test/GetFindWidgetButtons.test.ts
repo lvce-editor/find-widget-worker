@@ -1,10 +1,10 @@
 import { test, expect } from '@jest/globals'
+import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as FindStrings from '../src/parts/FindStrings/FindStrings.ts'
 import * as GetFindWidgetButtons from '../src/parts/GetFindWidgedButtons/GetFindWidgetButtons.ts'
 import * as Icon from '../src/parts/Icon/Icon.ts'
 import * as Names from '../src/parts/InputName/InputName.ts'
-import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
 test('getFindWidgetButtons with find buttons enabled and replace buttons disabled', () => {
   const state = CreateDefaultState.createDefaultState()

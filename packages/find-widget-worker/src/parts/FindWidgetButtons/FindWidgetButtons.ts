@@ -3,6 +3,7 @@ import type { ISearchFieldButton } from '../ISearchFieldButton/ISearchFieldButto
 
 export interface FindWidgetButtons {
   readonly findButtons: readonly FindWidgetButton[]
-  readonly replaceButtons: readonly FindWidgetButton[]
   readonly findFieldButtons: readonly ISearchFieldButton[]
+  readonly replaceButtons: readonly FindWidgetButton[]
+  readonly replaceFieldButtons: readonly ISearchFieldButton[]
 }

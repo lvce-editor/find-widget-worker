@@ -20,11 +20,11 @@ test('getFindWidgetVirtualDom - collapsed', () => {
   expect(result[0]).toEqual({
     type: VirtualDomElements.Div,
     className: 'Viewlet ViewletFind ViewletFindWidget FindWidget',
-    childCount: 2,
+    childCount: 3,
     role: AriaRoles.Group,
   })
 
-  expect(result[1]).toEqual({
+  expect(result[3]).toEqual({
     type: VirtualDomElements.Button,
     className: 'IconButton SearchToggleButton ',
     title: 'Toggle Replace',
@@ -37,13 +37,13 @@ test('getFindWidgetVirtualDom - collapsed', () => {
     onFocus: 'handleToggleReplaceFocus',
   })
 
-  expect(result[2]).toEqual({
+  expect(result[4]).toEqual({
     childCount: 0,
     className: 'MaskIcon MaskIconChevronRight',
     type: 4,
   })
 
-  expect(result[3]).toEqual({
+  expect(result[5]).toEqual({
     type: VirtualDomElements.Div,
     className: ClassNames.FindWidgetRight,
     childCount: 1,
@@ -76,11 +76,11 @@ test('getFindWidgetVirtualDom - expanded', () => {
   expect(result[0]).toEqual({
     type: VirtualDomElements.Div,
     className: 'Viewlet ViewletFind ViewletFindWidget FindWidget',
-    childCount: 2,
+    childCount: 3,
     role: AriaRoles.Group,
   })
 
-  expect(result[1]).toEqual({
+  expect(result[3]).toEqual({
     type: VirtualDomElements.Button,
     className: 'IconButton SearchToggleButton SearchToggleButtonExpanded',
     title: 'Toggle Replace',
@@ -93,7 +93,7 @@ test('getFindWidgetVirtualDom - expanded', () => {
     onFocus: 'handleToggleReplaceFocus',
   })
 
-  expect(result[3]).toEqual({
+  expect(result[5]).toEqual({
     type: VirtualDomElements.Div,
     className: ClassNames.FindWidgetRight,
     childCount: 2,

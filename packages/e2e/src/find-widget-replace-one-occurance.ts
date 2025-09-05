@@ -17,11 +17,11 @@ content 2`,
   await Editor.setSelections(new Uint32Array([0, 0, 0, 7]))
   await Editor.openFindWidget()
   await FindWidget.setValue(`content`)
-  await Command.execute(`FindWidget.toggleReplace`)
-  await Command.execute(`FindWidget.handleReplaceInput`, `replaced`)
+  await FindWidget.toggleReplace()
+  await FindWidget.setReplaceValue('replaced')
 
   // act
-  await Command.execute(`FindWidget.replace`)
+  await FindWidget.replace()
 
   // assert
   // const toggleReplace = Locator('.FindWidget [name="ToggleReplace"]')

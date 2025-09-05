@@ -3,4 +3,5 @@ export interface ISearchFieldButton {
   readonly checked: boolean
   readonly title: string
   readonly name: string
+  readonly onClick: string
 }

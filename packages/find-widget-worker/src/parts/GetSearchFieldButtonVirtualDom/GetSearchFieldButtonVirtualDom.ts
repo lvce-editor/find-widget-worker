@@ -6,7 +6,7 @@ import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 
 export const getSearchFieldButtonVirtualDom = (button: ISearchFieldButton): readonly VirtualDomNode[] => {
-  const { icon, checked, title, name } = button
+  const { icon, checked, title, name, onClick } = button
   return [
     {
       type: VirtualDomElements.Div,
@@ -17,6 +17,7 @@ export const getSearchFieldButtonVirtualDom = (button: ISearchFieldButton): read
       tabIndex: 0,
       title,
       childCount: 1,
+      onClick,
     },
     {
       type: VirtualDomElements.Div,

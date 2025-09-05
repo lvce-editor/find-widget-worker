@@ -11,6 +11,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for un
     checked: false,
     title: 'Test Title',
     name: 'Test',
+    onClick: 'test-onClick',
   }
   const result = GetSearchFieldButtonVirtualDom.getSearchFieldButtonVirtualDom(button)
   expect(result).toEqual([
@@ -19,6 +20,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for un
       className: ClassNames.SearchFieldButton,
       title: 'Test Title',
       name: 'Test',
+      onClick: 'test-onClick',
       role: AriaRoles.CheckBox,
       ariaChecked: false,
       tabIndex: 0,
@@ -38,6 +40,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for ch
     checked: true,
     title: 'Test Title',
     name: 'Test',
+    onClick: 'test-onClick',
   }
   const result = GetSearchFieldButtonVirtualDom.getSearchFieldButtonVirtualDom(button)
   expect(result).toEqual([
@@ -46,6 +49,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for ch
       className: `${ClassNames.SearchFieldButton} ${ClassNames.SearchFieldButtonChecked}`,
       title: 'Test Title',
       name: 'Test',
+      onClick: 'test-onClick',
       role: AriaRoles.CheckBox,
       ariaChecked: true,
       tabIndex: 0,

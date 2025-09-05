@@ -26,7 +26,7 @@ test('getFindWidgetVirtualDom - collapsed', () => {
 
   expect(result[3]).toEqual({
     type: VirtualDomElements.Button,
-    className: 'IconButton SearchToggleButton ',
+    className: 'IconButton SearchToggleButton',
     title: 'Toggle Replace',
     ariaLabel: 'Toggle Replace',
     childCount: 1,

@@ -20,6 +20,7 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     y: 0,
     width: 0,
     height: 0,
+    measureDynamicHeight: false,
     focused: false,
     focusSource: FocusSource.Unknown,
     focus: 0,

@@ -10,6 +10,7 @@ export interface FindWidgetState {
   readonly focused: boolean
   readonly focusSource: number
   readonly height: number
+  readonly measureDynamicHeight: boolean
   readonly inputSource: number
   readonly lines: readonly string[]
   readonly matchCase: boolean

@@ -7,6 +7,7 @@ import * as GetMatchCount from '../GetMatchCount/GetMatchCount.ts'
 import * as GetSelectedText from '../GetSelectedText/GetSelectedText.ts'
 import * as GetSelections from '../GetSelections/GetSelections.ts'
 import { restoreState } from '../RestoreState/RestoreState.ts'
+import * as MaybeMeasureDynamicHeight from '../MaybeMeasureDynamicHeight/MaybeMeasureDynamicHeight.ts'
 
 export const loadContent = async (state: FindWidgetState, savedState?: any): Promise<FindWidgetState> => {
   const { editorUid, editorWidth, editorX, editorY } = state
@@ -20,7 +21,7 @@ export const loadContent = async (state: FindWidgetState, savedState?: any): Pro
   const actualValue = value || GetSelectedText.getSelectedText(lines, selections)
   const matches = FindMatchesCaseInsensitive.findMatchesCaseInsensitive(lines, actualValue)
   const matchCount = GetMatchCount.getMatchCount(matches)
-  return {
+  const result: FindWidgetState = {
     ...state,
     focused: true,
     height,
@@ -37,4 +38,6 @@ export const loadContent = async (state: FindWidgetState, savedState?: any): Pro
     x,
     y,
   }
+  MaybeMeasureDynamicHeight.schedule(result)
+  return result
 }

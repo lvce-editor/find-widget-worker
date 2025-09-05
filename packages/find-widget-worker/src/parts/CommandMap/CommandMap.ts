@@ -21,6 +21,7 @@ import * as PreventDefaultBrowserFind from '../PreventDefaultBrowserFind/Prevent
 import * as Render2 from '../Render2/Render2.ts'
 import { replace } from '../Replace/Replace.ts'
 import { replaceAll } from '../ReplaceAll/ReplaceAll.ts'
+import { resize } from '../Resize/Resize.ts'
 
 export const commandMap = {
   'FindWidget.create': Create.create,
@@ -40,6 +41,7 @@ export const commandMap = {
   'FindWidget.handleClickClose': WrapCommand.wrapCommand(HandleClickClose.handleClickClose),
   'FindWidget.handleInput': WrapCommand.wrapCommand(HandleInput.handleInput),
   'FindWidget.handleReplaceFocus': WrapCommand.wrapCommand(FindWidgetHandleReplaceFocus.handleReplaceFocus),
+  'FindWidget.resize': WrapCommand.wrapCommand(resize),
   'FindWidget.handleReplaceInput': WrapCommand.wrapCommand(handleReplaceInput),
   'FindWidget.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'FindWidget.preventDefaultBrowserFind': WrapCommand.wrapCommand(PreventDefaultBrowserFind.preventDefaultBrowserFind),

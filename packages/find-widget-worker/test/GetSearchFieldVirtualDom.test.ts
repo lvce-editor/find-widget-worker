@@ -50,6 +50,7 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
       type: VirtualDomElements.Div,
       className: ClassNames.SearchFieldButton,
       title: 'Test Title',
+      name: 'Test',
       role: AriaRoles.CheckBox,
       ariaChecked: false,
       tabIndex: 0,

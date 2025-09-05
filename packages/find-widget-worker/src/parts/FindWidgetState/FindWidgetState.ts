@@ -30,4 +30,5 @@ export interface FindWidgetState {
   readonly minWidth: number
   readonly x: number
   readonly y: number
+  readonly history: readonly string[]
 }

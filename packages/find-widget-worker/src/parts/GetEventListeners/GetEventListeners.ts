@@ -1,6 +1,6 @@
+import { EventExpression } from '@lvce-editor/constants'
 import type { DomEventListener } from '../DomEventListener/DomEventListener.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
-import { EventExpression } from '@lvce-editor/constants'
 
 export const getEventListeners = (uid: number, widgetId: number): readonly DomEventListener[] => {
   return [

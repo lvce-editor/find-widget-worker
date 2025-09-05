@@ -9,14 +9,14 @@ import * as Replace from '../src/parts/Replace/Replace.ts'
 import * as ReplaceAll from '../src/parts/ReplaceAll/ReplaceAll.ts'
 
 test('getClickHandler - maps names to handlers', () => {
-	expect(GetClickHandler.getClickHandler(InputName.MatchCase)).toBe(FindWidgetToggleMatchCase.toggleMatchCase)
-	expect(GetClickHandler.getClickHandler(InputName.MatchWholeWord)).toBe(FindWidgetToggleMatchWholeWord.toggleMatchWholeWord)
-	expect(GetClickHandler.getClickHandler(InputName.UseRegularExpression)).toBe(FindWidgetToggleUseRegularExpression.toggleUseRegularExpression)
-	expect(GetClickHandler.getClickHandler(InputName.PreserveCase)).toBe(FindWidgetTogglePreserveCase.togglePreserveCase)
-	expect(GetClickHandler.getClickHandler(InputName.Replace)).toBe(Replace.replace)
-	expect(GetClickHandler.getClickHandler(InputName.ReplaceAll)).toBe(ReplaceAll.replaceAll)
+  expect(GetClickHandler.getClickHandler(InputName.MatchCase)).toBe(FindWidgetToggleMatchCase.toggleMatchCase)
+  expect(GetClickHandler.getClickHandler(InputName.MatchWholeWord)).toBe(FindWidgetToggleMatchWholeWord.toggleMatchWholeWord)
+  expect(GetClickHandler.getClickHandler(InputName.UseRegularExpression)).toBe(FindWidgetToggleUseRegularExpression.toggleUseRegularExpression)
+  expect(GetClickHandler.getClickHandler(InputName.PreserveCase)).toBe(FindWidgetTogglePreserveCase.togglePreserveCase)
+  expect(GetClickHandler.getClickHandler(InputName.Replace)).toBe(Replace.replace)
+  expect(GetClickHandler.getClickHandler(InputName.ReplaceAll)).toBe(ReplaceAll.replaceAll)
 })
 
 test('getClickHandler - throws on unexpected click', () => {
-	expect(() => GetClickHandler.getClickHandler('unknown')).toThrow(new Error('unexpected click'))
+  expect(() => GetClickHandler.getClickHandler('unknown')).toThrow(new Error('unexpected click'))
 })

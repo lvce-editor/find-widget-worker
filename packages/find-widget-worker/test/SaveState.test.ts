@@ -3,25 +3,25 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as SaveState from '../src/parts/SaveState/SaveState.ts'
 
 test('saveState - picks subset of fields', () => {
-	const base = createDefaultState()
-	const state = {
-		...base,
-		width: 512,
-		value: 'abc',
-		replacement: 'x',
-		matchCase: true,
-		matchWholeWord: true,
-		useRegularExpression: true,
-		replaceExpanded: true,
-	}
-	const saved = SaveState.saveState(state)
-	expect(saved).toEqual({
-		width: 512,
-		value: 'abc',
-		replacement: 'x',
-		matchCase: true,
-		matchWholeWord: true,
-		useRegularExpression: true,
-		replaceExpanded: true,
-	})
+  const base = createDefaultState()
+  const state = {
+    ...base,
+    width: 512,
+    value: 'abc',
+    replacement: 'x',
+    matchCase: true,
+    matchWholeWord: true,
+    useRegularExpression: true,
+    replaceExpanded: true,
+  }
+  const saved = SaveState.saveState(state)
+  expect(saved).toEqual({
+    width: 512,
+    value: 'abc',
+    replacement: 'x',
+    matchCase: true,
+    matchWholeWord: true,
+    useRegularExpression: true,
+    replaceExpanded: true,
+  })
 })

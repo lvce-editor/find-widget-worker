@@ -11,6 +11,7 @@ import { handleClickButton } from '../FindWidgetHandleClickButton/FindWidgetHand
 import * as HandleClickClose from '../FindWidgetHandleClickClose/FindWidgetHandleClickClose.ts'
 import * as HandleInput from '../FindWidgetHandleInput/FindWidgetHandleInput.ts'
 import * as FindWidgetHandleReplaceFocus from '../FindWidgetHandleReplaceFocus/FindWidgetHandleReplaceFocus.ts'
+import { handleResizerPointerDown } from '../FindWidgetHandleResizerPointerDown/FindWidgetHandleResizerPointerDown.ts'
 import * as WrapCommand from '../FindWidgetStates/FindWidgetStates.ts'
 import { toggleMatchCase } from '../FindWidgetToggleMatchCase/FindWidgetToggleMatchCase.ts'
 import * as FindWidgetToggleReplace from '../FindWidgetToggleReplace/FindWidgetToggleReplace.ts'
@@ -52,4 +53,5 @@ export const commandMap = {
   'FindWidget.toggleMatchCase': WrapCommand.wrapCommand(toggleMatchCase),
   'FindWidget.toggleReplace': WrapCommand.wrapCommand(FindWidgetToggleReplace.toggleReplace),
   'FindWidget.toggleUseRegularExpression': WrapCommand.wrapCommand(toggleUseRegularExpression),
+  'FindWidget.handleResizerPointerDown': WrapCommand.wrapCommand(handleResizerPointerDown),
 }

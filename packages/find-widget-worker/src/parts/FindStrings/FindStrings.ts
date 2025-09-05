@@ -55,3 +55,6 @@ export const matchWholeWord = (): string => {
 export const useRegularExpression = (): string => {
   return I18nString.i18nString(UiStrings.UseRegularExpression)
 }
+export const toggleReplace = (): string => {
+  return I18nString.i18nString(UiStrings.ToggleReplace)
+}

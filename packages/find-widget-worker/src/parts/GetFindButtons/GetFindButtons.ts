@@ -1,5 +1,6 @@
 import type { ISearchFieldButton } from '../ISearchFieldButton/ISearchFieldButton.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
+import * as FindStrings from '../FindStrings/FindStrings.ts'
 import * as Icon from '../Icon/Icon.ts'
 import * as InputName from '../InputName/InputName.ts'
 
@@ -8,21 +9,21 @@ export const getFindButtons = (): readonly ISearchFieldButton[] => {
     {
       checked: false,
       icon: Icon.MatchCase,
-      title: 'Match Case',
+      title: FindStrings.matchCase(),
       name: InputName.MatchCase,
       onClick: DomEventListenerFunctions.HandleClickButton,
     },
     {
       checked: false,
       icon: Icon.MatchWholeWord,
-      title: 'Match Whole Word',
+      title: FindStrings.matchWholeWord(),
       name: InputName.MatchWholeWord,
       onClick: DomEventListenerFunctions.HandleClickButton,
     },
     {
       checked: false,
       icon: Icon.UseRegularExpression,
-      title: 'Use Regular Expression',
+      title: FindStrings.useRegularExpression(),
       name: InputName.UseRegularExpression,
       onClick: DomEventListenerFunctions.HandleClickButton,
     },

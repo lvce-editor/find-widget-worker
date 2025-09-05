@@ -32,6 +32,7 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     editorHeight: height,
     inputSource: 0,
     preserveCase: false,
+    resizerPointerDown: false,
   }
   FindWidgetStates.set(uid, state, state)
   return state

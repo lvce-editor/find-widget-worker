@@ -32,5 +32,6 @@ export const createDefaultState = (): FindWidgetState => {
     inputSource: 0,
     preserveCase: false,
     resizerPointerDown: false,
+    minWidth: 300,
   }
 }

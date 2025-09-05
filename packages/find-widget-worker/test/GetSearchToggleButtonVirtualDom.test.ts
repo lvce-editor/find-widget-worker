@@ -8,7 +8,7 @@ test('getSearchToggleButtonVirtualDom returns correct virtual dom elements for c
   expect(result).toEqual([
     {
       type: VirtualDomElements.Button,
-      className: 'IconButton SearchToggleButton ',
+      className: 'IconButton SearchToggleButton',
       title: 'Toggle Replace',
       ariaLabel: 'Toggle Replace',
       ariaExpanded: false,

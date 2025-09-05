@@ -9,6 +9,13 @@ import { getResizerVirtualDom } from '../GetResizerVirtualDom/GetResizerVirtualD
 import * as GetSearchToggleButtonVirtualDom from '../GetSearchToggleButtonVirtualDom/GetSearchToggleButtonVirtualDom.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 
+const parentNode: VirtualDomNode = {
+  type: VirtualDomElements.Div,
+  className: MergeClassNames.mergeClassNames(ClassNames.Viewlet, ClassNames.ViewletFind, ClassNames.ViewletFindWidget, ClassNames.FindWidget),
+  childCount: 3,
+  role: AriaRoles.Group,
+}
+
 export const getFindWidgetVirtualDom = (
   matchCountText: string,
   replaceExpanded: boolean,
@@ -20,23 +27,24 @@ export const getFindWidgetVirtualDom = (
   matchCount: number,
   value: string,
 ): readonly VirtualDomNode[] => {
-  const dom: VirtualDomNode[] = []
-  dom.push({
-    type: VirtualDomElements.Div,
-    className: MergeClassNames.mergeClassNames(ClassNames.Viewlet, ClassNames.ViewletFind, ClassNames.ViewletFindWidget, ClassNames.FindWidget),
-    childCount: 3,
-    role: AriaRoles.Group,
-  })
-  dom.push(...getResizerVirtualDom())
-  dom.push(...GetSearchToggleButtonVirtualDom.getSearchToggleButtonVirtualDom(replaceExpanded, 'handleClickToggleReplace'))
-  dom.push({
-    type: VirtualDomElements.Div,
-    className: ClassNames.FindWidgetRight,
-    childCount: replaceExpanded ? 2 : 1,
-  })
-  dom.push(...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, findButtons, matchCount, value))
-  if (replaceExpanded) {
-    dom.push(...GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(replaceExpanded, replaceButtons))
-  }
-  return dom
+  return [
+    parentNode,
+    ...getResizerVirtualDom(),
+    ...GetSearchToggleButtonVirtualDom.getSearchToggleButtonVirtualDom(replaceExpanded, 'handleClickToggleReplace'),
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.FindWidgetRight,
+      childCount: replaceExpanded ? 2 : 1,
+    },
+    ...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(
+      matchCountText,
+      findButtons,
+      matchCount,
+      value,
+      matchCase,
+      matchWholeWord,
+      useRegularExpression,
+    ),
+    ...GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(replaceExpanded, replaceButtons),
+  ]
 }

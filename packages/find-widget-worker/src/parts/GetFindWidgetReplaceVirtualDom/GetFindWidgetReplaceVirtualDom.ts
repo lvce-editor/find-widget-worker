@@ -9,24 +9,23 @@ import * as GetSearchFieldVirtualDom from '../GetSearchFieldVirtualDom/GetSearch
 import * as InputName from '../InputName/InputName.ts'
 
 export const getFindWidgetReplaceVirtualDom = (replaceExpanded: boolean, replaceButtons: readonly FindWidgetButton[]): readonly VirtualDomNode[] => {
-  const dom: VirtualDomNode[] = []
-  if (replaceExpanded) {
-    dom.push(
-      {
-        type: VirtualDomElements.Div,
-        className: ClassNames.FindWidgetReplace,
-        childCount: 1 + replaceButtons.length,
-      },
-      ...GetSearchFieldVirtualDom.getSearchFieldVirtualDom(
-        InputName.ReplaceValue,
-        FindStrings.replace(),
-        DomEventListenerFunctions.HandleReplaceInput,
-        [],
-        [],
-        DomEventListenerFunctions.HandleReplaceFocus,
-      ),
-      ...replaceButtons.flatMap(GetIconButtonVirtualDom.getIconButtonVirtualDom),
-    )
+  if (!replaceExpanded) {
+    return []
   }
-  return dom
+  return [
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.FindWidgetReplace,
+      childCount: 1 + replaceButtons.length,
+    },
+    ...GetSearchFieldVirtualDom.getSearchFieldVirtualDom(
+      InputName.ReplaceValue,
+      FindStrings.replace(),
+      DomEventListenerFunctions.HandleReplaceInput,
+      [],
+      [],
+      DomEventListenerFunctions.HandleReplaceFocus,
+    ),
+    ...replaceButtons.flatMap(GetIconButtonVirtualDom.getIconButtonVirtualDom),
+  ]
 }

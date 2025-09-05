@@ -1,6 +1,6 @@
 import type { ISearchFieldButton } from '../ISearchFieldButton/ISearchFieldButton.ts'
-import * as InputName from '../InputName/InputName.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
+import * as InputName from '../InputName/InputName.ts'
 
 export const getFindButtons = (): readonly ISearchFieldButton[] => {
   return [

@@ -3,7 +3,6 @@ import type { DomEventListener } from '../DomEventListener/DomEventListener.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 
 export const getEventListeners = (uid: number, widgetId: number): readonly DomEventListener[] => {
-  debugger
   return [
     {
       name: DomEventListenerFunctions.HandleInput,

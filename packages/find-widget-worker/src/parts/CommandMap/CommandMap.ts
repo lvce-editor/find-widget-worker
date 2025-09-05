@@ -12,6 +12,8 @@ import * as HandleClickClose from '../FindWidgetHandleClickClose/FindWidgetHandl
 import * as HandleInput from '../FindWidgetHandleInput/FindWidgetHandleInput.ts'
 import * as FindWidgetHandleReplaceFocus from '../FindWidgetHandleReplaceFocus/FindWidgetHandleReplaceFocus.ts'
 import { handleResizerPointerDown } from '../FindWidgetHandleResizerPointerDown/FindWidgetHandleResizerPointerDown.ts'
+import { handleResizerPointerMove } from '../FindWidgetHandleResizerPointerMove/FindWidgetHandleResizerPointerMove.ts'
+import { handleResizerPointerUp } from '../FindWidgetHandleResizerPointerUp/FindWidgetHandleResizerPointerUp.ts'
 import * as WrapCommand from '../FindWidgetStates/FindWidgetStates.ts'
 import { toggleMatchCase } from '../FindWidgetToggleMatchCase/FindWidgetToggleMatchCase.ts'
 import * as FindWidgetToggleReplace from '../FindWidgetToggleReplace/FindWidgetToggleReplace.ts'
@@ -42,16 +44,18 @@ export const commandMap = {
   'FindWidget.handleClickClose': WrapCommand.wrapCommand(HandleClickClose.handleClickClose),
   'FindWidget.handleInput': WrapCommand.wrapCommand(HandleInput.handleInput),
   'FindWidget.handleReplaceFocus': WrapCommand.wrapCommand(FindWidgetHandleReplaceFocus.handleReplaceFocus),
-  'FindWidget.resize': WrapCommand.wrapCommand(resize),
   'FindWidget.handleReplaceInput': WrapCommand.wrapCommand(handleReplaceInput),
+  'FindWidget.handleResizerPointerDown': WrapCommand.wrapCommand(handleResizerPointerDown),
+  'FindWidget.handleResizerPointerMove': WrapCommand.wrapCommand(handleResizerPointerMove),
+  'FindWidget.handleResizerPointerUp': WrapCommand.wrapCommand(handleResizerPointerUp),
   'FindWidget.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'FindWidget.preventDefaultBrowserFind': WrapCommand.wrapCommand(PreventDefaultBrowserFind.preventDefaultBrowserFind),
   'FindWidget.render2': Render2.render2,
   'FindWidget.replace': WrapCommand.wrapCommand(replace),
   'FindWidget.replaceAll': WrapCommand.wrapCommand(replaceAll),
+  'FindWidget.resize': WrapCommand.wrapCommand(resize),
   'FindWidget.terminate': terminate,
   'FindWidget.toggleMatchCase': WrapCommand.wrapCommand(toggleMatchCase),
   'FindWidget.toggleReplace': WrapCommand.wrapCommand(FindWidgetToggleReplace.toggleReplace),
   'FindWidget.toggleUseRegularExpression': WrapCommand.wrapCommand(toggleUseRegularExpression),
-  'FindWidget.handleResizerPointerDown': WrapCommand.wrapCommand(handleResizerPointerDown),
 }

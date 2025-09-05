@@ -3,13 +3,13 @@ import * as DiffType from '../src/parts/DiffType/DiffType.ts'
 import * as GetRenderer from '../src/parts/GetRenderer/GetRenderer.ts'
 import * as RenderBounds from '../src/parts/RenderBounds/RenderBounds.ts'
 import * as RenderContent from '../src/parts/RenderContent/RenderContent.ts'
+import * as RenderCss from '../src/parts/RenderCss/RenderCss.ts'
 import * as RenderEventListeners from '../src/parts/RenderEventListeners/RenderEventListeners.ts'
 import * as RenderFocus from '../src/parts/RenderFocus/RenderFocus.ts'
 import * as RenderFocusContext from '../src/parts/RenderFocusContext/RenderFocusContext.ts'
 import { renderReplaceValue } from '../src/parts/RenderReplaceValue/RenderReplaceValue.ts'
 import * as RenderUid from '../src/parts/RenderUid/RenderUid.ts'
 import * as RenderValue from '../src/parts/RenderValue/RenderValue.ts'
-import * as RenderCss from '../src/parts/RenderCss/RenderCss.ts'
 
 test('getRenderer returns correct renderer for RenderContent', () => {
   const renderer = GetRenderer.getRenderer(DiffType.RenderContent)

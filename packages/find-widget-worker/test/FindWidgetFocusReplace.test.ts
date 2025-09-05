@@ -1,9 +1,9 @@
 import { expect, test } from '@jest/globals'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import * as FindWidgetFocusReplace from '../src/parts/FindWidgetFocusReplace/FindWidgetFocusReplace.ts'
 import * as FocusKey from '../src/parts/FocusKey/FocusKey.ts'
 import * as FocusSource from '../src/parts/FocusSource/FocusSource.ts'
-import * as FindWidgetFocusReplace from '../src/parts/FindWidgetFocusReplace/FindWidgetFocusReplace.ts'
 
 test('focusReplace - sets focus and source', () => {
   const state: FindWidgetState = createDefaultState()

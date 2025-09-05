@@ -1,6 +1,6 @@
 import { expect, test } from '@jest/globals'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as FindWidgetHandleResizerPointerMove from '../src/parts/FindWidgetHandleResizerPointerMove/FindWidgetHandleResizerPointerMove.ts'
 
 test('handleResizerPointerMove - returns same state when not dragging', async () => {

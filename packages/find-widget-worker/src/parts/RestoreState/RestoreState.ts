@@ -18,8 +18,8 @@ const getSavedReplacement = (savedState: any): string => {
 }
 
 export const restoreState = (savedState: any): RestoredState => {
-  let value = getSavedValue(savedState)
-  let replacement = getSavedReplacement(savedState)
+  const value = getSavedValue(savedState)
+  const replacement = getSavedReplacement(savedState)
 
   return {
     value,

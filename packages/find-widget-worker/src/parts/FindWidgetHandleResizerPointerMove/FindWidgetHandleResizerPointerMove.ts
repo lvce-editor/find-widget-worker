@@ -1,9 +1,17 @@
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 
-const getNewWidth = (oldWidth: number, oldX: number, eventX: number, minWidth: number): number => {
+interface NewCoordinates {
+  readonly newX: number
+  readonly newWidth: number
+}
+
+const getNewCoordinates = (oldWidth: number, oldX: number, eventX: number, minWidth: number): NewCoordinates => {
   const oldXEnd = oldX + oldWidth
   const newWidth = Math.max(oldXEnd - eventX, minWidth)
-  return newWidth
+  return {
+    newWidth,
+    newX: eventX,
+  }
 }
 
 export const handleResizerPointerMove = async (state: FindWidgetState, eventX: number, eventY: number): Promise<FindWidgetState> => {
@@ -11,10 +19,10 @@ export const handleResizerPointerMove = async (state: FindWidgetState, eventX: n
   if (!resizerPointerDown) {
     return state
   }
-  const newWidth = getNewWidth(width, x, eventX, minWidth)
+  const { newWidth, newX } = getNewCoordinates(width, x, eventX, minWidth)
   return {
     ...state,
-    x: eventX,
+    x: newX,
     width: newWidth,
   }
 }

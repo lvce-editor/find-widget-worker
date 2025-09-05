@@ -1,8 +1,8 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
 
-export const name = 'find-widget=focus-next'
+export const name = 'find-widget-focus-next'
 
-export const skip = true
+// TODO should only test one thing: focusing next match
 
 export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
@@ -34,6 +34,7 @@ content 2`,
   await expect(findWidgetMatchCount).toHaveText('2 of 2')
   const editorSelection = Locator('.EditorSelection')
   await expect(editorSelection).toHaveCSS('top', '20px')
+  // TODO assert editor selections index instead of css offset
   await expect(editorSelection).toHaveCSS('width', /^(65|66|67|68|69).*?px$/)
 
   // act

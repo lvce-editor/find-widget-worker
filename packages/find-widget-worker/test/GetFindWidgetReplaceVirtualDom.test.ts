@@ -2,6 +2,7 @@ import { test, expect } from '@jest/globals'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import * as GetFindWidgetReplaceVirtualDom from '../src/parts/GetFindWidgetReplaceVirtualDom/GetFindWidgetReplaceVirtualDom.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
+import type { ISearchFieldButton } from '../src/parts/ISearchFieldButton/ISearchFieldButton.ts'
 
 test('getFindWidgetReplaceVirtualDom - collapsed', () => {
   const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(false, [], [])
@@ -18,7 +19,7 @@ test('getFindWidgetReplaceVirtualDom - expanded', () => {
       onClick: 'handleReplace',
     },
   ]
-  const replaceFieldButtons = []
+  const replaceFieldButtons: readonly ISearchFieldButton[] = []
 
   const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(true, replaceButtons, replaceFieldButtons)
 

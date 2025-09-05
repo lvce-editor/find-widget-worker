@@ -9,8 +9,8 @@ export const getResizerVirtualDom = (): readonly VirtualDomNode[] => {
       className: 'Resizer',
       childCount: 1,
       onPointerDown: DomEventListenerFunctions.HandleResizerPointerDown,
-      onPointerMove: DomEventListenerFunctions.HandleResizerPointerUp,
-      onPointerUp: DomEventListenerFunctions.HandleResizerPointerMove,
+      onPointerMove: DomEventListenerFunctions.HandleSliderPointerMove,
+      onPointerUp: DomEventListenerFunctions.HandleResizerPointerUp,
     },
     {
       type: VirtualDomElements.Div,

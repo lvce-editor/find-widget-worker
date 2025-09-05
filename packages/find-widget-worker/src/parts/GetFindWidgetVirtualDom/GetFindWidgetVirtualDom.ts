@@ -1,6 +1,7 @@
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import { AriaRoles } from '@lvce-editor/virtual-dom-worker'
 import type { FindWidgetButton } from '../FindWidgetButton/FindWidgetButton.ts'
+import type { ISearchFieldButton } from '../ISearchFieldButton/ISearchFieldButton.ts'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as GetFindWidgetFindVirtualDom from '../GetFindWidgetFindVirtualDom/GetFindWidgetFindVirtualDom.ts'
@@ -20,10 +21,9 @@ export const getFindWidgetVirtualDom = (
   matchCountText: string,
   replaceExpanded: boolean,
   findButtons: readonly FindWidgetButton[],
+  findFieldButtons: readonly ISearchFieldButton[],
   replaceButtons: readonly FindWidgetButton[],
-  matchCase: boolean,
-  matchWholeWord: boolean,
-  useRegularExpression: boolean,
+  replaceFieldButtons: readonly ISearchFieldButton[],
   matchCount: number,
   value: string,
 ): readonly VirtualDomNode[] => {
@@ -36,15 +36,7 @@ export const getFindWidgetVirtualDom = (
       className: ClassNames.FindWidgetRight,
       childCount: replaceExpanded ? 2 : 1,
     },
-    ...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(
-      matchCountText,
-      findButtons,
-      matchCount,
-      value,
-      matchCase,
-      matchWholeWord,
-      useRegularExpression,
-    ),
-    ...GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(replaceExpanded, replaceButtons),
+    ...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, findButtons, findFieldButtons, matchCount, value),
+    ...GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(replaceExpanded, replaceButtons, replaceFieldButtons),
   ]
 }

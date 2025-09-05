@@ -6,10 +6,7 @@ import { toggleUseRegularExpression } from '../FindWidgetToggleUseRegularExpress
 import * as InputName from '../InputName/InputName.ts'
 import { replace } from '../Replace/Replace.ts'
 import { replaceAll } from '../ReplaceAll/ReplaceAll.ts'
-
-interface ClickHandler {
-  (state: FindWidgetState): FindWidgetState | Promise<FindWidgetState>
-}
+import type { ClickHandler } from '../ClickHandler/ClickHandler.ts'
 
 export const getClickHandler = (name: string): ClickHandler => {
   switch (name) {

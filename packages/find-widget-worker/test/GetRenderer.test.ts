@@ -9,6 +9,7 @@ import * as RenderFocusContext from '../src/parts/RenderFocusContext/RenderFocus
 import { renderReplaceValue } from '../src/parts/RenderReplaceValue/RenderReplaceValue.ts'
 import * as RenderUid from '../src/parts/RenderUid/RenderUid.ts'
 import * as RenderValue from '../src/parts/RenderValue/RenderValue.ts'
+import * as RenderCss from '../src/parts/RenderCss/RenderCss.ts'
 
 test('getRenderer returns correct renderer for RenderContent', () => {
   const renderer = GetRenderer.getRenderer(DiffType.RenderContent)
@@ -48,6 +49,11 @@ test('getRenderer returns correct renderer for RenderValue', () => {
 test('getRenderer returns correct renderer for RenderReplaceValue', () => {
   const renderer = GetRenderer.getRenderer(DiffType.RenderReplaceValue)
   expect(renderer).toBe(renderReplaceValue)
+})
+
+test('getRenderer returns correct renderer for RenderCss', () => {
+  const renderer = GetRenderer.getRenderer(DiffType.RenderCss)
+  expect(renderer).toBe(RenderCss.renderCss)
 })
 
 test('getRenderer throws error for unknown diff type', () => {

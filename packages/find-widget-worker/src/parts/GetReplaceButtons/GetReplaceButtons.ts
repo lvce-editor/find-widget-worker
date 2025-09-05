@@ -3,7 +3,7 @@ import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEven
 import * as FindStrings from '../FindStrings/FindStrings.ts'
 import * as InputName from '../InputName/InputName.ts'
 
-export const getFindButtons = (): readonly ISearchFieldButton[] => {
+export const getReplaceButtons = (): readonly ISearchFieldButton[] => {
   const title = FindStrings.preserveCase()
   return [
     {

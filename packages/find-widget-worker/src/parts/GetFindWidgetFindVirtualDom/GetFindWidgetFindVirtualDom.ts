@@ -1,9 +1,9 @@
-import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker';
+import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
-import type { FindWidgetButton } from '../FindWidgetButton/FindWidgetButton.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as FindStrings from '../FindStrings/FindStrings.ts'
+import type { FindWidgetButton } from '../FindWidgetButton/FindWidgetButton.ts'
 import * as GetFindButtons from '../GetFindButtons/GetFindButtons.ts'
 import * as GetFindMatchCountClassName from '../GetFindMatchCountClassName/GetFindMatchCountClassName.ts'
 import * as GetIconButtonVirtualDom from '../GetIconButtonVirtualDom/GetIconButtonVirtualDom.ts'
@@ -20,13 +20,12 @@ export const getFindWidgetFindVirtualDom = (
   matchWholeWord: boolean,
   useRegularExpression: boolean,
 ): readonly VirtualDomNode[] => {
-  const dom = []
-  dom.push({
-    type: VirtualDomElements.Div,
-    className: ClassNames.FindWidgetFind,
-    childCount: 5,
-  })
-  dom.push(
+  return [
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.FindWidgetFind,
+      childCount: 5,
+    },
     ...GetSearchFieldVirtualDom.getSearchFieldVirtualDom(
       InputName.SearchValue,
       FindStrings.find(),
@@ -35,16 +34,12 @@ export const getFindWidgetFindVirtualDom = (
       [],
       DomEventListenerFunctions.HandleFocus,
     ),
-  )
-  const findClassName = GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, value)
-  dom.push(
     {
       type: VirtualDomElements.Div,
-      className: findClassName,
+      className: GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, value),
       childCount: 1,
     },
     text(matchCountText),
     ...buttons.flatMap(GetIconButtonVirtualDom.getIconButtonVirtualDom),
-  )
-  return dom
+  ]
 }

@@ -1,5 +1,6 @@
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
+import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as InputName from '../InputName/InputName.ts'
 
 export const getSearchToggleButtonVirtualDom = (replaceExpanded: boolean, onClick = ''): readonly VirtualDomNode[] => {
@@ -14,7 +15,7 @@ export const getSearchToggleButtonVirtualDom = (replaceExpanded: boolean, onClic
       childCount: 1,
       'data-command': 'toggleReplace',
       onClick,
-      onFocus: 'handleToggleReplaceFocus',
+      onFocus: DomEventListenerFunctions.HandleToggleReplaceFocus,
     },
     {
       type: VirtualDomElements.Div,

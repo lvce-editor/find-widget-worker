@@ -18,7 +18,7 @@ export const loadContent = async (state: FindWidgetState, savedState?: any): Pro
     return state
   }
   const actualValue = value || GetSelectedText.getSelectedText(lines, selections)
-  const matches = FindMatchesCaseInsensitive.findMatchesCaseInsensitive(lines, value)
+  const matches = FindMatchesCaseInsensitive.findMatchesCaseInsensitive(lines, actualValue)
   const matchCount = GetMatchCount.getMatchCount(matches)
   return {
     ...state,

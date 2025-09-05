@@ -27,6 +27,7 @@ export interface FindWidgetState {
   readonly value: string
   readonly version: number
   readonly width: number
+  readonly minWidth: number
   readonly x: number
   readonly y: number
 }

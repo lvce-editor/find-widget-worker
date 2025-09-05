@@ -1,6 +1,6 @@
 import * as FindStrings from '../FindStrings/FindStrings.ts'
 
-export const getMatchCountText = (matchIndex: number, matchCount: number) => {
+export const getMatchCountText = (matchIndex: number, matchCount: number): string => {
   if (matchCount === 0) {
     return FindStrings.noResults()
   }

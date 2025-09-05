@@ -2,9 +2,7 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'find-widget-match-case'
 
-export const skip = 1
-
-export const test: Test = async ({ Command, FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -17,7 +15,7 @@ content 2`,
   await Editor.setSelections(new Uint32Array([0, 0, 0, 7]))
   await Editor.openFindWidget()
   await FindWidget.setValue(`Content`)
-  await Command.execute(`FindWidget.toggleMatchCase`)
+  await FindWidget.toggleMatchCase()
 
   // assert
   const matchCaseCheckBox = Locator(`.SearchFieldButton[name="MatchCase"]`)

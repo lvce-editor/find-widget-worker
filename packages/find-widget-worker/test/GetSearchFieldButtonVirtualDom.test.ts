@@ -16,7 +16,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for un
   const result = GetSearchFieldButtonVirtualDom.getSearchFieldButtonVirtualDom(button)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Button,
       className: ClassNames.SearchFieldButton,
       title: 'Test Title',
       name: 'Test',
@@ -45,7 +45,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for ch
   const result = GetSearchFieldButtonVirtualDom.getSearchFieldButtonVirtualDom(button)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Button,
       className: `${ClassNames.SearchFieldButton} ${ClassNames.SearchFieldButtonChecked}`,
       title: 'Test Title',
       name: 'Test',

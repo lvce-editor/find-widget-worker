@@ -1,6 +1,7 @@
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import { AriaRoles } from '@lvce-editor/virtual-dom-worker'
 import type { ISearchFieldButton } from '../ISearchFieldButton/ISearchFieldButton.ts'
+import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as GetSearchFieldButtonVirtualDom from '../GetSearchFieldButtonVirtualDom/GetSearchFieldButtonVirtualDom.ts'
 
@@ -11,7 +12,7 @@ export const getSearchFieldVirtualDom = (
   insideButtons: readonly ISearchFieldButton[],
   outsideButtons: readonly ISearchFieldButton[],
   onFocus = '',
-) => {
+): readonly VirtualDomNode[] => {
   const dom = [
     {
       type: VirtualDomElements.Div,

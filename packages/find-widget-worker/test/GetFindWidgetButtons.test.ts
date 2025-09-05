@@ -1,4 +1,5 @@
 import { test, expect } from '@jest/globals'
+import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as FindStrings from '../src/parts/FindStrings/FindStrings.ts'
 import * as GetFindWidgetButtons from '../src/parts/GetFindWidgedButtons/GetFindWidgetButtons.ts'
@@ -6,7 +7,15 @@ import * as Icon from '../src/parts/Icon/Icon.ts'
 import * as Names from '../src/parts/InputName/InputName.ts'
 
 test('getFindWidgetButtons with find buttons enabled and replace buttons disabled', () => {
-  const result = GetFindWidgetButtons.getFindWidgetButtons(true, false)
+  const state = CreateDefaultState.createDefaultState()
+  const result = GetFindWidgetButtons.getFindWidgetButtons(
+    true,
+    false,
+    state.matchCase,
+    state.matchWholeWord,
+    state.useRegularExpression,
+    state.preserveCase,
+  )
   expect(result.findButtons).toEqual([
     {
       label: FindStrings.previousMatch(),
@@ -35,21 +44,29 @@ test('getFindWidgetButtons with find buttons enabled and replace buttons disable
       label: FindStrings.replace(),
       icon: Icon.Replace,
       disabled: true,
-      onClick: DomEventListenerFunctions.HandleClickReplace,
+      onClick: DomEventListenerFunctions.HandleClickButton,
       name: Names.Replace,
     },
     {
       label: FindStrings.replaceAll(),
       icon: Icon.ReplaceAll,
       disabled: true,
-      onClick: DomEventListenerFunctions.HandleClickReplaceAll,
+      onClick: DomEventListenerFunctions.HandleClickButton,
       name: Names.ReplaceAll,
     },
   ])
 })
 
 test('getFindWidgetButtons with all buttons disabled', () => {
-  const result = GetFindWidgetButtons.getFindWidgetButtons(false, false)
+  const state = CreateDefaultState.createDefaultState()
+  const result = GetFindWidgetButtons.getFindWidgetButtons(
+    false,
+    false,
+    state.matchCase,
+    state.matchWholeWord,
+    state.useRegularExpression,
+    state.preserveCase,
+  )
   expect(result.findButtons).toEqual([
     {
       label: FindStrings.previousMatch(),
@@ -78,21 +95,29 @@ test('getFindWidgetButtons with all buttons disabled', () => {
       label: FindStrings.replace(),
       icon: Icon.Replace,
       disabled: true,
-      onClick: DomEventListenerFunctions.HandleClickReplace,
+      onClick: DomEventListenerFunctions.HandleClickButton,
       name: Names.Replace,
     },
     {
       label: FindStrings.replaceAll(),
       icon: Icon.ReplaceAll,
       disabled: true,
-      onClick: DomEventListenerFunctions.HandleClickReplaceAll,
+      onClick: DomEventListenerFunctions.HandleClickButton,
       name: Names.ReplaceAll,
     },
   ])
 })
 
 test('getFindWidgetButtons with all buttons enabled', () => {
-  const result = GetFindWidgetButtons.getFindWidgetButtons(true, true)
+  const state = CreateDefaultState.createDefaultState()
+  const result = GetFindWidgetButtons.getFindWidgetButtons(
+    true,
+    true,
+    state.matchCase,
+    state.matchWholeWord,
+    state.useRegularExpression,
+    state.preserveCase,
+  )
   expect(result.findButtons).toEqual([
     {
       label: FindStrings.previousMatch(),
@@ -121,14 +146,14 @@ test('getFindWidgetButtons with all buttons enabled', () => {
       label: FindStrings.replace(),
       icon: Icon.Replace,
       disabled: false,
-      onClick: DomEventListenerFunctions.HandleClickReplace,
+      onClick: DomEventListenerFunctions.HandleClickButton,
       name: Names.Replace,
     },
     {
       label: FindStrings.replaceAll(),
       icon: Icon.ReplaceAll,
       disabled: false,
-      onClick: DomEventListenerFunctions.HandleClickReplaceAll,
+      onClick: DomEventListenerFunctions.HandleClickButton,
       name: Names.ReplaceAll,
     },
   ])

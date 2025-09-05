@@ -1,4 +1,5 @@
 import { test, expect } from '@jest/globals'
+import type { ISearchFieldButton } from '../src/parts/ISearchFieldButton/ISearchFieldButton.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import * as GetFindWidgetVirtualDom from '../src/parts/GetFindWidgetVirtualDom/GetFindWidgetVirtualDom.ts'
@@ -15,7 +16,19 @@ test('getFindWidgetVirtualDom - collapsed', () => {
     },
   ]
 
-  const result = GetFindWidgetVirtualDom.getFindWidgetVirtualDom('0 matches', false, findButtons, [], false, false, false, 0, '')
+  const findFieldButtons: readonly ISearchFieldButton[] = []
+  const replaceButtons: readonly any[] = []
+  const replaceFieldButtons: readonly ISearchFieldButton[] = []
+  const result = GetFindWidgetVirtualDom.getFindWidgetVirtualDom(
+    '0 matches',
+    false,
+    findButtons,
+    findFieldButtons,
+    replaceButtons,
+    replaceFieldButtons,
+    0,
+    '',
+  )
 
   expect(result[0]).toEqual({
     type: VirtualDomElements.Div,
@@ -26,7 +39,7 @@ test('getFindWidgetVirtualDom - collapsed', () => {
 
   expect(result[3]).toEqual({
     type: VirtualDomElements.Button,
-    className: 'IconButton SearchToggleButton ',
+    className: 'IconButton SearchToggleButton',
     title: 'Toggle Replace',
     ariaLabel: 'Toggle Replace',
     childCount: 1,
@@ -70,8 +83,19 @@ test('getFindWidgetVirtualDom - expanded', () => {
       onClick: 'handleReplace',
     },
   ]
+  const findFieldButtons: readonly ISearchFieldButton[] = []
+  const replaceFieldButtons: readonly ISearchFieldButton[] = []
 
-  const result = GetFindWidgetVirtualDom.getFindWidgetVirtualDom('0 matches', true, findButtons, replaceButtons, false, false, false, 0, '')
+  const result = GetFindWidgetVirtualDom.getFindWidgetVirtualDom(
+    '0 matches',
+    true,
+    findButtons,
+    findFieldButtons,
+    replaceButtons,
+    replaceFieldButtons,
+    0,
+    '',
+  )
 
   expect(result[0]).toEqual({
     type: VirtualDomElements.Div,

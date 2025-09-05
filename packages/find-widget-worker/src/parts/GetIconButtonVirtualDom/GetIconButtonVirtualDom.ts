@@ -18,8 +18,8 @@ export const getIconButtonVirtualDom = (iconButton: FindWidgetButton): readonly 
       ariaLabel: label,
       childCount: 1,
       disabled: disabled ? true : undefined,
-      onClick: onClick,
-      name: name,
+      onClick,
+      name,
     },
     GetIconVirtualDom.getIconVirtualDom(icon),
   ]

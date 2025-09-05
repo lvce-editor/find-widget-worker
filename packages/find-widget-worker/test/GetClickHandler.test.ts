@@ -1,10 +1,10 @@
 import { expect, test } from '@jest/globals'
-import * as InputName from '../src/parts/InputName/InputName.ts'
-import * as GetClickHandler from '../src/parts/GetClickHandler/GetClickHandler.ts'
 import * as FindWidgetToggleMatchCase from '../src/parts/FindWidgetToggleMatchCase/FindWidgetToggleMatchCase.ts'
 import * as FindWidgetToggleMatchWholeWord from '../src/parts/FindWidgetToggleMatchWholeWord/FindWidgetToggleMatchWholeWord.ts'
-import * as FindWidgetToggleUseRegularExpression from '../src/parts/FindWidgetToggleUseRegularExpression/FindWidgetToggleUseRegularExpression.ts'
 import * as FindWidgetTogglePreserveCase from '../src/parts/FindWidgetTogglePreserveCase/FindWidgetTogglePreserveCase.ts'
+import * as FindWidgetToggleUseRegularExpression from '../src/parts/FindWidgetToggleUseRegularExpression/FindWidgetToggleUseRegularExpression.ts'
+import * as GetClickHandler from '../src/parts/GetClickHandler/GetClickHandler.ts'
+import * as InputName from '../src/parts/InputName/InputName.ts'
 import * as Replace from '../src/parts/Replace/Replace.ts'
 import * as ReplaceAll from '../src/parts/ReplaceAll/ReplaceAll.ts'
 

@@ -33,5 +33,6 @@ export const createDefaultState = (): FindWidgetState => {
     preserveCase: false,
     resizerPointerDown: false,
     minWidth: 300,
+    history: [],
   }
 }

@@ -16,6 +16,7 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
       checked: false,
       title: 'Test Title',
       name: 'Test',
+      onClick: 'test-onClick',
     },
   ]
   const outsideButtons: ISearchFieldButton[] = []
@@ -51,6 +52,7 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
       className: ClassNames.SearchFieldButton,
       title: 'Test Title',
       name: 'Test',
+      onClick: 'test-onClick',
       role: AriaRoles.CheckBox,
       ariaChecked: false,
       tabIndex: 0,

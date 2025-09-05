@@ -2,9 +2,7 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'viewlet.editor-close-replace'
 
-export const skip = 1
-
-export const test: Test = async ({ Command, FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -16,10 +14,10 @@ content 2`,
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 7]))
   await Editor.openFindWidget()
-  await Command.execute(`FindWidget.toggleReplace`)
+  await FindWidget.toggleReplace()
 
   // act
-  await Command.execute(`FindWidget.toggleReplace`)
+  await FindWidget.toggleReplace()
 
   // assert
   const toggleReplace = Locator('.FindWidget [name="ToggleReplace"]')

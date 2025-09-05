@@ -1,5 +1,6 @@
 import { test, expect } from '@jest/globals'
 import type { FindWidgetButton } from '../src/parts/FindWidgetButton/FindWidgetButton.ts'
+import type { ISearchFieldButton } from '../src/parts/ISearchFieldButton/ISearchFieldButton.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.js'
 import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.js'
 import * as FindStrings from '../src/parts/FindStrings/FindStrings.js'
@@ -10,10 +11,33 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no matches', () => {
   const matchCountText = 'No matches'
   const buttons: readonly FindWidgetButton[] = []
+  const fieldButtons: readonly ISearchFieldButton[] = [
+    {
+      icon: 'CaseSensitive',
+      checked: false,
+      title: 'Match Case',
+      name: 'MatchCase',
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+    {
+      icon: 'WholeWord',
+      checked: false,
+      title: 'Match Whole Word',
+      name: 'MatchWholeWord',
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+    {
+      icon: 'Regex',
+      checked: false,
+      title: 'Use Regular Expression',
+      name: 'UseRegularExpression',
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+  ]
   const matchCount = 0
   const value = ''
 
-  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, matchCount, value, false, false, false)
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, value)
 
   expect(result).toEqual([
     {
@@ -116,10 +140,33 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
       name: 'focusPrevious',
     },
   ]
+  const fieldButtons: readonly ISearchFieldButton[] = [
+    {
+      icon: 'CaseSensitive',
+      checked: false,
+      title: 'Match Case',
+      name: 'MatchCase',
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+    {
+      icon: 'WholeWord',
+      checked: false,
+      title: 'Match Whole Word',
+      name: 'MatchWholeWord',
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+    {
+      icon: 'Regex',
+      checked: false,
+      title: 'Use Regular Expression',
+      name: 'UseRegularExpression',
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+  ]
   const matchCount = 3
   const value = 'test'
 
-  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, matchCount, value, false, false, false)
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, value)
 
   expect(result).toEqual([
     {

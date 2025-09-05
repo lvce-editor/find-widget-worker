@@ -7,24 +7,31 @@ import * as Icon from '../Icon/Icon.ts'
 import * as InputName from '../InputName/InputName.ts'
 import * as Names from '../InputName/InputName.ts'
 
-export const getFindWidgetButtons = (findButtonsEnabled: boolean, replaceButtonsEnabled: boolean): FindWidgetButtons => {
+export const getFindWidgetButtons = (
+  findButtonsEnabled: boolean,
+  replaceButtonsEnabled: boolean,
+  matchCase: boolean,
+  matchWholeWord: boolean,
+  useRegularExpression: boolean,
+  preserveCase: boolean,
+): FindWidgetButtons => {
   const findFieldButtons: readonly ISearchFieldButton[] = [
     {
-      checked: false,
+      checked: matchCase,
       icon: Icon.MatchCase,
       title: FindStrings.matchCase(),
       name: InputName.MatchCase,
       onClick: DomEventListenerFunctions.HandleClickButton,
     },
     {
-      checked: false,
+      checked: matchWholeWord,
       icon: Icon.MatchWholeWord,
       title: FindStrings.matchWholeWord(),
       name: InputName.MatchWholeWord,
       onClick: DomEventListenerFunctions.HandleClickButton,
     },
     {
-      checked: false,
+      checked: useRegularExpression,
       icon: Icon.UseRegularExpression,
       title: FindStrings.useRegularExpression(),
       name: InputName.UseRegularExpression,
@@ -33,7 +40,7 @@ export const getFindWidgetButtons = (findButtonsEnabled: boolean, replaceButtons
   ]
   const replaceFieldButtons: ISearchFieldButton[] = [
     {
-      checked: false,
+      checked: preserveCase,
       icon: 'PreserveCase',
       title: FindStrings.preserveCase(),
       name: InputName.PreserveCase,

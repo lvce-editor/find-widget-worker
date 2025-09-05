@@ -3,16 +3,23 @@ export interface RestoredState {
   readonly replacement: string
 }
 
-export const restoreState = (savedState: any): RestoredState => {
-  let value = ''
-  let replacement = ''
-
+const getSavedValue = (savedState: any): string => {
   if (savedState && savedState.value) {
-    value = savedState.value
+    return savedState.value
   }
-  if (replacement && savedState.replacement) {
-    replacement = savedState.replacement
+  return ''
+}
+
+const getSavedReplacement = (savedState: any): string => {
+  if (savedState && savedState.replacement) {
+    return savedState.replacement
   }
+  return ''
+}
+
+export const restoreState = (savedState: any): RestoredState => {
+  let value = getSavedValue(savedState)
+  let replacement = getSavedReplacement(savedState)
 
   return {
     value,

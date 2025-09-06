@@ -6,7 +6,7 @@ import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefau
 
 test('close should invoke Editor.closeFind2 and return state', async () => {
   const commandMap = {
-    'Editor.closeFind2': () => {
+    'Editor.closeFind2': (): undefined => {
       return undefined
     },
   }

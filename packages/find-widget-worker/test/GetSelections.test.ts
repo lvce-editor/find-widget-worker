@@ -5,7 +5,7 @@ import { getSelections } from '../src/parts/GetSelections/GetSelections.ts'
 test('getSelections', async () => {
   const mockSelections = [1, 2, 3]
   const commandMap = {
-    'Editor.getSelections2': () => {
+    'Editor.getSelections2': (): number[] => {
       return mockSelections
     },
   }

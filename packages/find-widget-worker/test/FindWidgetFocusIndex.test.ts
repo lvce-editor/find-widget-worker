@@ -6,7 +6,7 @@ import { focusFirst, focusIndex, focusLast, focusNext, focusPrevious } from '../
 
 beforeAll(() => {
   const commandMap = {
-    'Editor.setSelections2': () => {
+    'Editor.setSelections2': (): undefined => {
       return undefined
     },
   }

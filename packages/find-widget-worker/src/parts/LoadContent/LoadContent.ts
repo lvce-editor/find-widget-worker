@@ -1,4 +1,5 @@
 import { InputSource } from '@lvce-editor/constants'
+import { WhenExpression } from '@lvce-editor/constants'
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as FindMatchesCaseInsensitive from '../FindMatchesCaseInsensitive/FindMatchesCaseInsensitive.ts'
 import * as GetFindWidgetPosition from '../GetFindWidgetPosition/GetFindWidgetPosition.ts'
@@ -22,6 +23,7 @@ export const loadContent = async (state: FindWidgetState, savedState?: any): Pro
   const matchCount = GetMatchCount.getMatchCount(matches)
   return {
     ...state,
+    focus: WhenExpression.FocusSearchInput,
     focused: true,
     height,
     inputSource: InputSource.Script,

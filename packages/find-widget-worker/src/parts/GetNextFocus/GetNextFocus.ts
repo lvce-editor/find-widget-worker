@@ -17,7 +17,7 @@ export const getNextFocus = (focus: number, replaceExpanded: boolean): number =>
       if (replaceExpanded) {
         return WhenExpression.FocusSearchPreserveCase
       }
-      return WhenExpression.FocusToggleDetails
+      return WhenExpression.FocusFindWidgetCloseButton
     case WhenExpression.FocusSearchReplaceInput:
       return WhenExpression.FocusSearchMatchCase
     case WhenExpression.FocusSearchPreserveCase:

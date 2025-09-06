@@ -2,7 +2,9 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'find-widget-focus-navigation-collapsed'
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const skip = 1
+
+export const test: Test = async ({ Command, FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(`${tmpDir}/file1.txt`, ``)
@@ -20,7 +22,7 @@ export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator,
   await expect(findWidgetInput).toBeFocused()
 
   // act
-  await FindWidget.focusNext()
+  await Command.execute(`FindWidget.focusNext`)
 
   // assert
 

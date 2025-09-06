@@ -10,6 +10,12 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
     matchWholeWord,
   }
   const { matches, error } = FindMatches.findMatches(lines, value, options)
+  if (error) {
+    return {
+      ...state,
+      inputErrorMessage: error,
+    }
+  }
   const matchCount = GetMatchCount.getMatchCount(matches)
   return {
     ...state,

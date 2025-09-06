@@ -1,8 +1,10 @@
 import { ViewletCommand } from '@lvce-editor/constants'
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
-import * as InputName from '../InputName/InputName.ts'
+import { getFocusSelector } from '../GetFocusSelector/GetFocusSelector.ts'
 
 export const renderFocus = (oldState: FindWidgetState, newState: FindWidgetState): readonly any[] => {
-  const { uid } = newState
-  return [ViewletCommand.FocusSelector, uid, `[name="${InputName.SearchValue}"]`]
+  const { uid, focus } = newState
+  const name = getFocusSelector(focus)
+  const selector = `[name="${name}"]`
+  return [ViewletCommand.FocusSelector, uid, selector]
 }

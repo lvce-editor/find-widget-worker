@@ -1,4 +1,5 @@
 import { InputSource } from '@lvce-editor/constants'
+import { WhenExpression } from '@lvce-editor/constants'
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as FindMatchesCaseInsensitive from '../FindMatchesCaseInsensitive/FindMatchesCaseInsensitive.ts'
 import * as GetFindWidgetPosition from '../GetFindWidgetPosition/GetFindWidgetPosition.ts'
@@ -6,7 +7,6 @@ import * as GetLines from '../GetLines/GetLines.ts'
 import * as GetMatchCount from '../GetMatchCount/GetMatchCount.ts'
 import * as GetSelectedText from '../GetSelectedText/GetSelectedText.ts'
 import * as GetSelections from '../GetSelections/GetSelections.ts'
-import { WhenExpression } from '@lvce-editor/constants'
 import { restoreState } from '../RestoreState/RestoreState.ts'
 
 export const loadContent = async (state: FindWidgetState, savedState?: any): Promise<FindWidgetState> => {

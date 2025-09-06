@@ -32,6 +32,8 @@ export const getPreviousFocus = (focus: number, replaceExpanded: boolean): numbe
       return WhenExpression.FocusSearchExcludeInput
     case WhenExpression.FocusSearchIncludeInput:
       return WhenExpression.FocusToggleDetails
+    case WhenExpression.FocusFindWidgetCloseButton:
+      return WhenExpression.FocusSearchRegex
     default:
       return focus
   }

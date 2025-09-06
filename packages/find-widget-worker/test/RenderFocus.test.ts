@@ -3,7 +3,7 @@ import { ViewletCommand } from '@lvce-editor/constants'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { renderFocus } from '../src/parts/RenderFocus/RenderFocus.ts'
 
-test.skip('renderFocus returns correct array', () => {
+test('renderFocus returns correct array', () => {
   const oldState = createDefaultState()
   const newState = {
     ...createDefaultState(),

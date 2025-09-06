@@ -24,7 +24,7 @@ const createState = (lines: readonly string[], value: string, replacement: strin
 
 test('replaceAll - replaces all matches', async () => {
   const commandMap = {
-    'Editor.applyDocumentEdits': () => {
+    'Editor.applyDocumentEdits': (): undefined => {
       return undefined
     },
   }

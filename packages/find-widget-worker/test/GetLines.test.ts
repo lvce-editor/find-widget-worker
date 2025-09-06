@@ -5,7 +5,7 @@ import { getLines } from '../src/parts/GetLines/GetLines.ts'
 test('getLines', async () => {
   const mockLines = ['line1', 'line2', 'line3']
   const commandMap = {
-    'Editor.getLines2': () => {
+    'Editor.getLines2': (): string[] => {
       return mockLines
     },
   }

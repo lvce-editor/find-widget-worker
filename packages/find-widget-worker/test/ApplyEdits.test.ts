@@ -4,7 +4,7 @@ import { applyEdits } from '../src/parts/ApplyEdits/ApplyEdits.ts'
 
 test('applyEdits - forwards to Editor.applyEdit', async () => {
   const commandMap = {
-    'Editor.applyDocumentEdits': () => {
+    'Editor.applyDocumentEdits': (): undefined => {
       return undefined
     },
   }

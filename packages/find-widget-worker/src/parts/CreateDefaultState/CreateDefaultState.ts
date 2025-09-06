@@ -34,5 +34,6 @@ export const createDefaultState = (): FindWidgetState => {
     resizerPointerDown: false,
     minWidth: 300,
     history: [],
+    inputErrorMessage: '',
   }
 }

@@ -10,6 +10,8 @@ export interface FindWidgetState {
   readonly focused: boolean
   readonly focusSource: number
   readonly height: number
+  readonly history: readonly string[]
+  readonly inputErrorMessage: string
   readonly inputSource: number
   readonly lines: readonly string[]
   readonly matchCase: boolean
@@ -17,6 +19,7 @@ export interface FindWidgetState {
   readonly matches: Uint32Array
   readonly matchIndex: number
   readonly matchWholeWord: boolean
+  readonly minWidth: number
   readonly preserveCase: boolean
   readonly replaceExpanded: boolean
   readonly replacement: string
@@ -27,8 +30,6 @@ export interface FindWidgetState {
   readonly value: string
   readonly version: number
   readonly width: number
-  readonly minWidth: number
   readonly x: number
   readonly y: number
-  readonly history: readonly string[]
 }

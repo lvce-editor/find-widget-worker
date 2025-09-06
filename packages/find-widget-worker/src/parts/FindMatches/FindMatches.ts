@@ -16,7 +16,7 @@ export const findMatches = (lines: readonly string[], searchString: string, opti
       error: '',
     }
   }
-  const regex = buildRegex(searchString, options)
+  const { regex } = buildRegex(searchString, options)
   const matches = FindRegexMatches.findRegexMatches(lines, regex)
   return {
     matches,

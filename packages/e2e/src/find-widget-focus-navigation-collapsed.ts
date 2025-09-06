@@ -22,9 +22,23 @@ export const test: Test = async ({ Command, FileSystem, Workspace, Main, Editor,
   await expect(findWidgetInput).toBeFocused()
 
   // act
-  await Command.execute(`FindWidget.focusNext`)
+  await Command.execute(`FindWidget.focusNextElement`)
 
   // assert
+  const matchCaseButton = Locator(`.SearchFieldButton[name="MatchCase"]`)
+  await expect(matchCaseButton).toBeFocused()
 
-  // TODO
+  // act
+  await Command.execute(`FindWidget.focusNextElement`)
+
+  // assert
+  const matchWholeWordButton = Locator(`.SearchFieldButton[name="MatchWholeWord"]`)
+  await expect(matchWholeWordButton).toBeFocused()
+
+  // act
+  await Command.execute(`FindWidget.focusNextElement`)
+
+  // assert
+  const useRegularExpressionButton = Locator(`.SearchFieldButton[name="UseRegularExpression"]`)
+  await expect(useRegularExpressionButton).toBeFocused()
 }

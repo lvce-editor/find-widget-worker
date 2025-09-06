@@ -34,3 +34,7 @@ test('getFocusSelector - unknown focus key', () => {
 test('getFocusSelector - replace all', () => {
   expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusSearchReplaceAll)).toBe('ReplaceAll')
 })
+
+test('getFocusSelector - close', () => {
+  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusFindWidgetCloseButton)).toBe('Close')
+})

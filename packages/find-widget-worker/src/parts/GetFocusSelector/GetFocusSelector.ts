@@ -19,6 +19,8 @@ export const getFocusSelector = (focusKey: number): string => {
       return InputName.ReplaceAll
     case WhenExpression.FocusToggleReplace:
       return InputName.ToggleReplace
+    case WhenExpression.FocusFindWidgetCloseButton:
+      return InputName.Close
     default:
       return ''
   }

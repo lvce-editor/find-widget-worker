@@ -39,9 +39,10 @@ test('getNextFocus - from regex with replace expanded', () => {
 })
 
 test('getNextFocus - from regex without replace expanded', () => {
+  // TODO should also depend on whether there are results or not
   const focus = WhenExpression.FocusSearchRegex
   const flags = false
-  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusToggleDetails)
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetCloseButton)
 })
 
 test('getNextFocus - from preserve case', () => {

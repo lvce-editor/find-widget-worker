@@ -61,6 +61,10 @@ test('getPreviousFocus - from ignore files to exclude input', () => {
   const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusIgnoreFiles, false)
   expect(result).toBe(WhenExpression.FocusSearchExcludeInput)
 })
+test('getPreviousFocus - from close button to regex', () => {
+  const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusFindWidgetCloseButton, false)
+  expect(result).toBe(WhenExpression.FocusSearchRegex)
+})
 
 test('getPreviousFocus - returns same focus for unknown focus value', () => {
   const result = GetPreviousFocus.getPreviousFocus(-1, false)

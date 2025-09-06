@@ -18,6 +18,7 @@ import * as WrapCommand from '../FindWidgetStates/FindWidgetStates.ts'
 import { toggleMatchCase } from '../FindWidgetToggleMatchCase/FindWidgetToggleMatchCase.ts'
 import * as FindWidgetToggleReplace from '../FindWidgetToggleReplace/FindWidgetToggleReplace.ts'
 import { toggleUseRegularExpression } from '../FindWidgetToggleUseRegularExpression/FindWidgetToggleUseRegularExpression.ts'
+import { focusElement } from '../FocusElement/FocusElement.ts'
 import { focusNextElement } from '../FocusNextElement/FocusNextElement.ts'
 import { focusPreviousElement } from '../FocusPreviousElement/FocusPreviousElement.ts'
 import { handleReplaceInput } from '../HandleReplaceInput/HandleReplaceInput.ts'
@@ -35,6 +36,7 @@ export const commandMap = {
   'FindWidget.dispose': Dispose.dispose,
   'FindWidget.focusCloseButton': WrapCommand.wrapCommand(FindWidgetFocusCloseButton.focusCloseButton),
   'FindWidget.focusFirst': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusFirst),
+  'FindWidget.focusElement': WrapCommand.wrapCommand(focusElement),
   'FindWidget.focusIndex': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusIndex),
   'FindWidget.focusLast': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusLast),
   'FindWidget.focusNext': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusNext),

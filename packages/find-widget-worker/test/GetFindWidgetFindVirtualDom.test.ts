@@ -35,9 +35,10 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
     },
   ]
   const matchCount = 0
-  const value = ''
+  const hasValue = false
+  const hasError = false
 
-  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, value)
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, hasValue, hasError)
 
   expect(result).toEqual([
     {
@@ -118,7 +119,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
     },
     {
       type: VirtualDomElements.Div,
-      className: GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, value),
+      className: GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, hasValue),
       childCount: 1,
     },
     {
@@ -164,9 +165,10 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
     },
   ]
   const matchCount = 3
-  const value = 'test'
+  const hasValue = true
+  const hasError = false
 
-  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, value)
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, hasValue, hasError)
 
   expect(result).toEqual([
     {
@@ -247,7 +249,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
     },
     {
       type: VirtualDomElements.Div,
-      className: GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, value),
+      className: GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, hasValue),
       childCount: 1,
     },
     {
@@ -272,4 +274,42 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
       childCount: 0,
     },
   ])
+})
+
+test('getFindWidgetFindVirtualDom returns correct virtual dom elements with error', () => {
+  const matchCountText = 'No matches'
+  const buttons: readonly FindWidgetButton[] = []
+  const fieldButtons: readonly ISearchFieldButton[] = [
+    {
+      icon: 'CaseSensitive',
+      checked: false,
+      title: 'Match Case',
+      name: 'MatchCase',
+      onClick: DomEventListenerFunctions.HandleClickButton,
+    },
+  ]
+  const matchCount = 0
+  const hasValue = true
+  const hasError = true
+
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, hasValue, hasError)
+
+  expect(result[1]).toEqual({
+    type: VirtualDomElements.Div,
+    className: ClassNames.SearchField,
+    role: 'none',
+    childCount: 2,
+  })
+  expect(result[2]).toEqual({
+    type: VirtualDomElements.TextArea,
+    className: `${ClassNames.MultilineInputBox} ${ClassNames.InputValidationError}`,
+    spellcheck: false,
+    autocapitalize: 'off',
+    autocorrect: 'off',
+    placeholder: FindStrings.find(),
+    name: 'search-value',
+    onInput: DomEventListenerFunctions.HandleInput,
+    onFocus: DomEventListenerFunctions.HandleFocus,
+    childCount: 0,
+  })
 })

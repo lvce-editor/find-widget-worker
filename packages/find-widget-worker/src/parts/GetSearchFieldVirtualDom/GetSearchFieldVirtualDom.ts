@@ -1,4 +1,4 @@
-import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
+import { mergeClassNames, VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import { AriaRoles } from '@lvce-editor/virtual-dom-worker'
 import type { ISearchFieldButton } from '../ISearchFieldButton/ISearchFieldButton.ts'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
@@ -12,6 +12,7 @@ export const getSearchFieldVirtualDom = (
   insideButtons: readonly ISearchFieldButton[],
   outsideButtons: readonly ISearchFieldButton[],
   onFocus = '',
+  extraClassName = '',
 ): readonly VirtualDomNode[] => {
   const dom = [
     {
@@ -22,7 +23,7 @@ export const getSearchFieldVirtualDom = (
     },
     {
       type: VirtualDomElements.TextArea,
-      className: ClassNames.MultilineInputBox,
+      className: mergeClassNames(ClassNames.MultilineInputBox, extraClassName),
       spellcheck: false,
       autocapitalize: 'off',
       autocorrect: 'off',

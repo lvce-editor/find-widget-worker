@@ -16,8 +16,10 @@ export const getFindWidgetFindVirtualDom = (
   buttons: readonly FindWidgetButton[],
   fieldButtons: readonly ISearchFieldButton[],
   matchCount: number,
-  value: string,
+  hasValue: boolean,
+  hasError: boolean,
 ): readonly VirtualDomNode[] => {
+  const extraClassName = hasError ? `InputValidationError` : ''
   return [
     {
       type: VirtualDomElements.Div,
@@ -31,10 +33,11 @@ export const getFindWidgetFindVirtualDom = (
       fieldButtons,
       [],
       DomEventListenerFunctions.HandleFocus,
+      extraClassName,
     ),
     {
       type: VirtualDomElements.Div,
-      className: GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, value),
+      className: GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, hasValue),
       childCount: 1,
     },
     text(matchCountText),

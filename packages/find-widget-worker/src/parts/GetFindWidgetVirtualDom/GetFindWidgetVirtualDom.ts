@@ -26,6 +26,7 @@ export const getFindWidgetVirtualDom = (
   replaceFieldButtons: readonly ISearchFieldButton[],
   matchCount: number,
   value: string,
+  hasError: boolean,
 ): readonly VirtualDomNode[] => {
   return [
     parentNode,
@@ -36,7 +37,7 @@ export const getFindWidgetVirtualDom = (
       className: ClassNames.FindWidgetRight,
       childCount: replaceExpanded ? 2 : 1,
     },
-    ...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, findButtons, findFieldButtons, matchCount, value),
+    ...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, findButtons, findFieldButtons, matchCount, Boolean(value), hasError),
     ...GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(replaceExpanded, replaceButtons, replaceFieldButtons),
   ]
 }

@@ -6,7 +6,7 @@ import * as GetMatchCountText from '../GetMatchCountText/GetMatchCountText.ts'
 import * as RenderMethod from '../RenderMethod/RenderMethod.ts'
 
 export const renderContent = (oldState: FindWidgetState, newState: FindWidgetState): readonly any[] => {
-  const { uid, matchCount, value, replaceExpanded, matchCase, matchWholeWord, useRegularExpression, preserveCase } = newState
+  const { uid, matchCount, value, replaceExpanded, matchCase, matchWholeWord, useRegularExpression, preserveCase, inputErrorMessage } = newState
   const matchCountText = GetMatchCountText.getMatchCountText(newState.matchIndex, newState.matchCount)
   const { findButtonsEnabled, replaceButtonsEnabled } = GetFindWidgetButtonsEnabled.getFindWidgetButtonsEnabled(matchCount, value)
   const { findButtons, replaceButtons, findFieldButtons, replaceFieldButtons } = GetFindWidgetButtons.getFindWidgetButtons(
@@ -17,6 +17,7 @@ export const renderContent = (oldState: FindWidgetState, newState: FindWidgetSta
     useRegularExpression,
     preserveCase,
   )
+  const hasError = Boolean(inputErrorMessage)
   const dom = GetFindWidgetVirtualDom.getFindWidgetVirtualDom(
     matchCountText,
     replaceExpanded,
@@ -26,6 +27,7 @@ export const renderContent = (oldState: FindWidgetState, newState: FindWidgetSta
     replaceFieldButtons,
     matchCount,
     value,
+    hasError,
   )
   return [RenderMethod.SetDom2, uid, dom]
 }

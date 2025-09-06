@@ -28,6 +28,7 @@ test('getFindWidgetVirtualDom - collapsed', () => {
     replaceFieldButtons,
     0,
     '',
+    false,
   )
 
   expect(result[0]).toEqual({
@@ -95,6 +96,7 @@ test('getFindWidgetVirtualDom - expanded', () => {
     replaceFieldButtons,
     0,
     '',
+    false,
   )
 
   expect(result[0]).toEqual({

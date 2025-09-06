@@ -15,6 +15,8 @@ content 2`,
   await Editor.setSelections(new Uint32Array([0, 0, 0, 7]))
   await Editor.openFindWidget()
   await FindWidget.setValue(`Content`)
+
+  // act
   await FindWidget.toggleMatchCase()
 
   // assert

@@ -37,3 +37,10 @@ test('regex + whole word wraps without escaping', () => {
   const r = buildRegex('fo+', { matchCase: true, matchWholeWord: true, useRegularExpression: true })
   expect(String(r)).toBe('/\\b(?:fo+)\\b/g')
 })
+
+test('regex + throws error for invalid regex', () => {
+  // @ts-ignore
+  const isBun = Boolean(process.versions.bun)
+  const expectedError = isBun ? 'Invalid regular expression: missing )' : `Invalid regular expression: /(/gi: Unterminated group`
+  expect(() => buildRegex('(', { matchCase: false, matchWholeWord: false, useRegularExpression: true })).toThrow(new Error(expectedError))
+})

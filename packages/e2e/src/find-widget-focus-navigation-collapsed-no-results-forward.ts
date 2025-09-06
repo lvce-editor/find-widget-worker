@@ -1,6 +1,6 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
 
-export const name = 'find-widget-focus-navigation-collapsed-no-results'
+export const name = 'find-widget-focus-navigation-collapsed-no-results-forward'
 
 export const skip = 1
 

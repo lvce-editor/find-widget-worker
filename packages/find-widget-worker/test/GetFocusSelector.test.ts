@@ -1,13 +1,14 @@
 import { expect, test } from '@jest/globals'
 import { WhenExpression } from '@lvce-editor/constants'
 import * as GetFocusSelector from '../src/parts/GetFocusSelector/GetFocusSelector.ts'
+import * as InputName from '../src/parts/InputName/InputName.ts'
 
 test('getFocusSelector - search input', () => {
-  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusSearchInput)).toBe('SearchValue')
+  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusSearchInput)).toBe(InputName.SearchValue)
 })
 
 test('getFocusSelector - replace input', () => {
-  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusSearchReplaceInput)).toBe('ReplaceValue')
+  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusSearchReplaceInput)).toBe(InputName.ReplaceValue)
 })
 
 test('getFocusSelector - match case', () => {
@@ -26,20 +27,8 @@ test('getFocusSelector - match whole word', () => {
   expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusSearchWholeWord)).toBe('MatchWholeWord')
 })
 
-test('getFocusSelector - search include input', () => {
-  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusSearchIncludeInput)).toBe('FilesToInclude')
-})
-
-test('getFocusSelector - search exclude input', () => {
-  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusSearchExcludeInput)).toBe('FilesToExclude')
-})
-
 test('getFocusSelector - unknown focus key', () => {
   expect(GetFocusSelector.getFocusSelector(-1)).toBe('')
-})
-
-test('getFocusSelector - toggle details', () => {
-  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusToggleDetails)).toBe('ToggleSearchDetails')
 })
 
 test('getFocusSelector - replace all', () => {

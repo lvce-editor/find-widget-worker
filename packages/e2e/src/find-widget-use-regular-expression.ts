@@ -2,8 +2,6 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'find-widget-use-regular-expression'
 
-export const skip = 1
-
 export const test: Test = async ({ Command, FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
@@ -16,13 +14,15 @@ content 2`,
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 7]))
   await Editor.openFindWidget()
-  await FindWidget.setValue(`Content`)
   await FindWidget.toggleUseRegularExpression()
+
+  // act
+  await FindWidget.setValue(`con.*`)
 
   // assert
   const matchCaseCheckBox = Locator(`.SearchFieldButton[name="UseRegularExpression"]`)
   await expect(matchCaseCheckBox).toHaveAttribute(`aria-checked`, 'true')
   const findWidgetMatchCount = Locator(`.FindWidgetMatchCount`)
   await expect(findWidgetMatchCount).toBeVisible()
-  await expect(findWidgetMatchCount).toHaveText('No Results')
+  await expect(findWidgetMatchCount).toHaveText('1 of 2')
 }

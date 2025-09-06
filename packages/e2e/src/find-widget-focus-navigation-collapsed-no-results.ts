@@ -1,6 +1,6 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
 
-export const name = 'find-widget-focus-navigation-collapsed'
+export const name = 'find-widget-focus-navigation-collapsed-no-results'
 
 export const skip = 1
 
@@ -42,5 +42,10 @@ export const test: Test = async ({ Command, FileSystem, Workspace, Main, Editor,
   const useRegularExpressionButton = Locator(`.SearchFieldButton[name="UseRegularExpression"]`)
   await expect(useRegularExpressionButton).toBeFocused()
 
+  // act
   await Command.execute(`FindWidget.focusNextElement`)
+
+  // assert
+  const closeButton = Locator(`.IconButton[name="Close"]`)
+  await expect(closeButton).toBeFocused()
 }

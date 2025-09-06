@@ -9,14 +9,15 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
     useRegularExpression,
     matchWholeWord,
   }
-  const matches = FindMatches.findMatches(lines, value, options)
+  const { matches, error } = FindMatches.findMatches(lines, value, options)
   const matchCount = GetMatchCount.getMatchCount(matches)
   return {
     ...state,
+    inputErrorMessage: error,
+    inputSource,
+    matchCount,
     matches,
     matchIndex: 0,
-    matchCount,
     value,
-    inputSource,
   }
 }

@@ -4,10 +4,22 @@ import * as FindRegexMatches from '../FindRegexMatches/FindRegexMatches.ts'
 
 export { type FindOptions } from '../FindOptions/FindOptions.ts'
 
-export const findMatches = (lines: readonly string[], searchString: string, options: FindOptions): Uint32Array => {
+interface FindMatchesResult {
+  readonly matches: Uint32Array
+  readonly error: string
+}
+
+export const findMatches = (lines: readonly string[], searchString: string, options: FindOptions): FindMatchesResult => {
   if (searchString.length === 0) {
-    return new Uint32Array([])
+    return {
+      matches: new Uint32Array([]),
+      error: '',
+    }
   }
   const regex = buildRegex(searchString, options)
-  return FindRegexMatches.findRegexMatches(lines, regex)
+  const matches = FindRegexMatches.findRegexMatches(lines, regex)
+  return {
+    matches,
+    error: '',
+  }
 }

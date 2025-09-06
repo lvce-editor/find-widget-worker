@@ -1,6 +1,6 @@
 import { expect, test } from '@jest/globals'
-import * as GetNextFocus from '../src/parts/GetNextFocus/GetNextFocus.ts'
 import { WhenExpression } from '@lvce-editor/constants'
+import * as GetNextFocus from '../src/parts/GetNextFocus/GetNextFocus.ts'
 
 test('getNextFocus - from search input with replace expanded', () => {
   const focus = WhenExpression.FocusSearchInput

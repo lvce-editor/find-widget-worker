@@ -1,7 +1,4 @@
-export interface RestoredState {
-  readonly value: string
-  readonly replacement: string
-}
+import type { RestoredState } from '../RestoredState/RestoredState.ts'
 
 const getSavedValue = (savedState: any): string => {
   if (savedState && savedState.value) {

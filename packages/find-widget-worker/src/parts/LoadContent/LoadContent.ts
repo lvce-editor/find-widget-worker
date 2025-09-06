@@ -6,6 +6,7 @@ import * as GetLines from '../GetLines/GetLines.ts'
 import * as GetMatchCount from '../GetMatchCount/GetMatchCount.ts'
 import * as GetSelectedText from '../GetSelectedText/GetSelectedText.ts'
 import * as GetSelections from '../GetSelections/GetSelections.ts'
+import { WhenExpression } from '@lvce-editor/constants'
 import { restoreState } from '../RestoreState/RestoreState.ts'
 
 export const loadContent = async (state: FindWidgetState, savedState?: any): Promise<FindWidgetState> => {
@@ -22,6 +23,7 @@ export const loadContent = async (state: FindWidgetState, savedState?: any): Pro
   const matchCount = GetMatchCount.getMatchCount(matches)
   return {
     ...state,
+    focus: WhenExpression.FocusSearchInput,
     focused: true,
     height,
     inputSource: InputSource.Script,

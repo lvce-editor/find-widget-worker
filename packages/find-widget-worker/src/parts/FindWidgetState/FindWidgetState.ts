@@ -34,4 +34,6 @@ export interface FindWidgetState {
   readonly y: number
   readonly inputHeight: number
   readonly inputLineHeight: number
+  readonly inputPaddingTop: number
+  readonly inputPaddingBottom: number
 }

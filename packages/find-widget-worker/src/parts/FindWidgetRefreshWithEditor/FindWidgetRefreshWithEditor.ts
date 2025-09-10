@@ -12,11 +12,13 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
   }
   const { matches, error } = FindMatches.findMatches(lines, value, options)
   const inputHeight = measureTextHeight(value, inputLineHeight)
+  const height = inputHeight + 5
   if (error) {
     return {
       ...state,
       inputErrorMessage: error,
       inputHeight,
+      height,
     }
   }
   const matchCount = GetMatchCount.getMatchCount(matches)
@@ -29,5 +31,6 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
     matches,
     matchIndex: 0,
     value,
+    height,
   }
 }

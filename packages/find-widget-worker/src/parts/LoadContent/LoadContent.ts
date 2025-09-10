@@ -8,9 +8,10 @@ import * as GetMatchCount from '../GetMatchCount/GetMatchCount.ts'
 import * as GetSelectedText from '../GetSelectedText/GetSelectedText.ts'
 import * as GetSelections from '../GetSelections/GetSelections.ts'
 import { restoreState } from '../RestoreState/RestoreState.ts'
+import { measureTextHeight } from '../MeasureTextHeight/MeasureTextHeight.ts'
 
 export const loadContent = async (state: FindWidgetState, savedState?: any): Promise<FindWidgetState> => {
-  const { editorUid, editorWidth, editorX, editorY } = state
+  const { editorUid, editorWidth, editorX, editorY, inputLineHeight } = state
   const { replacement, value } = restoreState(savedState)
   const lines = await GetLines.getLines(editorUid)
   const selections = await GetSelections.getSelections(editorUid)
@@ -21,11 +22,13 @@ export const loadContent = async (state: FindWidgetState, savedState?: any): Pro
   const actualValue = value || GetSelectedText.getSelectedText(lines, selections)
   const matches = FindMatchesCaseInsensitive.findMatchesCaseInsensitive(lines, actualValue)
   const matchCount = GetMatchCount.getMatchCount(matches)
+  const inputHeight = measureTextHeight(value, inputLineHeight)
   return {
     ...state,
     focus: WhenExpression.FocusSearchInput,
     focused: true,
     height,
+    inputHeight,
     inputSource: InputSource.Script,
     lines,
     matchCount,

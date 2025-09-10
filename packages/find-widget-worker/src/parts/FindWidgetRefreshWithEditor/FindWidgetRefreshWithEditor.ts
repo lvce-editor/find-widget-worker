@@ -4,14 +4,15 @@ import * as GetMatchCount from '../GetMatchCount/GetMatchCount.ts'
 import { measureTextHeight } from '../MeasureTextHeight/MeasureTextHeight.ts'
 
 export const refresh = (state: FindWidgetState, value: string, inputSource: number): FindWidgetState => {
-  const { lines, matchCase, useRegularExpression, matchWholeWord, inputLineHeight } = state
+  const { lines, matchCase, useRegularExpression, matchWholeWord, inputLineHeight, inputPaddingTop, inputPaddingBottom } = state
   const options: FindMatches.FindOptions = {
     matchCase,
     useRegularExpression,
     matchWholeWord,
   }
   const { matches, error } = FindMatches.findMatches(lines, value, options)
-  const inputHeight = measureTextHeight(value, inputLineHeight)
+  const textHeight = measureTextHeight(value, inputLineHeight)
+  const inputHeight = textHeight + inputPaddingBottom + inputPaddingTop
   const height = inputHeight + 5
   if (error) {
     return {

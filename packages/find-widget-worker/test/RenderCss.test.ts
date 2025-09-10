@@ -10,5 +10,11 @@ test('renderCss - returns SetCss with css vars', () => {
   expect(result[0]).toBe(ViewletCommand.SetCss)
   expect(result[1]).toBe(7)
   const css = result[2]
-  expect(css).toBe(`:root {\n    --FindWidgetWidth: 200px;\n    --FindWidgetHeight: 40px;\n    --FindWidgetX: 10px;\n    --FindWidgetY: 20px;\n  }`)
+  expect(css).toBe(`:root {
+  --FindWidgetWidth: 200px;
+  --FindWidgetHeight: 40px;
+  --FindWidgetX: 10px;
+  --FindWidgetY: 20px;
+  --FindWidgetInputHeight: 24px;
+}`)
 })

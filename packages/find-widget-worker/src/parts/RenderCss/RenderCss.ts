@@ -10,5 +10,7 @@ export const renderCss = (oldState: FindWidgetState, newState: FindWidgetState):
   --FindWidgetY: ${y}px;
   --FindWidgetInputHeight: ${inputHeight}px;
 }`
+
+  console.log({ css })
   return [ViewletCommand.SetCss, uid, css]
 }

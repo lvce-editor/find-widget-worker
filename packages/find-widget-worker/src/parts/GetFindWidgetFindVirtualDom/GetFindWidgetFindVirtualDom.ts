@@ -23,7 +23,7 @@ export const getFindWidgetFindVirtualDom = (
     {
       type: VirtualDomElements.Div,
       className: ClassNames.FindWidgetFind,
-      childCount: 5,
+      childCount: 2,
     },
     ...GetSearchFieldVirtualDom.getSearchFieldVirtualDom(
       InputName.SearchValue,
@@ -34,6 +34,11 @@ export const getFindWidgetFindVirtualDom = (
       DomEventListenerFunctions.HandleFocus,
       extraClassName,
     ),
+    {
+      type: VirtualDomElements.Div,
+      className: 'FindWidgetActions',
+      childCount: 1 + buttons.length,
+    },
     ...getMatchCountVirtualDom(matchCountText, matchCount, hasValue),
     ...buttons.flatMap(GetIconButtonVirtualDom.getIconButtonVirtualDom),
   ]

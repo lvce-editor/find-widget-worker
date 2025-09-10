@@ -118,6 +118,11 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
       childCount: 0,
     },
     {
+      childCount: 1,
+      className: 'FindWidgetActions',
+      type: 4,
+    },
+    {
       type: VirtualDomElements.Div,
       className: GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, hasValue),
       childCount: 1,

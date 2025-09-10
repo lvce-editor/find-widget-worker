@@ -44,7 +44,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
     {
       type: VirtualDomElements.Div,
       className: ClassNames.FindWidgetFind,
-      childCount: 5,
+      childCount: 2,
     },
     {
       type: VirtualDomElements.Div,
@@ -174,7 +174,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
     {
       type: VirtualDomElements.Div,
       className: ClassNames.FindWidgetFind,
-      childCount: 5,
+      childCount: 2,
     },
     {
       type: VirtualDomElements.Div,
@@ -246,6 +246,11 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
       type: VirtualDomElements.Div,
       className: 'MaskIcon MaskIconRegex',
       childCount: 0,
+    },
+    {
+      childCount: 2,
+      className: 'FindWidgetActions',
+      type: 4,
     },
     {
       type: VirtualDomElements.Div,

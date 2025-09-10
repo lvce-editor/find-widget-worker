@@ -20,6 +20,7 @@ import { toggleUseRegularExpression } from '../FindWidgetToggleUseRegularExpress
 import { focusElement } from '../FocusElement/FocusElement.ts'
 import { focusNextElement } from '../FocusNextElement/FocusNextElement.ts'
 import { focusPreviousElement } from '../FocusPreviousElement/FocusPreviousElement.ts'
+import { getKeyBindings } from '../GetKeyBindings/GetKeyBindings.ts'
 import * as HandleInput from '../HandleInput/HandleInput.ts'
 import { handleReplaceInput } from '../HandleReplaceInput/HandleReplaceInput.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
@@ -35,17 +36,18 @@ export const commandMap = {
   'FindWidget.diff2': Diff2.diff2,
   'FindWidget.dispose': Dispose.dispose,
   'FindWidget.focusCloseButton': WrapCommand.wrapCommand(FindWidgetFocusCloseButton.focusCloseButton),
-  'FindWidget.focusFirst': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusFirst),
   'FindWidget.focusElement': WrapCommand.wrapCommand(focusElement),
+  'FindWidget.focusFirst': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusFirst),
   'FindWidget.focusIndex': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusIndex),
   'FindWidget.focusLast': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusLast),
   'FindWidget.focusNext': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusNext),
-  'FindWidget.focusPrevious': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusPrevious),
   'FindWidget.focusNextElement': WrapCommand.wrapCommand(focusNextElement),
+  'FindWidget.focusPrevious': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusPrevious),
   'FindWidget.focusPreviousElement': WrapCommand.wrapCommand(focusPreviousElement),
   'FindWidget.focusReplace': WrapCommand.wrapCommand(FindWidgetFocusReplace.focusReplace),
   'FindWidget.focusReplaceAllButton': WrapCommand.wrapCommand(FindWidgetFocusReplaceAllButton.focusReplaceAllButton),
   'FindWidget.getCommandIds': WrapCommand.getCommandIds,
+  'FindWidget.getKeyBindings': getKeyBindings,
   'FindWidget.handleBlur': WrapCommand.wrapCommand(FindWidgetHandleBlur.handleBlur),
   'FindWidget.handleClickButton': WrapCommand.wrapCommand(handleClickButton),
   'FindWidget.handleClickClose': WrapCommand.wrapCommand(HandleClickClose.handleClickClose),
@@ -61,8 +63,8 @@ export const commandMap = {
   'FindWidget.replace': WrapCommand.wrapCommand(replace),
   'FindWidget.replaceAll': WrapCommand.wrapCommand(replaceAll),
   'FindWidget.resize': WrapCommand.wrapCommand(resize),
-  'FindWidget.terminate': terminate,
   'FindWidget.saveState': WrapCommand.wrapGetter(saveState),
+  'FindWidget.terminate': terminate,
   'FindWidget.toggleMatchCase': WrapCommand.wrapCommand(toggleMatchCase),
   'FindWidget.toggleReplace': WrapCommand.wrapCommand(FindWidgetToggleReplace.toggleReplace),
   'FindWidget.toggleUseRegularExpression': WrapCommand.wrapCommand(toggleUseRegularExpression),

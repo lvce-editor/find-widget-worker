@@ -2,7 +2,7 @@ import { test, expect } from '@jest/globals'
 import { InputSource } from '@lvce-editor/constants'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import * as FindWidgetHandleInput from '../src/parts/FindWidgetHandleInput/FindWidgetHandleInput.ts'
+import * as FindWidgetHandleInput from '../src/parts/HandleInput/HandleInput.ts'
 
 test('handleInput - updates value, matches and matchCount (default user)', () => {
   const state: FindWidgetState = {

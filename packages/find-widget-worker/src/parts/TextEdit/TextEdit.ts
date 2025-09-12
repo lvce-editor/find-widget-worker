@@ -9,10 +9,8 @@ export interface Selection {
 }
 
 export interface Change {
-  readonly start: Range
-  readonly end: Range
-  readonly inserted: readonly string[]
-  readonly deleted: readonly string[]
+  readonly startOffset: number
+  readonly endOffset: number
   readonly origin: string
 }
 

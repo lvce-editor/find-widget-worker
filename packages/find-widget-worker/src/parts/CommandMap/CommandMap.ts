@@ -15,6 +15,7 @@ import { handleResizerPointerMove } from '../FindWidgetHandleResizerPointerMove/
 import { handleResizerPointerUp } from '../FindWidgetHandleResizerPointerUp/FindWidgetHandleResizerPointerUp.ts'
 import * as WrapCommand from '../FindWidgetStates/FindWidgetStates.ts'
 import { toggleMatchCase } from '../FindWidgetToggleMatchCase/FindWidgetToggleMatchCase.ts'
+import { togglePreserveCase } from '../FindWidgetTogglePreserveCase/FindWidgetTogglePreserveCase.ts'
 import * as FindWidgetToggleReplace from '../FindWidgetToggleReplace/FindWidgetToggleReplace.ts'
 import { toggleUseRegularExpression } from '../FindWidgetToggleUseRegularExpression/FindWidgetToggleUseRegularExpression.ts'
 import { focusElement } from '../FocusElement/FocusElement.ts'
@@ -68,4 +69,5 @@ export const commandMap = {
   'FindWidget.toggleMatchCase': WrapCommand.wrapCommand(toggleMatchCase),
   'FindWidget.toggleReplace': WrapCommand.wrapCommand(FindWidgetToggleReplace.toggleReplace),
   'FindWidget.toggleUseRegularExpression': WrapCommand.wrapCommand(toggleUseRegularExpression),
+  'FindWidget.togglePreserveCase': WrapCommand.wrapCommand(togglePreserveCase),
 }

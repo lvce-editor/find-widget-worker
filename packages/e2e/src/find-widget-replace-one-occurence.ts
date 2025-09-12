@@ -24,8 +24,6 @@ content 2`,
   await FindWidget.replace()
 
   // assert
-  // const toggleReplace = Locator('.FindWidget [name="ToggleReplace"]')
-  // await expect(toggleReplace).toHaveAttribute(`aria-expanded`, `true`)
-  // const replace = Locator(`.FindWidget .FindWidgetReplace`)
-  // await expect(replace).toBeVisible()
+  await Editor.shouldHaveText(` 1
+content 2`)
 }

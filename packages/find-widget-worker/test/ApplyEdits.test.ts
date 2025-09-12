@@ -12,11 +12,9 @@ test('applyEdits - forwards to Editor.applyEdit', async () => {
 
   await applyEdits(1, [
     {
-      start: { rowIndex: 0, columnIndex: 0 },
-      end: { rowIndex: 0, columnIndex: 3 },
-      inserted: ['baz'],
-      deleted: ['foo'],
-      origin: 'find-widget.replace',
+      startOffset: 0,
+      endOffset: 3,
+      inserted: 'baz',
     },
   ])
 

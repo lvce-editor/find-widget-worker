@@ -41,6 +41,7 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     inputPaddingTop: 4,
     inputPaddingBottom: 4,
     inputBorderWidth: 1,
+    inputGap: 3,
   }
   FindWidgetStates.set(uid, state, state)
   return state

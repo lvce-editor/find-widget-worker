@@ -1,6 +1,6 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
 
-export const name = 'viewlet.find-replace-one-occurrance'
+export const name = 'viewlet.find-replace-one-occurrence'
 
 export const skip = 1
 

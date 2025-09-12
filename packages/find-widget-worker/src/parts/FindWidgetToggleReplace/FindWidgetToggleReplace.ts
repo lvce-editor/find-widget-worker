@@ -1,13 +1,13 @@
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
-import * as GetFindWidgetHeight from '../GetFindWidgetHeight/GetFindWidgetHeight.ts'
+import { measureInputHeight } from '../MeasureInputHeight/MeasureInputHeight.ts'
 
 export const toggleReplace = (state: FindWidgetState): FindWidgetState => {
-  const { replaceExpanded } = state
+  const { replaceExpanded, value, inputLineHeight, inputPaddingBottom, inputPaddingTop } = state
   const newExpanded = !replaceExpanded
-  const newHeight = GetFindWidgetHeight.getFindWidgetHeight(newExpanded)
+  const { height } = measureInputHeight(value, inputLineHeight, inputPaddingBottom, inputPaddingTop, newExpanded)
   return {
     ...state,
     replaceExpanded: newExpanded,
-    height: newHeight,
+    height,
   }
 }

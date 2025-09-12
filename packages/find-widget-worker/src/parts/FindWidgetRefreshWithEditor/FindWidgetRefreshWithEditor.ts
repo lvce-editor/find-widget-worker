@@ -14,6 +14,7 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
     inputPaddingBottom,
     replaceExpanded,
     inputBorderWidth,
+    inputGap,
   } = state
   const options: FindMatches.FindOptions = {
     matchCase,
@@ -21,7 +22,15 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
     matchWholeWord,
   }
   const { matches, error } = FindMatches.findMatches(lines, value, options)
-  const { inputHeight, height } = measureInputHeight(value, inputLineHeight, inputPaddingBottom, inputPaddingTop, inputBorderWidth, replaceExpanded)
+  const { inputHeight, height } = measureInputHeight(
+    value,
+    inputLineHeight,
+    inputPaddingBottom,
+    inputPaddingTop,
+    inputBorderWidth,
+    inputGap,
+    replaceExpanded,
+  )
   if (error) {
     return {
       ...state,

@@ -14,8 +14,7 @@ test('applyEdits - forwards to Editor.applyEdit', async () => {
     {
       startOffset: 0,
       endOffset: 3,
-      inserted: ['baz'],
-      deleted: ['foo'],
+      inserted: 'baz',
       origin: 'find-widget.replace',
     },
   ])
@@ -28,8 +27,7 @@ test('applyEdits - forwards to Editor.applyEdit', async () => {
         {
           startOffset: 0,
           endOffset: 3,
-          inserted: ['baz'],
-          deleted: ['foo'],
+          inserted: 'baz',
           origin: 'find-widget.replace',
         },
       ],

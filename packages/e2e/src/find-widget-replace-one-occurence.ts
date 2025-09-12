@@ -24,6 +24,6 @@ content 2`,
   await FindWidget.replace()
 
   // assert
-  await Editor.shouldHaveText(` 1
+  await Editor.shouldHaveText(`replaced 1
 content 2`)
 }

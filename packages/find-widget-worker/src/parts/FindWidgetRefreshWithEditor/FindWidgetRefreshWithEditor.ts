@@ -18,7 +18,7 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
     return {
       ...state,
       inputErrorMessage: error,
-      inputHeight,
+      searchInputHeight: inputHeight,
       height,
     }
   }
@@ -26,7 +26,7 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
   return {
     ...state,
     inputErrorMessage: error,
-    inputHeight,
+    searchInputHeight: inputHeight,
     inputSource,
     matchCount,
     matches,

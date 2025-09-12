@@ -28,7 +28,7 @@ export const loadContent = async (state: FindWidgetState, savedState?: any): Pro
     focus: WhenExpression.FocusSearchInput,
     focused: true,
     height,
-    inputHeight,
+    searchInputHeight: inputHeight,
     inputSource: InputSource.Script,
     lines,
     matchCount,

@@ -39,5 +39,6 @@ export const createDefaultState = (): FindWidgetState => {
     inputLineHeight: 24,
     inputPaddingBottom: 2,
     inputPaddingTop: 2,
+    inputBorderWidth: 1,
   }
 }

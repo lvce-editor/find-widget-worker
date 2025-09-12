@@ -1,6 +1,6 @@
 import type { TextEdit } from '../TextEdit/TextEdit.ts'
 
-export const getEdits = (matches: Uint32Array, value: string, replacement: string, startIndex: number, replaceAll: boolean): readonly TextEdit[] => {
+export const getEdits = (matches: Uint32Array, value: string, replacement: string, startIndex: number, replaceAll: boolean, lines: readonly string[]): readonly TextEdit[] => {
   if (value.length === 0 || matches.length === 0) {
     return []
   }
@@ -14,11 +14,23 @@ export const getEdits = (matches: Uint32Array, value: string, replacement: strin
     const rowIndex: number = matches[i * 2]
     const startColumnIndex: number = matches[i * 2 + 1]
     const endColumnIndex: number = startColumnIndex + value.length
+
+    // Convert row/column positions to character offsets
+    let startOffset: number = 0
+    for (let row = 0; row < rowIndex; row++) {
+      startOffset += lines[row].length + 1 // +1 for newline character
+    }
+    startOffset += startColumnIndex
+
+    let endOffset: number = 0
+    for (let row = 0; row < rowIndex; row++) {
+      endOffset += lines[row].length + 1 // +1 for newline character
+    }
+    endOffset += endColumnIndex
+
     edits.push({
-      start: { rowIndex, columnIndex: startColumnIndex },
-      end: { rowIndex, columnIndex: endColumnIndex },
-      inserted: [replacement],
-      deleted: [value],
+      startOffset,
+      endOffset,
       origin: 'find-widget.replace',
     })
   }

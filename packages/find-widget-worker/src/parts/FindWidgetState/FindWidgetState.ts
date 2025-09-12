@@ -32,7 +32,7 @@ export interface FindWidgetState {
   readonly width: number
   readonly x: number
   readonly y: number
-  readonly inputHeight: number
+  readonly searchInputHeight: number
   readonly inputLineHeight: number
   readonly inputPaddingTop: number
   readonly inputPaddingBottom: number

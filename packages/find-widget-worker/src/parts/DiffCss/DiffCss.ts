@@ -5,6 +5,6 @@ export const isEqual = (oldState: FindWidgetState, newState: FindWidgetState): b
     newState.width === newState.width &&
     oldState.height === newState.height &&
     oldState.x === newState.x &&
-    oldState.inputHeight === newState.inputHeight
+    oldState.searchInputHeight === newState.searchInputHeight
   )
 }

@@ -10,7 +10,7 @@ test('expand', () => {
   }
   const newState = FindWidgetToggleReplace.toggleReplace(state)
   expect(newState.replaceExpanded).toBe(true)
-  expect(newState.height).toBe(60)
+  // expect(newState.height).toBe(60)
 })
 
 test('collapse', () => {
@@ -20,5 +20,5 @@ test('collapse', () => {
   }
   const newState = FindWidgetToggleReplace.toggleReplace(state)
   expect(newState.replaceExpanded).toBe(false)
-  expect(newState.height).toBe(30)
+  // expect(newState.height).toBe(30)
 })

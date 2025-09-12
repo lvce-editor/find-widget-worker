@@ -42,6 +42,7 @@ test('replace - replaces only focused match', async () => {
       {
         startOffset: 8,
         endOffset: 11,
+        inserted: 'baz',
         origin: 'find-widget.replace',
       },
     ],

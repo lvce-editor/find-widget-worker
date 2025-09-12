@@ -16,6 +16,7 @@ test('getEdits - replace one occurrence at focused index', () => {
     {
       startOffset: 8,
       endOffset: 11,
+      inserted: 'baz',
       origin: 'find-widget.replace',
     },
   ])
@@ -32,16 +33,19 @@ test('getEdits - replace all occurrences', () => {
     {
       startOffset: 0,
       endOffset: 3,
+      inserted: 'baz',
       origin: 'find-widget.replace',
     },
     {
       startOffset: 8,
       endOffset: 11,
+      inserted: 'baz',
       origin: 'find-widget.replace',
     },
     {
       startOffset: 16,
       endOffset: 19,
+      inserted: 'baz',
       origin: 'find-widget.replace',
     },
   ])

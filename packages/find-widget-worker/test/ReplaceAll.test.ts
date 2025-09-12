@@ -40,27 +40,24 @@ test('replaceAll - replaces all matches', async () => {
       'Editor.applyDocumentEdits',
       1,
       [
-        {
-          startOffset: 0,
-          endOffset: 3,
-          inserted: ['baz'],
-          deleted: ['foo'],
-          origin: 'find-widget.replace',
-        },
-        {
-          startOffset: 8,
-          endOffset: 11,
-          inserted: ['baz'],
-          deleted: ['foo'],
-          origin: 'find-widget.replace',
-        },
-        {
-          startOffset: 16,
-          endOffset: 19,
-          inserted: ['baz'],
-          deleted: ['foo'],
-          origin: 'find-widget.replace',
-        },
+         {
+           startOffset: 0,
+           endOffset: 3,
+           inserted: 'baz',
+           origin: 'find-widget.replace',
+         },
+         {
+           startOffset: 8,
+           endOffset: 11,
+           inserted: 'baz',
+           origin: 'find-widget.replace',
+         },
+         {
+           startOffset: 16,
+           endOffset: 19,
+           inserted: 'baz',
+           origin: 'find-widget.replace',
+         },
       ],
     ],
   ])

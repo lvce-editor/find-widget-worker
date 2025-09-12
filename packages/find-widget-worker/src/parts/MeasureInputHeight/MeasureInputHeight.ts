@@ -11,10 +11,11 @@ export const measureInputHeight = (
   inputLineHeight: number,
   inputPaddingBottom: number,
   inputPaddingTop: number,
+  inputBorderWidth: number,
   replaceExpanded: boolean,
 ): HeightMeasurement => {
   const textHeight = measureTextHeight(value, inputLineHeight)
-  const inputHeight = textHeight + inputPaddingBottom + inputPaddingTop
+  const inputHeight = textHeight + inputPaddingBottom + inputPaddingTop + inputBorderWidth * 2
   const replaceInputHeight = replaceExpanded ? inputHeight : 0 // TODO should be independent of input
   // TODO use variables for margin
   const height = inputHeight + replaceInputHeight + 5

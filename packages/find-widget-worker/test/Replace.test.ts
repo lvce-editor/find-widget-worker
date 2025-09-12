@@ -40,10 +40,9 @@ test('replace - replaces only focused match', async () => {
     1,
     [
       {
-        start: { rowIndex: 0, columnIndex: 8 },
-        end: { rowIndex: 0, columnIndex: 11 },
-        inserted: ['baz'],
-        deleted: ['foo'],
+        startOffset: 8,
+        endOffset: 11,
+        inserted: 'baz',
         origin: 'find-widget.replace',
       },
     ],

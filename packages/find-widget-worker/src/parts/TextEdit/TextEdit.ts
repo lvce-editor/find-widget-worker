@@ -9,11 +9,10 @@ export interface Selection {
 }
 
 export interface Change {
-  readonly start: Range
-  readonly end: Range
-  readonly inserted: readonly string[]
-  readonly deleted: readonly string[]
+  readonly endOffset: number
+  readonly inserted: string
   readonly origin: string
+  readonly startOffset: number
 }
 
 export type TextEdit = Change

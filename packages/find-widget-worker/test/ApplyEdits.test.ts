@@ -12,25 +12,25 @@ test('applyEdits - forwards to Editor.applyEdit', async () => {
 
   await applyEdits(1, [
     {
-      start: { rowIndex: 0, columnIndex: 0 },
-      end: { rowIndex: 0, columnIndex: 3 },
-      inserted: ['baz'],
-      deleted: ['foo'],
+      startOffset: 0,
+      endOffset: 3,
+      inserted: 'baz',
       origin: 'find-widget.replace',
     },
   ])
 
-  expect(mockRpc.invocations[0]).toEqual([
-    'Editor.applyDocumentEdits',
-    1,
+  expect(mockRpc.invocations).toEqual([
     [
-      {
-        start: { rowIndex: 0, columnIndex: 0 },
-        end: { rowIndex: 0, columnIndex: 3 },
-        inserted: ['baz'],
-        deleted: ['foo'],
-        origin: 'find-widget.replace',
-      },
+      'Editor.applyDocumentEdits',
+      1,
+      [
+        {
+          startOffset: 0,
+          endOffset: 3,
+          inserted: 'baz',
+          origin: 'find-widget.replace',
+        },
+      ],
     ],
   ])
 })

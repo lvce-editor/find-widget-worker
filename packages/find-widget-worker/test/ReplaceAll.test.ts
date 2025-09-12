@@ -35,26 +35,33 @@ test('replaceAll - replaces all matches', async () => {
   await Promise.resolve()
 
   expect(result).toEqual(state)
-  expect(mockRpc.invocations.length).toBeGreaterThan(0)
-  expect(mockRpc.invocations[0]).toEqual([
-    'Editor.applyDocumentEdits',
-    1,
+  expect(mockRpc.invocations).toEqual([
     [
-      {
-        startOffset: 0,
-        endOffset: 3,
-        origin: 'find-widget.replace',
-      },
-      {
-        startOffset: 8,
-        endOffset: 11,
-        origin: 'find-widget.replace',
-      },
-      {
-        startOffset: 16,
-        endOffset: 19,
-        origin: 'find-widget.replace',
-      },
+      'Editor.applyDocumentEdits',
+      1,
+      [
+        {
+          startOffset: 0,
+          endOffset: 3,
+          inserted: ['baz'],
+          deleted: ['foo'],
+          origin: 'find-widget.replace',
+        },
+        {
+          startOffset: 8,
+          endOffset: 11,
+          inserted: ['baz'],
+          deleted: ['foo'],
+          origin: 'find-widget.replace',
+        },
+        {
+          startOffset: 16,
+          endOffset: 19,
+          inserted: ['baz'],
+          deleted: ['foo'],
+          origin: 'find-widget.replace',
+        },
+      ],
     ],
   ])
 })

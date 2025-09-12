@@ -38,8 +38,9 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     inputErrorMessage: '',
     searchInputHeight: 15,
     inputLineHeight: 15,
-    inputPaddingTop: 2,
-    inputPaddingBottom: 2,
+    inputPaddingTop: 4,
+    inputPaddingBottom: 4,
+    inputBorderWidth: 1,
   }
   FindWidgetStates.set(uid, state, state)
   return state

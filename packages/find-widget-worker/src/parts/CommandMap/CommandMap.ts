@@ -36,7 +36,7 @@ import { saveState } from '../SaveState/SaveState.ts'
 export const commandMap = {
   'FindWidget.create': Create.create,
   'FindWidget.diff2': Diff2.diff2,
-  'FindWidget.close': close,
+  'FindWidget.close': WrapCommand.wrapCommand(close),
   'FindWidget.dispose': Dispose.dispose,
   'FindWidget.focusCloseButton': WrapCommand.wrapCommand(FindWidgetFocusCloseButton.focusCloseButton),
   'FindWidget.focusElement': WrapCommand.wrapCommand(focusElement),

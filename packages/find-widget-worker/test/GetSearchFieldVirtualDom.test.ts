@@ -21,7 +21,7 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
   ]
   const outsideButtons: ISearchFieldButton[] = []
 
-  const result = GetSearchFieldVirtualDom.getSearchFieldVirtualDom(name, placeholder, onInput, insideButtons, outsideButtons, onFocus)
+  const result = GetSearchFieldVirtualDom.getSearchFieldVirtualDom(name, placeholder, onInput, insideButtons, outsideButtons, onFocus, '')
 
   expect(result).toEqual([
     {
@@ -74,6 +74,6 @@ test('getSearchFieldVirtualDom throws error when outsideButtons are provided', (
   const outsideButtons: readonly ISearchFieldButton[] = [{ icon: 'TestIcon' }] as any[]
 
   expect(() => {
-    GetSearchFieldVirtualDom.getSearchFieldVirtualDom(name, placeholder, onInput, insideButtons, outsideButtons)
+    GetSearchFieldVirtualDom.getSearchFieldVirtualDom(name, placeholder, onInput, insideButtons, outsideButtons, '', '')
   }).toThrow('outsideButtons are deprecated')
 })

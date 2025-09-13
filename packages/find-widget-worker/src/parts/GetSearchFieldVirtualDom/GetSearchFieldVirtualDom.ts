@@ -11,8 +11,8 @@ export const getSearchFieldVirtualDom = (
   onInput: string,
   insideButtons: readonly ISearchFieldButton[],
   outsideButtons: readonly ISearchFieldButton[],
-  onFocus = '',
-  extraClassName = '',
+  onFocus: string,
+  extraClassName: string,
 ): readonly VirtualDomNode[] => {
   const dom = [
     {

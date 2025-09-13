@@ -20,7 +20,7 @@ export const findMatches = (lines: readonly string[], searchString: string, opti
   if (error) {
     return {
       matches: new Uint32Array([]),
-      error: '',
+      error,
     }
   }
   const matches = FindRegexMatches.findRegexMatches(lines, regex)

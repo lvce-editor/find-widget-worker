@@ -19,7 +19,7 @@ content 2`,
   await FindWidget.setValue(`content`)
   await FindWidget.toggleReplace()
   await FindWidget.setReplaceValue('replaced')
-  await Command.execute('FindWidget.togglePreserveCase')
+  await FindWidget.togglePreserveCase()
 
   // act
   await FindWidget.replace()

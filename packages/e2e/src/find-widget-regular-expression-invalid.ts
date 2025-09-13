@@ -27,7 +27,5 @@ content 2`,
   await expect(findWidgetMatchCount).toHaveText('No Results')
   const searchField = Locator(`.FindWidget .SearchField`)
   await expect(searchField).toHaveClass('SearchFieldError')
-
-  // TODO find input should have error outline
   // TODO error message should be displayed below find input
 }

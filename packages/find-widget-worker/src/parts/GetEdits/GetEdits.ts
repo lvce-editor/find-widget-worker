@@ -1,4 +1,5 @@
 import type { TextEdit } from '../TextEdit/TextEdit.ts'
+import { preserveCase } from '../PreserveCase/PreserveCase.ts'
 
 export const getEdits = (
   matches: Uint32Array,
@@ -7,6 +8,7 @@ export const getEdits = (
   startIndex: number,
   replaceAll: boolean,
   lines: readonly string[],
+  preserveCaseOption: boolean = false,
 ): readonly TextEdit[] => {
   if (value.length === 0 || matches.length === 0) {
     return []
@@ -21,6 +23,12 @@ export const getEdits = (
     const rowIndex: number = matches[i * 2]
     const startColumnIndex: number = matches[i * 2 + 1]
     const endColumnIndex: number = startColumnIndex + value.length
+
+    // Get the original text that was matched
+    const originalText: string = lines[rowIndex].slice(startColumnIndex, endColumnIndex)
+
+    // Apply case preservation if enabled
+    const finalReplacement: string = preserveCaseOption ? preserveCase(originalText, replacement) : replacement
 
     // Convert row/column positions to character offsets
     let startOffset: number = 0
@@ -38,7 +46,7 @@ export const getEdits = (
     edits.push({
       startOffset,
       endOffset,
-      inserted: replacement,
+      inserted: finalReplacement,
       origin: 'find-widget.replace',
     })
   }

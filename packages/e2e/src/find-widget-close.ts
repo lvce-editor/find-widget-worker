@@ -2,8 +2,6 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'find-widget-close'
 
-export const skip = 1
-
 export const test: Test = async ({ Command, FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
@@ -21,5 +19,6 @@ content 2`,
   await Command.execute(`FindWidget.close`)
 
   // assert
-  // TODO
+  const findWidget = Locator('.FindWidget')
+  await expect(findWidget).toBeHidden()
 }

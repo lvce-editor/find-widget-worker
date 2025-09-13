@@ -1,4 +1,5 @@
 import { terminate } from '@lvce-editor/viewlet-registry'
+import { close } from '../Close/Close.ts'
 import * as Create from '../Create/Create.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
 import * as Dispose from '../Dispose/Dispose.ts'
@@ -35,6 +36,7 @@ import { saveState } from '../SaveState/SaveState.ts'
 export const commandMap = {
   'FindWidget.create': Create.create,
   'FindWidget.diff2': Diff2.diff2,
+  'FindWidget.close': close,
   'FindWidget.dispose': Dispose.dispose,
   'FindWidget.focusCloseButton': WrapCommand.wrapCommand(FindWidgetFocusCloseButton.focusCloseButton),
   'FindWidget.focusElement': WrapCommand.wrapCommand(focusElement),

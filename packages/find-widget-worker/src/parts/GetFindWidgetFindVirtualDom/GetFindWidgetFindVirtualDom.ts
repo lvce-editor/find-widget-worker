@@ -18,7 +18,7 @@ export const getFindWidgetFindVirtualDom = (
   hasValue: boolean,
   hasError: boolean,
 ): readonly VirtualDomNode[] => {
-  const extraClassName = hasError ? ClassNames.InputValidationError : ''
+  const extraClassName = hasError ? ClassNames.SearchFieldError : ''
   return [
     {
       type: VirtualDomElements.Div,

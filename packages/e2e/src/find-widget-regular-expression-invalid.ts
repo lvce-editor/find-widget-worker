@@ -2,8 +2,6 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'find-widget-regular-expression-invalid'
 
-export const skip = 1
-
 export const test: Test = async ({ Command, FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
@@ -16,10 +14,10 @@ content 2`,
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()
-  await FindWidget.toggleUseRegularExpression()
+  await FindWidget.setValue(`(`)
 
   // act
-  await FindWidget.setValue(`(`)
+  await FindWidget.toggleUseRegularExpression()
 
   // assert
   const matchCaseCheckBox = Locator(`.SearchFieldButton[name="UseRegularExpression"]`)
@@ -27,4 +25,7 @@ content 2`,
   const findWidgetMatchCount = Locator(`.FindWidgetMatchCount`)
   await expect(findWidgetMatchCount).toBeVisible()
   await expect(findWidgetMatchCount).toHaveText('No Results')
+
+  // TODO find input should have error outline
+  // TODO error message should be displayed below find input
 }

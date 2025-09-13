@@ -16,7 +16,13 @@ export const findMatches = (lines: readonly string[], searchString: string, opti
       error: '',
     }
   }
-  const { regex } = buildRegex(searchString, options)
+  const { regex, error } = buildRegex(searchString, options)
+  if (error) {
+    return {
+      matches: new Uint32Array([]),
+      error: '',
+    }
+  }
   const matches = FindRegexMatches.findRegexMatches(lines, regex)
   return {
     matches,

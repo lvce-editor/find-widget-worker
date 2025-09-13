@@ -17,13 +17,13 @@ export const getSearchFieldVirtualDom = (
   const dom = [
     {
       type: VirtualDomElements.Div,
-      className: ClassNames.SearchField,
+      className: mergeClassNames(ClassNames.SearchField, extraClassName),
       role: AriaRoles.None,
       childCount: 2,
     },
     {
       type: VirtualDomElements.TextArea,
-      className: mergeClassNames(ClassNames.MultilineInputBox, extraClassName),
+      className: ClassNames.MultilineInputBox,
       spellcheck: false,
       autocapitalize: 'off',
       autocorrect: 'off',

@@ -306,13 +306,13 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with erro
 
   expect(result[1]).toEqual({
     type: VirtualDomElements.Div,
-    className: ClassNames.SearchField,
+    className: ClassNames.SearchField + ' ' + ClassNames.SearchFieldError,
     role: 'none',
     childCount: 2,
   })
   expect(result[2]).toEqual({
     type: VirtualDomElements.TextArea,
-    className: `${ClassNames.MultilineInputBox} ${ClassNames.InputValidationError}`,
+    className: `${ClassNames.MultilineInputBox}`,
     spellcheck: false,
     autocapitalize: 'off',
     autocorrect: 'off',

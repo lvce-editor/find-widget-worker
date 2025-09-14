@@ -13,11 +13,7 @@ process.env.PATH_PREFIX = '/find-widget-worker'
 await sharedProcess.exportStatic({
   root,
   extensionPath: '',
+  testPath: 'packages/e2e',
 })
-
-// await cp(
-//   join(root, '.tmp', 'dist', 'dist', 'iframeWorkerMain.js'),
-//   join(root, 'dist', commitHash, 'packages', 'iframe-worker', 'dist', 'iframeWorkerMain.js'),
-// )
 
 await cp(join(root, 'dist'), join(root, '.tmp', 'static'), { recursive: true })

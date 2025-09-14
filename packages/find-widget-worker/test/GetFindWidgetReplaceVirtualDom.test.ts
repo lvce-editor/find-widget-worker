@@ -5,7 +5,7 @@ import * as GetFindWidgetReplaceVirtualDom from '../src/parts/GetFindWidgetRepla
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
 test('getFindWidgetReplaceVirtualDom - collapsed', () => {
-  const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(false, [], [])
+  const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(false, [], [], false)
   expect(result).toEqual([])
 })
 
@@ -21,7 +21,7 @@ test('getFindWidgetReplaceVirtualDom - expanded', () => {
   ]
   const replaceFieldButtons: readonly ISearchFieldButton[] = []
 
-  const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(true, replaceButtons, replaceFieldButtons)
+  const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(true, replaceButtons, replaceFieldButtons, false)
 
   expect(result).toEqual([
     {

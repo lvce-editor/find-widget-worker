@@ -27,6 +27,8 @@ export const getFindWidgetVirtualDom = (
   matchCount: number,
   value: string,
   hasError: boolean,
+  inputFocused: boolean,
+  replaceInputFocused: boolean,
 ): readonly VirtualDomNode[] => {
   return [
     parentNode,
@@ -37,7 +39,15 @@ export const getFindWidgetVirtualDom = (
       className: ClassNames.FindWidgetRight,
       childCount: replaceExpanded ? 2 : 1,
     },
-    ...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, findButtons, findFieldButtons, matchCount, Boolean(value), hasError),
-    ...GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(replaceExpanded, replaceButtons, replaceFieldButtons),
+    ...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(
+      matchCountText,
+      findButtons,
+      findFieldButtons,
+      matchCount,
+      Boolean(value),
+      hasError,
+      inputFocused,
+    ),
+    ...GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(replaceExpanded, replaceButtons, replaceFieldButtons, replaceInputFocused),
   ]
 }

@@ -38,7 +38,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
   const hasValue = false
   const hasError = false
 
-  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, hasValue, hasError)
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, hasValue, hasError, false)
 
   expect(result).toEqual([
     {
@@ -173,7 +173,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matc
   const hasValue = true
   const hasError = false
 
-  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, hasValue, hasError)
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, hasValue, hasError, false)
 
   expect(result).toEqual([
     {
@@ -302,7 +302,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with erro
   const hasValue = true
   const hasError = true
 
-  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, hasValue, hasError)
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, hasValue, hasError, false)
 
   expect(result[1]).toEqual({
     type: VirtualDomElements.Div,

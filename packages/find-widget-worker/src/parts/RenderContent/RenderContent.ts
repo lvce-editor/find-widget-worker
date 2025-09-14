@@ -1,3 +1,4 @@
+import { WhenExpression } from '@lvce-editor/constants'
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as GetFindWidgetButtons from '../GetFindWidgedButtons/GetFindWidgetButtons.ts'
 import * as GetFindWidgetButtonsEnabled from '../GetFindWidgetButtonsEnabled/GetFindWidgetButtonsEnabled.ts'
@@ -6,7 +7,8 @@ import * as GetMatchCountText from '../GetMatchCountText/GetMatchCountText.ts'
 import * as RenderMethod from '../RenderMethod/RenderMethod.ts'
 
 export const renderContent = (oldState: FindWidgetState, newState: FindWidgetState): readonly any[] => {
-  const { uid, matchCount, value, replaceExpanded, matchCase, matchWholeWord, useRegularExpression, preserveCase, inputErrorMessage } = newState
+  const { focus, uid, matchCount, value, replaceExpanded, matchCase, matchWholeWord, useRegularExpression, preserveCase, inputErrorMessage } =
+    newState
   const matchCountText = GetMatchCountText.getMatchCountText(newState.matchIndex, newState.matchCount)
   const { findButtonsEnabled, replaceButtonsEnabled } = GetFindWidgetButtonsEnabled.getFindWidgetButtonsEnabled(matchCount, value)
   const { findButtons, replaceButtons, findFieldButtons, replaceFieldButtons } = GetFindWidgetButtons.getFindWidgetButtons(
@@ -18,6 +20,8 @@ export const renderContent = (oldState: FindWidgetState, newState: FindWidgetSta
     preserveCase,
   )
   const hasError = Boolean(inputErrorMessage)
+  const inputFocused = focus === WhenExpression.FocusSearchInput
+  const replaceInputFocused = focus === WhenExpression.FocusSearchReplaceInput
   const dom = GetFindWidgetVirtualDom.getFindWidgetVirtualDom(
     matchCountText,
     replaceExpanded,
@@ -28,6 +32,8 @@ export const renderContent = (oldState: FindWidgetState, newState: FindWidgetSta
     matchCount,
     value,
     hasError,
+    inputFocused,
+    replaceInputFocused,
   )
   return [RenderMethod.SetDom2, uid, dom]
 }

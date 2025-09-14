@@ -13,10 +13,12 @@ export const getFindWidgetReplaceVirtualDom = (
   replaceExpanded: boolean,
   replaceButtons: readonly FindWidgetButton[],
   replaceFieldButtons: readonly ISearchFieldButton[],
+  replaceInputFocused: boolean,
 ): readonly VirtualDomNode[] => {
   if (!replaceExpanded) {
     return []
   }
+  const extraClassName = replaceInputFocused ? ClassNames.SearchFieldFocused : ''
   return [
     {
       type: VirtualDomElements.Div,
@@ -30,7 +32,7 @@ export const getFindWidgetReplaceVirtualDom = (
       [],
       [],
       DomEventListenerFunctions.HandleReplaceFocus,
-      '',
+      extraClassName,
     ),
     ...replaceButtons.flatMap(GetIconButtonVirtualDom.getIconButtonVirtualDom),
   ]

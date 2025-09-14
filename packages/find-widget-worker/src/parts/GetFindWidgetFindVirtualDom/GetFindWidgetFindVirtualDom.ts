@@ -10,6 +10,16 @@ import { getMatchCountVirtualDom } from '../GetMatchCountVirtualDom/GetMatchCoun
 import * as GetSearchFieldVirtualDom from '../GetSearchFieldVirtualDom/GetSearchFieldVirtualDom.ts'
 import * as InputName from '../InputName/InputName.ts'
 
+const getExtraClassName = (hasError: boolean, inputFocused: boolean): string => {
+  if (hasError) {
+    return ClassNames.SearchFieldError
+  }
+  if (inputFocused) {
+    return ClassNames.SearchFieldFocused
+  }
+  return ''
+}
+
 export const getFindWidgetFindVirtualDom = (
   matchCountText: string,
   buttons: readonly FindWidgetButton[],
@@ -17,8 +27,9 @@ export const getFindWidgetFindVirtualDom = (
   matchCount: number,
   hasValue: boolean,
   hasError: boolean,
+  inputFocused: boolean,
 ): readonly VirtualDomNode[] => {
-  const extraClassName = hasError ? ClassNames.SearchFieldError : ''
+  const extraClassName = getExtraClassName(hasError, inputFocused)
   return [
     {
       type: VirtualDomElements.Div,

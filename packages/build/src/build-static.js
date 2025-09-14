@@ -29,7 +29,7 @@ const remoteUrl = getRemoteUrl(workerPath)
 
 if (content.includes('// const findWidgetWorkerUrl = ')) {
   const occurrence = `// const findWidgetWorkerUrl = \`\${assetDir}/packages/find-widget-worker/dist/findWidgetWorkerMain.js\`
-  const findWidgetWorkerUrl = \`${remoteUrl}\``
+const findWidgetWorkerUrl = \`${remoteUrl}\``
   const replacement = `const findWidgetWorkerUrl = \`\${assetDir}/packages/find-widget-worker/dist/findWidgetWorkerMain.js\``
   const newContent = content.replace(occurrence, replacement)
   await writeFile(rendererWorkerPath, newContent)

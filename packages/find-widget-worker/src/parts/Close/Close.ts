@@ -1,5 +1,5 @@
+import { EditorWorker } from '@lvce-editor/rpc-registry'
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
-import * as EditorWorker from '../EditorWorker/EditorWorker.ts'
 
 export const close = async (state: FindWidgetState): Promise<FindWidgetState> => {
   const { editorUid } = state

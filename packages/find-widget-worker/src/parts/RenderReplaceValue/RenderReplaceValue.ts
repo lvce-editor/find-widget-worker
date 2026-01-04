@@ -3,6 +3,6 @@ import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as InputName from '../InputName/InputName.ts'
 
 export const renderReplaceValue = (oldState: FindWidgetState, newState: FindWidgetState): readonly any[] => {
-  const { uid, replacement } = newState
+  const { replacement, uid } = newState
   return [ViewletCommand.SetValueByName, uid, InputName.ReplaceValue, replacement]
 }

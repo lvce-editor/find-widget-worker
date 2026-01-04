@@ -1,7 +1,7 @@
 export interface ISearchFieldButton {
-  readonly icon: string
   readonly checked: boolean
-  readonly title: string
+  readonly icon: string
   readonly name: string
   readonly onClick: string
+  readonly title: string
 }

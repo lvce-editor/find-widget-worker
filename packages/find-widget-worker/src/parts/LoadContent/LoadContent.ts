@@ -16,24 +16,24 @@ export const loadContent = async (state: FindWidgetState, savedState?: any): Pro
     editorWidth,
     editorX,
     editorY,
+    inputBorderWidth,
+    inputGap,
     inputLineHeight,
     inputPaddingBottom,
     inputPaddingTop,
     replaceExpanded,
-    inputBorderWidth,
-    inputGap,
   } = state
   const { replacement, value } = restoreState(savedState)
   const lines = await GetLines.getLines(editorUid)
   const selections = await GetSelections.getSelections(editorUid)
-  const { x, y, width } = GetFindWidgetPosition.getFindWidgetPosition(editorX, editorY, editorWidth)
+  const { width, x, y } = GetFindWidgetPosition.getFindWidgetPosition(editorX, editorY, editorWidth)
   if (lines.length === 0) {
     return state
   }
   const actualValue = value || GetSelectedText.getSelectedText(lines, selections)
   const matches = FindMatchesCaseInsensitive.findMatchesCaseInsensitive(lines, actualValue)
   const matchCount = GetMatchCount.getMatchCount(matches)
-  const { inputHeight, height } = measureInputHeight(
+  const { height, inputHeight } = measureInputHeight(
     value,
     inputLineHeight,
     inputPaddingBottom,

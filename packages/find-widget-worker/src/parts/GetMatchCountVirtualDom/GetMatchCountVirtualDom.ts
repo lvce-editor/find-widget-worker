@@ -6,9 +6,9 @@ import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 export const getMatchCountVirtualDom = (matchCountText: string, matchCount: number, hasValue: boolean): readonly VirtualDomNode[] => {
   return [
     {
-      type: VirtualDomElements.Div,
-      className: GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, hasValue),
       childCount: 1,
+      className: GetFindMatchCountClassName.getFindMatchCountClassName(matchCount, hasValue),
+      type: VirtualDomElements.Div,
     },
     text(matchCountText),
   ]

@@ -14,10 +14,10 @@ test('getEdits - replace one occurrence at focused index', () => {
   const edits = getEdits(matches, value, replacement, startIndex, replaceAll, lines)
   expect(edits).toEqual([
     {
-      startOffset: 8,
       endOffset: 11,
       inserted: 'baz',
       origin: 'find-widget.replace',
+      startOffset: 8,
     },
   ])
 })
@@ -31,22 +31,22 @@ test('getEdits - replace all occurrences', () => {
   const edits = getEdits(matches, value, replacement, 0, true, lines)
   expect(edits).toEqual([
     {
-      startOffset: 0,
       endOffset: 3,
       inserted: 'baz',
       origin: 'find-widget.replace',
+      startOffset: 0,
     },
     {
-      startOffset: 8,
       endOffset: 11,
       inserted: 'baz',
       origin: 'find-widget.replace',
+      startOffset: 8,
     },
     {
-      startOffset: 16,
       endOffset: 19,
       inserted: 'baz',
       origin: 'find-widget.replace',
+      startOffset: 16,
     },
   ])
 })

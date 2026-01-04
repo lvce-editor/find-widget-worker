@@ -7,7 +7,7 @@ import * as RenderReplaceValue from '../src/parts/RenderReplaceValue/RenderRepla
 
 test('renderReplaceValue - returns SetValueByName command', () => {
   const oldState: FindWidgetState = createDefaultState()
-  const newState: FindWidgetState = { ...oldState, uid: 123, replacement: 'baz' }
+  const newState: FindWidgetState = { ...oldState, replacement: 'baz', uid: 123 }
   const result = RenderReplaceValue.renderReplaceValue(oldState, newState)
   expect(result).toEqual([ViewletCommand.SetValueByName, 123, InputName.ReplaceValue, 'baz'])
 })

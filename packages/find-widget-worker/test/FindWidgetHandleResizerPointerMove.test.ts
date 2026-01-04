@@ -15,10 +15,10 @@ test('handleResizerPointerMove - returns same state when not dragging', async ()
 test('handleResizerPointerMove - updates x and width while dragging (respects minWidth)', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    resizerPointerDown: true,
-    x: 100,
-    width: 400,
     minWidth: 300,
+    resizerPointerDown: true,
+    width: 400,
+    x: 100,
   }
   const result = await FindWidgetHandleResizerPointerMove.handleResizerPointerMove(state, 300, 0)
   expect(result.x).toBe(300)
@@ -28,10 +28,10 @@ test('handleResizerPointerMove - updates x and width while dragging (respects mi
 test('handleResizerPointerMove - expands beyond minWidth if dragged left', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    resizerPointerDown: true,
-    x: 100,
-    width: 400,
     minWidth: 300,
+    resizerPointerDown: true,
+    width: 400,
+    x: 100,
   }
   const result = await FindWidgetHandleResizerPointerMove.handleResizerPointerMove(state, 50, 0)
   expect(result.x).toBe(50)

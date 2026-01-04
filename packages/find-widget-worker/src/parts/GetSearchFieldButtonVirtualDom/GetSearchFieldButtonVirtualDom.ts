@@ -9,23 +9,23 @@ const checkedClassName = MergeClassNames.mergeClassNames(ClassNames.SearchFieldB
 const unCheckedClassName = ClassNames.SearchFieldButton
 
 export const getSearchFieldButtonVirtualDom = (button: ISearchFieldButton): readonly VirtualDomNode[] => {
-  const { icon, checked, title, name, onClick } = button
+  const { checked, icon, name, onClick, title } = button
   return [
     {
-      type: VirtualDomElements.Button,
       ariaChecked: checked,
+      childCount: 1,
       className: checked ? checkedClassName : unCheckedClassName,
       name,
+      onClick,
       role: AriaRoles.CheckBox,
       tabIndex: 0,
       title,
-      childCount: 1,
-      onClick,
+      type: VirtualDomElements.Button,
     },
     {
-      type: VirtualDomElements.Div,
-      className: MergeClassNames.mergeClassNames(ClassNames.MaskIcon, `MaskIcon${icon}`),
       childCount: 0,
+      className: MergeClassNames.mergeClassNames(ClassNames.MaskIcon, `MaskIcon${icon}`),
+      type: VirtualDomElements.Div,
     },
   ]
 }

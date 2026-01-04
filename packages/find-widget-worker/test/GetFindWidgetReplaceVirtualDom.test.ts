@@ -12,9 +12,9 @@ test('getFindWidgetReplaceVirtualDom - collapsed', () => {
 test('getFindWidgetReplaceVirtualDom - expanded', () => {
   const replaceButtons = [
     {
-      label: 'Replace',
-      icon: 'replace-icon',
       disabled: false,
+      icon: 'replace-icon',
+      label: 'Replace',
       name: 'replace-button',
       onClick: 'handleReplace',
     },
@@ -53,14 +53,14 @@ test('getFindWidgetReplaceVirtualDom - expanded', () => {
       type: 4,
     },
     {
-      type: VirtualDomElements.Button,
-      className: ClassNames.IconButton,
-      title: 'Replace',
       ariaLabel: 'Replace',
       childCount: 1,
+      className: ClassNames.IconButton,
       disabled: undefined,
-      onClick: 'handleReplace',
       name: 'replace-button',
+      onClick: 'handleReplace',
+      title: 'Replace',
+      type: VirtualDomElements.Button,
     },
     {
       childCount: 0,

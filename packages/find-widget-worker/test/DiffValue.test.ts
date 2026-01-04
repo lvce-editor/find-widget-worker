@@ -13,7 +13,7 @@ test('isEqual should return true for same values', () => {
 
 test('isEqual should return true for user input source', () => {
   const oldState: FindWidgetState = CreateDefaultState.createDefaultState()
-  const newState: FindWidgetState = { ...oldState, value: 'different', inputSource: InputSource.User }
+  const newState: FindWidgetState = { ...oldState, inputSource: InputSource.User, value: 'different' }
   const result: boolean = DiffValue.isEqual(oldState, newState)
   expect(result).toBe(true)
 })

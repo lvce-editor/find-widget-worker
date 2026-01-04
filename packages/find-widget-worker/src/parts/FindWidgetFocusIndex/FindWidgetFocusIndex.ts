@@ -2,7 +2,7 @@ import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as SetSelections from '../SetSelections/SetSelections.ts'
 
 export const focusIndex = async (state: FindWidgetState, index: number): Promise<FindWidgetState> => {
-  const { matchIndex, matches, editorUid, value } = state
+  const { editorUid, matches, matchIndex, value } = state
   if (index === matchIndex) {
     return state
   }
@@ -28,7 +28,7 @@ export const focusLast = (state: FindWidgetState): Promise<FindWidgetState> => {
 }
 
 export const focusNext = (state: FindWidgetState): Promise<FindWidgetState> => {
-  const { matchIndex, matchCount } = state
+  const { matchCount, matchIndex } = state
   if (matchIndex === matchCount - 1) {
     return focusFirst(state)
   }

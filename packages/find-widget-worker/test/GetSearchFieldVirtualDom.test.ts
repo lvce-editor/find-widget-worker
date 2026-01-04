@@ -12,11 +12,11 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
   const onFocus = 'test-onFocus'
   const insideButtons: readonly ISearchFieldButton[] = [
     {
-      icon: 'TestIcon',
       checked: false,
-      title: 'Test Title',
+      icon: 'TestIcon',
       name: 'Test',
       onClick: 'test-onClick',
+      title: 'Test Title',
     },
   ]
   const outsideButtons: ISearchFieldButton[] = []
@@ -25,43 +25,43 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
 
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Div,
+      childCount: 2,
       className: ClassNames.SearchField,
       role: AriaRoles.None,
-      childCount: 2,
+      type: VirtualDomElements.Div,
     },
     {
-      type: VirtualDomElements.TextArea,
-      className: ClassNames.MultilineInputBox,
-      spellcheck: false,
       autocapitalize: 'off',
       autocorrect: 'off',
-      placeholder,
-      name,
-      onInput,
-      onFocus,
       childCount: 0,
+      className: ClassNames.MultilineInputBox,
+      name,
+      onFocus,
+      onInput,
+      placeholder,
+      spellcheck: false,
+      type: VirtualDomElements.TextArea,
     },
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.SearchFieldButtons,
       childCount: insideButtons.length,
+      className: ClassNames.SearchFieldButtons,
+      type: VirtualDomElements.Div,
     },
     {
-      type: VirtualDomElements.Button,
+      ariaChecked: false,
+      childCount: 1,
       className: ClassNames.SearchFieldButton,
-      title: 'Test Title',
       name: 'Test',
       onClick: 'test-onClick',
       role: AriaRoles.CheckBox,
-      ariaChecked: false,
       tabIndex: 0,
-      childCount: 1,
+      title: 'Test Title',
+      type: VirtualDomElements.Button,
     },
     {
-      type: VirtualDomElements.Div,
-      className: `${ClassNames.MaskIcon} MaskIconTestIcon`,
       childCount: 0,
+      className: `${ClassNames.MaskIcon} MaskIconTestIcon`,
+      type: VirtualDomElements.Div,
     },
   ])
 })

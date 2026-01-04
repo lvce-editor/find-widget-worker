@@ -22,8 +22,8 @@ export const measureInputHeight = (
   // TODO use variables for margin
   const height = inputHeight + replaceInputHeight + 5 + actualGap
   return {
-    inputHeight,
     height,
+    inputHeight,
     replaceInputHeight,
   }
 }

@@ -6,9 +6,9 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 
 test('getIconButtonVirtualDom - basic button', () => {
   const iconButton: FindWidgetButton = {
-    label: 'Test Button',
-    icon: 'test-icon',
     disabled: false,
+    icon: 'test-icon',
+    label: 'Test Button',
     name: 'test-button',
     onClick: '',
   }
@@ -17,22 +17,22 @@ test('getIconButtonVirtualDom - basic button', () => {
 
   expect(result).toHaveLength(2)
   expect(result[0]).toEqual({
-    type: VirtualDomElements.Button,
-    className: ClassNames.IconButton,
-    title: 'Test Button',
     ariaLabel: 'Test Button',
     childCount: 1,
+    className: ClassNames.IconButton,
     disabled: undefined,
-    onClick: iconButton.onClick,
     name: 'test-button',
+    onClick: iconButton.onClick,
+    title: 'Test Button',
+    type: VirtualDomElements.Button,
   })
 })
 
 test('getIconButtonVirtualDom - disabled button', () => {
   const iconButton: FindWidgetButton = {
-    label: 'Disabled Button',
-    icon: 'disabled-icon',
     disabled: true,
+    icon: 'disabled-icon',
+    label: 'Disabled Button',
     name: 'disabled-button',
     onClick: '',
   }
@@ -41,13 +41,13 @@ test('getIconButtonVirtualDom - disabled button', () => {
 
   expect(result).toHaveLength(2)
   expect(result[0]).toEqual({
-    type: VirtualDomElements.Button,
-    className: `${ClassNames.IconButton} ${ClassNames.IconButtonDisabled}`,
-    title: 'Disabled Button',
     ariaLabel: 'Disabled Button',
     childCount: 1,
+    className: `${ClassNames.IconButton} ${ClassNames.IconButtonDisabled}`,
     disabled: true,
-    onClick: iconButton.onClick,
     name: 'disabled-button',
+    onClick: iconButton.onClick,
+    title: 'Disabled Button',
+    type: VirtualDomElements.Button,
   })
 })

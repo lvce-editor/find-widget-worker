@@ -44,10 +44,10 @@ export const getEdits = (
     endOffset += endColumnIndex
 
     edits.push({
-      startOffset,
       endOffset,
       inserted: finalReplacement,
       origin: 'find-widget.replace',
+      startOffset,
     })
   }
   return edits

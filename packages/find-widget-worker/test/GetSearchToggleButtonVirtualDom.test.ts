@@ -7,21 +7,21 @@ test('getSearchToggleButtonVirtualDom returns correct virtual dom elements for c
   const result = GetSearchToggleButtonVirtualDom.getSearchToggleButtonVirtualDom(false)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Button,
-      className: 'IconButton SearchToggleButton',
-      title: 'Toggle Replace',
-      ariaLabel: 'Toggle Replace',
       ariaExpanded: false,
-      name: InputName.ToggleReplace,
+      ariaLabel: 'Toggle Replace',
       childCount: 1,
+      className: 'IconButton SearchToggleButton',
       'data-command': 'toggleReplace',
+      name: InputName.ToggleReplace,
       onClick: '',
       onFocus: 'handleToggleReplaceFocus',
+      title: 'Toggle Replace',
+      type: VirtualDomElements.Button,
     },
     {
-      type: VirtualDomElements.Div,
-      className: 'MaskIcon MaskIconChevronRight',
       childCount: 0,
+      className: 'MaskIcon MaskIconChevronRight',
+      type: VirtualDomElements.Div,
     },
   ])
 })
@@ -30,21 +30,21 @@ test('getSearchToggleButtonVirtualDom returns correct virtual dom elements for e
   const result = GetSearchToggleButtonVirtualDom.getSearchToggleButtonVirtualDom(true, 'test-onClick')
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Button,
-      className: 'IconButton SearchToggleButton SearchToggleButtonExpanded',
-      title: 'Toggle Replace',
-      ariaLabel: 'Toggle Replace',
       ariaExpanded: true,
-      name: InputName.ToggleReplace,
+      ariaLabel: 'Toggle Replace',
       childCount: 1,
+      className: 'IconButton SearchToggleButton SearchToggleButtonExpanded',
       'data-command': 'toggleReplace',
+      name: InputName.ToggleReplace,
       onClick: 'test-onClick',
       onFocus: 'handleToggleReplaceFocus',
+      title: 'Toggle Replace',
+      type: VirtualDomElements.Button,
     },
     {
-      type: VirtualDomElements.Div,
-      className: 'MaskIcon MaskIconChevronDown',
       childCount: 0,
+      className: 'MaskIcon MaskIconChevronDown',
+      type: VirtualDomElements.Div,
     },
   ])
 })

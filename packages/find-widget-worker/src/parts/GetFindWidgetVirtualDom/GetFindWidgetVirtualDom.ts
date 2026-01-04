@@ -11,10 +11,10 @@ import * as GetSearchToggleButtonVirtualDom from '../GetSearchToggleButtonVirtua
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 
 const parentNode: VirtualDomNode = {
-  type: VirtualDomElements.Div,
-  className: MergeClassNames.mergeClassNames(ClassNames.Viewlet, ClassNames.ViewletFind, ClassNames.ViewletFindWidget, ClassNames.FindWidget),
   childCount: 3,
+  className: MergeClassNames.mergeClassNames(ClassNames.Viewlet, ClassNames.ViewletFind, ClassNames.ViewletFindWidget, ClassNames.FindWidget),
   role: AriaRoles.Group,
+  type: VirtualDomElements.Div,
 }
 
 export const getFindWidgetVirtualDom = (
@@ -35,9 +35,9 @@ export const getFindWidgetVirtualDom = (
     ...getResizerVirtualDom(),
     ...GetSearchToggleButtonVirtualDom.getSearchToggleButtonVirtualDom(replaceExpanded, 'handleClickToggleReplace'),
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.FindWidgetRight,
       childCount: replaceExpanded ? 2 : 1,
+      className: ClassNames.FindWidgetRight,
+      type: VirtualDomElements.Div,
     },
     ...GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(
       matchCountText,

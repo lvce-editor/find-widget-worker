@@ -5,27 +5,27 @@ import * as FindRegexMatches from '../FindRegexMatches/FindRegexMatches.ts'
 export { type FindOptions } from '../FindOptions/FindOptions.ts'
 
 interface FindMatchesResult {
-  readonly matches: Uint32Array
   readonly error: string
+  readonly matches: Uint32Array
 }
 
 export const findMatches = (lines: readonly string[], searchString: string, options: FindOptions): FindMatchesResult => {
   if (searchString.length === 0) {
     return {
-      matches: new Uint32Array([]),
       error: '',
+      matches: new Uint32Array([]),
     }
   }
-  const { regex, error } = buildRegex(searchString, options)
+  const { error, regex } = buildRegex(searchString, options)
   if (error) {
     return {
-      matches: new Uint32Array([]),
       error,
+      matches: new Uint32Array([]),
     }
   }
   const matches = FindRegexMatches.findRegexMatches(lines, regex)
   return {
-    matches,
     error: '',
+    matches,
   }
 }

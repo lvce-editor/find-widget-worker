@@ -7,7 +7,7 @@ import * as DiffType from '../src/parts/DiffType/DiffType.ts'
 
 test('applyRender - RenderContent', () => {
   const oldState: FindWidgetState = CreateDefaultState.createDefaultState()
-  const newState: FindWidgetState = { ...oldState, value: 'foo', matchCount: 1, matchIndex: 0 }
+  const newState: FindWidgetState = { ...oldState, matchCount: 1, matchIndex: 0, value: 'foo' }
   const diffResult: readonly number[] = [DiffType.RenderContent]
   const result: readonly any[] = ApplyRender.applyRender(oldState, newState, diffResult)
   expect(Array.isArray(result)).toBe(true)

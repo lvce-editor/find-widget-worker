@@ -14,11 +14,11 @@ const createState = (lines: readonly string[], value: string, replacement: strin
     ...base,
     editorUid: 1,
     lines,
-    value,
-    replacement,
+    matchCount: Math.floor(matches.length / 2),
     matches,
     matchIndex,
-    matchCount: Math.floor(matches.length / 2),
+    replacement,
+    value,
   }
 }
 
@@ -40,10 +40,10 @@ test('replace - replaces only focused match', async () => {
     1,
     [
       {
-        startOffset: 8,
         endOffset: 11,
         inserted: 'baz',
         origin: 'find-widget.replace',
+        startOffset: 8,
       },
     ],
   ])

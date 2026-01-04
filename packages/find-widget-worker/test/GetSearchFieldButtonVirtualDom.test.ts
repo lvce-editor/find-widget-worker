@@ -7,58 +7,58 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 
 test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for unchecked button', () => {
   const button: ISearchFieldButton = {
-    icon: 'TestIcon',
     checked: false,
-    title: 'Test Title',
+    icon: 'TestIcon',
     name: 'Test',
     onClick: 'test-onClick',
+    title: 'Test Title',
   }
   const result = GetSearchFieldButtonVirtualDom.getSearchFieldButtonVirtualDom(button)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Button,
+      ariaChecked: false,
+      childCount: 1,
       className: ClassNames.SearchFieldButton,
-      title: 'Test Title',
       name: 'Test',
       onClick: 'test-onClick',
       role: AriaRoles.CheckBox,
-      ariaChecked: false,
       tabIndex: 0,
-      childCount: 1,
+      title: 'Test Title',
+      type: VirtualDomElements.Button,
     },
     {
-      type: VirtualDomElements.Div,
-      className: `${ClassNames.MaskIcon} MaskIconTestIcon`,
       childCount: 0,
+      className: `${ClassNames.MaskIcon} MaskIconTestIcon`,
+      type: VirtualDomElements.Div,
     },
   ])
 })
 
 test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for checked button', () => {
   const button: ISearchFieldButton = {
-    icon: 'TestIcon',
     checked: true,
-    title: 'Test Title',
+    icon: 'TestIcon',
     name: 'Test',
     onClick: 'test-onClick',
+    title: 'Test Title',
   }
   const result = GetSearchFieldButtonVirtualDom.getSearchFieldButtonVirtualDom(button)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Button,
+      ariaChecked: true,
+      childCount: 1,
       className: `${ClassNames.SearchFieldButton} ${ClassNames.SearchFieldButtonChecked}`,
-      title: 'Test Title',
       name: 'Test',
       onClick: 'test-onClick',
       role: AriaRoles.CheckBox,
-      ariaChecked: true,
       tabIndex: 0,
-      childCount: 1,
+      title: 'Test Title',
+      type: VirtualDomElements.Button,
     },
     {
-      type: VirtualDomElements.Div,
-      className: `${ClassNames.MaskIcon} MaskIconTestIcon`,
       childCount: 0,
+      className: `${ClassNames.MaskIcon} MaskIconTestIcon`,
+      type: VirtualDomElements.Div,
     },
   ])
 })

@@ -5,14 +5,14 @@ import { loadContent } from '../src/parts/LoadContent/LoadContent.ts'
 
 test('loadContent - empty lines', async () => {
   const commandMap = {
-    'FileSystem.readDirWithFileTypes': (): any => {
-      return []
-    },
     'Editor.getLines2': (): any => {
       return []
     },
     'Editor.getSelections2': (): any => {
       return [0, 0, 0, 0]
+    },
+    'FileSystem.readDirWithFileTypes': (): any => {
+      return []
     },
   }
   EditorWorker.registerMockRpc(commandMap)
@@ -24,14 +24,14 @@ test('loadContent - empty lines', async () => {
 
 test('loadContent - with content', async () => {
   const commandMap2 = {
-    'FileSystem.readDirWithFileTypes': (): any => {
-      return []
-    },
     'Editor.getLines2': (): any => {
       return ['hello world']
     },
     'Editor.getSelections2': (): any => {
       return [0, 0, 0, 5]
+    },
+    'FileSystem.readDirWithFileTypes': (): any => {
+      return []
     },
   }
   EditorWorker.registerMockRpc(commandMap2)

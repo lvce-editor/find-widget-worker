@@ -14,11 +14,11 @@ const createState = (lines: readonly string[], value: string, replacement: strin
     ...base,
     editorUid: 1,
     lines,
-    value,
-    replacement,
+    matchCount: Math.floor(matches.length / 2),
     matches,
     matchIndex: 0,
-    matchCount: Math.floor(matches.length / 2),
+    replacement,
+    value,
   }
 }
 
@@ -41,22 +41,22 @@ test('replaceAll - replaces all matches', async () => {
       1,
       [
         {
-          startOffset: 0,
           endOffset: 3,
           inserted: 'baz',
           origin: 'find-widget.replace',
+          startOffset: 0,
         },
         {
-          startOffset: 8,
           endOffset: 11,
           inserted: 'baz',
           origin: 'find-widget.replace',
+          startOffset: 8,
         },
         {
-          startOffset: 16,
           endOffset: 19,
           inserted: 'baz',
           origin: 'find-widget.replace',
+          startOffset: 16,
         },
       ],
     ],

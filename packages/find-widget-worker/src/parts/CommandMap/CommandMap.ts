@@ -35,9 +35,9 @@ import { resize } from '../Resize/Resize.ts'
 import { saveState } from '../SaveState/SaveState.ts'
 
 export const commandMap = {
+  'FindWidget.close': WrapCommand.wrapCommand(close),
   'FindWidget.create': Create.create,
   'FindWidget.diff2': Diff2.diff2,
-  'FindWidget.close': WrapCommand.wrapCommand(close),
   'FindWidget.dispose': Dispose.dispose,
   'FindWidget.focusCloseButton': WrapCommand.wrapCommand(FindWidgetFocusCloseButton.focusCloseButton),
   'FindWidget.focusElement': WrapCommand.wrapCommand(focusElement),
@@ -70,8 +70,8 @@ export const commandMap = {
   'FindWidget.saveState': WrapCommand.wrapGetter(saveState),
   'FindWidget.terminate': terminate,
   'FindWidget.toggleMatchCase': WrapCommand.wrapCommand(toggleMatchCase),
+  'FindWidget.toggleMatchWholeWord': WrapCommand.wrapCommand(toggleMatchWholeWord),
+  'FindWidget.togglePreserveCase': WrapCommand.wrapCommand(togglePreserveCase),
   'FindWidget.toggleReplace': WrapCommand.wrapCommand(FindWidgetToggleReplace.toggleReplace),
   'FindWidget.toggleUseRegularExpression': WrapCommand.wrapCommand(toggleUseRegularExpression),
-  'FindWidget.togglePreserveCase': WrapCommand.wrapCommand(togglePreserveCase),
-  'FindWidget.toggleMatchWholeWord': WrapCommand.wrapCommand(toggleMatchWholeWord),
 }

@@ -18,41 +18,41 @@ test('getFindWidgetButtons with find buttons enabled and replace buttons disable
   )
   expect(result.findButtons).toEqual([
     {
-      label: FindStrings.previousMatch(),
+      disabled: false,
       icon: Icon.ArrowUp,
-      disabled: false,
-      onClick: DomEventListenerFunctions.HandleClickPreviousMatch,
+      label: FindStrings.previousMatch(),
       name: Names.FocusPrevious,
+      onClick: DomEventListenerFunctions.HandleClickPreviousMatch,
     },
     {
-      label: FindStrings.nextMatch(),
+      disabled: false,
       icon: Icon.ArrowDown,
-      disabled: false,
-      onClick: DomEventListenerFunctions.HandleClickNextMatch,
+      label: FindStrings.nextMatch(),
       name: Names.FocusNext,
+      onClick: DomEventListenerFunctions.HandleClickNextMatch,
     },
     {
-      label: FindStrings.close(),
-      icon: Icon.Close,
       disabled: false,
-      onClick: DomEventListenerFunctions.HandleClickClose,
+      icon: Icon.Close,
+      label: FindStrings.close(),
       name: Names.Close,
+      onClick: DomEventListenerFunctions.HandleClickClose,
     },
   ])
   expect(result.replaceButtons).toEqual([
     {
-      label: FindStrings.replace(),
-      icon: Icon.Replace,
       disabled: true,
-      onClick: DomEventListenerFunctions.HandleClickButton,
+      icon: Icon.Replace,
+      label: FindStrings.replace(),
       name: Names.Replace,
+      onClick: DomEventListenerFunctions.HandleClickButton,
     },
     {
-      label: FindStrings.replaceAll(),
-      icon: Icon.ReplaceAll,
       disabled: true,
-      onClick: DomEventListenerFunctions.HandleClickButton,
+      icon: Icon.ReplaceAll,
+      label: FindStrings.replaceAll(),
       name: Names.ReplaceAll,
+      onClick: DomEventListenerFunctions.HandleClickButton,
     },
   ])
 })
@@ -69,41 +69,41 @@ test('getFindWidgetButtons with all buttons disabled', () => {
   )
   expect(result.findButtons).toEqual([
     {
-      label: FindStrings.previousMatch(),
+      disabled: true,
       icon: Icon.ArrowUp,
-      disabled: true,
-      onClick: DomEventListenerFunctions.HandleClickPreviousMatch,
+      label: FindStrings.previousMatch(),
       name: Names.FocusPrevious,
+      onClick: DomEventListenerFunctions.HandleClickPreviousMatch,
     },
     {
-      label: FindStrings.nextMatch(),
-      icon: Icon.ArrowDown,
       disabled: true,
-      onClick: DomEventListenerFunctions.HandleClickNextMatch,
+      icon: Icon.ArrowDown,
+      label: FindStrings.nextMatch(),
       name: Names.FocusNext,
+      onClick: DomEventListenerFunctions.HandleClickNextMatch,
     },
     {
-      label: FindStrings.close(),
-      icon: Icon.Close,
       disabled: false,
-      onClick: DomEventListenerFunctions.HandleClickClose,
+      icon: Icon.Close,
+      label: FindStrings.close(),
       name: Names.Close,
+      onClick: DomEventListenerFunctions.HandleClickClose,
     },
   ])
   expect(result.replaceButtons).toEqual([
     {
-      label: FindStrings.replace(),
-      icon: Icon.Replace,
       disabled: true,
-      onClick: DomEventListenerFunctions.HandleClickButton,
+      icon: Icon.Replace,
+      label: FindStrings.replace(),
       name: Names.Replace,
+      onClick: DomEventListenerFunctions.HandleClickButton,
     },
     {
-      label: FindStrings.replaceAll(),
-      icon: Icon.ReplaceAll,
       disabled: true,
-      onClick: DomEventListenerFunctions.HandleClickButton,
+      icon: Icon.ReplaceAll,
+      label: FindStrings.replaceAll(),
       name: Names.ReplaceAll,
+      onClick: DomEventListenerFunctions.HandleClickButton,
     },
   ])
 })
@@ -120,41 +120,41 @@ test('getFindWidgetButtons with all buttons enabled', () => {
   )
   expect(result.findButtons).toEqual([
     {
-      label: FindStrings.previousMatch(),
+      disabled: false,
       icon: Icon.ArrowUp,
-      disabled: false,
-      onClick: DomEventListenerFunctions.HandleClickPreviousMatch,
+      label: FindStrings.previousMatch(),
       name: Names.FocusPrevious,
+      onClick: DomEventListenerFunctions.HandleClickPreviousMatch,
     },
     {
-      label: FindStrings.nextMatch(),
+      disabled: false,
       icon: Icon.ArrowDown,
-      disabled: false,
-      onClick: DomEventListenerFunctions.HandleClickNextMatch,
+      label: FindStrings.nextMatch(),
       name: Names.FocusNext,
+      onClick: DomEventListenerFunctions.HandleClickNextMatch,
     },
     {
-      label: FindStrings.close(),
-      icon: Icon.Close,
       disabled: false,
-      onClick: DomEventListenerFunctions.HandleClickClose,
+      icon: Icon.Close,
+      label: FindStrings.close(),
       name: Names.Close,
+      onClick: DomEventListenerFunctions.HandleClickClose,
     },
   ])
   expect(result.replaceButtons).toEqual([
     {
-      label: FindStrings.replace(),
-      icon: Icon.Replace,
       disabled: false,
-      onClick: DomEventListenerFunctions.HandleClickButton,
+      icon: Icon.Replace,
+      label: FindStrings.replace(),
       name: Names.Replace,
+      onClick: DomEventListenerFunctions.HandleClickButton,
     },
     {
-      label: FindStrings.replaceAll(),
-      icon: Icon.ReplaceAll,
       disabled: false,
-      onClick: DomEventListenerFunctions.HandleClickButton,
+      icon: Icon.ReplaceAll,
+      label: FindStrings.replaceAll(),
       name: Names.ReplaceAll,
+      onClick: DomEventListenerFunctions.HandleClickButton,
     },
   ])
 })

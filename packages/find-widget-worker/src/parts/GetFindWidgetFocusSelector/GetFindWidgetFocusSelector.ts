@@ -8,17 +8,8 @@ export const getFindWidgetFocusSelector = (focus: number): string => {
     case FocusKey.FindWidget: {
       return GetNameSelector.getNameSelector(Names.SearchValue)
     }
-    case FocusKey.FocusFindWidgetReplace: {
-      return GetNameSelector.getNameSelector(Names.ReplaceValue)
-    }
-    case FocusKey.FocusFindWidgetReplaceAllButton: {
-      return GetNameSelector.getNameSelector(Names.ReplaceAll)
-    }
     case FocusKey.FocusFindWidgetCloseButton: {
       return GetNameSelector.getNameSelector(Names.Close)
-    }
-    case FocusKey.FocusFindWidgetToggleReplace: {
-      return GetNameSelector.getNameSelector(Names.ToggleReplace)
     }
     case FocusKey.FocusFindWidgetNextMatchButton: {
       return GetNameSelector.getNameSelector(Names.FocusNext)
@@ -26,8 +17,17 @@ export const getFindWidgetFocusSelector = (focus: number): string => {
     case FocusKey.FocusFindWidgetPreviousMatchButton: {
       return GetNameSelector.getNameSelector(Names.FocusPrevious)
     }
+    case FocusKey.FocusFindWidgetReplace: {
+      return GetNameSelector.getNameSelector(Names.ReplaceValue)
+    }
+    case FocusKey.FocusFindWidgetReplaceAllButton: {
+      return GetNameSelector.getNameSelector(Names.ReplaceAll)
+    }
     case FocusKey.FocusFindWidgetReplaceButton: {
       return GetNameSelector.getNameSelector(Names.Replace)
+    }
+    case FocusKey.FocusFindWidgetToggleReplace: {
+      return GetNameSelector.getNameSelector(Names.ToggleReplace)
     }
     default: {
       return ''

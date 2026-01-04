@@ -16,8 +16,8 @@ beforeAll(() => {
 test('focusIndex should return same state when index equals matchIndex', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    matchIndex: 2,
     matchCount: 5,
+    matchIndex: 2,
   }
   const result = await focusIndex(state, 2)
   expect(result).toBe(state)
@@ -26,8 +26,8 @@ test('focusIndex should return same state when index equals matchIndex', async (
 test('focusIndex should update matchIndex when index differs', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    matchIndex: 1,
     matchCount: 5,
+    matchIndex: 1,
   }
   const result = await focusIndex(state, 3)
   expect(result.matchIndex).toBe(3)
@@ -36,8 +36,8 @@ test('focusIndex should update matchIndex when index differs', async () => {
 test('focusFirst should set matchIndex to 0', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    matchIndex: 2,
     matchCount: 5,
+    matchIndex: 2,
   }
   const result = await focusFirst(state)
   expect(result.matchIndex).toBe(0)
@@ -46,8 +46,8 @@ test('focusFirst should set matchIndex to 0', async () => {
 test('focusLast should set matchIndex to last index', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    matchIndex: 0,
     matchCount: 5,
+    matchIndex: 0,
   }
   const result = await focusLast(state)
   expect(result.matchIndex).toBe(4)
@@ -56,8 +56,8 @@ test('focusLast should set matchIndex to last index', async () => {
 test('focusNext should increment matchIndex', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    matchIndex: 1,
     matchCount: 5,
+    matchIndex: 1,
   }
   const result = await focusNext(state)
   expect(result.matchIndex).toBe(2)
@@ -66,8 +66,8 @@ test('focusNext should increment matchIndex', async () => {
 test('focusNext should wrap to first when at last index', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    matchIndex: 4,
     matchCount: 5,
+    matchIndex: 4,
   }
   const result = await focusNext(state)
   expect(result.matchIndex).toBe(0)
@@ -76,8 +76,8 @@ test('focusNext should wrap to first when at last index', async () => {
 test('focusPrevious should decrement matchIndex', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    matchIndex: 2,
     matchCount: 5,
+    matchIndex: 2,
   }
   const result = await focusPrevious(state)
   expect(result.matchIndex).toBe(1)
@@ -86,8 +86,8 @@ test('focusPrevious should decrement matchIndex', async () => {
 test('focusPrevious should wrap to last when at first index', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    matchIndex: 0,
     matchCount: 5,
+    matchIndex: 0,
   }
   const result = await focusPrevious(state)
   expect(result.matchIndex).toBe(4)
@@ -96,8 +96,8 @@ test('focusPrevious should wrap to last when at first index', async () => {
 test('focusNext should handle single match case', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    matchIndex: 0,
     matchCount: 1,
+    matchIndex: 0,
   }
   const result = await focusNext(state)
   expect(result.matchIndex).toBe(0)
@@ -106,8 +106,8 @@ test('focusNext should handle single match case', async () => {
 test('focusPrevious should handle single match case', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    matchIndex: 0,
     matchCount: 1,
+    matchIndex: 0,
   }
   const result = await focusPrevious(state)
   expect(result.matchIndex).toBe(0)
@@ -116,8 +116,8 @@ test('focusPrevious should handle single match case', async () => {
 test('focusIndex should handle edge cases', async () => {
   const state: FindWidgetState = {
     ...createDefaultState(),
-    matchIndex: 0,
     matchCount: 1,
+    matchIndex: 0,
   }
   const result = await focusIndex(state, 0)
   expect(result.matchIndex).toBe(0)

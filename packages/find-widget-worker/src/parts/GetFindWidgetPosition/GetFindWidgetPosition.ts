@@ -8,9 +8,9 @@ export const getFindWidgetPosition = (editorX: number, editorY: number, editorWi
   const x = editorX + editorWidth - width - paddingRight
   const y = editorY + paddingTop
   return {
-    y,
-    x,
-    width,
     height,
+    width,
+    x,
+    y,
   }
 }

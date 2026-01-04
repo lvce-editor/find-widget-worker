@@ -6,7 +6,7 @@ import * as RenderMethod from '../src/parts/RenderMethod/RenderMethod.ts'
 
 test('renderContent should return SetDom2 command', () => {
   const oldState: FindWidgetState = CreateDefaultState.createDefaultState()
-  const newState: FindWidgetState = { ...oldState, value: 'test', matchCount: 1, matchIndex: 0 }
+  const newState: FindWidgetState = { ...oldState, matchCount: 1, matchIndex: 0, value: 'test' }
   const result: readonly any[] = RenderContent.renderContent(oldState, newState)
   expect(result[0]).toBe(RenderMethod.SetDom2)
   expect(result[1]).toBe(newState.uid)

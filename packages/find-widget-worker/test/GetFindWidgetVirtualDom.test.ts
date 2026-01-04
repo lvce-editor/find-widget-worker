@@ -8,9 +8,9 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 test('getFindWidgetVirtualDom - collapsed', () => {
   const findButtons = [
     {
-      label: 'Find',
-      icon: 'find-icon',
       disabled: false,
+      icon: 'find-icon',
+      label: 'Find',
       name: 'find-button',
       onClick: 'handleFind',
     },
@@ -34,23 +34,23 @@ test('getFindWidgetVirtualDom - collapsed', () => {
   )
 
   expect(result[0]).toEqual({
-    type: VirtualDomElements.Div,
-    className: 'Viewlet ViewletFind ViewletFindWidget FindWidget',
     childCount: 3,
+    className: 'Viewlet ViewletFind ViewletFindWidget FindWidget',
     role: AriaRoles.Group,
+    type: VirtualDomElements.Div,
   })
 
   expect(result[3]).toEqual({
-    type: VirtualDomElements.Button,
-    className: 'IconButton SearchToggleButton',
-    title: 'Toggle Replace',
+    ariaExpanded: false,
     ariaLabel: 'Toggle Replace',
     childCount: 1,
-    onClick: 'handleClickToggleReplace',
-    name: 'ToggleReplace',
-    ariaExpanded: false,
+    className: 'IconButton SearchToggleButton',
     'data-command': 'toggleReplace',
+    name: 'ToggleReplace',
+    onClick: 'handleClickToggleReplace',
     onFocus: 'handleToggleReplaceFocus',
+    title: 'Toggle Replace',
+    type: VirtualDomElements.Button,
   })
 
   expect(result[4]).toEqual({
@@ -60,18 +60,18 @@ test('getFindWidgetVirtualDom - collapsed', () => {
   })
 
   expect(result[5]).toEqual({
-    type: VirtualDomElements.Div,
-    className: ClassNames.FindWidgetRight,
     childCount: 1,
+    className: ClassNames.FindWidgetRight,
+    type: VirtualDomElements.Div,
   })
 })
 
 test('getFindWidgetVirtualDom - expanded', () => {
   const findButtons = [
     {
-      label: 'Find',
-      icon: 'find-icon',
       disabled: false,
+      icon: 'find-icon',
+      label: 'Find',
       name: 'find-button',
       onClick: 'handleFind',
     },
@@ -79,9 +79,9 @@ test('getFindWidgetVirtualDom - expanded', () => {
 
   const replaceButtons = [
     {
-      label: 'Replace',
-      icon: 'replace-icon',
       disabled: false,
+      icon: 'replace-icon',
+      label: 'Replace',
       name: 'replace-button',
       onClick: 'handleReplace',
     },
@@ -104,28 +104,28 @@ test('getFindWidgetVirtualDom - expanded', () => {
   )
 
   expect(result[0]).toEqual({
-    type: VirtualDomElements.Div,
-    className: 'Viewlet ViewletFind ViewletFindWidget FindWidget',
     childCount: 3,
+    className: 'Viewlet ViewletFind ViewletFindWidget FindWidget',
     role: AriaRoles.Group,
+    type: VirtualDomElements.Div,
   })
 
   expect(result[3]).toEqual({
-    type: VirtualDomElements.Button,
-    className: 'IconButton SearchToggleButton SearchToggleButtonExpanded',
-    title: 'Toggle Replace',
+    ariaExpanded: true,
     ariaLabel: 'Toggle Replace',
     childCount: 1,
-    onClick: 'handleClickToggleReplace',
-    name: 'ToggleReplace',
-    ariaExpanded: true,
+    className: 'IconButton SearchToggleButton SearchToggleButtonExpanded',
     'data-command': 'toggleReplace',
+    name: 'ToggleReplace',
+    onClick: 'handleClickToggleReplace',
     onFocus: 'handleToggleReplaceFocus',
+    title: 'Toggle Replace',
+    type: VirtualDomElements.Button,
   })
 
   expect(result[5]).toEqual({
-    type: VirtualDomElements.Div,
-    className: ClassNames.FindWidgetRight,
     childCount: 2,
+    className: ClassNames.FindWidgetRight,
+    type: VirtualDomElements.Div,
   })
 })

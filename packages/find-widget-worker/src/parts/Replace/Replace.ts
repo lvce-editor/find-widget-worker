@@ -3,7 +3,7 @@ import { applyEdits } from '../ApplyEdits/ApplyEdits.ts'
 import { getEdits } from '../GetEdits/GetEdits.ts'
 
 export const replace = async (state: FindWidgetState): Promise<FindWidgetState> => {
-  const { matches, value, replacement, matchIndex, editorUid, lines, preserveCase } = state
+  const { editorUid, lines, matches, matchIndex, preserveCase, replacement, value } = state
 
   const edits = getEdits(matches, value, replacement, matchIndex, false, lines, preserveCase)
   await applyEdits(editorUid, edits)

@@ -7,11 +7,11 @@ import * as GetMatchCountText from '../GetMatchCountText/GetMatchCountText.ts'
 import * as RenderMethod from '../RenderMethod/RenderMethod.ts'
 
 export const renderContent = (oldState: FindWidgetState, newState: FindWidgetState): readonly any[] => {
-  const { focus, uid, matchCount, value, replaceExpanded, matchCase, matchWholeWord, useRegularExpression, preserveCase, inputErrorMessage } =
+  const { focus, inputErrorMessage, matchCase, matchCount, matchWholeWord, preserveCase, replaceExpanded, uid, useRegularExpression, value } =
     newState
   const matchCountText = GetMatchCountText.getMatchCountText(newState.matchIndex, newState.matchCount)
   const { findButtonsEnabled, replaceButtonsEnabled } = GetFindWidgetButtonsEnabled.getFindWidgetButtonsEnabled(matchCount, value)
-  const { findButtons, replaceButtons, findFieldButtons, replaceFieldButtons } = GetFindWidgetButtons.getFindWidgetButtons(
+  const { findButtons, findFieldButtons, replaceButtons, replaceFieldButtons } = GetFindWidgetButtons.getFindWidgetButtons(
     findButtonsEnabled,
     replaceButtonsEnabled,
     matchCase,

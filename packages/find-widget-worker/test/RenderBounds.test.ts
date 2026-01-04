@@ -8,11 +8,11 @@ test('renderBounds returns correct array with bounds', () => {
   const oldState: FindWidgetState = createDefaultState()
   const newState: FindWidgetState = {
     ...createDefaultState(),
-    x: 100,
-    y: 200,
-    width: 300,
     height: 400,
     uid: 1,
+    width: 300,
+    x: 100,
+    y: 200,
   }
 
   const result = renderBounds(oldState, newState)

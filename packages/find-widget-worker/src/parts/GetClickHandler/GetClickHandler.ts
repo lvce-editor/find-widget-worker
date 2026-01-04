@@ -9,18 +9,18 @@ import { replaceAll } from '../ReplaceAll/ReplaceAll.ts'
 
 export const getClickHandler = (name: string): ClickHandler => {
   switch (name) {
-    case InputName.Replace:
-      return replace
-    case InputName.ReplaceAll:
-      return replaceAll
     case InputName.MatchCase:
       return toggleMatchCase
     case InputName.MatchWholeWord:
       return toggleMatchWholeWord
-    case InputName.UseRegularExpression:
-      return toggleUseRegularExpression
     case InputName.PreserveCase:
       return togglePreserveCase
+    case InputName.Replace:
+      return replace
+    case InputName.ReplaceAll:
+      return replaceAll
+    case InputName.UseRegularExpression:
+      return toggleUseRegularExpression
     default:
       throw new Error(`unexpected click`)
   }

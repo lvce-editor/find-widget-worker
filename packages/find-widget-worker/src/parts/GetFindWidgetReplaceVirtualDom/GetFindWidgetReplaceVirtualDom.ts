@@ -21,9 +21,9 @@ export const getFindWidgetReplaceVirtualDom = (
   const extraClassName = replaceInputFocused ? ClassNames.SearchFieldFocused : ''
   return [
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.FindWidgetReplace,
       childCount: 1 + replaceButtons.length,
+      className: ClassNames.FindWidgetReplace,
+      type: VirtualDomElements.Div,
     },
     ...GetSearchFieldVirtualDom.getSearchFieldVirtualDom(
       InputName.ReplaceValue,

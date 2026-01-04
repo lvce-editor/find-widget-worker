@@ -3,8 +3,8 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as Resize from '../src/parts/Resize/Resize.ts'
 
 test('resize - returns same state (no-op)', async () => {
-  const state = { ...createDefaultState(), width: 100, height: 20, x: 10, y: 10 }
-  const dimensions = { x: 20, y: 30, width: 200, height: 40 }
+  const state = { ...createDefaultState(), height: 20, width: 100, x: 10, y: 10 }
+  const dimensions = { height: 40, width: 200, x: 20, y: 30 }
   const result = await Resize.resize(state, dimensions)
   expect(result).toBe(state)
 })

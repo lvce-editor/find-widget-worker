@@ -5,24 +5,24 @@ import { measureInputHeight } from '../MeasureInputHeight/MeasureInputHeight.ts'
 
 export const refresh = (state: FindWidgetState, value: string, inputSource: number): FindWidgetState => {
   const {
-    lines,
-    matchCase,
-    useRegularExpression,
-    matchWholeWord,
-    inputLineHeight,
-    inputPaddingTop,
-    inputPaddingBottom,
-    replaceExpanded,
     inputBorderWidth,
     inputGap,
+    inputLineHeight,
+    inputPaddingBottom,
+    inputPaddingTop,
+    lines,
+    matchCase,
+    matchWholeWord,
+    replaceExpanded,
+    useRegularExpression,
   } = state
   const options: FindMatches.FindOptions = {
     matchCase,
-    useRegularExpression,
     matchWholeWord,
+    useRegularExpression,
   }
-  const { matches, error } = FindMatches.findMatches(lines, value, options)
-  const { inputHeight, height } = measureInputHeight(
+  const { error, matches } = FindMatches.findMatches(lines, value, options)
+  const { height, inputHeight } = measureInputHeight(
     value,
     inputLineHeight,
     inputPaddingBottom,
@@ -34,21 +34,21 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
   if (error) {
     return {
       ...state,
+      height,
       inputErrorMessage: error,
       searchInputHeight: inputHeight,
-      height,
     }
   }
   const matchCount = GetMatchCount.getMatchCount(matches)
   return {
     ...state,
+    height,
     inputErrorMessage: error,
-    searchInputHeight: inputHeight,
     inputSource,
     matchCount,
     matches,
     matchIndex: 0,
+    searchInputHeight: inputHeight,
     value,
-    height,
   }
 }

@@ -7,8 +7,8 @@ test.skip('renderFocus returns correct array', () => {
   const oldState = createDefaultState()
   const newState = {
     ...createDefaultState(),
-    uid: 123,
     focus: WhenExpression.FocusSearchInput,
+    uid: 123,
   }
   const result = renderFocus(oldState, newState)
   expect(result).toEqual([ViewletCommand.FocusSelector, 123, '[name="search-value"]'])

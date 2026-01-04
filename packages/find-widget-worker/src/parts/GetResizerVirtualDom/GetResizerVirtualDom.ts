@@ -6,15 +6,15 @@ import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEven
 export const getResizerVirtualDom = (): readonly VirtualDomNode[] => {
   return [
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.Resizer,
       childCount: 1,
+      className: ClassNames.Resizer,
       onPointerDown: DomEventListenerFunctions.HandleResizerPointerDown,
+      type: VirtualDomElements.Div,
     },
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.ResizerHighlight,
       childCount: 0,
+      className: ClassNames.ResizerHighlight,
+      type: VirtualDomElements.Div,
     },
   ]
 }

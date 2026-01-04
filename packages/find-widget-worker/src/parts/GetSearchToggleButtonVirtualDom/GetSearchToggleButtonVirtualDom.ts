@@ -10,28 +10,28 @@ export const getSearchToggleButtonVirtualDom = (replaceExpanded: boolean, onClic
   const title = FindStrings.toggleReplace()
   return [
     {
-      type: VirtualDomElements.Button,
+      ariaExpanded: replaceExpanded,
+      ariaLabel: title,
+      childCount: 1,
       className: MergeClassNames.mergeClassNames(
         ClassNames.IconButton,
         ClassNames.SearchToggleButton,
         replaceExpanded ? ClassNames.SearchToggleButtonExpanded : '',
       ),
-      title,
-      ariaLabel: title,
-      ariaExpanded: replaceExpanded,
-      name: InputName.ToggleReplace,
-      childCount: 1,
       'data-command': 'toggleReplace',
+      name: InputName.ToggleReplace,
       onClick,
       onFocus: DomEventListenerFunctions.HandleToggleReplaceFocus,
+      title,
+      type: VirtualDomElements.Button,
     },
     {
-      type: VirtualDomElements.Div,
+      childCount: 0,
       className: MergeClassNames.mergeClassNames(
         ClassNames.MaskIcon,
         replaceExpanded ? ClassNames.MaskIconChevronDown : ClassNames.MaskIconChevronRight,
       ),
-      childCount: 0,
+      type: VirtualDomElements.Div,
     },
   ]
 }

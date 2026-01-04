@@ -19,7 +19,7 @@ export const restoreState = (savedState: any): RestoredState => {
   const replacement = getSavedReplacement(savedState)
 
   return {
-    value,
     replacement,
+    value,
   }
 }

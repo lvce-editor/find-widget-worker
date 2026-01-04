@@ -5,7 +5,7 @@ import * as RenderCss from '../src/parts/RenderCss/RenderCss.ts'
 
 test('renderCss - returns SetCss with css vars', () => {
   const oldState = createDefaultState()
-  const newState = { ...createDefaultState(), uid: 7, width: 200, height: 40, x: 10, y: 20 }
+  const newState = { ...createDefaultState(), height: 40, uid: 7, width: 200, x: 10, y: 20 }
   const result = RenderCss.renderCss(oldState, newState)
   expect(result[0]).toBe(ViewletCommand.SetCss)
   expect(result[1]).toBe(7)

@@ -11,7 +11,12 @@ export interface FindWidgetState {
   readonly focusSource: number
   readonly height: number
   readonly history: readonly string[]
+  readonly inputBorderWidth: number
   readonly inputErrorMessage: string
+  readonly inputGap: number
+  readonly inputLineHeight: number
+  readonly inputPaddingBottom: number
+  readonly inputPaddingTop: number
   readonly inputSource: number
   readonly lines: readonly string[]
   readonly matchCase: boolean
@@ -24,6 +29,7 @@ export interface FindWidgetState {
   readonly replaceExpanded: boolean
   readonly replacement: string
   readonly resizerPointerDown: boolean
+  readonly searchInputHeight: number
   readonly selections: readonly number[]
   readonly uid: number
   readonly useRegularExpression: boolean
@@ -32,10 +38,4 @@ export interface FindWidgetState {
   readonly width: number
   readonly x: number
   readonly y: number
-  readonly searchInputHeight: number
-  readonly inputLineHeight: number
-  readonly inputPaddingTop: number
-  readonly inputPaddingBottom: number
-  readonly inputBorderWidth: number
-  readonly inputGap: number
 }

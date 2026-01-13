@@ -53,6 +53,10 @@ export const getEventListeners = (uid: number, widgetId: number): readonly DomEv
       params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusNext', 0, widgetId],
     },
     {
+      name: DomEventListenerFunctions.HandleToggleReplaceFocus,
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleToggleReplaceFocus', 0, widgetId],
+    },
+    {
       name: DomEventListenerFunctions.HandleClickReplaceAll,
       params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickReplaceAll', 0, widgetId],
     },

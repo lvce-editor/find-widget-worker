@@ -1,4 +1,5 @@
 import { test, expect } from '@jest/globals'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.js'
 import * as GetSearchToggleButtonVirtualDom from '../src/parts/GetSearchToggleButtonVirtualDom/GetSearchToggleButtonVirtualDom.js'
 import * as InputName from '../src/parts/InputName/InputName.js'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.js'
@@ -14,7 +15,7 @@ test('getSearchToggleButtonVirtualDom returns correct virtual dom elements for c
       'data-command': 'toggleReplace',
       name: InputName.ToggleReplace,
       onClick: '',
-      onFocus: 'handleToggleReplaceFocus',
+      onFocus: DomEventListenerFunctions.HandleToggleReplaceFocus,
       title: 'Toggle Replace',
       type: VirtualDomElements.Button,
     },
@@ -37,7 +38,7 @@ test('getSearchToggleButtonVirtualDom returns correct virtual dom elements for e
       'data-command': 'toggleReplace',
       name: InputName.ToggleReplace,
       onClick: 'test-onClick',
-      onFocus: 'handleToggleReplaceFocus',
+      onFocus: DomEventListenerFunctions.HandleToggleReplaceFocus,
       title: 'Toggle Replace',
       type: VirtualDomElements.Button,
     },

@@ -8,10 +8,10 @@ import * as GetSearchFieldButtonVirtualDom from '../GetSearchFieldButtonVirtualD
 export const getSearchFieldVirtualDom = (
   name: string,
   placeholder: string,
-  onInput: string,
+  onInput: string | number,
   insideButtons: readonly ISearchFieldButton[],
   outsideButtons: readonly ISearchFieldButton[],
-  onFocus: string,
+  onFocus: string | number,
   extraClassName: string,
 ): readonly VirtualDomNode[] => {
   const dom = [

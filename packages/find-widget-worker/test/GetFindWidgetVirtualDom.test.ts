@@ -2,6 +2,7 @@ import { test, expect } from '@jest/globals'
 import type { ISearchFieldButton } from '../src/parts/ISearchFieldButton/ISearchFieldButton.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetFindWidgetVirtualDom from '../src/parts/GetFindWidgetVirtualDom/GetFindWidgetVirtualDom.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
@@ -48,7 +49,7 @@ test('getFindWidgetVirtualDom - collapsed', () => {
     'data-command': 'toggleReplace',
     name: 'ToggleReplace',
     onClick: 'handleClickToggleReplace',
-    onFocus: 'handleToggleReplaceFocus',
+    onFocus: DomEventListenerFunctions.HandleToggleReplaceFocus,
     title: 'Toggle Replace',
     type: VirtualDomElements.Button,
   })
@@ -118,7 +119,7 @@ test('getFindWidgetVirtualDom - expanded', () => {
     'data-command': 'toggleReplace',
     name: 'ToggleReplace',
     onClick: 'handleClickToggleReplace',
-    onFocus: 'handleToggleReplaceFocus',
+    onFocus: DomEventListenerFunctions.HandleToggleReplaceFocus,
     title: 'Toggle Replace',
     type: VirtualDomElements.Button,
   })

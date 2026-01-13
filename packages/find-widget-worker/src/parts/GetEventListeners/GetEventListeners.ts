@@ -6,7 +6,7 @@ export const getEventListeners = (uid: number, widgetId: number): readonly DomEv
   return [
     {
       name: DomEventListenerFunctions.HandleInput,
-      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleInput', 0, widgetId, 'event.target.value'],
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleInput', 0, widgetId, EventExpression.TargetValue],
     },
     {
       name: DomEventListenerFunctions.HandleClickClose,

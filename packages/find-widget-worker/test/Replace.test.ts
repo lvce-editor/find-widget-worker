@@ -14,7 +14,7 @@ const createState = (lines: readonly string[], value: string, replacement: strin
     ...base,
     editorUid: 1,
     lines,
-    matchCount: Math.floor(matches.length / 2),
+    matchCount: Math.floor(matches.length / 3),
     matches,
     matchIndex,
     replacement,

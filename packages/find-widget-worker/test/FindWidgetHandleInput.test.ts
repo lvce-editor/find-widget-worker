@@ -12,7 +12,7 @@ test('handleInput - updates value, matches and matchCount (default user)', () =>
   const result: FindWidgetState = FindWidgetHandleInput.handleInput(state, 'hello')
   expect(result.value).toBe('hello')
   expect(result.inputSource).toBe(InputSource.User)
-  expect([...result.matches]).toEqual([0, 0, 1, 0, 2, 0])
+  expect([...result.matches]).toEqual([0, 0, 5, 1, 0, 5, 2, 0, 5])
   expect(result.matchCount).toBe(3)
   expect(result.matchIndex).toBe(0)
 })

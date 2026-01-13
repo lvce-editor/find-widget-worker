@@ -12,7 +12,7 @@ export const findRegexMatches = (lines: readonly string[], regex: RegExp): Uint3
       if (!lastMatch) {
         break
       }
-      matches.push(i, lastMatch.index)
+      matches.push(i, lastMatch.index, lastMatch[0].length)
     } while (true)
   }
   return new Uint32Array(matches)

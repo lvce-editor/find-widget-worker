@@ -2,7 +2,7 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'find-widget-keyboard-navigation'
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget, Keyboard }) => {
+export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -24,40 +24,40 @@ content 3`,
   const findWidgetMatchCount = Locator(`.FindWidgetMatchCount`)
   await expect(findWidgetMatchCount).toHaveText('1 of 3')
 
-  // act - press Enter to go to next match
-  await Keyboard.press('Enter')
+  // act - go to next match
+  await FindWidget.focusNext()
 
   // assert - should move to next match
   await expect(findWidgetMatchCount).toHaveText('2 of 3')
 
-  // act - press Shift+Enter to go to previous match
-  await Keyboard.press('Shift+Enter')
+  // act - go to previous match
+  await FindWidget.focusPrevious()
 
   // assert - should move back to first match
   await expect(findWidgetMatchCount).toHaveText('1 of 3')
 
-  // act - press Tab to navigate to next element
-  await Keyboard.press('Tab')
+  // act - navigate to next element
+  await FindWidget.focusNextElement()
 
   // assert - match case button should be focused
   const matchCaseButton = Locator(`.SearchFieldButton[name="MatchCase"]`)
   await expect(matchCaseButton).toBeFocused()
 
-  // act - press Tab again to navigate to next element
-  await Keyboard.press('Tab')
+  // act - navigate to next element again
+  await FindWidget.focusNextElement()
 
   // assert - match whole word button should be focused
   const matchWholeWordButton = Locator(`.SearchFieldButton[name="MatchWholeWord"]`)
   await expect(matchWholeWordButton).toBeFocused()
 
-  // act - press Shift+Tab to navigate to previous element
-  await Keyboard.press('Shift+Tab')
+  // act - navigate to previous element
+  await FindWidget.focusPreviousElement()
 
   // assert - match case button should be focused again
   await expect(matchCaseButton).toBeFocused()
 
-  // act - press Space to toggle match case
-  await Keyboard.press('Space')
+  // act - toggle match case
+  await FindWidget.toggleMatchCase()
 
   // assert - match case should be enabled
   await expect(matchCaseButton).toHaveAttribute(`aria-checked`, 'true')

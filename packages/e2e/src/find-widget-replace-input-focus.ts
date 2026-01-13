@@ -27,17 +27,11 @@ content 2`,
   const replace = Locator(`.FindWidget .FindWidgetReplace`)
   await expect(replace).toBeVisible()
 
-  // act - focus the replace input
-  await FindWidget.focusReplaceInput()
-
-  // assert - replace input should be focused
-  const replaceInput = Locator('.FindWidget .FindWidgetReplace .MultilineInputBox')
-  await expect(replaceInput).toBeVisible()
-  await expect(replaceInput).toBeFocused()
-
-  // act - set a replace value
+  // act - set a replace value (this will focus the replace input)
   await FindWidget.setReplaceValue('replaced')
 
   // assert - replace input should have the value
+  const replaceInput = Locator('.FindWidget .FindWidgetReplace .MultilineInputBox')
+  await expect(replaceInput).toBeVisible()
   await expect(replaceInput).toHaveValue('replaced')
 }

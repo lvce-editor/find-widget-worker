@@ -1,3 +1,4 @@
+import type { FindOptions } from '../FindOptions/FindOptions.ts'
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as FindMatches from '../FindMatches/FindMatches.ts'
 import * as GetMatchCount from '../GetMatchCount/GetMatchCount.ts'
@@ -16,7 +17,7 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
     replaceExpanded,
     useRegularExpression,
   } = state
-  const options: FindMatches.FindOptions = {
+  const options: FindOptions = {
     matchCase,
     matchWholeWord,
     useRegularExpression,

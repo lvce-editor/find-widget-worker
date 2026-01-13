@@ -2,8 +2,6 @@ import type { FindOptions } from '../FindOptions/FindOptions.ts'
 import { buildRegex } from '../BuildRegex/BuildRegex.ts'
 import * as FindRegexMatches from '../FindRegexMatches/FindRegexMatches.ts'
 
-export { type FindOptions } from '../FindOptions/FindOptions.ts'
-
 interface FindMatchesResult {
   readonly error: string
   readonly matches: Uint32Array

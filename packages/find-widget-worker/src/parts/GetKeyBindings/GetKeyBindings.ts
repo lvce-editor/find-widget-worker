@@ -40,6 +40,11 @@ export const getKeyBindings = (): readonly any[] => {
       when: WhenExpression.FocusFindWidgetReplace,
     },
     {
+      command: 'FindWidget.replace',
+      key: KeyCode.Enter,
+      when: WhenExpression.FocusFindWidgetReplace,
+    },
+    {
       command: 'FindWidget.replaceAll',
       key: KeyModifier.Alt | KeyModifier.CtrlCmd | KeyCode.Enter,
       when: WhenExpression.FocusFindWidgetReplace,

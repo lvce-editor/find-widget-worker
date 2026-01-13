@@ -15,6 +15,7 @@ import * as FindWidgetHandleReplaceFocus from '../FindWidgetHandleReplaceFocus/F
 import { handleResizerPointerDown } from '../FindWidgetHandleResizerPointerDown/FindWidgetHandleResizerPointerDown.ts'
 import { handleResizerPointerMove } from '../FindWidgetHandleResizerPointerMove/FindWidgetHandleResizerPointerMove.ts'
 import { handleResizerPointerUp } from '../FindWidgetHandleResizerPointerUp/FindWidgetHandleResizerPointerUp.ts'
+import { handleToggleReplaceFocus } from '../FindWidgetHandleToggleReplaceFocus/FindWidgetHandleToggleReplaceFocus.ts'
 import * as WrapCommand from '../FindWidgetStates/FindWidgetStates.ts'
 import { toggleMatchCase } from '../FindWidgetToggleMatchCase/FindWidgetToggleMatchCase.ts'
 import { toggleMatchWholeWord } from '../FindWidgetToggleMatchWholeWord/FindWidgetToggleMatchWholeWord.ts'
@@ -63,6 +64,7 @@ export const commandMap = {
   'FindWidget.handleResizerPointerDown': WrapCommand.wrapCommand(handleResizerPointerDown),
   'FindWidget.handleResizerPointerMove': WrapCommand.wrapCommand(handleResizerPointerMove),
   'FindWidget.handleResizerPointerUp': WrapCommand.wrapCommand(handleResizerPointerUp),
+  'FindWidget.handleToggleReplaceFocus': WrapCommand.wrapCommand(handleToggleReplaceFocus),
   'FindWidget.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'FindWidget.preventDefaultBrowserFind': WrapCommand.wrapCommand(PreventDefaultBrowserFind.preventDefaultBrowserFind),
   'FindWidget.render2': Render2.render2,

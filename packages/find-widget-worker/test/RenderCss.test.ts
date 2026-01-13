@@ -7,14 +7,15 @@ test('renderCss - returns SetCss with css vars', () => {
   const oldState = createDefaultState()
   const newState = { ...createDefaultState(), height: 40, uid: 7, width: 200, x: 10, y: 20 }
   const result = RenderCss.renderCss(oldState, newState)
-  expect(result[0]).toBe(ViewletCommand.SetCss)
-  expect(result[1]).toBe(7)
-  const css = result[2]
-  expect(css).toBe(`:root {
+  expect(result).toEqual([
+    ViewletCommand.SetCss,
+    7,
+    `:root {
   --FindWidgetWidth: 200px;
   --FindWidgetHeight: 40px;
   --FindWidgetX: 10px;
   --FindWidgetY: 20px;
   --FindWidgetInputHeight: 24px;
-}`)
+}`,
+  ])
 })

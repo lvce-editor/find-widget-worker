@@ -7,10 +7,7 @@ import * as RenderValue from '../src/parts/RenderValue/RenderValue.ts'
 
 test('renderValue should return setValueByName command', () => {
   const oldState: FindWidgetState = CreateDefaultState.createDefaultState()
-  const newState: FindWidgetState = { ...oldState, value: 'test' }
-  const result: readonly any[] = RenderValue.renderValue(oldState, newState)
-  expect(result[0]).toBe(ViewletCommand.SetValueByName)
-  expect(result[1]).toBe(newState.uid)
-  expect(result[2]).toBe(InputName.SearchValue)
-  expect(result[3]).toBe('test')
+  const newState: FindWidgetState = { ...oldState, uid: 1, value: 'test' }
+  const result = RenderValue.renderValue(oldState, newState)
+  expect(result).toEqual([ViewletCommand.SetValueByName, 1, InputName.SearchValue, 'test'])
 })

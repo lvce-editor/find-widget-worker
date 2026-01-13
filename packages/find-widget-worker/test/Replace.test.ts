@@ -22,19 +22,21 @@ const createState = (lines: readonly string[], value: string, replacement: strin
   }
 }
 
-test('replace - replaces only focused match', async () => {
+test('replace - applies edit for focused match', async () => {
+  const newLines = ['foo bar baz']
   const commandMap = {
     'Editor.applyDocumentEdits': (): undefined => {
       return undefined
+    },
+    'Editor.getLines2': (): readonly string[] => {
+      return newLines
     },
   }
   const mockRpc = EditorWorker.registerMockRpc(commandMap)
 
   const state = createState(['foo bar foo'], 'foo', 'baz', 1)
-  const result = await replace(state)
+  await replace(state)
 
-  expect(result).toEqual(state)
-  expect(mockRpc.invocations.length).toBeGreaterThan(0)
   expect(mockRpc.invocations[0]).toEqual([
     'Editor.applyDocumentEdits',
     1,
@@ -47,4 +49,23 @@ test('replace - replaces only focused match', async () => {
       },
     ],
   ])
+})
+
+test('replace - updates lines after replacement', async () => {
+  const newLines = ['foo bar baz']
+  const commandMap = {
+    'Editor.applyDocumentEdits': (): undefined => {
+      return undefined
+    },
+    'Editor.getLines2': (): readonly string[] => {
+      return newLines
+    },
+  }
+  EditorWorker.registerMockRpc(commandMap)
+
+  const state = createState(['foo bar foo'], 'foo', 'baz', 1)
+  const result = await replace(state)
+
+  expect(result.lines).toEqual(newLines)
+  expect(result.matchCount).toBe(1)
 })

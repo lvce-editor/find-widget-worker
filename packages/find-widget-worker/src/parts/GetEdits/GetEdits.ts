@@ -1,4 +1,7 @@
+import type { FindOptions } from '../FindOptions/FindOptions.ts'
 import type { TextEdit } from '../TextEdit/TextEdit.ts'
+import { applyRegexReplacement } from '../ApplyRegexReplacement/ApplyRegexReplacement.ts'
+import { buildRegex } from '../BuildRegex/BuildRegex.ts'
 import { preserveCase } from '../PreserveCase/PreserveCase.ts'
 
 export const getEdits = (
@@ -9,6 +12,7 @@ export const getEdits = (
   replaceAll: boolean,
   lines: readonly string[],
   preserveCaseOption: boolean = false,
+  options?: FindOptions,
 ): readonly TextEdit[] => {
   if (value.length === 0 || matches.length === 0) {
     return []
@@ -19,6 +23,15 @@ export const getEdits = (
   const fromIndex: number = replaceAll ? 0 : Math.max(0, startIndex)
   const toIndex: number = replaceAll ? totalMatches : Math.min(totalMatches, fromIndex + 1)
 
+  // Build regex once if using regular expressions
+  let regex: RegExp | undefined
+  if (options?.useRegularExpression) {
+    const { error, regex: builtRegex } = buildRegex(value, options)
+    if (!error) {
+      regex = builtRegex
+    }
+  }
+
   for (let i = fromIndex; i < toIndex; i++) {
     const rowIndex: number = matches[i * 3]
     const startColumnIndex: number = matches[i * 3 + 1]
@@ -28,8 +41,18 @@ export const getEdits = (
     // Get the original text that was matched
     const originalText: string = lines[rowIndex].slice(startColumnIndex, endColumnIndex)
 
+    // Apply regex replacement with back-references if enabled
+    let finalReplacement: string
+    if (options?.useRegularExpression && regex) {
+      finalReplacement = applyRegexReplacement(originalText, regex, replacement)
+    } else {
+      finalReplacement = replacement
+    }
+
     // Apply case preservation if enabled
-    const finalReplacement: string = preserveCaseOption ? preserveCase(originalText, replacement) : replacement
+    if (preserveCaseOption) {
+      finalReplacement = preserveCase(originalText, finalReplacement)
+    }
 
     // Convert row/column positions to character offsets
     let startOffset: number = 0

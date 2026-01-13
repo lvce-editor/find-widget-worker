@@ -19,7 +19,7 @@ test('refresh with matching value', () => {
     lines: ['hello', 'world', 'hello world'],
   }
   const result = refresh(state, 'hello', InputSource.User)
-  expect(result.matches).toEqual(new Uint32Array([0, 0, 2, 0]))
+  expect(result.matches).toEqual(new Uint32Array([0, 0, 5, 2, 0, 5]))
   expect(result.matchCount).toBe(2)
   expect(result.matchIndex).toBe(0)
   expect(result.value).toBe('hello')
@@ -31,7 +31,7 @@ test('refresh with case insensitive matching', () => {
     lines: ['Hello', 'WORLD', 'hello World'],
   }
   const result = refresh(state, 'hello', InputSource.User)
-  expect(result.matches).toEqual(new Uint32Array([0, 0, 2, 0]))
+  expect(result.matches).toEqual(new Uint32Array([0, 0, 5, 2, 0, 5]))
   expect(result.matchCount).toBe(2)
   expect(result.matchIndex).toBe(0)
   expect(result.value).toBe('hello')

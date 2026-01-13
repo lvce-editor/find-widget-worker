@@ -3,7 +3,7 @@ import * as FocusSource from '../FocusSource/FocusSource.ts'
 
 export const handleFindWidgetFocus = (state: FindWidgetState, focusKey: number): FindWidgetState => {
   const { focus } = state
-  if (focus === focusKey) {
+  if (!focusKey || focus === focusKey) {
     return state
   }
   return {

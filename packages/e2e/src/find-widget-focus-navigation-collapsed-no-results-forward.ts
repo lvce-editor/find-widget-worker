@@ -4,7 +4,7 @@ export const name = 'find-widget-focus-navigation-collapsed-no-results-forward'
 
 export const skip = 1
 
-export const test: Test = async ({ Command, FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(`${tmpDir}/file1.txt`, ``)

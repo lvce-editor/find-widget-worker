@@ -2,7 +2,7 @@ import { expect, test } from '@jest/globals'
 import { getEdits } from '../src/parts/GetEdits/GetEdits.ts'
 
 test('getEdits - preserve case enabled with uppercase', () => {
-  const matches = new Uint32Array([0, 0]) // row 0, column 0
+  const matches = new Uint32Array([0, 0, 5]) // row 0, column 0, length 5
   const value = 'hello'
   const replacement = 'world'
   const lines = ['HELLO world']
@@ -14,7 +14,7 @@ test('getEdits - preserve case enabled with uppercase', () => {
 })
 
 test('getEdits - preserve case enabled with lowercase', () => {
-  const matches = new Uint32Array([0, 0]) // row 0, column 0
+  const matches = new Uint32Array([0, 0, 5]) // row 0, column 0, length 5
   const value = 'hello'
   const replacement = 'world'
   const lines = ['hello world']
@@ -26,7 +26,7 @@ test('getEdits - preserve case enabled with lowercase', () => {
 })
 
 test('getEdits - preserve case enabled with PascalCase', () => {
-  const matches = new Uint32Array([0, 0]) // row 0, column 0
+  const matches = new Uint32Array([0, 0, 5]) // row 0, column 0, length 5
   const value = 'hello'
   const replacement = 'world'
   const lines = ['Hello world']
@@ -38,7 +38,7 @@ test('getEdits - preserve case enabled with PascalCase', () => {
 })
 
 test('getEdits - preserve case disabled', () => {
-  const matches = new Uint32Array([0, 0]) // row 0, column 0
+  const matches = new Uint32Array([0, 0, 5]) // row 0, column 0, length 5
   const value = 'hello'
   const replacement = 'world'
   const lines = ['HELLO world']
@@ -50,7 +50,7 @@ test('getEdits - preserve case disabled', () => {
 })
 
 test('getEdits - preserve case with replaceAll', () => {
-  const matches = new Uint32Array([0, 0, 0, 6]) // row 0, columns 0 and 6
+  const matches = new Uint32Array([0, 0, 5, 0, 6, 5]) // row 0, columns 0 and 6, length 5 each
   const value = 'hello'
   const replacement = 'world'
   const lines = ['HELLO hello']
@@ -63,7 +63,7 @@ test('getEdits - preserve case with replaceAll', () => {
 })
 
 test('getEdits - preserve case with mixed case patterns', () => {
-  const matches = new Uint32Array([0, 0, 0, 6, 0, 12]) // row 0, columns 0, 6, and 12
+  const matches = new Uint32Array([0, 0, 5, 0, 6, 5, 0, 12, 5]) // row 0, columns 0, 6, and 12, length 5 each
   const value = 'hello'
   const replacement = 'world'
   const lines = ['HELLO Hello hello']

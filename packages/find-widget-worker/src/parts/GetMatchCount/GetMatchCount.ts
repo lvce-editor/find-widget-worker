@@ -1,3 +1,3 @@
 export const getMatchCount = (matches: Uint32Array): number => {
-  return matches.length / 2
+  return matches.length / 3
 }

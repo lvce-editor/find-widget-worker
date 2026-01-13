@@ -2,14 +2,15 @@ import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as SetSelections from '../SetSelections/SetSelections.ts'
 
 export const focusIndex = async (state: FindWidgetState, index: number): Promise<FindWidgetState> => {
-  const { editorUid, matches, matchIndex, value } = state
+  const { editorUid, matches, matchIndex } = state
   if (index === matchIndex) {
     return state
   }
   // // TODO find next match and highlight it
-  const matchRowIndex = matches[index * 2]
-  const matchColumnIndex = matches[index * 2 + 1]
-  const newSelections = new Uint32Array([matchRowIndex, matchColumnIndex, matchRowIndex, matchColumnIndex + value.length])
+  const matchRowIndex = matches[index * 3]
+  const matchColumnIndex = matches[index * 3 + 1]
+  const matchLength = matches[index * 3 + 2]
+  const newSelections = new Uint32Array([matchRowIndex, matchColumnIndex, matchRowIndex, matchColumnIndex + matchLength])
   await SetSelections.setSelections(editorUid, newSelections)
   return {
     ...state,

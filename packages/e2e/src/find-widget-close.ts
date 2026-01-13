@@ -2,7 +2,7 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'find-widget-close'
 
-export const test: Test = async ({ Command, FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -16,7 +16,7 @@ content 2`,
   await Editor.openFindWidget()
 
   // act
-  await Command.execute(`FindWidget.close`)
+  await FindWidget.close()
 
   // assert
   const findWidget = Locator('.FindWidget')

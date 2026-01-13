@@ -5,10 +5,7 @@ export const name = 'find-widget-single-character-search'
 export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
-  await FileSystem.writeFile(
-    `${tmpDir}/file1.txt`,
-    `a b c a d a`,
-  )
+  await FileSystem.writeFile(`${tmpDir}/file1.txt`, `a b c a d a`)
   await Workspace.setPath(tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))

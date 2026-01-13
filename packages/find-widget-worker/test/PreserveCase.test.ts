@@ -55,3 +55,8 @@ test('preserveCase - single character lowercase', () => {
   const result = preserveCase('h', 'world')
   expect(result).toBe('world')
 })
+
+test('preserveCase - starts with non-alphabetic character', () => {
+  const result = preserveCase('123abc', 'world')
+  expect(result).toBe('world')
+})

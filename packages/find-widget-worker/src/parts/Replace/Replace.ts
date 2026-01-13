@@ -7,8 +7,6 @@ export const replace = async (state: FindWidgetState): Promise<FindWidgetState> 
 
   const edits = getEdits(matches, value, replacement, matchIndex, false, lines, preserveCase)
   await applyEdits(editorUid, edits)
-  // TODO ask editor worker to apply edit
-  // TODO ask editor worker for new lines?
   return {
     ...state,
   }

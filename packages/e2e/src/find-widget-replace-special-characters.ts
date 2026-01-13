@@ -43,5 +43,5 @@ another placeholder`)
   // assert
   await Editor.shouldHaveText(`$100 text
 path\\to\\file here
-another .*+?^${}()|[]\\`)
+another .*+?^\${}()|[]\\`)
 }

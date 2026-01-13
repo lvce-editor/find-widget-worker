@@ -1,6 +1,7 @@
 import { test, expect } from '@jest/globals'
 import type { ISearchFieldButton } from '../src/parts/ISearchFieldButton/ISearchFieldButton.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetFindWidgetReplaceVirtualDom from '../src/parts/GetFindWidgetReplaceVirtualDom/GetFindWidgetReplaceVirtualDom.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
@@ -41,8 +42,8 @@ test('getFindWidgetReplaceVirtualDom - expanded', () => {
       childCount: 0,
       className: 'MultilineInputBox',
       name: 'replace-value',
-      onFocus: 'handleReplaceFocus',
-      onInput: 'handleReplaceInput',
+      onFocus: DomEventListenerFunctions.HandleReplaceFocus,
+      onInput: DomEventListenerFunctions.HandleReplaceInput,
       placeholder: 'Replace',
       spellcheck: false,
       type: 62,

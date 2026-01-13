@@ -2,7 +2,7 @@ import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as SetSelections from '../SetSelections/SetSelections.ts'
 
 export const focusIndex = async (state: FindWidgetState, index: number): Promise<FindWidgetState> => {
-  const { editorUid, matches, matchIndex, value } = state
+  const { editorUid, matches, matchIndex } = state
   if (index === matchIndex) {
     return state
   }

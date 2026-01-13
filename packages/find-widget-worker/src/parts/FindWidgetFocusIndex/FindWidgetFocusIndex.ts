@@ -7,9 +7,10 @@ export const focusIndex = async (state: FindWidgetState, index: number): Promise
     return state
   }
   // // TODO find next match and highlight it
-  const matchRowIndex = matches[index * 2]
-  const matchColumnIndex = matches[index * 2 + 1]
-  const newSelections = new Uint32Array([matchRowIndex, matchColumnIndex, matchRowIndex, matchColumnIndex + value.length])
+  const matchRowIndex = matches[index * 3]
+  const matchColumnIndex = matches[index * 3 + 1]
+  const matchLength = matches[index * 3 + 2]
+  const newSelections = new Uint32Array([matchRowIndex, matchColumnIndex, matchRowIndex, matchColumnIndex + matchLength])
   await SetSelections.setSelections(editorUid, newSelections)
   return {
     ...state,

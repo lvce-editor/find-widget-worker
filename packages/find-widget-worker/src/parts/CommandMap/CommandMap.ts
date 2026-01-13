@@ -10,6 +10,7 @@ import * as FindWidgetFocusReplaceAllButton from '../FindWidgetFocusReplaceAllBu
 import * as FindWidgetHandleBlur from '../FindWidgetHandleBlur/FindWidgetHandleBlur.ts'
 import { handleClickButton } from '../FindWidgetHandleClickButton/FindWidgetHandleClickButton.ts'
 import * as HandleClickClose from '../FindWidgetHandleClickClose/FindWidgetHandleClickClose.ts'
+import { handleFindFocus } from '../FindWidgetHandleFindFocus/FindWidgetHandleFindFocus.ts'
 import * as FindWidgetHandleReplaceFocus from '../FindWidgetHandleReplaceFocus/FindWidgetHandleReplaceFocus.ts'
 import { handleResizerPointerDown } from '../FindWidgetHandleResizerPointerDown/FindWidgetHandleResizerPointerDown.ts'
 import { handleResizerPointerMove } from '../FindWidgetHandleResizerPointerMove/FindWidgetHandleResizerPointerMove.ts'
@@ -55,6 +56,7 @@ export const commandMap = {
   'FindWidget.handleBlur': WrapCommand.wrapCommand(FindWidgetHandleBlur.handleBlur),
   'FindWidget.handleClickButton': WrapCommand.wrapCommand(handleClickButton),
   'FindWidget.handleClickClose': WrapCommand.wrapCommand(HandleClickClose.handleClickClose),
+  'FindWidget.handleFocus': WrapCommand.wrapCommand(handleFindFocus),
   'FindWidget.handleInput': WrapCommand.wrapCommand(HandleInput.handleInput),
   'FindWidget.handleReplaceFocus': WrapCommand.wrapCommand(FindWidgetHandleReplaceFocus.handleReplaceFocus),
   'FindWidget.handleReplaceInput': WrapCommand.wrapCommand(handleReplaceInput),

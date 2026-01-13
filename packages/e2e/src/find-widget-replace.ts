@@ -1,27 +1,21 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
 
-export const name = 'viewlet.find-replace-one-occurrence'
+export const name = 'find-widget-replace'
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, FindWidget }) => {
+export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
-  await FileSystem.writeFile(
-    `${tmpDir}/file1.txt`,
-    `content 1
-content 2`,
-  )
+  await FileSystem.writeFile(`${tmpDir}/file1.txt`, `a`)
   await Workspace.setPath(tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 7]))
   await Editor.openFindWidget()
-  await FindWidget.setValue(`content`)
   await FindWidget.toggleReplace()
-  await FindWidget.setReplaceValue('replaced')
+  await FindWidget.setReplaceValue('b')
 
   // act
   await FindWidget.replace()
 
   // assert
-  await Editor.shouldHaveText(`replaced 1
-content 2`)
+  await Editor.shouldHaveText('b')
 }

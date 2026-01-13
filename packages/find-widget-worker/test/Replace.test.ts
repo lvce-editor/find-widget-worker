@@ -28,7 +28,7 @@ test('replace - applies edit for focused match', async () => {
     'Editor.applyDocumentEdits': (): undefined => {
       return undefined
     },
-    'Editor.getLines': (): readonly string[] => {
+    'Editor.getLines2': (): readonly string[] => {
       return newLines
     },
   }
@@ -57,7 +57,7 @@ test('replace - updates lines after replacement', async () => {
     'Editor.applyDocumentEdits': (): undefined => {
       return undefined
     },
-    'Editor.getLines': (): readonly string[] => {
+    'Editor.getLines2': (): readonly string[] => {
       return newLines
     },
   }

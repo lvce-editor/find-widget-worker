@@ -24,7 +24,7 @@ const createState = (lines: readonly string[], value: string, matchIndex: number
 test('updateAfterReplace - refreshes lines and matches', async () => {
   const newLines = ['foo bar baz']
   const commandMap = {
-    'Editor.getLines': (): readonly string[] => {
+    'Editor.getLines2': (): readonly string[] => {
       return newLines
     },
   }
@@ -41,7 +41,7 @@ test('updateAfterReplace - refreshes lines and matches', async () => {
 test('updateAfterReplace - clamps matchIndex when matches decrease', async () => {
   const newLines = ['baz bar foo bar foo']
   const commandMap = {
-    'Editor.getLines': (): readonly string[] => {
+    'Editor.getLines2': (): readonly string[] => {
       return newLines
     },
   }
@@ -57,7 +57,7 @@ test('updateAfterReplace - clamps matchIndex when matches decrease', async () =>
 test('updateAfterReplace - resets matchIndex to 0 when no matches remain', async () => {
   const newLines = ['baz bar baz']
   const commandMap = {
-    'Editor.getLines': (): readonly string[] => {
+    'Editor.getLines2': (): readonly string[] => {
       return newLines
     },
   }
@@ -74,7 +74,7 @@ test('updateAfterReplace - resets matchIndex to 0 when no matches remain', async
 test('updateAfterReplace - preserves matchIndex when still valid', async () => {
   const newLines = ['foo bar foo bar foo']
   const commandMap = {
-    'Editor.getLines': (): readonly string[] => {
+    'Editor.getLines2': (): readonly string[] => {
       return newLines
     },
   }

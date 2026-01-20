@@ -7,18 +7,20 @@ interface FindMatchesResult {
   readonly matches: Uint32Array
 }
 
+const emptyMatches = new Uint32Array([])
+
 export const findMatches = (lines: readonly string[], searchString: string, options: FindOptions): FindMatchesResult => {
   if (searchString.length === 0) {
     return {
       error: '',
-      matches: new Uint32Array([]),
+      matches: emptyMatches,
     }
   }
   const { error, regex } = buildRegex(searchString, options)
   if (error) {
     return {
       error,
-      matches: new Uint32Array([]),
+      matches: emptyMatches,
     }
   }
   const matches = FindRegexMatches.findRegexMatches(lines, regex)

@@ -71,3 +71,65 @@ test('getFindWidgetReplaceVirtualDom - expanded', () => {
     },
   ])
 })
+
+test('getFindWidgetReplaceVirtualDom - expanded with focused input', () => {
+  const replaceButtons = [
+    {
+      disabled: false,
+      icon: 'replace-icon',
+      label: 'Replace',
+      name: 'replace-button',
+      onClick: 'handleReplace',
+    },
+  ]
+  const replaceFieldButtons: readonly ISearchFieldButton[] = []
+
+  const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(true, replaceButtons, replaceFieldButtons, true)
+
+  expect(result).toEqual([
+    {
+      childCount: 2,
+      className: 'FindWidgetReplace',
+      type: 4,
+    },
+    {
+      childCount: 2,
+      className: 'SearchField SearchFieldFocused',
+      role: 'none',
+      type: 4,
+    },
+    {
+      autocapitalize: 'off',
+      autocorrect: 'off',
+      childCount: 0,
+      className: 'MultilineInputBox',
+      name: 'replace-value',
+      onFocus: DomEventListenerFunctions.HandleReplaceFocus,
+      onInput: DomEventListenerFunctions.HandleReplaceInput,
+      placeholder: 'Replace',
+      spellcheck: false,
+      type: 62,
+    },
+    {
+      childCount: 0,
+      className: 'SearchFieldButtons',
+      type: 4,
+    },
+    {
+      ariaLabel: 'Replace',
+      childCount: 1,
+      className: ClassNames.IconButton,
+      disabled: undefined,
+      name: 'replace-button',
+      onClick: 'handleReplace',
+      title: 'Replace',
+      type: VirtualDomElements.Button,
+    },
+    {
+      childCount: 0,
+      className: 'MaskIcon MaskIconreplace-icon',
+      role: 'none',
+      type: 4,
+    },
+  ])
+})

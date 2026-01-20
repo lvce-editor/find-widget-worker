@@ -4,9 +4,7 @@ export const name = 'find-widget-large-file'
 
 export const skip = 1
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
-  // arrange - create a large file with many lines
-  const tmpDir = await FileSystem.getTmpDir()
+const getlargeFileContent = (): string => {
   const lineCount = 10_000
   const lines: string[] = []
   for (let i = 0; i < lineCount; i++) {
@@ -17,6 +15,13 @@ export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator,
     }
   }
   const content = lines.join('\n')
+  return content
+}
+
+export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+  // arrange - create a large file with many lines
+  const tmpDir = await FileSystem.getTmpDir()
+  const content = getlargeFileContent()
   await FileSystem.writeFile(`${tmpDir}/large-file.txt`, content)
   await Workspace.setPath(tmpDir)
   await Main.openUri(`${tmpDir}/large-file.txt`)

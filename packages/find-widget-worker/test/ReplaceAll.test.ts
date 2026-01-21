@@ -32,7 +32,7 @@ test('replaceAll - applies edits for all matches', async () => {
       return newLines
     },
   }
-  const mockRpc = EditorWorker.registerMockRpc(commandMap)
+  using mockRpc = EditorWorker.registerMockRpc(commandMap)
 
   const state = createState(['foo bar foo', 'bar foo'], 'foo', 'baz')
   await replaceAll(state)

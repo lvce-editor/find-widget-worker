@@ -32,7 +32,7 @@ test('replace - applies edit for focused match', async () => {
       return newLines
     },
   }
-  const mockRpc = EditorWorker.registerMockRpc(commandMap)
+  using mockRpc = EditorWorker.registerMockRpc(commandMap)
 
   const state = createState(['foo bar foo'], 'foo', 'baz', 1)
   await replace(state)

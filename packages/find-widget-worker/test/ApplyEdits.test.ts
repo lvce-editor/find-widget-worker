@@ -8,7 +8,7 @@ test('applyEdits - forwards to Editor.applyEdit', async () => {
       return undefined
     },
   }
-  const mockRpc = EditorWorker.registerMockRpc(commandMap)
+  using mockRpc = EditorWorker.registerMockRpc(commandMap)
 
   await applyEdits(1, [
     {

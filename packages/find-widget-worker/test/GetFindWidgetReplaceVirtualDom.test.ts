@@ -101,6 +101,7 @@ test('getFindWidgetReplaceVirtualDom - expanded with focused input', () => {
     {
       autocapitalize: 'off',
       autocorrect: 'off',
+      autofocus: true,
       childCount: 0,
       className: 'MultilineInputBox',
       name: 'replace-value',

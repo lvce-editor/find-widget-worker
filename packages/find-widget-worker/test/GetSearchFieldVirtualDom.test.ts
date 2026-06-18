@@ -66,6 +66,24 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
   ])
 })
 
+test('getSearchFieldVirtualDom returns autofocus when focused', () => {
+  const name = 'test-name'
+  const placeholder = 'test-placeholder'
+  const onInput = 'test-onInput'
+  const onFocus = 'test-onFocus'
+  const insideButtons: readonly ISearchFieldButton[] = []
+  const outsideButtons: ISearchFieldButton[] = []
+
+  const result = GetSearchFieldVirtualDom.getSearchFieldVirtualDom(name, placeholder, onInput, insideButtons, outsideButtons, onFocus, '', true)
+
+  expect(result[1]).toEqual(
+    expect.objectContaining({
+      autofocus: true,
+      name,
+    }),
+  )
+})
+
 test('getSearchFieldVirtualDom throws error when outsideButtons are provided', () => {
   const name = 'test-name'
   const placeholder = 'test-placeholder'

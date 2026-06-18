@@ -33,6 +33,7 @@ export const getFindWidgetReplaceVirtualDom = (
       [],
       DomEventListenerFunctions.HandleReplaceFocus,
       extraClassName,
+      replaceInputFocused,
     ),
     ...replaceButtons.flatMap(GetIconButtonVirtualDom.getIconButtonVirtualDom),
   ]

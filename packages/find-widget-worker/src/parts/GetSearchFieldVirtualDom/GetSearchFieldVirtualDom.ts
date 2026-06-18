@@ -13,6 +13,7 @@ export const getSearchFieldVirtualDom = (
   outsideButtons: readonly ISearchFieldButton[],
   onFocus: string | number,
   extraClassName: string,
+  autofocus = false,
 ): readonly VirtualDomNode[] => {
   const dom = [
     {
@@ -32,6 +33,7 @@ export const getSearchFieldVirtualDom = (
       placeholder,
       spellcheck: false,
       type: VirtualDomElements.TextArea,
+      ...(autofocus ? { autofocus: true } : {}),
     },
     {
       childCount: insideButtons.length,

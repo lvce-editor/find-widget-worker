@@ -44,6 +44,7 @@ export const getFindWidgetFindVirtualDom = (
       [],
       DomEventListenerFunctions.HandleFocus,
       extraClassName,
+      inputFocused,
     ),
     {
       childCount: 1 + buttons.length,

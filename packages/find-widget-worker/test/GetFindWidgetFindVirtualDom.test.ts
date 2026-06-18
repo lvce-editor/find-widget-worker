@@ -135,6 +135,24 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with no m
   ])
 })
 
+test('getFindWidgetFindVirtualDom returns autofocus for focused input', () => {
+  const matchCountText = 'No matches'
+  const buttons: readonly FindWidgetButton[] = []
+  const fieldButtons: readonly ISearchFieldButton[] = []
+  const matchCount = 0
+  const hasValue = false
+  const hasError = false
+
+  const result = GetFindWidgetFindVirtualDom.getFindWidgetFindVirtualDom(matchCountText, buttons, fieldButtons, matchCount, hasValue, hasError, true)
+
+  expect(result[2]).toEqual(
+    expect.objectContaining({
+      autofocus: true,
+      name: 'search-value',
+    }),
+  )
+})
+
 test('getFindWidgetFindVirtualDom returns correct virtual dom elements with matches and buttons', () => {
   const matchCountText = '3 matches'
   const buttons: readonly FindWidgetButton[] = [

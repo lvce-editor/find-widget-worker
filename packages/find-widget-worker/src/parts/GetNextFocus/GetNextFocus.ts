@@ -2,15 +2,16 @@ import { WhenExpression } from '@lvce-editor/constants'
 
 export const getNextFocus = (focus: number, replaceExpanded: boolean): number => {
   switch (focus) {
-    case WhenExpression.FocusSearchExcludeInput:
-      return WhenExpression.FocusIgnoreFiles
-    case WhenExpression.FocusSearchIncludeInput:
-      return WhenExpression.FocusSearchOpenEditors
+    case WhenExpression.FocusFindWidget:
     case WhenExpression.FocusSearchInput:
       if (replaceExpanded) {
         return WhenExpression.FocusSearchReplaceInput
       }
       return WhenExpression.FocusSearchMatchCase
+    case WhenExpression.FocusSearchExcludeInput:
+      return WhenExpression.FocusIgnoreFiles
+    case WhenExpression.FocusSearchIncludeInput:
+      return WhenExpression.FocusSearchOpenEditors
     case WhenExpression.FocusSearchMatchCase:
       return WhenExpression.FocusSearchWholeWord
     case WhenExpression.FocusSearchOpenEditors:

@@ -15,20 +15,22 @@ export const applyRegexReplacement = (originalText: string, regex: RegExp, repla
   let result = replacement
 
   // Handle $& (entire match)
-  result = result.replaceAll('$&', match[0])
+  result = result.replaceAll('$&', () => {
+    return match[0]
+  })
 
   // Handle $` (text before match) - in this context it's empty since we're matching the whole text
-  result = result.replaceAll('$`', '')
+  result = result.replaceAll('$`', () => '')
 
   // Handle $' (text after match) - in this context it's empty since we're matching the whole text
-  result = result.replaceAll("$'", '')
+  result = result.replaceAll("$'", () => '')
 
   // Handle $$ (literal $)
-  result = result.replaceAll('$$', '\u0000DOLLAR\u0000')
+  result = result.replaceAll('$$', '\u{0}DOLLAR\u{0}')
 
   // Handle $n and $nn (numbered capture groups)
-  result = result.replaceAll(/\$(\d{1,2})/g, (_match, groupNumber) => {
-    const index = Number.parseInt(groupNumber, 10)
+  result = result.replaceAll(/\$(\d{1,2})/g, (_match, groupNumber: string) => {
+    const index = Number(groupNumber)
     if (index < match.length) {
       return match[index] ?? ''
     }
@@ -36,7 +38,7 @@ export const applyRegexReplacement = (originalText: string, regex: RegExp, repla
   })
 
   // Restore literal $
-  result = result.replaceAll('\u0000DOLLAR\u0000', '$')
+  result = result.replaceAll('\u{0}DOLLAR\u{0}', '$')
 
   return result
 }

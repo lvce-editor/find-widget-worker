@@ -332,7 +332,7 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with erro
     autocapitalize: 'off',
     autocorrect: 'off',
     childCount: 0,
-    className: `${ClassNames.MultilineInputBox}`,
+    className: ClassNames.MultilineInputBox,
     name: 'search-value',
     onFocus: DomEventListenerFunctions.HandleFocus,
     onInput: DomEventListenerFunctions.HandleInput,

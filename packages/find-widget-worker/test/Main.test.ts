@@ -6,7 +6,6 @@ test('main', async () => {
   const { dispose, start } = mockWorkerGlobalRpc()
   const mainPromise = main()
   start()
-  await mainPromise
+  await expect(mainPromise).resolves.toBe(undefined)
   dispose()
-  expect(true).toBe(true) // Test passes if no errors are thrown
 })

@@ -6,7 +6,6 @@ test('listen', async () => {
   const { dispose, start } = mockWorkerGlobalRpc()
   const listenPromise = listen()
   start()
-  await listenPromise
+  await expect(listenPromise).resolves.toBe(undefined)
   dispose()
-  expect(true).toBe(true) // Test passes if no errors are thrown
 })

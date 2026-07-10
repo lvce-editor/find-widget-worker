@@ -19,8 +19,8 @@ export const buildRegex = (searchString: string, options: FindOptions): BuildReg
     }
   } catch (error) {
     return {
-      error: `${error}`,
-      regex: new RegExp(''),
+      error: String(error),
+      regex: /.^/,
     }
   }
 }

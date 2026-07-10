@@ -32,6 +32,17 @@ export const getEdits = (
     }
   }
 
+  const lineOffsets: number[] = []
+  let lineOffset = 0
+  for (let row = 0; row < lines.length; row++) {
+    lineOffsets[row] = lineOffset
+    lineOffset += lines[row].length + 1
+  }
+
+  const getOffset = (rowIndex: number, columnIndex: number): number => {
+    return lineOffsets[rowIndex] + columnIndex
+  }
+
   for (let i = fromIndex; i < toIndex; i++) {
     const rowIndex: number = matches[i * 3]
     const startColumnIndex: number = matches[i * 3 + 1]
@@ -54,18 +65,8 @@ export const getEdits = (
       finalReplacement = preserveCase(originalText, finalReplacement)
     }
 
-    // Convert row/column positions to character offsets
-    let startOffset: number = 0
-    for (let row = 0; row < rowIndex; row++) {
-      startOffset += lines[row].length + 1 // +1 for newline character
-    }
-    startOffset += startColumnIndex
-
-    let endOffset: number = 0
-    for (let row = 0; row < rowIndex; row++) {
-      endOffset += lines[row].length + 1 // +1 for newline character
-    }
-    endOffset += endColumnIndex
+    const startOffset = getOffset(rowIndex, startColumnIndex)
+    const endOffset = getOffset(rowIndex, endColumnIndex)
 
     edits.push({
       endOffset,

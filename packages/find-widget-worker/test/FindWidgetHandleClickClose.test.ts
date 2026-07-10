@@ -5,7 +5,7 @@ import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefau
 import * as FindWidgetHandleClickClose from '../src/parts/FindWidgetHandleClickClose/FindWidgetHandleClickClose.ts'
 
 test('handleClickClose should invoke Editor.closeFind2 and return state', async () => {
-  const mockRpc = EditorWorker.registerMockRpc({
+  using mockRpc = EditorWorker.registerMockRpc({
     'Editor.closeFind2'() {},
   })
   const state: FindWidgetState = CreateDefaultState.createDefaultState()

@@ -3,7 +3,7 @@ export const findRegexMatches = (lines: readonly string[], regex: RegExp): Uint3
     throw new Error('regex must be global')
   }
   const { length } = lines
-  const matches = []
+  const matches: number[] = []
   const collectMatchesForLine = (line: string, lineIndex: number): void => {
     let lastMatch = regex.exec(line)
     while (lastMatch) {

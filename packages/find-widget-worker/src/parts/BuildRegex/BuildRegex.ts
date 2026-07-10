@@ -10,7 +10,7 @@ export const buildRegex = (searchString: string, options: FindOptions): BuildReg
   const { matchCase, matchWholeWord, useRegularExpression } = options
   const flags = matchCase ? 'g' : 'gi'
   const pattern = useRegularExpression ? searchString : EscapeRegex.escapeRegExpCharacters(searchString)
-  const wrapped = matchWholeWord ? '\\b' + pattern + '\\b' : pattern
+  const wrapped = matchWholeWord ? `\\b(?:${pattern})\\b` : pattern
   try {
     const regex = new RegExp(wrapped, flags)
     return {

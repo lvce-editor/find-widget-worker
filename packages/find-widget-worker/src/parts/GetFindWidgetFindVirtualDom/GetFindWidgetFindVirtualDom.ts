@@ -45,13 +45,15 @@ export const getFindWidgetFindVirtualDom = (
       DomEventListenerFunctions.HandleFocus,
       extraClassName,
       inputFocused,
+      hasError ? 'FindWidgetInputError' : '',
+      hasError ? 'true' : '',
     ),
     {
       childCount: 1 + buttons.length,
       className: 'FindWidgetActions',
       type: VirtualDomElements.Div,
     },
-    ...getMatchCountVirtualDom(matchCountText, matchCount, hasValue),
+    ...getMatchCountVirtualDom(matchCountText, matchCount, hasValue, hasError),
     ...buttons.flatMap(GetIconButtonVirtualDom.getIconButtonVirtualDom),
   ]
 }

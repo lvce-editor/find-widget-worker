@@ -14,6 +14,8 @@ export const getSearchFieldVirtualDom = (
   onFocus: string | number,
   extraClassName: string,
   autofocus = false,
+  ariaDescribedBy = '',
+  ariaInvalid = '',
 ): readonly VirtualDomNode[] => {
   if (outsideButtons.length > 0) {
     throw new Error('outsideButtons are deprecated')
@@ -38,6 +40,8 @@ export const getSearchFieldVirtualDom = (
       spellcheck: false,
       type: VirtualDomElements.TextArea,
       ...(autofocus && { autofocus: true }),
+      ...(ariaDescribedBy && { ariaDescribedBy }),
+      ...(ariaInvalid && { ariaInvalid }),
     },
     {
       childCount: insideButtons.length,

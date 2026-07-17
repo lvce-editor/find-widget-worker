@@ -329,6 +329,8 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with erro
     type: VirtualDomElements.Div,
   })
   expect(result[2]).toEqual({
+    ariaDescribedBy: 'FindWidgetInputError',
+    ariaInvalid: 'true',
     autocapitalize: 'off',
     autocorrect: 'off',
     childCount: 0,
@@ -339,5 +341,12 @@ test('getFindWidgetFindVirtualDom returns correct virtual dom elements with erro
     placeholder: FindStrings.find(),
     spellcheck: false,
     type: VirtualDomElements.TextArea,
+  })
+  expect(result).toContainEqual({
+    childCount: 1,
+    className: `${ClassNames.FindWidgetMatchCount} ${ClassNames.FindWidgetMatchCountEmpty}`,
+    id: 'FindWidgetInputError',
+    role: 'alert',
+    type: VirtualDomElements.Div,
   })
 })

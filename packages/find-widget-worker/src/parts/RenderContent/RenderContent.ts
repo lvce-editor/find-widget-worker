@@ -9,7 +9,7 @@ import * as RenderMethod from '../RenderMethod/RenderMethod.ts'
 export const renderContent = (oldState: FindWidgetState, newState: FindWidgetState): readonly any[] => {
   const { focus, inputErrorMessage, matchCase, matchCount, matchWholeWord, preserveCase, replaceExpanded, uid, useRegularExpression, value } =
     newState
-  const matchCountText = GetMatchCountText.getMatchCountText(newState.matchIndex, newState.matchCount)
+  const matchCountText = inputErrorMessage || GetMatchCountText.getMatchCountText(newState.matchIndex, newState.matchCount)
   const { findButtonsEnabled, replaceButtonsEnabled } = GetFindWidgetButtonsEnabled.getFindWidgetButtonsEnabled(matchCount, value)
   const { findButtons, findFieldButtons, replaceButtons, replaceFieldButtons } = GetFindWidgetButtons.getFindWidgetButtons(
     findButtonsEnabled,

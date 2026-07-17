@@ -10,6 +10,11 @@ export const getKeyBindings = (): readonly any[] => {
       when: WhenExpression.FocusFindWidget,
     },
     {
+      command: 'FindWidget.focusPrevious',
+      key: KeyModifier.Shift | KeyCode.Enter,
+      when: WhenExpression.FocusFindWidget,
+    },
+    {
       command: 'FindWidget.preventDefaultBrowserFind',
       key: KeyModifier.CtrlCmd | KeyCode.KeyF,
       when: WhenExpression.FocusFindWidget,

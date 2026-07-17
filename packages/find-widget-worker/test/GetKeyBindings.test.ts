@@ -7,6 +7,16 @@ test('getKeyBindings - returns an array of key bindings', () => {
   expect(result).toBeDefined()
 })
 
+test('getKeyBindings - Escape closes the find widget', () => {
+  const result = GetKeyBindings.getKeyBindings()
+
+  expect(result).toContainEqual({
+    command: 'FindWidget.close',
+    key: KeyCode.Escape,
+    when: WhenExpression.FocusFindWidget,
+  })
+})
+
 test('getKeyBindings - Enter focuses the next match from the find input', () => {
   const result = GetKeyBindings.getKeyBindings()
 

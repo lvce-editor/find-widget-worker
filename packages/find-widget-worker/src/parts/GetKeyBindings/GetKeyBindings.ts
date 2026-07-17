@@ -5,6 +5,11 @@ import { WhenExpression } from '@lvce-editor/constants'
 export const getKeyBindings = (): readonly any[] => {
   return [
     {
+      command: 'FindWidget.close',
+      key: KeyCode.Escape,
+      when: WhenExpression.FocusFindWidget,
+    },
+    {
       command: 'FindWidget.focusNext',
       key: KeyCode.Enter,
       when: WhenExpression.FocusFindWidget,

@@ -9,6 +9,7 @@ export interface FindWidgetState {
   readonly focus: number
   readonly focused: boolean
   readonly focusSource: number
+  readonly focusVersion: number
   readonly height: number
   readonly history: readonly string[]
   readonly inputBorderWidth: number

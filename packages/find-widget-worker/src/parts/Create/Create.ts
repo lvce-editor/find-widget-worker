@@ -13,6 +13,7 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     focus: 0,
     focused: false,
     focusSource: FocusSource.Unknown,
+    focusVersion: 0,
     height: 0,
     history: [],
     inputBorderWidth: 1,

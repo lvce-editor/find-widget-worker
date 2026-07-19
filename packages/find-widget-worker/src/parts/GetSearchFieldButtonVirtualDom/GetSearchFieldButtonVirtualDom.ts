@@ -4,6 +4,7 @@ import { AriaRoles } from '@lvce-editor/virtual-dom-worker'
 import type { ISearchFieldButton } from '../ISearchFieldButton/ISearchFieldButton.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
+import * as TabIndex from '../TabIndex/TabIndex.ts'
 
 const checkedClassName = MergeClassNames.mergeClassNames(ClassNames.SearchFieldButton, ClassNames.SearchFieldButtonChecked)
 const unCheckedClassName = ClassNames.SearchFieldButton
@@ -18,7 +19,7 @@ export const getSearchFieldButtonVirtualDom = (button: ISearchFieldButton): read
       name,
       onClick,
       role: AriaRoles.CheckBox,
-      tabIndex: 0,
+      tabIndex: TabIndex.Focusable,
       title,
       type: VirtualDomElements.Button,
     },

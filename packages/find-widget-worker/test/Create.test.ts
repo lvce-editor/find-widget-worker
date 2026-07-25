@@ -14,3 +14,11 @@ test('create should create and register state', () => {
   expect(state).toBeDefined()
   expect(FindWidgetStates.get(uid).newState).toBe(state)
 })
+
+test('createInstance registers an opaque instance id', () => {
+  const state = Create.createInstance('editor:2:find:1', 3, 100, 200, 300, 400, 2)
+
+  expect(state.instanceId).toBe('editor:2:find:1')
+  expect(FindWidgetStates.resolveUid('editor:2:find:1')).toBe(3)
+  expect(FindWidgetStates.get(3).newState).toBe(state)
+})

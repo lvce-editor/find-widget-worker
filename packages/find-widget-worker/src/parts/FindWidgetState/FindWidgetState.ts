@@ -19,6 +19,7 @@ export interface FindWidgetState {
   readonly inputPaddingBottom: number
   readonly inputPaddingTop: number
   readonly inputSource: number
+  readonly instanceId?: string
   readonly lines: readonly string[]
   readonly matchCase: boolean
   readonly matchCount: number

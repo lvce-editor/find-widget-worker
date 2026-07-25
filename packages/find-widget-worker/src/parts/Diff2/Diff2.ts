@@ -6,3 +6,11 @@ export const diff2 = (uid: number): readonly number[] => {
   const diffResult = Diff.diff(oldState, newState)
   return diffResult
 }
+
+export const diffInstance = (instanceId: string): readonly number[] => {
+  const uid = FindWidgetStates.resolveUid(instanceId)
+  if (uid === undefined) {
+    return []
+  }
+  return diff2(uid)
+}

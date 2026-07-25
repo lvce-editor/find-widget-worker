@@ -7,3 +7,11 @@ export const render2 = (uid: number, diffResult: readonly number[]): readonly an
   const commands = ApplyRender.applyRender(oldState, newState, diffResult)
   return commands
 }
+
+export const renderInstance = (instanceId: string, diffResult: readonly number[]): readonly any[] => {
+  const uid = FindWidgetStates.resolveUid(instanceId)
+  if (uid === undefined) {
+    return []
+  }
+  return render2(uid, diffResult)
+}

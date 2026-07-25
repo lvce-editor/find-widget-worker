@@ -6,8 +6,12 @@ import * as Dispose from '../Dispose/Dispose.ts'
 import * as FindWidgetFocusCloseButton from '../FindWidgetFocusCloseButton/FindWidgetFocusCloseButton.ts'
 import * as FindWidgetFocusFind from '../FindWidgetFocusFind/FindWidgetFocusFind.ts'
 import * as FindWidgetFocusIndex from '../FindWidgetFocusIndex/FindWidgetFocusIndex.ts'
+import * as FindWidgetFocusNextMatchButton from '../FindWidgetFocusNextMatchButton/FindWidgetFocusNextMatchButton.ts'
+import * as FindWidgetFocusPreviousMatchButton from '../FindWidgetFocusPreviousMatchButton/FindWidgetFocusPreviousMatchButton.ts'
 import * as FindWidgetFocusReplace from '../FindWidgetFocusReplace/FindWidgetFocusReplace.ts'
 import * as FindWidgetFocusReplaceAllButton from '../FindWidgetFocusReplaceAllButton/FindWidgetFocusReplaceAllButton.ts'
+import * as FindWidgetFocusReplaceButton from '../FindWidgetFocusReplaceButton/FindWidgetFocusReplaceButton.ts'
+import * as FindWidgetFocusToggleReplaceButton from '../FindWidgetFocusToggleReplaceButton/FindWidgetFocusToggleReplaceButton.ts'
 import * as FindWidgetHandleBlur from '../FindWidgetHandleBlur/FindWidgetHandleBlur.ts'
 import { handleClickButton } from '../FindWidgetHandleClickButton/FindWidgetHandleClickButton.ts'
 import * as HandleClickClose from '../FindWidgetHandleClickClose/FindWidgetHandleClickClose.ts'
@@ -40,8 +44,11 @@ import { saveState } from '../SaveState/SaveState.ts'
 export const commandMap = {
   'FindWidget.close': WrapCommand.wrapCommand(close),
   'FindWidget.create': Create.create,
+  'FindWidget.createInstance': Create.createInstance,
   'FindWidget.diff2': Diff2.diff2,
+  'FindWidget.diffInstance': Diff2.diffInstance,
   'FindWidget.dispose': Dispose.dispose,
+  'FindWidget.disposeInstance': Dispose.disposeInstance,
   'FindWidget.focusCloseButton': WrapCommand.wrapCommand(FindWidgetFocusCloseButton.focusCloseButton),
   'FindWidget.focusElement': WrapCommand.wrapCommand(focusElement),
   'FindWidget.focusFind': WrapCommand.wrapCommand(FindWidgetFocusFind.focusFind),
@@ -50,10 +57,14 @@ export const commandMap = {
   'FindWidget.focusLast': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusLast),
   'FindWidget.focusNext': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusNext),
   'FindWidget.focusNextElement': WrapCommand.wrapCommand(focusNextElement),
+  'FindWidget.focusNextMatchButton': WrapCommand.wrapCommand(FindWidgetFocusNextMatchButton.focusNextMatchButton),
   'FindWidget.focusPrevious': WrapCommand.wrapCommand(FindWidgetFocusIndex.focusPrevious),
   'FindWidget.focusPreviousElement': WrapCommand.wrapCommand(focusPreviousElement),
+  'FindWidget.focusPreviousMatchButton': WrapCommand.wrapCommand(FindWidgetFocusPreviousMatchButton.focusPreviousMatchButton),
   'FindWidget.focusReplace': WrapCommand.wrapCommand(FindWidgetFocusReplace.focusReplace),
   'FindWidget.focusReplaceAllButton': WrapCommand.wrapCommand(FindWidgetFocusReplaceAllButton.focusReplaceAllButton),
+  'FindWidget.focusReplaceButton': WrapCommand.wrapCommand(FindWidgetFocusReplaceButton.focusReplaceButton),
+  'FindWidget.focusToggleReplace': WrapCommand.wrapCommand(FindWidgetFocusToggleReplaceButton.focusToggleReplaceButton),
   'FindWidget.getCommandIds': WrapCommand.getCommandIds,
   'FindWidget.getKeyBindings': getKeyBindings,
   'FindWidget.handleBlur': WrapCommand.wrapCommand(FindWidgetHandleBlur.handleBlur),
@@ -68,8 +79,10 @@ export const commandMap = {
   'FindWidget.handleResizerPointerUp': WrapCommand.wrapCommand(handleResizerPointerUp),
   'FindWidget.handleToggleReplaceFocus': WrapCommand.wrapCommand(handleToggleReplaceFocus),
   'FindWidget.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
+  'FindWidget.loadContentInstance': WrapCommand.wrapInstanceCommand(LoadContent.loadContent),
   'FindWidget.preventDefaultBrowserFind': WrapCommand.wrapCommand(PreventDefaultBrowserFind.preventDefaultBrowserFind),
   'FindWidget.render2': Render2.render2,
+  'FindWidget.renderInstance': Render2.renderInstance,
   'FindWidget.replace': WrapCommand.wrapCommand(replace),
   'FindWidget.replaceAll': WrapCommand.wrapCommand(replaceAll),
   'FindWidget.resize': WrapCommand.wrapCommand(resize),

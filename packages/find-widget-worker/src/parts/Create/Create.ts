@@ -2,7 +2,7 @@ import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as FindWidgetStates from '../FindWidgetStates/FindWidgetStates.ts'
 import * as FocusSource from '../FocusSource/FocusSource.ts'
 
-export const create = (uid: number, x: number, y: number, width: number, height: number, parentUid: number): FindWidgetState => {
+const createState = (uid: number, x: number, y: number, width: number, height: number, parentUid: number, instanceId?: string): FindWidgetState => {
   const state: FindWidgetState = {
     ariaAnnouncement: '',
     editorHeight: height,
@@ -23,6 +23,7 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     inputPaddingBottom: 4,
     inputPaddingTop: 4,
     inputSource: 0,
+    ...(instanceId && { instanceId }),
     lines: [],
     matchCase: false,
     matchCount: 0,
@@ -45,5 +46,24 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     y: 0,
   }
   FindWidgetStates.set(uid, state, state)
+  if (instanceId) {
+    FindWidgetStates.registerInstance(instanceId, uid)
+  }
   return state
+}
+
+export const create = (uid: number, x: number, y: number, width: number, height: number, parentUid: number): FindWidgetState => {
+  return createState(uid, x, y, width, height, parentUid)
+}
+
+export const createInstance = (
+  instanceId: string,
+  uid: number,
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  parentUid: number,
+): FindWidgetState => {
+  return createState(uid, x, y, width, height, parentUid, instanceId)
 }

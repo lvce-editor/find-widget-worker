@@ -15,5 +15,4 @@ export const HandleReplaceInput = 14
 export const HandleResizerPointerDown = 15
 export const HandleResizerPointerMove = 16
 export const HandleResizerPointerUp = 17
-export const HandleSliderPointerMove = 18
 export const HandleToggleReplaceFocus = 19

@@ -36,3 +36,16 @@ test('refresh with case insensitive matching', () => {
   expect(result.matchIndex).toBe(0)
   expect(result.value).toBe('hello')
 })
+
+test('refresh with invalid regular expression', () => {
+  const state: FindWidgetState = {
+    ...createDefaultState(),
+    lines: ['hello'],
+    useRegularExpression: true,
+  }
+
+  const result = refresh(state, '[', InputSource.User)
+
+  expect(result.inputErrorMessage).not.toBe('')
+  expect(result.value).toBe('')
+})

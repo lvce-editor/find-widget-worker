@@ -12,3 +12,13 @@ test('getEventListeners - button clicks report the clicked control name', () => 
     params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickButton', 0, widgetId, EventExpression.TargetName],
   })
 })
+
+test('getEventListeners - find input focus reports the focused control name', () => {
+  const widgetId = 42
+  const result = getEventListeners(1, widgetId)
+
+  expect(result).toContainEqual({
+    name: DomEventListenerFunctions.HandleFocus,
+    params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocus', 0, widgetId, EventExpression.TargetName],
+  })
+})

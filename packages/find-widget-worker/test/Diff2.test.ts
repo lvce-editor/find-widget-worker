@@ -11,3 +11,17 @@ test('diff2 should return diff result for state', () => {
   const result: readonly number[] = Diff2.diff2(uid)
   expect(Array.isArray(result)).toBe(true)
 })
+
+test('diffInstance should return an empty result for an unknown instance', () => {
+  expect(Diff2.diffInstance('unknown')).toEqual([])
+})
+
+test('diffInstance should return the diff result for a registered instance', () => {
+  const uid = 2
+  const instanceId = 'editor:diff:find'
+  const state = CreateDefaultState.createDefaultState()
+  FindWidgetStates.set(uid, state, state)
+  FindWidgetStates.registerInstance(instanceId, uid)
+
+  expect(Diff2.diffInstance(instanceId)).toEqual([])
+})

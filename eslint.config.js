@@ -36,4 +36,10 @@ export default defineConfig([
       'virtual-dom/valid-child-count': 'off',
     },
   },
+  {
+    files: ['packages/find-widget-worker/tsconfig.json'],
+    rules: {
+      'tsconfig/dont-skip-lib-check': 'off',
+    },
+  },
 ])

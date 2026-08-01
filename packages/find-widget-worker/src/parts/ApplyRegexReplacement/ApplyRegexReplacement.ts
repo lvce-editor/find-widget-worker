@@ -1,3 +1,5 @@
+const backReferenceRegex = /\$(\d{1,2})/g
+
 /**
  * Apply regex replacement with back-reference substitution ($1, $2, etc.)
  */
@@ -29,7 +31,7 @@ export const applyRegexReplacement = (originalText: string, regex: RegExp, repla
   result = result.replaceAll('$$', '\u{0}DOLLAR\u{0}')
 
   // Handle $n and $nn (numbered capture groups)
-  result = result.replaceAll(/\$(\d{1,2})/g, (_match, groupNumber: string) => {
+  result = result.replaceAll(backReferenceRegex, (_match, groupNumber: string) => {
     const index = Number(groupNumber)
     if (index < match.length) {
       return match[index] ?? ''

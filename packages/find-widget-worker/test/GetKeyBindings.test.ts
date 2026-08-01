@@ -82,6 +82,21 @@ test('getKeyBindings - Tab and Shift+Tab navigate from Match Case', () => {
   })
 })
 
+test('getKeyBindings - Tab and Shift+Tab navigate from Preserve Case', () => {
+  const result = GetKeyBindings.getKeyBindings()
+
+  expect(result).toContainEqual({
+    command: 'FindWidget.focusNextElement',
+    key: KeyCode.Tab,
+    when: WhenExpression.FocusSearchPreserveCase,
+  })
+  expect(result).toContainEqual({
+    command: 'FindWidget.focusPreviousElement',
+    key: KeyModifier.Shift | KeyCode.Tab,
+    when: WhenExpression.FocusSearchPreserveCase,
+  })
+})
+
 test('getKeyBindings - Tab and Shift+Tab navigate from the replace input', () => {
   const result = GetKeyBindings.getKeyBindings()
 

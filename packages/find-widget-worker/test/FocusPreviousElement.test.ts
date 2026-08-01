@@ -59,6 +59,17 @@ test('focusPreviousElement - from regex', () => {
   expect(newState.focusSource).toBe(InputSource.Script)
 })
 
+test('focusPreviousElement - from previous match with replace expanded', () => {
+  const state: FindWidgetState = {
+    ...createDefaultState(),
+    focus: WhenExpression.FocusFindWidgetPreviousMatchButton,
+    replaceExpanded: true,
+  }
+  const newState = FocusPreviousElement.focusPreviousElement(state)
+  expect(newState.focus).toBe(WhenExpression.FocusSearchPreserveCase)
+  expect(newState.focusSource).toBe(InputSource.Script)
+})
+
 test('focusPreviousElement - from toggle details with replace expanded', () => {
   const state: FindWidgetState = {
     ...createDefaultState(),

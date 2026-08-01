@@ -37,6 +37,11 @@ test('getPreviousFocus - from previous match to regex', () => {
   expect(result).toBe(WhenExpression.FocusSearchRegex)
 })
 
+test('getPreviousFocus - from previous match to preserve case with replace expanded', () => {
+  const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusFindWidgetPreviousMatchButton, true)
+  expect(result).toBe(WhenExpression.FocusSearchPreserveCase)
+})
+
 test('getPreviousFocus - from next match to previous match', () => {
   const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusFindWidgetNextMatchButton, false)
   expect(result).toBe(WhenExpression.FocusFindWidgetPreviousMatchButton)

@@ -29,8 +29,11 @@ export const getNextFocus = (focus: number, replaceExpanded: boolean): number =>
     case WhenExpression.FocusSearchOpenEditors:
       return WhenExpression.FocusSearchExcludeInput
     case WhenExpression.FocusSearchPreserveCase:
-      return WhenExpression.FocusFindWidgetReplaceButton
+      return WhenExpression.FocusFindWidgetPreviousMatchButton
     case WhenExpression.FocusSearchRegex:
+      if (replaceExpanded) {
+        return WhenExpression.FocusSearchPreserveCase
+      }
       return WhenExpression.FocusFindWidgetPreviousMatchButton
     case WhenExpression.FocusSearchReplaceAll:
       return WhenExpression.FocusToggleDetails

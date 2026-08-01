@@ -35,7 +35,7 @@ test('getNextFocus - from whole word', () => {
 test('getNextFocus - from regex with replace expanded', () => {
   const focus = WhenExpression.FocusSearchRegex
   const flags = true
-  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetPreviousMatchButton)
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusSearchPreserveCase)
 })
 
 test('getNextFocus - from regex without replace expanded', () => {
@@ -47,7 +47,7 @@ test('getNextFocus - from regex without replace expanded', () => {
 test('getNextFocus - from preserve case', () => {
   const focus = WhenExpression.FocusSearchPreserveCase
   const flags = true
-  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetReplaceButton)
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetPreviousMatchButton)
 })
 
 test('getNextFocus - from previous match', () => {

@@ -8,6 +8,7 @@ const focusContexts = [
   WhenExpression.FocusSearchMatchCase,
   WhenExpression.FocusSearchWholeWord,
   WhenExpression.FocusSearchRegex,
+  WhenExpression.FocusSearchPreserveCase,
   WhenExpression.FocusFindWidgetPreviousMatchButton,
   WhenExpression.FocusFindWidgetNextMatchButton,
   WhenExpression.FocusFindWidgetCloseButton,

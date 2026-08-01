@@ -7,6 +7,9 @@ export const getPreviousFocus = (focus: number, replaceExpanded: boolean): numbe
     case WhenExpression.FocusFindWidgetNextMatchButton:
       return WhenExpression.FocusFindWidgetPreviousMatchButton
     case WhenExpression.FocusFindWidgetPreviousMatchButton:
+      if (replaceExpanded) {
+        return WhenExpression.FocusSearchPreserveCase
+      }
       return WhenExpression.FocusSearchRegex
     case WhenExpression.FocusFindWidgetReplaceAllButton:
       return WhenExpression.FocusFindWidgetReplaceButton

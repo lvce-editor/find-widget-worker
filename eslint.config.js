@@ -4,6 +4,8 @@ import * as config from '@lvce-editor/eslint-config'
 export default defineConfig([
   ...config.default,
   ...config.recommendedVirtualDom,
+  ...config.recommendedRegex,
+  ...config.recommendedTsconfig,
   ...config.recommendedActions,
   {
     ignores: ['**/server/**', '**/e2e/**', '**/memory/**'],

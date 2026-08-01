@@ -6,6 +6,8 @@ interface BuildRegexResult {
   readonly regex: RegExp
 }
 
+const invalidRegex = /.^/
+
 export const buildRegex = (searchString: string, options: FindOptions): BuildRegexResult => {
   const { matchCase, matchWholeWord, useRegularExpression } = options
   const flags = matchCase ? 'g' : 'gi'
@@ -20,7 +22,7 @@ export const buildRegex = (searchString: string, options: FindOptions): BuildReg
   } catch (error) {
     return {
       error: String(error),
-      regex: /.^/,
+      regex: invalidRegex,
     }
   }
 }

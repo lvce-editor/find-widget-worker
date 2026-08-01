@@ -20,8 +20,11 @@ export const resolveUid = (instanceId: string): number | undefined => {
 
 export const dispose = (uid: number): void => {
   const state = registry.get(uid)?.newState
-  if (state?.instanceId) {
-    instanceUids.delete(state.instanceId)
+  if (state) {
+    const { instanceId } = state
+    if (instanceId) {
+      instanceUids.delete(instanceId)
+    }
   }
   registry.dispose(uid)
 }

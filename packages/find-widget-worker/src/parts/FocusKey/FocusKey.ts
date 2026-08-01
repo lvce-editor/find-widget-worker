@@ -1,5 +1,6 @@
 export const FocusFindWidgetCloseButton = 48
 export const FocusFindWidgetNextMatchButton = 49
+export const FocusFindWidgetOptions = 44
 export const FocusFindWidgetPreviousMatchButton = 50
 export const FocusFindWidgetReplace = 43
 export const FocusFindWidgetReplaceAllButton = 47

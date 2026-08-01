@@ -1,14 +1,14 @@
 import { expect, test } from '@jest/globals'
-import { WhenExpression } from '@lvce-editor/constants'
+import { EventExpression } from '@lvce-editor/constants'
 import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import { getEventListeners } from '../src/parts/GetEventListeners/GetEventListeners.ts'
 
-test('getEventListeners - match case focus reports its focus context', () => {
+test('getEventListeners - button clicks report the clicked control name', () => {
   const widgetId = 42
   const result = getEventListeners(1, widgetId)
 
   expect(result).toContainEqual({
-    name: DomEventListenerFunctions.HandleFocusMatchCase,
-    params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusElement', 0, widgetId, WhenExpression.FocusSearchMatchCase],
+    name: DomEventListenerFunctions.HandleClickButton,
+    params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleClickButton', 0, widgetId, EventExpression.TargetName],
   })
 })

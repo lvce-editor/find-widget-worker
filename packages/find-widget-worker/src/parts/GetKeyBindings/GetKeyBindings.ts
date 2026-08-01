@@ -1,20 +1,18 @@
 import { KeyCode } from '@lvce-editor/constants'
 import { KeyModifier } from '@lvce-editor/constants'
 import { WhenExpression } from '@lvce-editor/constants'
+import * as FocusKey from '../FocusKey/FocusKey.ts'
 
 const focusContexts = [
   WhenExpression.FocusFindWidget,
   WhenExpression.FocusFindWidgetReplace,
-  WhenExpression.FocusSearchMatchCase,
-  WhenExpression.FocusSearchWholeWord,
-  WhenExpression.FocusSearchRegex,
-  WhenExpression.FocusSearchPreserveCase,
+  FocusKey.FocusFindWidgetOptions,
   WhenExpression.FocusFindWidgetPreviousMatchButton,
   WhenExpression.FocusFindWidgetNextMatchButton,
   WhenExpression.FocusFindWidgetCloseButton,
   WhenExpression.FocusFindWidgetReplaceButton,
   WhenExpression.FocusFindWidgetReplaceAllButton,
-  WhenExpression.FocusToggleReplace,
+  FocusKey.FocusFindWidgetToggleReplace,
 ] as const
 
 const getFocusNavigationKeyBindings = (): readonly any[] => {

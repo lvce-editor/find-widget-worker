@@ -18,5 +18,5 @@
     "composite": true,
     "noUnusedParameters": true
   },
-  "include": ["src", "test"]
+  "include": ["isolated/src", "src", "test"]
 }

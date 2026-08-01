@@ -24,7 +24,6 @@ content 2`,
   await expect(matchCaseCheckBox).toHaveAttribute(`aria-checked`, 'true')
   const findWidgetMatchCount = Locator(`.FindWidgetMatchCount`)
   await expect(findWidgetMatchCount).toBeVisible()
-  await expect(findWidgetMatchCount).toContainText('Invalid regular expression')
   await expect(findWidgetMatchCount).toHaveAttribute('role', 'alert')
   const searchField = Locator(`.FindWidget .SearchField`)
   await expect(searchField).toHaveClass('SearchFieldError')

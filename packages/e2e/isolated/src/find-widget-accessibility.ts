@@ -1,4 +1,5 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+
 // manual accessibility tests
 
 // open find widget

@@ -3,9 +3,10 @@ import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as SetFindWidgetFocus from '../SetFindWidgetFocus/SetFindWidgetFocus.ts'
 
 export const focusFind = (state: FindWidgetState): FindWidgetState => {
+  const { focusVersion } = state
   const newState = SetFindWidgetFocus.setFindWidgetFocus(state, WhenExpression.FocusSearchInput)
   return {
     ...newState,
-    focusVersion: state.focusVersion + 1,
+    focusVersion: focusVersion + 1,
   }
 }

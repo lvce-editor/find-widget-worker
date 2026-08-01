@@ -4,6 +4,7 @@ import * as FindWidgetStates from '../src/parts/FindWidgetStates/FindWidgetState
 
 test('ignores a command completion after its instance is disposed', async () => {
   const state = Create.createInstance('editor:1:find:late', 31, 0, 0, 800, 600, 1)
+  const { instanceId } = state
   const { promise, resolve } = Promise.withResolvers<void>()
   const command = FindWidgetStates.wrapInstanceCommand(async (current) => {
     await promise
@@ -13,8 +14,8 @@ test('ignores a command completion after its instance is disposed', async () => 
     }
   })
 
-  const running = command(state.instanceId!)
-  FindWidgetStates.disposeInstance(state.instanceId!)
+  const running = command(instanceId!)
+  FindWidgetStates.disposeInstance(instanceId!)
   resolve()
   await running
 

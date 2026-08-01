@@ -8,14 +8,8 @@ import * as Names from '../src/parts/InputName/InputName.ts'
 
 test('getFindWidgetButtons with find buttons enabled and replace buttons disabled', () => {
   const state = CreateDefaultState.createDefaultState()
-  const result = GetFindWidgetButtons.getFindWidgetButtons(
-    true,
-    false,
-    state.matchCase,
-    state.matchWholeWord,
-    state.useRegularExpression,
-    state.preserveCase,
-  )
+  const { matchCase, matchWholeWord, preserveCase, useRegularExpression } = state
+  const result = GetFindWidgetButtons.getFindWidgetButtons(true, false, matchCase, matchWholeWord, useRegularExpression, preserveCase)
   expect(result.findButtons).toEqual([
     {
       disabled: false,
@@ -59,14 +53,8 @@ test('getFindWidgetButtons with find buttons enabled and replace buttons disable
 
 test('getFindWidgetButtons with all buttons disabled', () => {
   const state = CreateDefaultState.createDefaultState()
-  const result = GetFindWidgetButtons.getFindWidgetButtons(
-    false,
-    false,
-    state.matchCase,
-    state.matchWholeWord,
-    state.useRegularExpression,
-    state.preserveCase,
-  )
+  const { matchCase, matchWholeWord, preserveCase, useRegularExpression } = state
+  const result = GetFindWidgetButtons.getFindWidgetButtons(false, false, matchCase, matchWholeWord, useRegularExpression, preserveCase)
   expect(result.findButtons).toEqual([
     {
       disabled: true,
@@ -110,14 +98,8 @@ test('getFindWidgetButtons with all buttons disabled', () => {
 
 test('getFindWidgetButtons with all buttons enabled', () => {
   const state = CreateDefaultState.createDefaultState()
-  const result = GetFindWidgetButtons.getFindWidgetButtons(
-    true,
-    true,
-    state.matchCase,
-    state.matchWholeWord,
-    state.useRegularExpression,
-    state.preserveCase,
-  )
+  const { matchCase, matchWholeWord, preserveCase, useRegularExpression } = state
+  const result = GetFindWidgetButtons.getFindWidgetButtons(true, true, matchCase, matchWholeWord, useRegularExpression, preserveCase)
   expect(result.findButtons).toEqual([
     {
       disabled: false,

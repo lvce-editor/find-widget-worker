@@ -32,10 +32,10 @@ test('getEdits - replace all occurrences', () => {
   const edits = getEdits(matches, value, replacement, 0, true, lines)
   expect(edits).toEqual([
     {
-      endOffset: 3,
+      endOffset: 19,
       inserted: 'baz',
       origin: 'find-widget.replace',
-      startOffset: 0,
+      startOffset: 16,
     },
     {
       endOffset: 11,
@@ -44,10 +44,10 @@ test('getEdits - replace all occurrences', () => {
       startOffset: 8,
     },
     {
-      endOffset: 19,
+      endOffset: 3,
       inserted: 'baz',
       origin: 'find-widget.replace',
-      startOffset: 16,
+      startOffset: 0,
     },
   ])
 })

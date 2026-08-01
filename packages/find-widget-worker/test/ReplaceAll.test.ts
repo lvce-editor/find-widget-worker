@@ -42,10 +42,10 @@ test('replaceAll - applies edits for all matches', async () => {
     1,
     [
       {
-        endOffset: 3,
+        endOffset: 19,
         inserted: 'baz',
         origin: 'find-widget.replace',
-        startOffset: 0,
+        startOffset: 16,
       },
       {
         endOffset: 11,
@@ -54,10 +54,10 @@ test('replaceAll - applies edits for all matches', async () => {
         startOffset: 8,
       },
       {
-        endOffset: 19,
+        endOffset: 3,
         inserted: 'baz',
         origin: 'find-widget.replace',
-        startOffset: 16,
+        startOffset: 0,
       },
     ],
   ])

@@ -58,8 +58,8 @@ test('getEdits - preserve case with replaceAll', () => {
   const edits = getEdits(matches, value, replacement, 0, true, lines, true)
 
   expect(edits).toHaveLength(2)
-  expect(edits[0].inserted).toBe('WORLD')
-  expect(edits[1].inserted).toBe('world')
+  expect(edits[0].inserted).toBe('world')
+  expect(edits[1].inserted).toBe('WORLD')
 })
 
 test('getEdits - preserve case with mixed case patterns', () => {
@@ -71,7 +71,7 @@ test('getEdits - preserve case with mixed case patterns', () => {
   const edits = getEdits(matches, value, replacement, 0, true, lines, true)
 
   expect(edits).toHaveLength(3)
-  expect(edits[0].inserted).toBe('WORLD')
+  expect(edits[0].inserted).toBe('world')
   expect(edits[1].inserted).toBe('World')
-  expect(edits[2].inserted).toBe('world')
+  expect(edits[2].inserted).toBe('WORLD')
 })

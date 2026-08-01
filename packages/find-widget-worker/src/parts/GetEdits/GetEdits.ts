@@ -75,5 +75,8 @@ export const getEdits = (
       startOffset,
     })
   }
+  if (replaceAll) {
+    edits.reverse()
+  }
   return edits
 }

@@ -16,3 +16,10 @@ test('isEqual returns false when focused states are different', () => {
   const result: boolean = isEqual(state1, state2)
   expect(result).toBe(false)
 })
+
+test('isEqual returns false when focus contexts are different', () => {
+  const state1: FindWidgetState = createDefaultState()
+  const state2: FindWidgetState = { ...createDefaultState(), focus: 43 }
+  const result: boolean = isEqual(state1, state2)
+  expect(result).toBe(false)
+})

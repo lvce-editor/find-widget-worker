@@ -9,7 +9,7 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
   const name = 'test-name'
   const placeholder = 'test-placeholder'
   const onInput = 'test-onInput'
-  const onFocus = 'test-onFocus'
+  const onClick = 'test-onClickInput'
   const insideButtons: readonly ISearchFieldButton[] = [
     {
       checked: false,
@@ -21,7 +21,7 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
   ]
   const outsideButtons: ISearchFieldButton[] = []
 
-  const result = GetSearchFieldVirtualDom.getSearchFieldVirtualDom(name, placeholder, onInput, insideButtons, outsideButtons, onFocus, '')
+  const result = GetSearchFieldVirtualDom.getSearchFieldVirtualDom(name, placeholder, onInput, insideButtons, outsideButtons, onClick, '')
 
   expect(result).toEqual([
     {
@@ -36,7 +36,7 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
       childCount: 0,
       className: ClassNames.MultilineInputBox,
       name,
-      onFocus,
+      onClick,
       onInput,
       placeholder,
       spellcheck: false,
@@ -70,11 +70,11 @@ test('getSearchFieldVirtualDom returns autofocus when focused', () => {
   const name = 'test-name'
   const placeholder = 'test-placeholder'
   const onInput = 'test-onInput'
-  const onFocus = 'test-onFocus'
+  const onClick = 'test-onClick'
   const insideButtons: readonly ISearchFieldButton[] = []
   const outsideButtons: ISearchFieldButton[] = []
 
-  const result = GetSearchFieldVirtualDom.getSearchFieldVirtualDom(name, placeholder, onInput, insideButtons, outsideButtons, onFocus, '', true)
+  const result = GetSearchFieldVirtualDom.getSearchFieldVirtualDom(name, placeholder, onInput, insideButtons, outsideButtons, onClick, '', true)
 
   expect(result[1]).toEqual(
     expect.objectContaining({

@@ -53,14 +53,14 @@ export const getFindWidgetButtons = (
       icon: Icon.ArrowUp,
       label: FindStrings.previousMatch(),
       name: Names.FocusPrevious,
-      onClick: DomEventListenerFunctions.HandleClickPreviousMatch,
+      onClick: DomEventListenerFunctions.HandleClickButton,
     },
     {
       disabled: !findButtonsEnabled,
       icon: Icon.ArrowDown,
       label: FindStrings.nextMatch(),
       name: Names.FocusNext,
-      onClick: DomEventListenerFunctions.HandleClickNextMatch,
+      onClick: DomEventListenerFunctions.HandleClickButton,
     },
     {
       disabled: false,

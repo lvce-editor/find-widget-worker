@@ -1,5 +1,6 @@
 import { expect, test } from '@jest/globals'
 import { KeyCode, KeyModifier, WhenExpression } from '@lvce-editor/constants'
+import * as FocusKey from '../src/parts/FocusKey/FocusKey.ts'
 import * as GetKeyBindings from '../src/parts/GetKeyBindings/GetKeyBindings.ts'
 
 test('getKeyBindings - returns an array of key bindings', () => {
@@ -67,33 +68,18 @@ test('getKeyBindings - Shift+Tab focuses the previous control from the find inpu
   })
 })
 
-test('getKeyBindings - Tab and Shift+Tab navigate from Match Case', () => {
+test('getKeyBindings - Tab and Shift+Tab navigate from find options', () => {
   const result = GetKeyBindings.getKeyBindings()
 
   expect(result).toContainEqual({
     command: 'FindWidget.focusNextElement',
     key: KeyCode.Tab,
-    when: WhenExpression.FocusSearchMatchCase,
+    when: FocusKey.FocusFindWidgetOptions,
   })
   expect(result).toContainEqual({
     command: 'FindWidget.focusPreviousElement',
     key: KeyModifier.Shift | KeyCode.Tab,
-    when: WhenExpression.FocusSearchMatchCase,
-  })
-})
-
-test('getKeyBindings - Tab and Shift+Tab navigate from Preserve Case', () => {
-  const result = GetKeyBindings.getKeyBindings()
-
-  expect(result).toContainEqual({
-    command: 'FindWidget.focusNextElement',
-    key: KeyCode.Tab,
-    when: WhenExpression.FocusSearchPreserveCase,
-  })
-  expect(result).toContainEqual({
-    command: 'FindWidget.focusPreviousElement',
-    key: KeyModifier.Shift | KeyCode.Tab,
-    when: WhenExpression.FocusSearchPreserveCase,
+    when: FocusKey.FocusFindWidgetOptions,
   })
 })
 

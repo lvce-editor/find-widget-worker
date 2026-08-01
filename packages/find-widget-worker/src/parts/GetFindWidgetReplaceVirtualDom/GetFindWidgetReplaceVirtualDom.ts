@@ -29,7 +29,7 @@ export const getFindWidgetReplaceVirtualDom = (
       InputName.ReplaceValue,
       FindStrings.replace(),
       DomEventListenerFunctions.HandleReplaceInput,
-      [],
+      replaceFieldButtons,
       [],
       DomEventListenerFunctions.HandleReplaceFocus,
       extraClassName,

@@ -60,7 +60,6 @@ test('getFindWidgetReplaceVirtualDom - expanded', () => {
       disabled: undefined,
       name: 'replace-button',
       onClick: 'handleReplace',
-      onFocus: DomEventListenerFunctions.HandleFocus,
       title: 'Replace',
       type: VirtualDomElements.Button,
     },
@@ -124,7 +123,6 @@ test('getFindWidgetReplaceVirtualDom - expanded with focused input', () => {
       disabled: undefined,
       name: 'replace-button',
       onClick: 'handleReplace',
-      onFocus: DomEventListenerFunctions.HandleFocus,
       title: 'Replace',
       type: VirtualDomElements.Button,
     },
@@ -135,4 +133,34 @@ test('getFindWidgetReplaceVirtualDom - expanded with focused input', () => {
       type: 4,
     },
   ])
+})
+
+test('getFindWidgetReplaceVirtualDom - expanded with replace field buttons', () => {
+  const replaceFieldButtons: readonly ISearchFieldButton[] = [
+    {
+      checked: false,
+      icon: 'PreserveCase',
+      name: 'PreserveCase',
+      onClick: 'handleClickButton',
+      title: 'Preserve Case',
+    },
+  ]
+
+  const result = GetFindWidgetReplaceVirtualDom.getFindWidgetReplaceVirtualDom(true, [], replaceFieldButtons, false)
+
+  expect(result).toEqual(
+    expect.arrayContaining([
+      {
+        ariaChecked: false,
+        childCount: 1,
+        className: ClassNames.SearchFieldButton,
+        name: 'PreserveCase',
+        onClick: 'handleClickButton',
+        role: 'checkbox',
+        tabIndex: 0,
+        title: 'Preserve Case',
+        type: VirtualDomElements.Button,
+      },
+    ]),
+  )
 })

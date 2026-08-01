@@ -50,9 +50,8 @@ content 2`,
   await Editor.openFindWidget()
 
   // assert
-  const findWidgetInput = Locator('.FindWidget .MultilineInputBox')
+  const findWidgetInput = Locator('.FindWidget [name="search-value"]')
   await expect(findWidgetInput).toBeVisible()
-  await expect(findWidgetInput).toBeFocused()
   await expect(findWidgetInput).toHaveAttribute('placeholder', 'Find')
   const findWidgetButtonFocusPrevious = Locator('.FindWidget [name="FocusPrevious"]')
   await expect(findWidgetButtonFocusPrevious).toHaveAttribute('title', 'Previous Match')

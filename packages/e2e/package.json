@@ -3,8 +3,12 @@
   "version": "0.0.0-dev",
   "main": "index.js",
   "scripts": {
-    "e2e": "test-with-playwright --only-extension=. --test-path=. --reuse-page && node prepareLegacyServer.js && (test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js || test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js)",
-    "e2e:headless": "test-with-playwright --only-extension=. --test-path=. --headless --reuse-page && node prepareLegacyServer.js && (test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --headless || test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --headless)",
+    "e2e": "test-with-playwright --only-extension=. --test-path=. && node prepareLegacyServer.js && (test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js || test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js)",
+    "e2e:firefox": "test-with-playwright --only-extension=. --test-path=. --browser=firefox && node prepareLegacyServer.js && (test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --browser=firefox || test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --browser=firefox)",
+    "e2e:firefox:headless": "test-with-playwright --only-extension=. --test-path=. --browser=firefox --headless --timeout=2100000 && node prepareLegacyServer.js && (test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --browser=firefox --headless --timeout=2100000 || test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --browser=firefox --headless --timeout=2100000)",
+    "e2e:headless": "test-with-playwright --only-extension=. --test-path=. --headless && node prepareLegacyServer.js && (test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --headless || test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --headless)",
+    "e2e:webkit": "test-with-playwright --only-extension=. --test-path=. --browser=webkit && node prepareLegacyServer.js && (test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --browser=webkit || test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --browser=webkit)",
+    "e2e:webkit:headless": "test-with-playwright --only-extension=. --test-path=. --browser=webkit --headless --timeout=2100000 && node prepareLegacyServer.js && (test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --browser=webkit --headless --timeout=2100000 || test-with-playwright --only-extension=. --test-path=isolated --server-path=legacyServer.js --browser=webkit --headless --timeout=2100000)",
     "type-check": "tsc"
   },
   "type": "module",

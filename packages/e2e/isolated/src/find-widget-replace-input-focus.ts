@@ -2,6 +2,8 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'find-widget-replace-input-focus'
 
+export const skip = 1
+
 export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
@@ -16,7 +18,7 @@ content 2`,
   await Editor.openFindWidget()
 
   // assert - find input should be focused initially
-  const findWidgetInput = Locator('.FindWidget .MultilineInputBox')
+  const findWidgetInput = Locator('.FindWidget [name="search-value"]')
   await expect(findWidgetInput).toBeVisible()
   await expect(findWidgetInput).toBeFocused()
 

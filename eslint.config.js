@@ -18,19 +18,11 @@ export default defineConfig([
     },
   },
   {
-    files: ['packages/find-widget-worker/src/parts/**/*.ts'],
-    ignores: ['packages/find-widget-worker/src/parts/**/*VirtualDom/**/*.ts'],
-    rules: {
-      'virtual-dom/prefer-state-destructuring': 'off',
-    },
-  },
-  {
     files: ['packages/find-widget-worker/test/**/*.ts'],
     rules: {
       'virtual-dom/no-inline-event-handlers': 'off',
       'virtual-dom/prefer-constants': 'off',
       'virtual-dom/prefer-merge-class-names': 'off',
-      'virtual-dom/prefer-state-destructuring': 'off',
       'virtual-dom/valid-child-count': 'off',
     },
   },

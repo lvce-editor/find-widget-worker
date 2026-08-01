@@ -2,6 +2,7 @@ import { test, expect } from '@jest/globals'
 import type { ISearchFieldButton } from '../src/parts/ISearchFieldButton/ISearchFieldButton.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.js'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.js'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetSearchFieldVirtualDom from '../src/parts/GetSearchFieldVirtualDom/GetSearchFieldVirtualDom.js'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.js'
 
@@ -53,6 +54,7 @@ test('getSearchFieldVirtualDom returns correct virtual dom elements', () => {
       className: ClassNames.SearchFieldButton,
       name: 'Test',
       onClick: 'test-onClick',
+      onFocus: DomEventListenerFunctions.HandleFocus,
       role: AriaRoles.CheckBox,
       tabIndex: 0,
       title: 'Test Title',

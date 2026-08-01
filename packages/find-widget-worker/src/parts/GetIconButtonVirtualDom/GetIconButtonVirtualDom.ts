@@ -2,6 +2,7 @@ import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import { VirtualDomElements } from '@lvce-editor/virtual-dom-worker'
 import type { FindWidgetButton } from '../FindWidgetButton/FindWidgetButton.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
+import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetIconVirtualDom from '../GetIconVirtualDom/GetIconVirtualDom.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 
@@ -16,6 +17,7 @@ export const getIconButtonVirtualDom = (iconButton: FindWidgetButton): readonly 
       disabled: disabled ? true : undefined,
       name,
       onClick,
+      onFocus: DomEventListenerFunctions.HandleFocus,
       title: label,
       type: VirtualDomElements.Button,
     },

@@ -37,6 +37,10 @@ export const getEventListeners = (uid: number, widgetId: number): readonly DomEv
       params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleBlur', 0, widgetId],
     },
     {
+      name: DomEventListenerFunctions.HandleFocus,
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocus', 0, widgetId, EventExpression.TargetName],
+    },
+    {
       name: DomEventListenerFunctions.HandleReplaceInput,
       params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleReplaceInput', 0, widgetId, EventExpression.TargetValue],
     },

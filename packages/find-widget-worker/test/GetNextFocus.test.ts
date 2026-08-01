@@ -35,26 +35,55 @@ test('getNextFocus - from whole word', () => {
 test('getNextFocus - from regex with replace expanded', () => {
   const focus = WhenExpression.FocusSearchRegex
   const flags = true
-  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusSearchPreserveCase)
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetPreviousMatchButton)
 })
 
 test('getNextFocus - from regex without replace expanded', () => {
-  // TODO should also depend on whether there are results or not
   const focus = WhenExpression.FocusSearchRegex
   const flags = false
-  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetCloseButton)
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetPreviousMatchButton)
 })
 
 test('getNextFocus - from preserve case', () => {
   const focus = WhenExpression.FocusSearchPreserveCase
   const flags = true
-  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusSearchReplaceAll)
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetReplaceButton)
 })
 
-test('getNextFocus - from replace all', () => {
-  const focus = WhenExpression.FocusSearchReplaceAll
+test('getNextFocus - from previous match', () => {
+  const focus = WhenExpression.FocusFindWidgetPreviousMatchButton
+  const flags = false
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetNextMatchButton)
+})
+
+test('getNextFocus - from next match', () => {
+  const focus = WhenExpression.FocusFindWidgetNextMatchButton
+  const flags = false
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetCloseButton)
+})
+
+test('getNextFocus - from close with replace expanded', () => {
+  const focus = WhenExpression.FocusFindWidgetCloseButton
   const flags = true
-  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusToggleDetails)
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetReplaceButton)
+})
+
+test('getNextFocus - from close without replace expanded wraps to toggle replace', () => {
+  const focus = WhenExpression.FocusFindWidgetCloseButton
+  const flags = false
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusToggleReplace)
+})
+
+test('getNextFocus - from replace button', () => {
+  const focus = WhenExpression.FocusFindWidgetReplaceButton
+  const flags = true
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusFindWidgetReplaceAllButton)
+})
+
+test('getNextFocus - from replace all wraps to toggle replace', () => {
+  const focus = WhenExpression.FocusFindWidgetReplaceAllButton
+  const flags = true
+  expect(GetNextFocus.getNextFocus(focus, flags)).toBe(WhenExpression.FocusToggleReplace)
 })
 
 test('getNextFocus - from include input', () => {

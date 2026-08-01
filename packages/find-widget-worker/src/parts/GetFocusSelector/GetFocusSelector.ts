@@ -5,6 +5,14 @@ export const getFocusSelector = (focusKey: number): string => {
   switch (focusKey) {
     case WhenExpression.FocusFindWidgetCloseButton:
       return InputName.Close
+    case WhenExpression.FocusFindWidgetNextMatchButton:
+      return InputName.FocusNext
+    case WhenExpression.FocusFindWidgetPreviousMatchButton:
+      return InputName.FocusPrevious
+    case WhenExpression.FocusFindWidgetReplaceAllButton:
+      return InputName.ReplaceAll
+    case WhenExpression.FocusFindWidgetReplaceButton:
+      return InputName.Replace
     case WhenExpression.FocusSearchInput:
       return InputName.SearchValue
     case WhenExpression.FocusSearchMatchCase:

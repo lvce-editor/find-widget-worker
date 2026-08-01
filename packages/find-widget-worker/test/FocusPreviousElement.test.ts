@@ -88,7 +88,7 @@ test('focusPreviousElement - from close button', () => {
     replaceExpanded: false,
   }
   const newState = FocusPreviousElement.focusPreviousElement(state)
-  expect(newState.focus).toBe(WhenExpression.FocusSearchRegex)
+  expect(newState.focus).toBe(WhenExpression.FocusFindWidgetNextMatchButton)
   expect(newState.focusSource).toBe(InputSource.Script)
 })
 

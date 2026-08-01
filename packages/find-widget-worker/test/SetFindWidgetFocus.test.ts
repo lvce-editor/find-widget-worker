@@ -6,7 +6,8 @@ import * as SetFindWidgetFocus from '../src/parts/SetFindWidgetFocus/SetFindWidg
 
 test('setFindWidgetFocus should return same state if focus key is same', () => {
   const state: FindWidgetState = CreateDefaultState.createDefaultState()
-  const result: FindWidgetState = SetFindWidgetFocus.setFindWidgetFocus(state, state.focus)
+  const { focus } = state
+  const result: FindWidgetState = SetFindWidgetFocus.setFindWidgetFocus(state, focus)
   expect(result).toBe(state)
 })
 

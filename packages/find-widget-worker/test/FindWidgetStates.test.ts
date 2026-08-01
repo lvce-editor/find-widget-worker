@@ -4,6 +4,7 @@ import * as FindWidgetStates from '../src/parts/FindWidgetStates/FindWidgetState
 
 test('ignores a command completion after its instance is disposed', async () => {
   const state = Create.createInstance('editor:1:find:late', 31, 0, 0, 800, 600, 1)
+  const { instanceId } = state
   const { promise, resolve } = Promise.withResolvers<void>()
   const command = FindWidgetStates.wrapInstanceCommand(async (current) => {
     await promise
@@ -13,8 +14,8 @@ test('ignores a command completion after its instance is disposed', async () => 
     }
   })
 
-  const running = command(state.instanceId!)
-  FindWidgetStates.disposeInstance(state.instanceId!)
+  const running = command(instanceId!)
+  FindWidgetStates.disposeInstance(instanceId!)
   resolve()
   await running
 
@@ -57,27 +58,30 @@ test('wrapInstanceCommand ignores an instance without state', async () => {
 
 test('wrapInstanceCommand ignores an unchanged state', async () => {
   const state = Create.createInstance('editor:find:unchanged', 35, 0, 0, 800, 600, 1)
+  const { instanceId } = state
   const command = FindWidgetStates.wrapInstanceCommand(() => state)
 
-  await command(state.instanceId!)
+  await command(instanceId!)
 
   expect(FindWidgetStates.get(35).newState).toBe(state)
 })
 
 test('wrapInstanceCommand updates the registered state', async () => {
   const state = Create.createInstance('editor:find:update', 36, 0, 0, 800, 600, 1)
+  const { instanceId } = state
   const command = FindWidgetStates.wrapInstanceCommand((current) => ({
     ...current,
     value: 'updated',
   }))
 
-  await command(state.instanceId!)
+  await command(instanceId!)
 
   expect(FindWidgetStates.get(36).newState.value).toBe('updated')
 })
 
 test('wrapInstanceCommand ignores completion after the instance is reassigned', async () => {
   const state = Create.createInstance('editor:find:reassigned', 37, 0, 0, 800, 600, 1)
+  const { instanceId } = state
   const { promise, resolve } = Promise.withResolvers<void>()
   const command = FindWidgetStates.wrapInstanceCommand(async (current) => {
     await promise
@@ -87,8 +91,8 @@ test('wrapInstanceCommand ignores completion after the instance is reassigned', 
     }
   })
 
-  const running = command(state.instanceId!)
-  Create.createInstance(state.instanceId!, 38, 0, 0, 800, 600, 1)
+  const running = command(instanceId!)
+  Create.createInstance(instanceId!, 38, 0, 0, 800, 600, 1)
   resolve()
   await running
 
@@ -98,6 +102,7 @@ test('wrapInstanceCommand ignores completion after the instance is reassigned', 
 test('wrapInstanceCommand ignores completion when the registered state is missing', async () => {
   const instanceId = 'editor:find:disposed-state'
   const state = Create.create(39, 0, 0, 800, 600, 1)
+  const { value } = state
   FindWidgetStates.registerInstance(instanceId, 39)
   const { promise, resolve } = Promise.withResolvers<void>()
   const command = FindWidgetStates.wrapInstanceCommand(async (current) => {
@@ -114,5 +119,5 @@ test('wrapInstanceCommand ignores completion when the registered state is missin
   await running
 
   expect(FindWidgetStates.get(39)).toBeUndefined()
-  expect(state.value).toBe('')
+  expect(value).toBe('')
 })

@@ -1,5 +1,6 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { createRequire } from 'node:module'
+import { dirname, join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 
 const __dirname = import.meta.dirname
@@ -11,11 +12,11 @@ export const getRemoteUrl = (path) => {
   return `/remote/${url}`
 }
 
-const nodeModulesPath = join(root, 'packages', 'server', 'node_modules')
-
 const workerPath = join(root, '.tmp', 'dist', 'dist', 'findWidgetWorkerMain.js')
 
-const serverStaticPath = join(nodeModulesPath, '@lvce-editor', 'static-server', 'static')
+const require = createRequire(import.meta.url)
+const staticServerPackagePath = require.resolve('@lvce-editor/static-server/package.json')
+const serverStaticPath = join(dirname(staticServerPackagePath), 'static')
 
 const RE_COMMIT_HASH = /^[a-z\d]+$/
 const isCommitHash = (dirent) => {

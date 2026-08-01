@@ -14,3 +14,17 @@ test('render2 should return commands', () => {
   const result: readonly any[] = Render2.render2(uid, diffResult)
   expect(Array.isArray(result)).toBe(true)
 })
+
+test('renderInstance should return an empty result for an unknown instance', () => {
+  expect(Render2.renderInstance('unknown', [])).toEqual([])
+})
+
+test('renderInstance should render a registered instance', () => {
+  const uid = 2
+  const instanceId = 'editor:render:find'
+  const state = CreateDefaultState.createDefaultState()
+  FindWidgetStates.set(uid, state, state)
+  FindWidgetStates.registerInstance(instanceId, uid)
+
+  expect(Render2.renderInstance(instanceId, [])).toEqual([])
+})

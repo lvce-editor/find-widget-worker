@@ -3,7 +3,18 @@ import { WhenExpression } from '@lvce-editor/constants'
 export const getPreviousFocus = (focus: number, replaceExpanded: boolean): number => {
   switch (focus) {
     case WhenExpression.FocusFindWidgetCloseButton:
+      return WhenExpression.FocusFindWidgetNextMatchButton
+    case WhenExpression.FocusFindWidgetNextMatchButton:
+      return WhenExpression.FocusFindWidgetPreviousMatchButton
+    case WhenExpression.FocusFindWidgetPreviousMatchButton:
+      if (replaceExpanded) {
+        return WhenExpression.FocusSearchPreserveCase
+      }
       return WhenExpression.FocusSearchRegex
+    case WhenExpression.FocusFindWidgetReplaceAllButton:
+      return WhenExpression.FocusFindWidgetReplaceButton
+    case WhenExpression.FocusFindWidgetReplaceButton:
+      return WhenExpression.FocusFindWidgetCloseButton
     case WhenExpression.FocusIgnoreFiles:
       return WhenExpression.FocusSearchExcludeInput
     case WhenExpression.FocusSearchExcludeInput:
@@ -34,6 +45,11 @@ export const getPreviousFocus = (focus: number, replaceExpanded: boolean): numbe
         return WhenExpression.FocusSearchReplaceAll
       }
       return WhenExpression.FocusSearchRegex
+    case WhenExpression.FocusToggleReplace:
+      if (replaceExpanded) {
+        return WhenExpression.FocusFindWidgetReplaceAllButton
+      }
+      return WhenExpression.FocusFindWidgetCloseButton
     default:
       return focus
   }

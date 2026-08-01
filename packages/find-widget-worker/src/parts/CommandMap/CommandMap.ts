@@ -31,6 +31,7 @@ import { focusElement } from '../FocusElement/FocusElement.ts'
 import { focusNextElement } from '../FocusNextElement/FocusNextElement.ts'
 import { focusPreviousElement } from '../FocusPreviousElement/FocusPreviousElement.ts'
 import { getKeyBindings } from '../GetKeyBindings/GetKeyBindings.ts'
+import { handleFindWidgetFocus } from '../HandleFindWidgetFocus/HandleFindWidgetFocus.ts'
 import * as HandleInput from '../HandleInput/HandleInput.ts'
 import { handleReplaceInput } from '../HandleReplaceInput/HandleReplaceInput.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
@@ -71,6 +72,7 @@ export const commandMap = {
   'FindWidget.handleClickButton': WrapCommand.wrapCommand(handleClickButton),
   'FindWidget.handleClickClose': WrapCommand.wrapCommand(HandleClickClose.handleClickClose),
   'FindWidget.handleFocus': WrapCommand.wrapCommand(handleFindFocus),
+  'FindWidget.handleFocusElement': WrapCommand.wrapCommand(handleFindWidgetFocus),
   'FindWidget.handleInput': WrapCommand.wrapCommand(HandleInput.handleInput),
   'FindWidget.handleReplaceFocus': WrapCommand.wrapCommand(FindWidgetHandleReplaceFocus.handleReplaceFocus),
   'FindWidget.handleReplaceInput': WrapCommand.wrapCommand(handleReplaceInput),

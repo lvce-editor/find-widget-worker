@@ -46,3 +46,68 @@ test('getKeyBindings - Enter replaces the current match from the replace input',
     when: WhenExpression.FocusFindWidgetReplace,
   })
 })
+
+test('getKeyBindings - Tab focuses the next control from the find input', () => {
+  const result = GetKeyBindings.getKeyBindings()
+
+  expect(result).toContainEqual({
+    command: 'FindWidget.focusNextElement',
+    key: KeyCode.Tab,
+    when: WhenExpression.FocusFindWidget,
+  })
+})
+
+test('getKeyBindings - Shift+Tab focuses the previous control from the find input', () => {
+  const result = GetKeyBindings.getKeyBindings()
+
+  expect(result).toContainEqual({
+    command: 'FindWidget.focusPreviousElement',
+    key: KeyModifier.Shift | KeyCode.Tab,
+    when: WhenExpression.FocusFindWidget,
+  })
+})
+
+test('getKeyBindings - Tab and Shift+Tab navigate from Match Case', () => {
+  const result = GetKeyBindings.getKeyBindings()
+
+  expect(result).toContainEqual({
+    command: 'FindWidget.focusNextElement',
+    key: KeyCode.Tab,
+    when: WhenExpression.FocusSearchMatchCase,
+  })
+  expect(result).toContainEqual({
+    command: 'FindWidget.focusPreviousElement',
+    key: KeyModifier.Shift | KeyCode.Tab,
+    when: WhenExpression.FocusSearchMatchCase,
+  })
+})
+
+test('getKeyBindings - Tab and Shift+Tab navigate from Preserve Case', () => {
+  const result = GetKeyBindings.getKeyBindings()
+
+  expect(result).toContainEqual({
+    command: 'FindWidget.focusNextElement',
+    key: KeyCode.Tab,
+    when: WhenExpression.FocusSearchPreserveCase,
+  })
+  expect(result).toContainEqual({
+    command: 'FindWidget.focusPreviousElement',
+    key: KeyModifier.Shift | KeyCode.Tab,
+    when: WhenExpression.FocusSearchPreserveCase,
+  })
+})
+
+test('getKeyBindings - Tab and Shift+Tab navigate from the replace input', () => {
+  const result = GetKeyBindings.getKeyBindings()
+
+  expect(result).toContainEqual({
+    command: 'FindWidget.focusNextElement',
+    key: KeyCode.Tab,
+    when: WhenExpression.FocusFindWidgetReplace,
+  })
+  expect(result).toContainEqual({
+    command: 'FindWidget.focusPreviousElement',
+    key: KeyModifier.Shift | KeyCode.Tab,
+    when: WhenExpression.FocusFindWidgetReplace,
+  })
+})

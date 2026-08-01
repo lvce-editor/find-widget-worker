@@ -1,4 +1,4 @@
-import { EventExpression } from '@lvce-editor/constants'
+import { EventExpression, WhenExpression } from '@lvce-editor/constants'
 import type { DomEventListener } from '../DomEventListener/DomEventListener.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 
@@ -46,11 +46,11 @@ export const getEventListeners = (uid: number, widgetId: number): readonly DomEv
     },
     {
       name: DomEventListenerFunctions.HandleFocusPrevious,
-      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusPrevious', 0, widgetId],
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusElement', 0, widgetId, WhenExpression.FocusFindWidgetPreviousMatchButton],
     },
     {
       name: DomEventListenerFunctions.HandleFocusNext,
-      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusNext', 0, widgetId],
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusElement', 0, widgetId, WhenExpression.FocusFindWidgetNextMatchButton],
     },
     {
       name: DomEventListenerFunctions.HandleToggleReplaceFocus,
@@ -100,6 +100,34 @@ export const getEventListeners = (uid: number, widgetId: number): readonly DomEv
         EventExpression.ClientX,
         EventExpression.ClientY,
       ],
+    },
+    {
+      name: DomEventListenerFunctions.HandleFocusClose,
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusElement', 0, widgetId, WhenExpression.FocusFindWidgetCloseButton],
+    },
+    {
+      name: DomEventListenerFunctions.HandleFocusMatchCase,
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusElement', 0, widgetId, WhenExpression.FocusSearchMatchCase],
+    },
+    {
+      name: DomEventListenerFunctions.HandleFocusMatchWholeWord,
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusElement', 0, widgetId, WhenExpression.FocusSearchWholeWord],
+    },
+    {
+      name: DomEventListenerFunctions.HandleFocusPreserveCase,
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusElement', 0, widgetId, WhenExpression.FocusSearchPreserveCase],
+    },
+    {
+      name: DomEventListenerFunctions.HandleFocusReplace,
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusElement', 0, widgetId, WhenExpression.FocusFindWidgetReplaceButton],
+    },
+    {
+      name: DomEventListenerFunctions.HandleFocusReplaceAll,
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusElement', 0, widgetId, WhenExpression.FocusFindWidgetReplaceAllButton],
+    },
+    {
+      name: DomEventListenerFunctions.HandleFocusUseRegularExpression,
+      params: ['executeWidgetCommand', 'FindWidget', 'FindWidget.handleFocusElement', 0, widgetId, WhenExpression.FocusSearchRegex],
     },
   ]
 }

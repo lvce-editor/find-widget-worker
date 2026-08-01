@@ -66,7 +66,7 @@ test('focusNextElement - from regex without replace expanded', () => {
     replaceExpanded: false,
   }
   const newState = FocusNextElement.focusNextElement(state)
-  expect(newState.focus).toBe(WhenExpression.FocusFindWidgetCloseButton)
+  expect(newState.focus).toBe(WhenExpression.FocusFindWidgetPreviousMatchButton)
   expect(newState.focusSource).toBe(InputSource.Script)
 })
 
@@ -88,7 +88,7 @@ test('focusNextElement - from preserve case', () => {
     replaceExpanded: true,
   }
   const newState = FocusNextElement.focusNextElement(state)
-  expect(newState.focus).toBe(WhenExpression.FocusSearchReplaceAll)
+  expect(newState.focus).toBe(WhenExpression.FocusFindWidgetPreviousMatchButton)
   expect(newState.focusSource).toBe(InputSource.Script)
 })
 

@@ -2,6 +2,36 @@ import { KeyCode } from '@lvce-editor/constants'
 import { KeyModifier } from '@lvce-editor/constants'
 import { WhenExpression } from '@lvce-editor/constants'
 
+const focusContexts = [
+  WhenExpression.FocusFindWidget,
+  WhenExpression.FocusFindWidgetReplace,
+  WhenExpression.FocusSearchMatchCase,
+  WhenExpression.FocusSearchWholeWord,
+  WhenExpression.FocusSearchRegex,
+  WhenExpression.FocusSearchPreserveCase,
+  WhenExpression.FocusFindWidgetPreviousMatchButton,
+  WhenExpression.FocusFindWidgetNextMatchButton,
+  WhenExpression.FocusFindWidgetCloseButton,
+  WhenExpression.FocusFindWidgetReplaceButton,
+  WhenExpression.FocusFindWidgetReplaceAllButton,
+  WhenExpression.FocusToggleReplace,
+] as const
+
+const getFocusNavigationKeyBindings = (): readonly any[] => {
+  return focusContexts.flatMap((when) => [
+    {
+      command: 'FindWidget.focusNextElement',
+      key: KeyCode.Tab,
+      when,
+    },
+    {
+      command: 'FindWidget.focusPreviousElement',
+      key: KeyModifier.Shift | KeyCode.Tab,
+      when,
+    },
+  ])
+}
+
 export const getKeyBindings = (): readonly any[] => {
   return [
     {
@@ -35,21 +65,6 @@ export const getKeyBindings = (): readonly any[] => {
       when: WhenExpression.FocusFindWidget,
     },
     {
-      command: 'FindWidget.focusToggleReplace',
-      key: KeyModifier.Shift | KeyCode.Tab,
-      when: WhenExpression.FocusFindWidget,
-    },
-    {
-      command: 'FindWidget.focusReplace',
-      key: KeyCode.Tab,
-      when: WhenExpression.FocusFindWidget,
-    },
-    {
-      command: 'FindWidget.focusPreviousMatchButton',
-      key: KeyCode.Tab,
-      when: WhenExpression.FocusFindWidgetReplace,
-    },
-    {
       command: 'FindWidget.replace',
       key: KeyCode.Enter,
       when: WhenExpression.FocusFindWidgetReplace,
@@ -59,55 +74,6 @@ export const getKeyBindings = (): readonly any[] => {
       key: KeyModifier.Alt | KeyModifier.CtrlCmd | KeyCode.Enter,
       when: WhenExpression.FocusFindWidgetReplace,
     },
-    {
-      command: 'FindWidget.focusNextMatchButton',
-      key: KeyCode.Tab,
-      when: WhenExpression.FocusFindWidgetPreviousMatchButton,
-    },
-    {
-      command: 'FindWidget.focusReplace',
-      key: KeyModifier.Shift | KeyCode.Tab,
-      when: WhenExpression.FocusFindWidgetPreviousMatchButton,
-    },
-    {
-      command: 'FindWidget.focusPreviousMatchButton',
-      key: KeyModifier.Shift | KeyCode.Tab,
-      when: WhenExpression.FocusFindWidgetNextMatchButton,
-    },
-    {
-      command: 'FindWidget.focusCloseButton',
-      key: KeyCode.Tab,
-      when: WhenExpression.FocusFindWidgetNextMatchButton,
-    },
-    {
-      command: 'FindWidget.focusNextMatchButton',
-      key: KeyModifier.Shift | KeyCode.Tab,
-      when: WhenExpression.FocusFindWidgetCloseButton,
-    },
-    {
-      command: 'FindWidget.focusReplaceButton',
-      key: KeyCode.Tab,
-      when: WhenExpression.FocusFindWidgetCloseButton,
-    },
-    {
-      command: 'FindWidget.focusFind',
-      key: KeyModifier.Shift | KeyCode.Tab,
-      when: WhenExpression.FocusFindWidgetReplace,
-    },
-    {
-      command: 'FindWidget.focusReplaceAllButton',
-      key: KeyCode.Tab,
-      when: WhenExpression.FocusFindWidgetReplaceButton,
-    },
-    {
-      command: 'FindWidget.focusCloseButton',
-      key: KeyModifier.Shift | KeyCode.Tab,
-      when: WhenExpression.FocusFindWidgetReplaceButton,
-    },
-    {
-      command: 'FindWidget.focusReplaceButton',
-      key: KeyModifier.Shift | KeyCode.Tab,
-      when: WhenExpression.FocusFindWidgetReplaceAllButton,
-    },
+    ...getFocusNavigationKeyBindings(),
   ]
 }

@@ -32,9 +32,24 @@ test('getPreviousFocus - from replace input to search input', () => {
   expect(result).toBe(WhenExpression.FocusSearchInput)
 })
 
-test('getPreviousFocus - from replace all to preserve case', () => {
-  const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusSearchReplaceAll, false)
+test('getPreviousFocus - from previous match to regex', () => {
+  const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusFindWidgetPreviousMatchButton, false)
+  expect(result).toBe(WhenExpression.FocusSearchRegex)
+})
+
+test('getPreviousFocus - from previous match to preserve case with replace expanded', () => {
+  const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusFindWidgetPreviousMatchButton, true)
   expect(result).toBe(WhenExpression.FocusSearchPreserveCase)
+})
+
+test('getPreviousFocus - from next match to previous match', () => {
+  const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusFindWidgetNextMatchButton, false)
+  expect(result).toBe(WhenExpression.FocusFindWidgetPreviousMatchButton)
+})
+
+test('getPreviousFocus - from replace all to replace button', () => {
+  const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusFindWidgetReplaceAllButton, true)
+  expect(result).toBe(WhenExpression.FocusFindWidgetReplaceButton)
 })
 
 test('getPreviousFocus - from toggle details to replace all with replace expanded', () => {
@@ -61,9 +76,24 @@ test('getPreviousFocus - from ignore files to exclude input', () => {
   const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusIgnoreFiles, false)
   expect(result).toBe(WhenExpression.FocusSearchExcludeInput)
 })
-test('getPreviousFocus - from close button to regex', () => {
+test('getPreviousFocus - from close button to next match', () => {
   const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusFindWidgetCloseButton, false)
-  expect(result).toBe(WhenExpression.FocusSearchRegex)
+  expect(result).toBe(WhenExpression.FocusFindWidgetNextMatchButton)
+})
+
+test('getPreviousFocus - from replace button to close', () => {
+  const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusFindWidgetReplaceButton, true)
+  expect(result).toBe(WhenExpression.FocusFindWidgetCloseButton)
+})
+
+test('getPreviousFocus - from toggle replace wraps to replace all when expanded', () => {
+  const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusToggleReplace, true)
+  expect(result).toBe(WhenExpression.FocusFindWidgetReplaceAllButton)
+})
+
+test('getPreviousFocus - from toggle replace wraps to close when collapsed', () => {
+  const result = GetPreviousFocus.getPreviousFocus(WhenExpression.FocusToggleReplace, false)
+  expect(result).toBe(WhenExpression.FocusFindWidgetCloseButton)
 })
 
 test('getPreviousFocus - returns same focus for unknown focus value', () => {

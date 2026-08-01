@@ -1,5 +1,3 @@
-export const Empty = 0
-export const FindWidget = 16
 export const FocusFindWidgetCloseButton = 48
 export const FocusFindWidgetNextMatchButton = 49
 export const FocusFindWidgetPreviousMatchButton = 50

@@ -2,8 +2,24 @@ import { test, expect } from '@jest/globals'
 import type { ISearchFieldButton } from '../src/parts/ISearchFieldButton/ISearchFieldButton.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.js'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.js'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetSearchFieldButtonVirtualDom from '../src/parts/GetSearchFieldButtonVirtualDom/GetSearchFieldButtonVirtualDom.js'
+import * as InputName from '../src/parts/InputName/InputName.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.js'
+
+test('getSearchFieldButtonVirtualDom uses the preserve case focus listener', () => {
+  const button: ISearchFieldButton = {
+    checked: false,
+    icon: 'test-icon',
+    name: InputName.PreserveCase,
+    onClick: 'test-onClick',
+    title: 'Preserve Case',
+  }
+
+  const result = GetSearchFieldButtonVirtualDom.getSearchFieldButtonVirtualDom(button)
+
+  expect(result[0]).toHaveProperty('onFocus', DomEventListenerFunctions.HandleFocusPreserveCase)
+})
 
 test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for unchecked button', () => {
   const button: ISearchFieldButton = {
@@ -21,6 +37,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for un
       className: ClassNames.SearchFieldButton,
       name: 'Test',
       onClick: 'test-onClick',
+      onFocus: DomEventListenerFunctions.HandleFocus,
       role: AriaRoles.CheckBox,
       tabIndex: 0,
       title: 'Test Title',
@@ -50,6 +67,7 @@ test('getSearchFieldButtonVirtualDom returns correct virtual dom elements for ch
       className: `${ClassNames.SearchFieldButton} ${ClassNames.SearchFieldButtonChecked}`,
       name: 'Test',
       onClick: 'test-onClick',
+      onFocus: DomEventListenerFunctions.HandleFocus,
       role: AriaRoles.CheckBox,
       tabIndex: 0,
       title: 'Test Title',

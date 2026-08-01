@@ -38,3 +38,19 @@ test('getFocusSelector - replace all', () => {
 test('getFocusSelector - close', () => {
   expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusFindWidgetCloseButton)).toBe('Close')
 })
+
+test('getFocusSelector - previous match', () => {
+  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusFindWidgetPreviousMatchButton)).toBe('FocusPrevious')
+})
+
+test('getFocusSelector - next match', () => {
+  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusFindWidgetNextMatchButton)).toBe('FocusNext')
+})
+
+test('getFocusSelector - replace button', () => {
+  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusFindWidgetReplaceButton)).toBe('Replace')
+})
+
+test('getFocusSelector - find-widget replace all button', () => {
+  expect(GetFocusSelector.getFocusSelector(WhenExpression.FocusFindWidgetReplaceAllButton)).toBe('ReplaceAll')
+})

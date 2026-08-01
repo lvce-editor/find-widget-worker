@@ -4,6 +4,8 @@ import * as config from '@lvce-editor/eslint-config'
 export default defineConfig([
   ...config.default,
   ...config.recommendedVirtualDom,
+  ...config.recommendedRegex,
+  ...config.recommendedTsconfig,
   ...config.recommendedActions,
   {
     ignores: ['**/server/**', '**/e2e/**', '**/memory/**'],
@@ -24,6 +26,12 @@ export default defineConfig([
       'virtual-dom/prefer-constants': 'off',
       'virtual-dom/prefer-merge-class-names': 'off',
       'virtual-dom/valid-child-count': 'off',
+    },
+  },
+  {
+    files: ['packages/find-widget-worker/tsconfig.json'],
+    rules: {
+      'tsconfig/dont-skip-lib-check': 'off',
     },
   },
 ])

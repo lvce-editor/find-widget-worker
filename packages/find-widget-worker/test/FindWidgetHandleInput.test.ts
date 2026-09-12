@@ -1,6 +1,6 @@
 import { beforeEach, jest, test, expect } from '@jest/globals'
-import { EditorWorker } from '@lvce-editor/rpc-registry'
 import { InputSource } from '@lvce-editor/constants'
+import { EditorWorker } from '@lvce-editor/rpc-registry'
 import type { FindWidgetState } from '../src/parts/FindWidgetState/FindWidgetState.ts'
 import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as FindWidgetHandleInput from '../src/parts/HandleInput/HandleInput.ts'
@@ -23,7 +23,8 @@ test('handleInput - updates value, matches and matchCount (default user)', async
   expect([...result.matches]).toEqual([0, 0, 5, 1, 0, 5, 2, 0, 5])
   expect(result.matchCount).toBe(3)
   expect(result.matchIndex).toBe(0)
-  expect(setSelections).toHaveBeenCalledWith(state.editorUid, new Uint32Array([0, 0, 0, 5]))
+  const { editorUid } = state
+  expect(setSelections).toHaveBeenCalledWith(editorUid, new Uint32Array([0, 0, 0, 5]))
   expect(result.selections).toEqual([0, 0, 0, 5])
 })
 
@@ -45,7 +46,13 @@ test.each(['missing', ''])('handleInput does not select when search has no match
 })
 
 test('handleInput does not select stale matches for an invalid regex', async () => {
-  const state = { ...CreateDefaultState.createDefaultState(), lines: ['hello'], matchCount: 1, matches: [0, 0, 5], useRegularExpression: true }
+  const state = {
+    ...CreateDefaultState.createDefaultState(),
+    lines: ['hello'],
+    matchCount: 1,
+    matches: new Uint32Array([0, 0, 5]),
+    useRegularExpression: true,
+  }
   await FindWidgetHandleInput.handleInput(state, '[')
   expect(setSelections).not.toHaveBeenCalled()
 })

@@ -16,7 +16,7 @@ export default defineConfig([
       '@typescript-eslint/explicit-function-return-type': 'off',
       // '@typescript-eslint/prefer-readonly-parameter-types': 'off',
       'no-useless-escape': 'off',
-      'no-restricted-syntax': 'off',
+      // 'no-restricted-syntax': 'off',
     },
   },
   {

@@ -1,7 +1,7 @@
 export type FindWidgetFontSize = number | 'inherit'
 
-export const MIN_FONT_SIZE = 10
-export const MAX_FONT_SIZE = 100
+const MIN_FONT_SIZE = 10
+const MAX_FONT_SIZE = 100
 
 const EMPTY_VALUES: readonly unknown[] = [undefined, null, '', 0]
 

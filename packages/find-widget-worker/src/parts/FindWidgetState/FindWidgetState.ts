@@ -1,3 +1,5 @@
+import type { FindWidgetFontSize } from '../NormalizeFontSize/NormalizeFontSize.ts'
+
 export interface FindWidgetState {
   readonly ariaAnnouncement: string
   readonly disposed?: boolean // TODO make field required
@@ -10,6 +12,7 @@ export interface FindWidgetState {
   readonly focused: boolean
   readonly focusSource: number
   readonly focusVersion: number
+  readonly fontSize: FindWidgetFontSize
   readonly height: number
   readonly history: readonly string[]
   readonly inputBorderWidth: number

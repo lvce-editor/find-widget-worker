@@ -1,3 +1,4 @@
+import type { FindWidgetFontSize } from '../NormalizeFontSize/NormalizeFontSize.ts'
 import { measureTextHeight } from '../MeasureTextHeight/MeasureTextHeight.ts'
 
 export interface HeightMeasurement {
@@ -14,8 +15,10 @@ export const measureInputHeight = (
   inputBorderWidth: number,
   inputGap: number,
   replaceExpanded: boolean,
+  fontSize: FindWidgetFontSize = 'inherit',
 ): HeightMeasurement => {
-  const textHeight = measureTextHeight(value, inputLineHeight)
+  const effectiveLineHeight = typeof fontSize === 'number' ? Math.max(inputLineHeight, fontSize) : inputLineHeight
+  const textHeight = measureTextHeight(value, effectiveLineHeight)
   const inputHeight = textHeight + inputPaddingBottom + inputPaddingTop + inputBorderWidth * 2
   const replaceInputHeight = replaceExpanded ? inputHeight : 0 // TODO should be independent of input
   const actualGap = replaceExpanded ? inputGap : 0

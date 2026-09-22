@@ -14,6 +14,7 @@ const createState = (uid: number, x: number, y: number, width: number, height: n
     focused: false,
     focusSource: FocusSource.Unknown,
     focusVersion: 0,
+    fontSize: 'inherit',
     height: 0,
     history: [],
     inputBorderWidth: 1,

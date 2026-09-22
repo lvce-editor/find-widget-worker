@@ -5,6 +5,9 @@ import { loadContent } from '../src/parts/LoadContent/LoadContent.ts'
 
 test('loadContent - empty lines', async () => {
   const commandMap = {
+    'Editor.getFindWidgetFontSize': (): any => {
+      return 30
+    },
     'Editor.getLines2': (): any => {
       return []
     },
@@ -24,6 +27,9 @@ test('loadContent - empty lines', async () => {
 
 test('loadContent - with content', async () => {
   const commandMap2 = {
+    'Editor.getFindWidgetFontSize': (): any => {
+      return 30
+    },
     'Editor.getLines2': (): any => {
       return ['hello world']
     },
@@ -46,4 +52,6 @@ test('loadContent - with content', async () => {
   expect(result.focused).toBe(true)
   expect(result.lines).toEqual(['hello world'])
   expect(result.selections).toEqual([0, 0, 0, 5])
+  expect(result.fontSize).toBe(30)
+  expect(result.searchInputHeight).toBeGreaterThanOrEqual(30)
 })

@@ -6,6 +6,7 @@ import { measureInputHeight } from '../MeasureInputHeight/MeasureInputHeight.ts'
 
 export const refresh = (state: FindWidgetState, value: string, inputSource: number): FindWidgetState => {
   const {
+    fontSize,
     inputBorderWidth,
     inputGap,
     inputLineHeight,
@@ -31,6 +32,7 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
     inputBorderWidth,
     inputGap,
     replaceExpanded,
+    fontSize,
   )
   if (error) {
     return {

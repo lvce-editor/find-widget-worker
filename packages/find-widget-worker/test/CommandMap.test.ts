@@ -9,4 +9,5 @@ test('commandMap', () => {
   expect(commandMap['FindWidget.focusPreviousMatchButton']).toBeDefined()
   expect(commandMap['FindWidget.focusReplaceButton']).toBeDefined()
   expect(commandMap['FindWidget.focusToggleReplace']).toBeDefined()
+  expect(commandMap['FindWidget.handleSettingsChanged']).toBeDefined()
 })

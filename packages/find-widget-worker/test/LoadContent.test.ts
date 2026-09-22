@@ -11,6 +11,9 @@ test('loadContent - empty lines', async () => {
     'Editor.getSelections2': (): any => {
       return [0, 0, 0, 0]
     },
+    'Editor.getFindWidgetFontSize': (): any => {
+      return 30
+    },
     'FileSystem.readDirWithFileTypes': (): any => {
       return []
     },
@@ -30,6 +33,9 @@ test('loadContent - with content', async () => {
     'Editor.getSelections2': (): any => {
       return [0, 0, 0, 5]
     },
+    'Editor.getFindWidgetFontSize': (): any => {
+      return 30
+    },
     'FileSystem.readDirWithFileTypes': (): any => {
       return []
     },
@@ -46,4 +52,6 @@ test('loadContent - with content', async () => {
   expect(result.focused).toBe(true)
   expect(result.lines).toEqual(['hello world'])
   expect(result.selections).toEqual([0, 0, 0, 5])
+  expect(result.fontSize).toBe(30)
+  expect(result.searchInputHeight).toBeGreaterThanOrEqual(30)
 })

@@ -13,6 +13,7 @@ export const createDefaultState = (): FindWidgetState => {
     focused: false,
     focusSource: FocusSource.Unknown,
     focusVersion: 0,
+    fontSize: 'inherit',
     height: 0,
     history: [],
     inputBorderWidth: 1,

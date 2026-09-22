@@ -5,6 +5,7 @@ export const isEqual = (oldState: FindWidgetState, newState: FindWidgetState): b
     oldState.width === newState.width &&
     oldState.height === newState.height &&
     oldState.x === newState.x &&
-    oldState.searchInputHeight === newState.searchInputHeight
+    oldState.searchInputHeight === newState.searchInputHeight &&
+    oldState.fontSize === newState.fontSize
   )
 }

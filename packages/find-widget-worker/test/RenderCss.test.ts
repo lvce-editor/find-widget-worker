@@ -16,6 +16,14 @@ test('renderCss - returns SetCss with css vars', () => {
   --FindWidgetX: 10px;
   --FindWidgetY: 20px;
   --FindWidgetInputHeight: 24px;
+  --FindWidgetFontSize: inherit;
 }`,
   ])
+})
+
+test('renderCss - renders configured font size', () => {
+  const oldState = createDefaultState()
+  const newState = { ...oldState, fontSize: 30, uid: 7 }
+  const result = RenderCss.renderCss(oldState, newState)
+  expect(result[2]).toContain('--FindWidgetFontSize: 30px;')
 })

@@ -16,6 +16,7 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
     matchWholeWord,
     replaceExpanded,
     useRegularExpression,
+    fontSize,
   } = state
   const options: FindOptions = {
     matchCase,
@@ -31,6 +32,7 @@ export const refresh = (state: FindWidgetState, value: string, inputSource: numb
     inputBorderWidth,
     inputGap,
     replaceExpanded,
+    fontSize,
   )
   if (error) {
     return {

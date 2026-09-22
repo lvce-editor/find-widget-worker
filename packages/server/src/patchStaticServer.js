@@ -68,7 +68,8 @@ const patchAsyncDispose = async (staticRoot) => {
   try {
     const isMonospaceFont = false;
     const charWidth = 0;
-    return await rpc.invoke('TextMeasurement.measureTextWidths', texts, fontWeight, fontSize, fontFamily, letterSpacing, isMonospaceFont, charWidth);
+    const result = await rpc.invoke('TextMeasurement.measureTextWidths', texts, fontWeight, fontSize, fontFamily, letterSpacing, isMonospaceFont, charWidth);
+    return result;
   } finally {
     await rpc[Symbol.asyncDispose]();
   }`

@@ -16,7 +16,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@lvce-editor/legacy-server": "npm:@lvce-editor/server@0.116.22",
+    "@lvce-editor/legacy-server": "npm:@lvce-editor/server@0.70.27",
     "@lvce-editor/test-with-playwright": "^22.38.5"
   }
 }

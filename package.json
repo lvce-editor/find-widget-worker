@@ -32,7 +32,7 @@
   },
   "overrides": {
     "@lvce-editor/test-with-playwright-worker": {
-      "playwright-core": "1.61.1"
+      "playwright-core": "1.63.0"
     }
   }
 }

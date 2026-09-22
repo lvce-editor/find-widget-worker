@@ -3,11 +3,11 @@ import { WhenExpression } from '@lvce-editor/constants'
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as FindMatchesCaseInsensitive from '../FindMatchesCaseInsensitive/FindMatchesCaseInsensitive.ts'
 import * as GetFindWidgetPosition from '../GetFindWidgetPosition/GetFindWidgetPosition.ts'
+import * as GetFontSize from '../GetFontSize/GetFontSize.ts'
 import * as GetLines from '../GetLines/GetLines.ts'
 import * as GetMatchCount from '../GetMatchCount/GetMatchCount.ts'
 import * as GetSelectedText from '../GetSelectedText/GetSelectedText.ts'
 import * as GetSelections from '../GetSelections/GetSelections.ts'
-import * as GetFontSize from '../GetFontSize/GetFontSize.ts'
 import { measureInputHeight } from '../MeasureInputHeight/MeasureInputHeight.ts'
 import { restoreState } from '../RestoreState/RestoreState.ts'
 
@@ -48,8 +48,8 @@ export const loadContent = async (state: FindWidgetState, savedState?: any): Pro
   return {
     ...state,
     focus: WhenExpression.FocusSearchInput,
-    fontSize,
     focused: true,
+    fontSize,
     height,
     inputSource: InputSource.Script,
     lines,

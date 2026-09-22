@@ -32,8 +32,8 @@ import { focusNextElement } from '../FocusNextElement/FocusNextElement.ts'
 import { focusPreviousElement } from '../FocusPreviousElement/FocusPreviousElement.ts'
 import { getKeyBindings } from '../GetKeyBindings/GetKeyBindings.ts'
 import * as HandleInput from '../HandleInput/HandleInput.ts'
-import * as HandleSettingsChanged from '../HandleSettingsChanged/HandleSettingsChanged.ts'
 import { handleReplaceInput } from '../HandleReplaceInput/HandleReplaceInput.ts'
+import * as HandleSettingsChanged from '../HandleSettingsChanged/HandleSettingsChanged.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as PreventDefaultBrowserFind from '../PreventDefaultBrowserFind/PreventDefaultBrowserFind.ts'
 import * as Render2 from '../Render2/Render2.ts'
@@ -73,12 +73,12 @@ export const commandMap = {
   'FindWidget.handleClickClose': WrapCommand.wrapCommand(HandleClickClose.handleClickClose),
   'FindWidget.handleFocus': WrapCommand.wrapCommand(handleFindFocus),
   'FindWidget.handleInput': WrapCommand.wrapCommand(HandleInput.handleInput),
-  'FindWidget.handleSettingsChanged': WrapCommand.wrapCommand(HandleSettingsChanged.handleSettingsChanged),
   'FindWidget.handleReplaceFocus': WrapCommand.wrapCommand(FindWidgetHandleReplaceFocus.handleReplaceFocus),
   'FindWidget.handleReplaceInput': WrapCommand.wrapCommand(handleReplaceInput),
   'FindWidget.handleResizerPointerDown': WrapCommand.wrapCommand(handleResizerPointerDown),
   'FindWidget.handleResizerPointerMove': WrapCommand.wrapCommand(handleResizerPointerMove),
   'FindWidget.handleResizerPointerUp': WrapCommand.wrapCommand(handleResizerPointerUp),
+  'FindWidget.handleSettingsChanged': WrapCommand.wrapCommand(HandleSettingsChanged.handleSettingsChanged),
   'FindWidget.handleToggleReplaceFocus': WrapCommand.wrapCommand(handleToggleReplaceFocus),
   'FindWidget.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'FindWidget.loadContentInstance': WrapCommand.wrapInstanceCommand(LoadContent.loadContent),

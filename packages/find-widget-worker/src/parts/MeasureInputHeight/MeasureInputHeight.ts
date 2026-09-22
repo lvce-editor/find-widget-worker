@@ -1,5 +1,5 @@
-import { measureTextHeight } from '../MeasureTextHeight/MeasureTextHeight.ts'
 import type { FindWidgetFontSize } from '../NormalizeFontSize/NormalizeFontSize.ts'
+import { measureTextHeight } from '../MeasureTextHeight/MeasureTextHeight.ts'
 
 export interface HeightMeasurement {
   readonly height: number

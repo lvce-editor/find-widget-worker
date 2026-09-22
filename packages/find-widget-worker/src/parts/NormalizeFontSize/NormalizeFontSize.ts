@@ -3,13 +3,20 @@ export type FindWidgetFontSize = number | 'inherit'
 export const MIN_FONT_SIZE = 10
 export const MAX_FONT_SIZE = 100
 
+const EMPTY_VALUES: readonly unknown[] = [undefined, null, '', 0]
+
 export const normalizeFontSize = (value: unknown): FindWidgetFontSize => {
-  if (value === undefined || value === null || value === '' || value === 0) {
-    return 'inherit'
+  let result: FindWidgetFontSize = 'inherit'
+  if (!EMPTY_VALUES.includes(value)) {
+    let numericValue = NaN
+    if (typeof value === 'number') {
+      numericValue = value
+    } else if (typeof value === 'string' && value.trim()) {
+      numericValue = Number(value)
+    }
+    if (Number.isFinite(numericValue)) {
+      result = Math.min(MAX_FONT_SIZE, Math.max(MIN_FONT_SIZE, numericValue))
+    }
   }
-  const numericValue = typeof value === 'number' ? value : typeof value === 'string' && value.trim() ? Number(value) : Number.NaN
-  if (!Number.isFinite(numericValue)) {
-    return 'inherit'
-  }
-  return Math.min(MAX_FONT_SIZE, Math.max(MIN_FONT_SIZE, numericValue))
+  return result
 }

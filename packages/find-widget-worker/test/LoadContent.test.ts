@@ -5,14 +5,14 @@ import { loadContent } from '../src/parts/LoadContent/LoadContent.ts'
 
 test('loadContent - empty lines', async () => {
   const commandMap = {
+    'Editor.getFindWidgetFontSize': (): any => {
+      return 30
+    },
     'Editor.getLines2': (): any => {
       return []
     },
     'Editor.getSelections2': (): any => {
       return [0, 0, 0, 0]
-    },
-    'Editor.getFindWidgetFontSize': (): any => {
-      return 30
     },
     'FileSystem.readDirWithFileTypes': (): any => {
       return []
@@ -27,14 +27,14 @@ test('loadContent - empty lines', async () => {
 
 test('loadContent - with content', async () => {
   const commandMap2 = {
+    'Editor.getFindWidgetFontSize': (): any => {
+      return 30
+    },
     'Editor.getLines2': (): any => {
       return ['hello world']
     },
     'Editor.getSelections2': (): any => {
       return [0, 0, 0, 5]
-    },
-    'Editor.getFindWidgetFontSize': (): any => {
-      return 30
     },
     'FileSystem.readDirWithFileTypes': (): any => {
       return []

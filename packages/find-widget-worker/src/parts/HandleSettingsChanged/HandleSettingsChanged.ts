@@ -3,15 +3,24 @@ import * as GetFontSize from '../GetFontSize/GetFontSize.ts'
 import { measureInputHeight } from '../MeasureInputHeight/MeasureInputHeight.ts'
 
 export const handleSettingsChanged = async (state: FindWidgetState): Promise<FindWidgetState> => {
+  const {
+    inputBorderWidth,
+    inputGap,
+    inputLineHeight,
+    inputPaddingBottom,
+    inputPaddingTop,
+    replaceExpanded,
+    value,
+  } = state
   const fontSize = await GetFontSize.getFontSize()
   const { height, inputHeight } = measureInputHeight(
-    state.value,
-    state.inputLineHeight,
-    state.inputPaddingBottom,
-    state.inputPaddingTop,
-    state.inputBorderWidth,
-    state.inputGap,
-    state.replaceExpanded,
+    value,
+    inputLineHeight,
+    inputPaddingBottom,
+    inputPaddingTop,
+    inputBorderWidth,
+    inputGap,
+    replaceExpanded,
     fontSize,
   )
   return {

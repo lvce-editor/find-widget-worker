@@ -1,4 +1,5 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-open-no-selection'
 export const skip = 1
@@ -12,7 +13,7 @@ export const test: Test = async ({ Editor, expect, FileSystem, Locator, Main, Wo
 content 2
 content 3`,
   )
-  await Workspace.setUri(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
 
   // act - open find widget with no text selected (cursor at position 0,0)

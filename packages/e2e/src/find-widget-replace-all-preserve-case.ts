@@ -1,4 +1,5 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-replace-all-preserve-case'
 
@@ -11,7 +12,7 @@ export const test: Test = async ({ Editor, FileSystem, FindWidget, Main, Workspa
 CONTENT 2
 content 3`,
   )
-  await Workspace.setUri(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 7]))
   await Editor.openFindWidget()

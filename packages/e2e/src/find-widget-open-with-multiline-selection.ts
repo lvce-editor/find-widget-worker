@@ -1,4 +1,5 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-open-with-multiline-selection'
 
@@ -16,7 +17,7 @@ line 1
 line 2
 line 3`,
   )
-  await Workspace.setUri(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
 
   // act - select text spanning multiple lines (line 1 through line 2)

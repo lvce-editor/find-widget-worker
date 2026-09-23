@@ -1,3 +1,4 @@
+import { setWorkspacePath } from './SetWorkspacePath.js'
 /** @typedef {import('@lvce-editor/test-with-playwright').Test} Test */
 
 /**
@@ -46,7 +47,7 @@ export const createFindTest = (options) => {
   return async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
     const tmpDir = await FileSystem.getTmpDir()
     await FileSystem.writeFile(`${tmpDir}/file1.txt`, options.content)
-    await Workspace.setUri(tmpDir)
+    await setWorkspacePath(Workspace, tmpDir)
     await Main.openUri(`${tmpDir}/file1.txt`)
     await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
     await Editor.openFindWidget()
@@ -85,7 +86,7 @@ export const createReplaceAllTest = (options) => {
   return async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
     const tmpDir = await FileSystem.getTmpDir()
     await FileSystem.writeFile(`${tmpDir}/file1.txt`, options.content)
-    await Workspace.setUri(tmpDir)
+    await setWorkspacePath(Workspace, tmpDir)
     await Main.openUri(`${tmpDir}/file1.txt`)
     await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
     await Editor.openFindWidget()

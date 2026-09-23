@@ -1,5 +1,6 @@
 // cspell:ignore conten contentxyz
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-incremental-search'
 
@@ -14,7 +15,7 @@ export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locat
 context control conclude
 contain contest continue`,
   )
-  await Workspace.setUri(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()

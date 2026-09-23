@@ -1,4 +1,5 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-binary-content'
 
@@ -10,7 +11,7 @@ export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locat
   // eslint-disable-next-line e18e/prefer-string-fromcharcode -- Keep code points explicit in this binary-content fixture.
   const extendedCharacters = String.fromCodePoint(0xff, 0xfe, 0xfd)
   await FileSystem.writeFile(`${tmpDir}/file1.txt`, `normal text\n${controlCharacters}\nmore normal text\n${extendedCharacters}\nend of file`)
-  await Workspace.setUri(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()

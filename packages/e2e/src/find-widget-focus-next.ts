@@ -1,4 +1,5 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-focus-next'
 
@@ -12,7 +13,7 @@ export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locat
     `content 1
 content 2`,
   )
-  await Workspace.setUri(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
 
   // act

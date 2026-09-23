@@ -1,4 +1,5 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../../test/SetWorkspacePath.js'
 
 // manual accessibility tests
 
@@ -42,7 +43,7 @@ export const test: Test = async ({ Editor, expect, FileSystem, Locator, Main, Wo
     `content 1
 content 2`,
   )
-  await Workspace.setUri(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
 
   // act

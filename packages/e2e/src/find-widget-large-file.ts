@@ -1,4 +1,5 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-large-file'
 
@@ -18,7 +19,7 @@ export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locat
   }
   const content = lines.join('\n')
   await FileSystem.writeFile(`${tmpDir}/large-file.txt`, content)
-  await Workspace.setUri(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/large-file.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()

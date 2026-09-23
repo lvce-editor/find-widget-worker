@@ -1,4 +1,5 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-replace-with-empty-string'
 
@@ -11,7 +12,7 @@ export const test: Test = async ({ Editor, FileSystem, FindWidget, Main, Workspa
 hello there
 hello again`,
   )
-  await Workspace.setUri(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 5]))
   await Editor.openFindWidget()

@@ -2,7 +2,7 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'viewlet.find-replace-updates-match-count'
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, FindWidget, Locator, expect }) => {
+export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -10,7 +10,7 @@ export const test: Test = async ({ FileSystem, Workspace, Main, Editor, FindWidg
     `foo bar foo
 foo baz foo`,
   )
-  await Workspace.setPath(tmpDir)
+  await Workspace.setUri(tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 3]))
   await Editor.openFindWidget()

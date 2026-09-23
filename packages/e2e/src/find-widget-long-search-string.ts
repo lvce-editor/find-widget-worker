@@ -4,7 +4,7 @@ export const name = 'find-widget-long-search-string'
 
 export const skip = 1
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   const longString = 'a'.repeat(500)
@@ -16,7 +16,7 @@ another line
 ${longString}
 end of file`,
   )
-  await Workspace.setPath(tmpDir)
+  await Workspace.setUri(tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()

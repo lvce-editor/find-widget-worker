@@ -4,7 +4,7 @@ export const name = 'find-widget-keyboard-navigation'
 
 export const skip = 1
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -13,7 +13,7 @@ export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator,
 content 2
 content 3`,
   )
-  await Workspace.setPath(tmpDir)
+  await Workspace.setUri(tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 7]))
   await Editor.openFindWidget()

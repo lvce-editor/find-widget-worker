@@ -2,18 +2,15 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'find-widget-binary-content'
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange - create a file with binary-like content (null bytes, special chars)
   const tmpDir = await FileSystem.getTmpDir()
-  await FileSystem.writeFile(
-    `${tmpDir}/file1.txt`,
-    `normal text
-\x00\x01\x02\x03
-more normal text
-\xFF\xFE\xFD
-end of file`,
-  )
-  await Workspace.setPath(tmpDir)
+  // eslint-disable-next-line e18e/prefer-string-fromcharcode -- Keep code points explicit in this binary-content fixture.
+  const controlCharacters = String.fromCodePoint(0, 1, 2, 3)
+  // eslint-disable-next-line e18e/prefer-string-fromcharcode -- Keep code points explicit in this binary-content fixture.
+  const extendedCharacters = String.fromCodePoint(0xff, 0xfe, 0xfd)
+  await FileSystem.writeFile(`${tmpDir}/file1.txt`, `normal text\n${controlCharacters}\nmore normal text\n${extendedCharacters}\nend of file`)
+  await Workspace.setUri(tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()

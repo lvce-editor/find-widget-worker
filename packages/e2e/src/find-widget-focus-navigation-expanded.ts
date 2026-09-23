@@ -4,11 +4,11 @@ export const name = 'find-widget-focus-navigation-expanded'
 
 export const skip = 1
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(`${tmpDir}/file1.txt`, ``)
-  await Workspace.setPath(tmpDir)
+  await Workspace.setUri(tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()
@@ -22,6 +22,6 @@ export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator,
 
   // assert
 
-  // TODO when navgating with replace expanded, after focusing the last
+  // TODO when navigating with replace expanded, after focusing the last
   // input button it should focus the replace element
 }

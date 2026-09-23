@@ -4,7 +4,7 @@ export const name = 'find-widget-open-with-multiline-selection'
 
 export const skip = 1
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect }) => {
+export const test: Test = async ({ Editor, expect, FileSystem, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -16,7 +16,7 @@ line 1
 line 2
 line 3`,
   )
-  await Workspace.setPath(tmpDir)
+  await Workspace.setUri(tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
 
   // act - select text spanning multiple lines (line 1 through line 2)

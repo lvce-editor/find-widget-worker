@@ -2,7 +2,7 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'find-widget-replace-regex-capture-groups'
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, FindWidget }) => {
+export const test: Test = async ({ Editor, FileSystem, FindWidget, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -11,7 +11,7 @@ export const test: Test = async ({ FileSystem, Workspace, Main, Editor, FindWidg
 foo bar
 test case`,
   )
-  await Workspace.setPath(tmpDir)
+  await Workspace.setUri(tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()

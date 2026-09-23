@@ -8,7 +8,13 @@ export default defineConfig([
   ...config.recommendedTsconfig,
   ...config.recommendedActions,
   {
-    ignores: ['**/server/**', '**/e2e/**', '**/memory/**'],
+    ignores: ['**/server/**', '**/memory/**'],
+  },
+  {
+    files: ['packages/e2e/**/*.ts'],
+    rules: {
+      'e2e/no-imports': 'off',
+    },
   },
   {
     rules: {

@@ -4,7 +4,7 @@ export const name = 'find-widget-large-file'
 
 export const skip = ['firefox'] as const
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange - create a large file with many lines
   const tmpDir = await FileSystem.getTmpDir()
   const lineCount = 10_000
@@ -18,7 +18,7 @@ export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator,
   }
   const content = lines.join('\n')
   await FileSystem.writeFile(`${tmpDir}/large-file.txt`, content)
-  await Workspace.setPath(tmpDir)
+  await Workspace.setUri(tmpDir)
   await Main.openUri(`${tmpDir}/large-file.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()

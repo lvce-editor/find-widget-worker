@@ -5,9 +5,9 @@
       "project": ["*.js"]
     },
     "packages/build": {
-      "entry": ["src/build.js", "src/build-static.js", "src/computeNodeModulesCacheKey.js", "src/dev.js"],
-      "project": ["src/**/*.js"],
-      "ignoreDependencies": ["@lvce-editor/shared-process", "esbuild"]
+      "entry": ["src/build.js", "src/build-static.js", "src/computeNodeModulesCacheKey.js", "src/dev.js", "src/measureMemory.ts"],
+      "project": ["src/**/*.js", "src/**/*.ts"],
+      "ignoreDependencies": ["@lvce-editor/shared-process", "esbuild", "playwright"]
     },
     "packages/e2e": {
       "entry": ["src/**/*.ts"],
@@ -16,11 +16,6 @@
     "packages/find-widget-worker": {
       "entry": ["src/findWidgetWorkerMain.ts", "test/**/*.test.ts"],
       "project": ["src/**/*.ts", "test/**/*.ts"]
-    },
-    "packages/memory": {
-      "entry": ["src/measureMemory.ts"],
-      "project": ["src/**/*.ts"],
-      "ignoreDependencies": ["playwright"]
     },
     "packages/server": {
       "entry": ["src/postinstall.js"],

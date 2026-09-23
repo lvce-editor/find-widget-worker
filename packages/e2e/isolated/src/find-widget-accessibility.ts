@@ -1,4 +1,5 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../../test/SetWorkspacePath.js'
 
 // manual accessibility tests
 
@@ -34,7 +35,7 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'viewlet.editor-find-widget-accessibility'
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect }) => {
+export const test: Test = async ({ Editor, expect, FileSystem, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -42,7 +43,7 @@ export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator,
     `content 1
 content 2`,
   )
-  await Workspace.setPath(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
 
   // act

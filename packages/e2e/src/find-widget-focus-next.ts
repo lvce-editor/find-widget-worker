@@ -1,10 +1,11 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-focus-next'
 
 // TODO should only test one thing: focusing next match
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -12,7 +13,7 @@ export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator,
     `content 1
 content 2`,
   )
-  await Workspace.setPath(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
 
   // act

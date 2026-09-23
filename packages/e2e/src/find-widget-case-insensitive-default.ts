@@ -1,8 +1,9 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-case-insensitive-default'
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -11,7 +12,7 @@ export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator,
 CONTENT content Content
 content Content CONTENT`,
   )
-  await Workspace.setPath(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()

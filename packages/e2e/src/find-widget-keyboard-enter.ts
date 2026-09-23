@@ -1,4 +1,5 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-keyboard-enter'
 
@@ -14,7 +15,7 @@ export const test: Test = async ({ Editor, expect, FileSystem, KeyBoard, Locator
 content 2
 content 3`,
   )
-  await Workspace.setPath(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.openFindWidget()
 
@@ -23,10 +24,13 @@ content 3`,
   await expect(findWidgetInput).toBeFocused()
 
   // act - update the query several times to exercise widget DOM updates
+  // eslint-disable-next-line @typescript-eslint/no-deprecated -- The test wrapper does not expose pressSequentially.
   await findWidgetInput.type('c')
   await expect(findWidgetInput).toBeFocused()
+  // eslint-disable-next-line @typescript-eslint/no-deprecated -- The test wrapper does not expose pressSequentially.
   await findWidgetInput.type('co')
   await expect(findWidgetInput).toBeFocused()
+  // eslint-disable-next-line @typescript-eslint/no-deprecated -- The test wrapper does not expose pressSequentially.
   await findWidgetInput.type('content')
 
   // assert

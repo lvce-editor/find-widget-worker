@@ -1,8 +1,9 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
+import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-whitespace-search'
 
-export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator, expect, FindWidget }) => {
+export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -11,7 +12,7 @@ export const test: Test = async ({ FileSystem, Workspace, Main, Editor, Locator,
 word3  word4
 word5   word6`,
   )
-  await Workspace.setPath(tmpDir)
+  await setWorkspacePath(Workspace, tmpDir)
   await Main.openUri(`${tmpDir}/file1.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()
@@ -32,7 +33,7 @@ word5   word6`,
   await expect(findWidgetMatchCount).toHaveText('1 of 2')
 
   // act - search for triple space
-  await FindWidget.setValue('   ')
+  await FindWidget.setValue(' '.repeat(3))
 
   // assert - should find only the triple space
   await expect(findWidgetMatchCount).toHaveText('1 of 1')

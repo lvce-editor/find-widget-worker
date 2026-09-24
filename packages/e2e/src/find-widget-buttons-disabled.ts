@@ -3,8 +3,6 @@ import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-buttons-disabled'
 
-export const skip = 1
-
 export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()

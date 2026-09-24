@@ -3,9 +3,6 @@ import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-keyboard-enter'
 
-// TODO enable after renderer-process includes focus-preserving Viewlet.setDom2 rendering.
-export const skip = 1
-
 export const test: Test = async ({ Editor, expect, FileSystem, KeyBoard, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()

@@ -1,4 +1,6 @@
 import { WhenExpression } from '@lvce-editor/constants'
+import { ViewletCommand } from '@lvce-editor/constants'
+import { diffTree } from '@lvce-editor/virtual-dom-worker'
 import type { FindWidgetState } from '../FindWidgetState/FindWidgetState.ts'
 import * as GetFindWidgetButtons from '../GetFindWidgedButtons/GetFindWidgetButtons.ts'
 import * as GetFindWidgetButtonsEnabled from '../GetFindWidgetButtonsEnabled/GetFindWidgetButtonsEnabled.ts'
@@ -6,10 +8,10 @@ import * as GetFindWidgetVirtualDom from '../GetFindWidgetVirtualDom/GetFindWidg
 import * as GetMatchCountText from '../GetMatchCountText/GetMatchCountText.ts'
 import * as RenderMethod from '../RenderMethod/RenderMethod.ts'
 
-export const renderContent = (oldState: FindWidgetState, newState: FindWidgetState): readonly any[] => {
-  const { focus, inputErrorMessage, matchCase, matchCount, matchWholeWord, preserveCase, replaceExpanded, uid, useRegularExpression, value } =
-    newState
-  const matchCountText = inputErrorMessage || GetMatchCountText.getMatchCountText(newState.matchIndex, newState.matchCount)
+const getDom = (state: FindWidgetState): readonly any[] => {
+  const { focus, inputErrorMessage, matchCase, matchCount, matchIndex, matchWholeWord, preserveCase, replaceExpanded, useRegularExpression, value } =
+    state
+  const matchCountText = inputErrorMessage || GetMatchCountText.getMatchCountText(matchIndex, matchCount)
   const { findButtonsEnabled, replaceButtonsEnabled } = GetFindWidgetButtonsEnabled.getFindWidgetButtonsEnabled(matchCount, value)
   const { findButtons, findFieldButtons, replaceButtons, replaceFieldButtons } = GetFindWidgetButtons.getFindWidgetButtons(
     findButtonsEnabled,
@@ -35,5 +37,15 @@ export const renderContent = (oldState: FindWidgetState, newState: FindWidgetSta
     inputFocused,
     replaceInputFocused,
   )
-  return [RenderMethod.SetDom2, uid, dom]
+  return dom
+}
+
+export const renderContent = (oldState: FindWidgetState, newState: FindWidgetState): readonly any[] => {
+  const { uid } = newState
+  const dom = getDom(newState)
+  if (oldState.version === 0) {
+    return [RenderMethod.SetDom2, uid, dom]
+  }
+  const oldDom = getDom(oldState)
+  return [ViewletCommand.SetPatches, uid, diffTree(oldDom, dom)]
 }

@@ -3,8 +3,6 @@ import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-toggle-all-options'
 
-export const skip = 1
-
 export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()

@@ -3,12 +3,12 @@
   "version": "0.0.0-dev",
   "main": "index.js",
   "scripts": {
-    "e2e": "test-with-playwright --only-extension=. --test-path=. --reuse-page && test-with-playwright --only-extension=. --test-path=isolated",
-    "e2e:firefox": "test-with-playwright --only-extension=. --test-path=. --browser=firefox --reuse-page && test-with-playwright --only-extension=. --test-path=isolated --browser=firefox",
-    "e2e:firefox:headless": "test-with-playwright --only-extension=. --test-path=. --browser=firefox --headless --reuse-page --timeout=2100000 && test-with-playwright --only-extension=. --test-path=isolated --browser=firefox --headless --timeout=2100000",
-    "e2e:headless": "test-with-playwright --only-extension=. --test-path=. --headless --reuse-page && test-with-playwright --only-extension=. --test-path=isolated --headless",
-    "e2e:webkit": "test-with-playwright --only-extension=. --test-path=. --browser=webkit --reuse-page && test-with-playwright --only-extension=. --test-path=isolated --browser=webkit",
-    "e2e:webkit:headless": "test-with-playwright --only-extension=. --test-path=. --browser=webkit --headless --reuse-page --timeout=2100000 && test-with-playwright --only-extension=. --test-path=isolated --browser=webkit --headless --timeout=2100000",
+    "e2e": "test-with-playwright --reuse-page && test-with-playwright --test-path=isolated",
+    "e2e:firefox": "test-with-playwright --browser=firefox --reuse-page && test-with-playwright --test-path=isolated --browser=firefox",
+    "e2e:firefox:headless": "test-with-playwright --browser=firefox --headless --reuse-page --timeout=2100000 && test-with-playwright --test-path=isolated --browser=firefox --headless --timeout=2100000",
+    "e2e:headless": "test-with-playwright --headless --reuse-page && test-with-playwright --test-path=isolated --headless",
+    "e2e:webkit": "test-with-playwright --browser=webkit --reuse-page && test-with-playwright --test-path=isolated --browser=webkit",
+    "e2e:webkit:headless": "test-with-playwright --browser=webkit --headless --reuse-page --timeout=2100000 && test-with-playwright --test-path=isolated --browser=webkit --headless --timeout=2100000",
     "type-check": "tsc"
   },
   "type": "module",

@@ -10,8 +10,8 @@ const locations = [
   '.github/workflows/ci.yml',
   '.github/workflows/release.yml',
   'packages/build/src/computeNodeModulesCacheKey.js',
-  'packages/server/src/patchStaticServer.js',
   'packages/server/src/postinstall.js',
+  'packages/server/src/patchStaticServer.js',
 ]
 
 const getAbsolutePath = (relativePath) => {

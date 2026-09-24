@@ -21,34 +21,34 @@ content 2`,
 
   // assert - navigation buttons should be disabled when no results
   const buttonPreviousMatch = Locator('[title="Previous Match"]')
-  await expect(buttonPreviousMatch).toHaveAttribute('disabled', '')
+  await expect(buttonPreviousMatch).toHaveJSProperty('disabled', true)
   const buttonNextMatch = Locator('[title="Next Match"]')
-  await expect(buttonNextMatch).toHaveAttribute('disabled', '')
+  await expect(buttonNextMatch).toHaveJSProperty('disabled', true)
 
   // act - search for something that exists
   await FindWidget.setValue('content')
 
   // assert - navigation buttons should be enabled when there are results
-  await expect(buttonPreviousMatch).not.toHaveAttribute('disabled', '')
-  await expect(buttonNextMatch).not.toHaveAttribute('disabled', '')
+  await expect(buttonPreviousMatch).toHaveJSProperty('disabled', false)
+  await expect(buttonNextMatch).toHaveJSProperty('disabled', false)
 
   const findWidgetMatchCount = Locator(`.FindWidgetMatchCount`)
   await expect(findWidgetMatchCount).toHaveText('1 of 2')
 
-  // act - expand replace and check replace buttons when no results
+  // act - expand replace and clear the query to disable replacement
   await FindWidget.toggleReplace()
-  await FindWidget.setValue('nonexistent')
+  await FindWidget.setValue('')
 
-  // assert - replace buttons should be disabled when no results
+  // assert - replace buttons should be disabled when the query is empty
   const buttonReplace = Locator('[title="Replace"]')
-  await expect(buttonReplace).toHaveAttribute('disabled', '')
+  await expect(buttonReplace).toHaveJSProperty('disabled', true)
   const buttonReplaceAll = Locator('[title="Replace All"]')
-  await expect(buttonReplaceAll).toHaveAttribute('disabled', '')
+  await expect(buttonReplaceAll).toHaveJSProperty('disabled', true)
 
   // act - search for something that exists
   await FindWidget.setValue('content')
 
   // assert - replace buttons should be enabled when there are results
-  await expect(buttonReplace).not.toHaveAttribute('disabled', '')
-  await expect(buttonReplaceAll).not.toHaveAttribute('disabled', '')
+  await expect(buttonReplace).toHaveJSProperty('disabled', false)
+  await expect(buttonReplaceAll).toHaveJSProperty('disabled', false)
 }

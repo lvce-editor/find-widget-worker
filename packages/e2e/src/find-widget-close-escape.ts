@@ -28,7 +28,7 @@ content 2`,
   await expect(findWidget).toBeHidden()
 
   // assert - editor should have focus back
-  const editor = Locator('.Editor')
+  const editor = Locator('.EditorInput textarea')
   await expect(editor).toBeFocused()
 
   // act - reopen the find widget

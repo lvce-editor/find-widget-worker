@@ -3,8 +3,6 @@ import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-close-escape'
 
-export const skip = 1
-
 export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
@@ -30,6 +28,14 @@ content 2`,
   await expect(findWidget).toBeHidden()
 
   // assert - editor should have focus back
-  const editor = Locator('.Editor')
+  const editor = Locator('.EditorInput textarea')
   await expect(editor).toBeFocused()
+
+  // act - reopen the find widget
+  await Editor.openFindWidget()
+
+  // assert - the widget renders its saved content again
+  await expect(findWidgetInput).toBeVisible()
+  await expect(findWidgetInput).toHaveValue('content')
+  await expect(findWidgetInput).toBeFocused()
 }

@@ -37,3 +37,15 @@ test('isEqual returns false when matchIndex is different', () => {
   const result: boolean = isEqual(state1, state2)
   expect(result).toBe(false)
 })
+
+test('isEqual returns false when value is different', () => {
+  const state1: FindWidgetState = createDefaultState()
+  const state2: FindWidgetState = { ...createDefaultState(), value: 'test' }
+  expect(isEqual(state1, state2)).toBe(false)
+})
+
+test('isEqual returns false when focus is different', () => {
+  const state1: FindWidgetState = createDefaultState()
+  const state2: FindWidgetState = { ...createDefaultState(), focus: 1 }
+  expect(isEqual(state1, state2)).toBe(false)
+})

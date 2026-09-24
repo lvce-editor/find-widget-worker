@@ -3,9 +3,6 @@ import { setWorkspacePath } from '../test/SetWorkspacePath.js'
 
 export const name = 'find-widget-keyboard-enter'
 
-// TODO enable after renderer-process includes focus-preserving Viewlet.setDom2 rendering.
-export const skip = 1
-
 export const test: Test = async ({ Editor, expect, FileSystem, KeyBoard, Locator, Main, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
@@ -38,12 +35,18 @@ content 3`,
   await expect(findWidgetInput).toHaveValue('content')
   await expect(findWidgetMatchCount).toHaveText('1 of 3')
 
+  // Preserve the input caret while match navigation patches the widget.
+  await expect(findWidgetInput).toHaveJSProperty('selectionStart', 7)
+  await expect(findWidgetInput).toHaveJSProperty('selectionEnd', 7)
+
   // act - use the real keyboard path rather than invoking FindWidget.focusNext
   await KeyBoard.press('Enter')
 
   // assert
   await expect(findWidgetInput).toBeFocused()
   await expect(findWidgetMatchCount).toHaveText('2 of 3')
+  await expect(findWidgetInput).toHaveJSProperty('selectionStart', 7)
+  await expect(findWidgetInput).toHaveJSProperty('selectionEnd', 7)
   await Editor.shouldHaveSelections(new Uint32Array([1, 0, 1, 7]))
   await Editor.shouldHaveText(`content 1
 content 2

@@ -1,3 +1,7 @@
-export default {
+import { defineConfig } from '@lvce-editor/test-with-playwright'
+
+export default defineConfig({
   link: ['../../.tmp/dist'],
-}
+  onlyExtension: '.',
+  testPath: '.',
+})

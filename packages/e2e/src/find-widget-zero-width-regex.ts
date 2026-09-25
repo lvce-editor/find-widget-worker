@@ -5,9 +5,9 @@ export const name = 'find-widget-zero-width-regex'
 
 export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   const tmpDir = await FileSystem.getTmpDir()
-  await FileSystem.writeFile(`${tmpDir}/file.txt`, 'foo\nbar\nfoo')
+  await FileSystem.writeFile(`${tmpDir}/zero-width-regex.txt`, 'foo\nbar\nfoo')
   await setWorkspacePath(Workspace, tmpDir)
-  await Main.openUri(`${tmpDir}/file.txt`)
+  await Main.openUri(`${tmpDir}/zero-width-regex.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()
   await FindWidget.toggleUseRegularExpression()

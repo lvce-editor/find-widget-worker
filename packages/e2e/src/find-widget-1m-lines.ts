@@ -6,9 +6,9 @@ export const name = 'find-widget-1m-lines'
 export const test: Test = async ({ Editor, expect, FileSystem, FindWidget, Locator, Main, Workspace }) => {
   const tmpDir = await FileSystem.getTmpDir()
   const lines = Array.from({ length: 1_000_000 }, (_, index) => (index % 100 === 0 ? `needle ${index}` : `line ${index}`))
-  await FileSystem.writeFile(`${tmpDir}/large-file.txt`, lines.join('\n'))
+  await FileSystem.writeFile(`${tmpDir}/large-file-1m.txt`, lines.join('\n'))
   await setWorkspacePath(Workspace, tmpDir)
-  await Main.openUri(`${tmpDir}/large-file.txt`)
+  await Main.openUri(`${tmpDir}/large-file-1m.txt`)
   await Editor.setSelections(new Uint32Array([0, 0, 0, 0]))
   await Editor.openFindWidget()
 

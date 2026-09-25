@@ -1,8 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types -- Appends matches to the shared output array.
 const collectMatchesForLineInternal = (matches: number[], line: string, lineIndex: number, regex: RegExp): void => {
+  regex.lastIndex = 0
   let lastMatch = regex.exec(line)
   while (lastMatch) {
     matches.push(lineIndex, lastMatch.index, lastMatch[0].length)
+    if (lastMatch[0].length === 0) {
+      regex.lastIndex = lastMatch.index + 1
+    }
     lastMatch = regex.exec(line)
   }
 }

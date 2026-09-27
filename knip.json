@@ -5,7 +5,7 @@
       "project": ["*.js"]
     },
     "packages/build": {
-      "entry": ["src/build.js", "src/build-static.js", "src/computeNodeModulesCacheKey.js", "src/dev.js", "src/measureMemory.ts"],
+      "entry": ["src/build.ts", "src/build-static.ts", "src/computeNodeModulesCacheKey.ts", "src/dev.ts", "src/measureMemory.ts"],
       "project": ["src/**/*.js", "src/**/*.ts"],
       "ignoreDependencies": ["@lvce-editor/shared-process", "esbuild", "playwright"]
     },

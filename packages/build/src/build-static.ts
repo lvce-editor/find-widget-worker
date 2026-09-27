@@ -1,7 +1,7 @@
 import { createRequire } from 'node:module'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { root } from './root.js'
+import { root } from './root.ts'
 import { cp, readFile, writeFile } from 'node:fs/promises'
 
 const require = createRequire(import.meta.url)
@@ -20,7 +20,7 @@ const { commitHash } = await sharedProcess.exportStatic({
 
 const rendererWorkerPath = join(root, 'dist', commitHash, 'packages', 'renderer-worker', 'dist', 'rendererWorkerMain.js')
 
-export const getRemoteUrl = (path) => {
+export const getRemoteUrl = (path: string): string => {
   const url = pathToFileURL(path).toString().slice(8)
   return `/remote/${url}`
 }

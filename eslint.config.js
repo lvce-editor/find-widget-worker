@@ -11,7 +11,7 @@ export default defineConfig([
     ignores: ['**/server/**', '**/memory/**'],
   },
   {
-    files: ['packages/e2e/**/*.ts'],
+    files: ['packages/{e2e,e2e-integration}/**/*.ts'],
     rules: {
       'e2e/no-imports': 'off',
     },
@@ -39,5 +39,10 @@ export default defineConfig([
     rules: {
       'tsconfig/dont-skip-lib-check': 'off',
     },
+  },
+  {
+    // The pinned application supplies its own Node runtime.
+    files: ['.github/workflows/integration.yml'],
+    rules: { 'github-actions/node-version-file': 'off', 'github-actions/on': 'off' },
   },
 ])

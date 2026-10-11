@@ -1,6 +1,7 @@
 export interface SavedState {
   readonly matchCase: boolean
   readonly matchWholeWord: boolean
+  readonly preserveCase: boolean
   readonly replaceExpanded: boolean
   readonly replacement: string
   readonly useRegularExpression: boolean

@@ -8,6 +8,7 @@ test('saveState - picks subset of fields', () => {
     ...base,
     matchCase: true,
     matchWholeWord: true,
+    preserveCase: false,
     replaceExpanded: true,
     replacement: 'x',
     useRegularExpression: true,
@@ -18,6 +19,7 @@ test('saveState - picks subset of fields', () => {
   expect(saved).toEqual({
     matchCase: true,
     matchWholeWord: true,
+    preserveCase: false,
     replaceExpanded: true,
     replacement: 'x',
     useRegularExpression: true,

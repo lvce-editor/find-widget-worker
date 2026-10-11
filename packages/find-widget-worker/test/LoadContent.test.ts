@@ -55,3 +55,41 @@ test('loadContent - with content', async () => {
   expect(result.fontSize).toBe(30)
   expect(result.searchInputHeight).toBeGreaterThanOrEqual(30)
 })
+
+test('loadContent - restores an intentionally empty value and saved options', async () => {
+  const commandMap = {
+    'Editor.getFindWidgetFontSize': (): any => 30,
+    'Editor.getLines2': (): any => ['hello world'],
+    'Editor.getSelections2': (): any => [0, 0, 0, 5],
+    'FileSystem.readDirWithFileTypes': (): any => [],
+  }
+  EditorWorker.registerMockRpc(commandMap)
+
+  const state = { ...createDefaultState(), editorWidth: 400 }
+  const result = await loadContent(state, {
+    matchCase: true,
+    matchWholeWord: true,
+    preserveCase: true,
+    replaceExpanded: true,
+    replacement: 'world',
+    useRegularExpression: true,
+    value: '',
+    width: 512,
+  })
+
+  expect(result.value).toBe('')
+  expect(result.matchCount).toBe(0)
+  expect(result.matchCase).toBe(true)
+  expect(result.matchWholeWord).toBe(true)
+  expect(result.preserveCase).toBe(true)
+  expect(result.replaceExpanded).toBe(true)
+  expect(result.replacement).toBe('world')
+  expect(result.useRegularExpression).toBe(true)
+  expect(result.width).toBe(400)
+
+  const defaultWidthResult = await loadContent(state, { value: '', width: 0 })
+  expect(defaultWidthResult.width).toBe(300)
+
+  const editorWithoutMeasuredWidth = await loadContent(createDefaultState(), { value: '', width: 512 })
+  expect(editorWithoutMeasuredWidth.width).toBe(512)
+})

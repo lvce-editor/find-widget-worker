@@ -27,6 +27,30 @@ test('restoreState returns both value and replacement when both exist', () => {
   expect(result.replacement).toBe('replace term')
 })
 
+test('restoreState preserves empty queries and all saved find options', () => {
+  const result = restoreState({
+    matchCase: true,
+    matchWholeWord: true,
+    preserveCase: true,
+    replaceExpanded: true,
+    replacement: 'replacement',
+    useRegularExpression: true,
+    value: '',
+    width: 512,
+  })
+  expect(result).toEqual({
+    hasValue: true,
+    matchCase: true,
+    matchWholeWord: true,
+    preserveCase: true,
+    replaceExpanded: true,
+    replacement: 'replacement',
+    useRegularExpression: true,
+    value: '',
+    width: 512,
+  })
+})
+
 test('restoreState returns empty string for value when savedState is null', () => {
   const result = restoreState(null)
   expect(result.value).toBe('')
